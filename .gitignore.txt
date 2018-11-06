@@ -1,2 +1,11 @@
+# Intellij
 *.iml
 /.idea/*
+
+# Tex
+*.log
+*.pdf
+*.out
+*.aux
+*.toc
+*.lof
