@@ -9,3 +9,7 @@
 *.aux
 *.toc
 *.lof
+*.glo
+*.glg
+*.gls
+*.ist
