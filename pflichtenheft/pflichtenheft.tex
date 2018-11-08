@@ -5,7 +5,15 @@
 \usepackage[T1]{fontenc}
 \usepackage{ae}
 \usepackage[bookmarks,bookmarksnumbered]{hyperref}
- 
+\usepackage{glossaries}
+
+\makeglossaries
+\newglossaryentry{Produkt}
+{
+    name=Produkt,
+    description={ das von uns gelieferte Softwaresystem}
+}
+
 \begin{document}
  
 \title{Pflichtenheft CS-Select}
@@ -16,7 +24,7 @@
 \tableofcontents
  
 \chapter{Zielbestimmung}
-Eine Organisation soll durch das Produkt das Domänenwissen ihrer Mitarbeiter dazu nutzten die Merksmalsauswahl für ein Machiene-Learning-Modell zu vereinfachen. 
+Eine Organisation soll durch das \Gls{Produkt} das Domänenwissen ihrer Mitarbeiter dazu nutzten die Merksmalsauswahl für ein Machiene-Learning-Modell zu vereinfachen. 
 \section{Musskriterien}
 \begin{itemize}
 \item 1
@@ -47,6 +55,13 @@ Eine Organisation soll durch das Produkt das Domänenwissen ihrer Mitarbeiter da
  
 \chapter{Produktdaten}
 
-\chapter{Testfallszenarien}
- 
+\chapter{Systemmodelle}
+\section{Szenarien}
+\section{Anwendungsfälle}
+\section{Objektmodell}
+\section{Dynamische Modelle}
+\section{Benutzerschnittstelle}
+\clearpage
+\chapter{Glossar}
+\printglossary 
 \end{document}
