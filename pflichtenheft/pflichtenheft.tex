@@ -6,6 +6,7 @@
 \usepackage{ae}
 \usepackage[bookmarks,bookmarksnumbered]{hyperref}
 \usepackage{glossaries}
+\usepackage{tabularx}
 
 \makeglossaries
 \newglossaryentry{Produkt}
@@ -29,6 +30,31 @@
     name=Spieler,
     description={Ein Spieler ist ein Nutzer, welcher an einem Spiel teilnehmen kann. Meist ist dies ein Angestellter des Betriebs.}
 }
+\newglossaryentry{Spieleinstellungen}
+{
+    name=Spieleinstellungen,
+    description={Einstelllungen für ein Spiel umfassen: die Merkmale welche ausgewählt werden soll, die Art des Spiels, die teilnehmenden Spieler, Endbedingungen des Spiels}
+}
+\newglossaryentry{Organisator}
+{
+    name=Organisator,
+    description={Ein Organisator ist ein Nutzer, der neue Spiele erstellt und die Ergebnisse von diesen ausliest.}
+}
+\newglossaryentry{Spiele}
+{
+    name=Spieler,
+    description={Plural von \Gls{Spiel}}
+}
+\newglossaryentry{Achievment}
+{  
+    name=Achievment,
+    description={Ein Ziel oder Errungenschaft, welche an sich komplett nutzlos ist, aber den Spieler motiviert weiter zu spielen.}
+}
+\newglossaryentry{Administrator}
+{
+    name=Administrator,
+    description={Die Person, welche das System installiert und den Nutzern zur Verfügung stellt.}
+}
 \begin{document}
  
 \title{Pflichtenheft CS-Select}
@@ -44,16 +70,38 @@ Eine Organisation soll durch das \Gls{Produkt} das Domänenwissen ihrer Mitarbei
 \begin{tabular}{ l | r}
 /FA10/ & Ein \Gls{Spieler} muss sich anmelden können. \\ 
 /FA20/ & Ein \Gls{Spieler} muss sich registrieren können. \\
-/FA30/ & Ein Organisator muss sich anmelden können. \\
-/FA40/ & Ein Organisator muss ein \Gls{Spiel} erstellen können. \\
+/FA30/ & Ein \Gls{Organisator} muss sich anmelden können. \\
+/FA40/ & Ein \Gls{Organisator} muss ein \Gls{Spiel} erstellen können. \\
 /FA50/ & Die Anmeldung muss in einem modernem \Gls{Webbrowser} möglich sein. \\
 /FA60/ & \Gls{Spieler} müssen bei einem \Gls{Spiel} mitspielen können. \\
 \end{tabular} 
 \section{Kannkriterien}
-\begin{itemize}
-\item 1
-\end{itemize} 
- 
+\begin{tabularx}{\linewidth}{@{}>{\bfseries}l@{\hspace{.5em}}X@{}} % Linebreaks in der Tabelle
+/KA10/ & Ein \Gls{Organisator} kann die Ergebnisse/Eingabe eines Spielers ansehen. \\
+/KA20/ & Der \Gls{Administrator} kann Spieles aus dem System löschen. \\
+/KA30/ & Der \Gls{Administrator} kann Spiele löschen. \\
+/KA40/ & Ein \Gls{Organisator} kann eines seiner \Gls{Spieler} löschen. \\
+/KA50/ & Das System kann vom Terminal aus beendet werden. \\
+/KA60/ & Beim Erstellen eines Spieles kann der \Gls{Organisator} die \Gls{Spieleinstellungen} speichern und laden. \\
+/KA70/ & Das System kann auf verschiedenen Ports ausgeführt werden. \\
+/KA80/ & Beim Start des System erscheint Dialog zum einrichten des Systems. \\
+/KA90/ & Die Ergebnisse eines \Gls{Spiel} werden im Interface des \Gls{Organisator}s angezeigt. \\
+/KA100/ & Beim Spielen existiert ein Knopf, welcher das überspringen der aktuellen Runde ermöglicht. \\
+/KA110/ & Der Knopf aus /KA100/ kostet den \Gls{Spieler} Punkte. \\
+/KA120/ & Es ist \Gls{Spieler}n möglich Kriterien auszuschließen, also diese als unwichtig zu markieren. \\
+/KA130/ & Der \Gls{Organisator} eines Spiels kann nach dem Begin eines Spiels noch weiter Spieler einladen. \\
+/KA140/ & Die Merkmale, die pro Runde angezeigt werden sind schlauer ausgewählt als durch Zufall. \\
+/KA150/ & Die maximalen Runden pro Spieler pro Tag können eingeschränkt werden. \\
+/KA160/ & \Gls{Spieler} kriegen extra Punkte, wenn sie mehrere Runden in Folge Spielen. \\
+/KA170/ & Es gibt \Gls{Achievment}s, welche von Spielern freigeschaltet werden. \\
+/KA180/ & Es gibt ein Auflistung der \Gls{Achievment}s aus /KA170/. \\
+/KA190/ & Es gibt einen Hilfe Button im \Gls{Spieler} GUI. \\
+/KA200/ & Es gibt einen Hilfe Button im \Gls{Organisator} GUI. \\
+/KA210/ & Das Webinterface unterstüzt Internet Explorer. \\
+/KA220/ & Mehrere Sprachen sind einfach zu integrieren. \\ 
+/KA230/ & Es ist möglich die Punkte eines \Gls{Spieler} zurückzusetzten. \\
+/KA240/ & Es gibt ein GUI für \Gls{Administrator}en. \\
+\end{tabularx} 
 \section{Abgrenzungskriterien}
 \begin{itemize} 
 \item 1
@@ -82,6 +130,5 @@ Eine Organisation soll durch das \Gls{Produkt} das Domänenwissen ihrer Mitarbei
 \section{Dynamische Modelle}
 \section{Benutzerschnittstelle}
 \clearpage
-\chapter{Glossar}
 \printglossary 
 \end{document}
