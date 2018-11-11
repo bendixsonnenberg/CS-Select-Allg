@@ -42,13 +42,13 @@
 }
 \newglossaryentry{Spiele}
 {
-    name=Spieler,
+    name=Spiele,
     description={Plural von \Gls{Spiel}}
 }
-\newglossaryentry{Achievment}
+\newglossaryentry{Achievement}
 {  
-    name=Achievment,
-    description={Ein Ziel oder Errungenschaft, welche an sich komplett nutzlos ist, aber den Spieler motiviert weiter zu spielen.}
+    name=Achievement,
+    description={Ein Ziel oder eine Errungenschaft, welche den Spieler motiviert weiter zu spielen.}
 }
 \newglossaryentry{Administrator}
 {
@@ -66,6 +66,7 @@
  
 \chapter{Zielbestimmung}
 Eine Organisation soll durch das \Gls{Produkt} das Domänenwissen ihrer Mitarbeiter dazu nutzen die Merksmalsauswahl für ein Machine-Learning-Modell zu vereinfachen.
+
 \section{Musskriterien}
 \begin{tabular}{ l | r}
 /FA10/ & Ein \Gls{Spieler} muss sich anmelden können. \\ 
@@ -75,37 +76,39 @@ Eine Organisation soll durch das \Gls{Produkt} das Domänenwissen ihrer Mitarbei
 /FA50/ & Die Anmeldung muss in einem modernem \Gls{Webbrowser} möglich sein. \\
 /FA60/ & \Gls{Spieler} müssen bei einem \Gls{Spiel} mitspielen können. \\
 /FA70/ & Ein \Gls{Organisator} muss \Gls{Spieler} zu einem \Gls{Spiel} einladen. \\
-\end{tabular} 
+\end{tabular}
+
 \section{Kannkriterien}
 \begin{tabularx}{\linewidth}{@{}>{\bfseries}l@{\hspace{.5em}}X@{}} % Linebreaks in der Tabelle
 /KA10/ & Ein \Gls{Organisator} kann die Ergebnisse/Eingabe eines Spielers ansehen. \\
-/KA20/ & Der \Gls{Administrator} kann Spieles aus dem System löschen. \\
+/KA20/ & Der \Gls{Administrator} kann Spiele aus dem System löschen. \\
 /KA30/ & Der \Gls{Organisator} kann Spiele löschen. \\
-/KA40/ & Ein \Gls{Organisator} kann eines seiner \Gls{Spieler} löschen. \\
+/KA40/ & Ein \Gls{Organisator} kann eines seiner \Gls{Spiele} löschen. \\
 /KA50/ & Der \Gls{Spieleserver} kann vom Terminal aus beendet werden. \\
-/KA60/ & Beim Erstellen eines Spieles kann der \Gls{Organisator} die \Gls{Spieleinstellungen} speichern und laden. \\
+/KA60/ & Beim Erstellen eines Spiels kann der \Gls{Organisator} die \Gls{Spieleinstellungen} speichern und laden. \\
 /KA70/ & Das System kann auf verschiedenen Ports ausgeführt werden. \\
-/KA80/ & Beim Start des System erscheint Dialog zum einrichten des Systems. \\
-/KA90/ & Die Ergebnisse eines \Gls{Spiel} werden im Interface des \Gls{Organisator}s angezeigt. \\
-/KA100/ & Beim Spielen existiert ein Knopf, welcher das überspringen der aktuellen Runde ermöglicht. \\
-/KA110/ & Der Knopf aus /KA100/ kostet den \Gls{Spieler} Punkte. \\
+/KA80/ & Beim Start des Systems erscheint ein Dialog zum Einrichten des Systems. \\
+/KA90/ & Die Ergebnisse eines \Gls{Spiel}s werden im Interface des \Gls{Organisator}s angezeigt. \\
+/KA100/ & Beim Spielen existiert ein Knopf, welcher das Überspringen der aktuellen Runde ermöglicht. \\
+/KA110/ & Der Knopf aus /KA100/ kostet den \Gls{Spieler} Punkte. \\ %Kostet der Knopf Punkte? Oder das Betätigen
 /KA120/ & Es ist \Gls{Spieler}n möglich Kriterien auszuschließen, also diese als unwichtig zu markieren. \\
 /KA130/ & Der \Gls{Organisator} eines Spiels kann nach dem Begin eines Spiels noch weitere Spieler einladen. \\
-/KA140/ & Die Merkmale, die pro Runde angezeigt werden sind schlauer ausgewählt als durch Zufall. \\
-/KA150/ & Die maximalen Runden pro Spieler pro Tag können eingeschränkt werden. \\
-/KA160/ & \Gls{Spieler} kriegen extra Punkte, wenn sie mehrere Runden in Folge Spielen. \\
-/KA170/ & Es gibt \Gls{Achievment}s, welche von Spielern freigeschaltet werden. \\
-/KA180/ & Es gibt ein Auflistung der \Gls{Achievment}s aus /KA170/. \\
-/KA190/ & Es gibt einen Hilfe Button im \Gls{Spieler} GUI. \\
-/KA200/ & Es gibt einen Hilfe Button im \Gls{Organisator} GUI. \\
+/KA140/ & Die Merkmale, die pro Runde angezeigt werden, sind schlauer ausgewählt als durch Zufall. \\ %Schlauer präzisieren?
+/KA150/ & Die maximale Anzahl an Runden pro Spieler pro Tag können durch den \Gls{Organisator} eingeschränkt werden. \\
+/KA160/ & \Gls{Spieler} erhalten mehr Punkte, wenn sie mehrere Runden in Folge spielen. \\
+/KA170/ & Es gibt \Gls{Achievement}s, welche von Spielern freigeschaltet werden. \\
+/KA180/ & Es gibt eine Auflistung der \Gls{Achievement}s aus /KA170/. \\
+/KA190/ & Es gibt einen Hilfe Button im \Gls{Spieler} GUI. \\ %Knopf anstatt Button?
+/KA200/ & Es gibt einen Hilfe Button im \Gls{Organisator} GUI. \\ %s. o.
 /KA210/ & Das Webinterface unterstüzt Internet Explorer. \\
 /KA220/ & Mehrere Sprachen sind einfach zu integrieren. \\ 
-/KA230/ & Es ist möglich die Punkte eines \Gls{Spieler} zurückzusetzten. \\
-/KA240/ & Es gibt ein GUI für \Gls{Administrator}en. \\
-\end{tabularx} 
+/KA230/ & Es ist möglich die Punkte eines \Gls{Spieler}s zurückzusetzten. \\ %Durch Spieler oder Orga?
+/KA240/ & Es gibt ein GUI für \Gls{Administrator}en. \\ %Die oder der Gui? ^^
+\end{tabularx}
+
 \section{Abgrenzungskriterien}
 \begin{itemize} 
-\item 1
+  \item 1
 \end{itemize} 
  
 \chapter{Einsatz}
