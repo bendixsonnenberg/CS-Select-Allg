@@ -72,7 +72,7 @@ Eine Organisation soll durch das \Gls{Produkt} das Domänenwissen ihrer Mitarbei
 /FA10/ & Ein \Gls{Spieler} muss sich anmelden können. \\ 
 /FA20/ & Ein \Gls{Spieler} muss sich registrieren können. \\
 /FA30/ & Ein \Gls{Organisator} muss sich anmelden können. \\
-/FA40/ & Ein \Gls{Organisator} muss ein \Gls{Spiel} erstellen und beenden können. \\
+/FA40/ & Ein \Gls{Organisator}\Gls{Organisator} muss ein \Gls{Spiel} erstellen und beenden können. \\
 /FA50/ & Die Anmeldung muss in einem modernem \Gls{Webbrowser} möglich sein. \\
 /FA60/ & \Gls{Spieler} müssen bei einem \Gls{Spiel} mitspielen können. \\
 /FA70/ & Ein \Gls{Organisator} muss \Gls{Spieler} zu einem \Gls{Spiel} einladen. \\
@@ -127,6 +127,26 @@ Eine Organisation soll durch das \Gls{Produkt} das Domänenwissen ihrer Mitarbei
  
 \chapter{Produktdaten}
 
+\section{Nutzerdaten}
+\begin{tabularx}{\linewidth}{@{}>{\bfseries}l@{\hspace{.5em}}X@{}}
+/D10/ & Über Nutzer(\Gls{Spieler}, \Gls{Organisator}) sind folgende Daten zu speichern /ND10/: \begin{itemize}
+	\item Email-Adresse, Nutzername, Punktestand, Rolle, Passwort(als Hash)
+\end{itemize}
+\end{tabularx}
+
+\section{Merkmalsdatensätze}
+\begin{tabularx}{\linewidth}{@{}>{\bfseries}l@{\hspace{.5em}}X@{}}
+	/D20/ & Für jeden Merkmalsdatensatz ist zu speichern: /ND20/: \begin{itemize}
+		\item Liste an Merkmalen mit jeweiligen Graphen und Beschreibung
+	\end{itemize}
+\end{tabularx}
+
+\section{Spieledaten}
+\begin{tabularx}{\linewidth}{@{}>{\bfseries}l@{\hspace{.5em}}X@{}}
+	/D30/ & Für jedes \Gls{Spiel} ist zu speichern /ND30/: \begin{itemize}
+		\item \Gls{Organisator}, \Gls{Spieleinstellungen}, \Gls{Spieler}, zugehöriger Merkmalsdatensatz % zuständiger ML Server?
+	\end{itemize}
+\end{tabularx}
 \chapter{Systemmodelle}
 \section{Szenarien}
 \section{Anwendungsfälle}
