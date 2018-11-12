@@ -15,7 +15,6 @@
     name=Produkt,
     description={ das von uns gelieferte Softwaresystem}
 }
-
 \newglossaryentry{Webbrowser} 
 {
     name=Webbrowser,
@@ -54,8 +53,15 @@
 \newglossaryentry{Administrator}
 {
     name=Administrator,
-    description={Die Person, welche das System installiert und den Nutzern zur Verfügung stellt.}
+    description={Die Person, welche das System installiert und den Nutzern zur Verfügung stellt. Sie verwaltet den
+                \Gls{Spiele-Server}}
 }
+\newglossaryentry{Spiele-Server}
+{
+name=Spiele-Server,
+description={Ein Computer, der der Verwaltung von CS:Select dient und Internetanbindung hat.}
+}
+
 \begin{document}
  
 \title{Pflichtenheft CS-Select}
@@ -160,6 +166,16 @@ Das \Gls{Produkt} läuft auf Server-Computern.
 \chapter{Systemmodelle}
 \section{Szenarien}
 \section{Anwendungsfälle}
+    \subsection{Admin-Account einrichten}
+    Beim erstmaligen Aufsetzen des \Gls{Spiele-Server}s kann ein Admin-Account in einer config-Datei festgelegt werden.
+    Dazu werden Name, Email und Passwort des \Gls{Administrator}s gespeichert.
+    \subsection{Achievments ansehen}
+    Nach der Anmeldung erreicht ein \Gls{Spieler} eine Übersichts-Seite. Beim Klicken auf die Spieler-Übersicht-Schaltfläche
+    (in \fref{chap:Spieler-Übersicht} gezeigt) kann der \Gls{Spieler} seine Errungenschaften einsehen.
+    \subsection{Leaderboard ansehen}
+    Nach der Anmeldung erreicht ein \Gls{Spieler} eine Übersichts-Seite. Darauf ist ein Bereich, der eine aktuelle Tabelle
+    anzeigt, in welcher die \Gls{Spieler} aufgelistet sind, die in einem bestimmten Zeitraum die meisten Punkte erreicht haben.
+
 \section{Objektmodell}
 \section{Dynamische Modelle}
 \section{Benutzerschnittstelle}
