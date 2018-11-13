@@ -7,7 +7,7 @@
 \usepackage[bookmarks,bookmarksnumbered]{hyperref}
 \usepackage{tabularx}
 \usepackage{graphicx}
-
+\usepackage[german]{fancyref}
 \usepackage[
 nonumberlist,
 toc,
@@ -100,7 +100,7 @@ description={Ein Computer, der der Verwaltung von CS:Select dient und Internetan
         /KA20/ & Der \Gls{Administrator} kann Spiele aus dem System löschen. \\
         /KA30/ & Der \Gls{Organisator} kann Spiele löschen. \\
         /KA40/ & Ein \Gls{Organisator} kann eines seiner \Gls{Spiel}e löschen. \\
-        /KA50/ & Der \Gls{Spieleserver} kann vom Terminal aus beendet werden. \\
+        /KA50/ & Der \Gls{Spiele-Server} kann vom Terminal aus beendet werden. \\
         /KA60/ & Beim Erstellen eines Spiels kann der \Gls{Organisator} die \Gls{Spieleinstellungen} speichern und laden. \\
         /KA70/ & Das System kann auf verschiedenen Ports ausgeführt werden. \\
         /KA80/ & Beim Start des Systems erscheint ein Dialog zum Einrichten des Systems. \\
@@ -181,7 +181,7 @@ description={Ein Computer, der der Verwaltung von CS:Select dient und Internetan
     Dazu werden Name, Email und Passwort des \Gls{Administrator}s gespeichert.
     \subsection{Achievments ansehen}
     Nach der Anmeldung erreicht ein \Gls{Spieler} eine Übersichts-Seite. Beim Klicken auf die Spieler-Übersicht-Schaltfläche
-    (in \fref{chap:Spieler-Übersicht} gezeigt) kann der \Gls{Spieler} seine \Gls{Achievement}s einsehen.
+    (in \fref{fig:Spieler-Übersicht} gezeigt) kann der \Gls{Spieler} seine \Gls{Achievement}s einsehen.
     \subsection{Leaderboard ansehen}
     Nach der Anmeldung erreicht ein \Gls{Spieler} eine Übersichts-Seite. Darauf ist ein Bereich, der eine aktuelle Tabelle
     anzeigt, in welcher die \Gls{Spieler} aufgelistet sind, die in einem bestimmten Zeitraum die meisten Punkte erreicht haben.
@@ -202,6 +202,7 @@ description={Ein Computer, der der Verwaltung von CS:Select dient und Internetan
     \centering
     \includegraphics[width=400px]{../pictures/4_Spielerstellung.jpg}
     \subsection{Spieler-Übersicht}
+    \label{fig:Spieler-Übersicht}
     \centering
     \includegraphics[width=400px]{../pictures/5_Spieler.jpg}
     \subsection{Spiel}
