@@ -4,71 +4,72 @@
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage{ae}
-\usepackage[bookmarks,bookmarksnumbered]{hyperref}
+\usepackage[bookmarks, bookmarksnumbered]{hyperref}
 \usepackage{tabularx}
 \usepackage{graphicx}
-
-\usepackage[
-nonumberlist,
-toc,
-section]
-{glossaries}
+\usepackage{csquotes}
+\usepackage[nonumberlist, toc, section]{glossaries}
 
 \makeglossaries
+
 \newglossaryentry{Produkt}
 {
-name={Produkt},
-plural={Produkte},
-description={ das von uns gelieferte Softwaresystem}
+name=Produkt,
+plural=Produkte,
+description={Das von uns gelieferte Softwaresystem.}
 }
+
 \newglossaryentry{Webbrowser}
 {
-name={Webbrowser},
-plural={Webbrowser},
+name=Webbrowser,
+plural=Webbrowser,
 description={Für dieses Produkt wird nur auf Google Chrome und Mozilla Firefox hin entwickelt.}
 }
+
 \newglossaryentry{Spiel}
 {
-name={Spiel},
-plural={Spiele},
-description={Ein Spiel ist eine Instanz eines Spielmodus. Ein Spiel hat das Ziel das Wissen des Spielers zu nutzen um die Merkmalsauswahl für Machine Learning zu unterstützen.}
+name=Spiel,
+plural=Spiele,
+description={Ein Spiel ist eine Instanz eines Spielmodus. Ein Spiel hat das Ziel das Wissen des Spielers zu nutzen, um die Merkmalsauswahl für Machine Learning zu unterstützen.}
 }
+
 \newglossaryentry{Spieler}
 {
-name={Spieler},
-plural={Spieler},
-description={Ein Spieler ist ein Nutzer, welcher an einem Spiel teilnehmen kann. Meist ist dies ein Angestellter des Betriebs.}
+name=Spieler,
+plural=Spieler,
+description={Ein Nutzer, welcher an einem Spiel teilnimmt. Meist ist dies ein Angestellter des Betriebs.}
 }
+
 \newglossaryentry{Spieleinstellungen}
 {
-name={Spieleinstellungen},
-plural={Spieleinstellungen},
-description={Einstelllungen für ein Spiel umfassen: die Merkmale welche ausgewählt werden soll, die Art des Spiels, die teilnehmenden Spieler, Endbedingungen des Spiels}
+name=Spieleinstellungen,
+plural=Spieleinstellungen,
+description={Einstelllungen für ein Spiel umfassen: die Merkmale, welche ausgewählt werden soll, die Art des Spiels, die teilnehmenden Spieler, Endbedingungen des Spiels.}
 }
 \newglossaryentry{Organisator}
 {
-name={Organisator},
-plural={Organisatoren},
+name=Organisator,
+plural=Organisatoren,
 description={Ein Organisator ist ein Nutzer, der neue Spiele erstellt und die Ergebnisse von diesen ausliest.}
 }
 \newglossaryentry{Achievement}
 {
-name={Achievement},
-plural={Achievements},
+name=Achievement,
+plural=Achievements,
 description={Ein Ziel oder eine Errungenschaft, welche den Spieler motiviert weiter zu spielen.}
 }
 \newglossaryentry{Administrator}
 {
-name={Administrator},
-plural={Administratoren},
+name=Administrator,
+plural=Administratoren,
 description={Die Person, welche das System installiert und den Nutzern zur Verfügung stellt. Sie verwaltet den
 \Gls{Spiele-Server}}
 }
 \newglossaryentry{Spiele-Server}
 {
-name={Spiele-Server},
-plural={Spiele-Server},
-description={Ein Computer, der der Verwaltung von CS:Select dient und Internetanbindung hat.}
+name=Spiele-Server,
+plural=Spiele-Server,
+description={Ein Computer, welcher der Verwaltung von CS:Select dient und eine Internetanbindung hat.}
 }
 
 \begin{document}
@@ -99,7 +100,7 @@ description={Ein Computer, der der Verwaltung von CS:Select dient und Internetan
         /KA10/ & Ein \Gls{Organisator} kann die Ergebnisse/Eingabe eines Spielers ansehen. \\
         /KA20/ & Der \Gls{Administrator} kann Spiele aus dem System löschen. \\
         /KA30/ & Der \Gls{Organisator} kann Spiele löschen. \\
-        /KA40/ & Ein \Gls{Organisator} kann eines seiner \Gls{Spiel}e löschen. \\
+        /KA40/ & Ein \Gls{Organisator} kann eines seiner \Glspl{Spiel} löschen. \\
         /KA50/ & Der \Gls{Spieleserver} kann vom Terminal aus beendet werden. \\
         /KA60/ & Beim Erstellen eines Spiels kann der \Gls{Organisator} die \Gls{Spieleinstellungen} speichern und laden. \\
         /KA70/ & Das System kann auf verschiedenen Ports ausgeführt werden. \\
@@ -111,7 +112,7 @@ description={Ein Computer, der der Verwaltung von CS:Select dient und Internetan
         /KA130/ & Der \Gls{Organisator} eines Spiels kann nach dem Begin eines Spiels noch weitere Spieler einladen. \\
         /KA140/ & Die Merkmale, die pro Runde angezeigt werden, sind schlauer ausgewählt als durch Zufall. \\ %Schlauer präzisieren?
         /KA150/ & Die maximale Anzahl an Runden pro Spieler pro Tag können durch den \Gls{Organisator} eingeschränkt werden. \\
-        /KA160/ & \Gls{Spieler} erhalten mehr Punkte, wenn sie mehrere Runden in Folge spielen. \\
+        /KA160/ & \Glspl{Spieler} erhalten mehr Punkte, wenn sie mehrere Runden in Folge spielen. \\
         /KA170/ & Es gibt \Gls{Achievement}s, welche von Spielern freigeschaltet werden. \\
         /KA180/ & Es gibt eine Auflistung der \Gls{Achievement}s aus /KA170/. \\
         /KA190/ & Es gibt einen Hilfe Button im \Gls{Spieler} GUI. \\ %Knopf anstatt Button?
@@ -119,7 +120,7 @@ description={Ein Computer, der der Verwaltung von CS:Select dient und Internetan
         /KA210/ & Das Webinterface unterstüzt Internet Explorer. \\
         /KA220/ & Mehrere Sprachen sind einfach zu integrieren. \\
         /KA230/ & Es ist möglich die Punkte eines \Gls{Spieler}s zurückzusetzten. \\ %Durch Spieler oder Orga?
-        /KA240/ & Es gibt ein GUI für \Gls{Administrator}en. \\ %Die oder der Gui? ^^
+        /KA240/ & Es gibt ein GUI für \Glspl{Administrator}. \\ %Die oder der Gui? ^^
     \end{tabularx}
 
     \section{Abgrenzungskriterien}
@@ -134,7 +135,7 @@ description={Ein Computer, der der Verwaltung von CS:Select dient und Internetan
     Experimenten beziehungsweise privatwirtschaftlichen Unternehmen durch das Domänenwissen der \Gls{Spieler}.
 
     \section{Zielgruppen}
-    Die Zielgruppen des \Gls{Produkt}s lassen sich in \Gls{Organisator}en und \Gls{Spieler} unterscheiden.
+    Die Zielgruppen des \Gls{Produkt}s lassen sich in \Glspl{Organisator} und \Glspl{Spieler} unterscheiden.
     Der Organisator möchte eine Verbesserung der Machine-Learning Prozesse erreichen indem er das Domänenwissen der Spieler nutzt.
     Die Spieler tragen durch Spielen des \Gls{Produkt}s mit ihrem Domänenwissen zur besseren Merkmalsauswahl bei.
 
@@ -174,40 +175,76 @@ description={Ein Computer, der der Verwaltung von CS:Select dient und Internetan
     \end{tabularx}
 
     \chapter{Systemmodelle}
+
     \section{Szenarien}
+    \newpage
+
     \section{Anwendungsfälle}
+
+    \subsection{Spiel erstellen}
+    Der \Gls{Organisator} kann nach erfolgreicher Anmeldung über sein Menü ein neues \Gls{Spiel} erstellen.
+    Dazu wählt er die gewünschten \Gls{Spieleinstellungen} aus und startet das Spiel.
+
+    \subsection{Spiel löschen}
+    Der \Gls{Organisator} kann nach erfolgreicher Anmeldung seine durchgeführten Spiele ansehen und
+    auswählen, welche er löschen möchte.
+
+    \subsection{Spieleinstellungen speichern}
+    Der \Gls{Organisator} kann bereits vorhandene Spieleinstellungen eines Spiels speichern, um diese
+    für ein neues Spiel mit gleichen Einstellungen wiederzuverwenden.
+
+    \subsection{Spieleinstellungen laden}
+    Der \Gls{Organisator} kann über sein Menü seine gespeicherten Spieleinstellungen einsehen und laden, wenn
+    er sie erneut verwenden möchte.
+
     \subsection{Admin-Account einrichten}
     Beim erstmaligen Aufsetzen des \Gls{Spiele-Server}s kann ein Admin-Account in einer config-Datei festgelegt werden.
     Dazu werden Name, Email und Passwort des \Gls{Administrator}s gespeichert.
-    \subsection{Achievments ansehen}
+
+    \subsection{Achievements ansehen}
     Nach der Anmeldung erreicht ein \Gls{Spieler} eine Übersichts-Seite. Beim Klicken auf die Spieler-Übersicht-Schaltfläche
     (in \fref{chap:Spieler-Übersicht} gezeigt) kann der \Gls{Spieler} seine \Gls{Achievement}s einsehen.
+
     \subsection{Leaderboard ansehen}
     Nach der Anmeldung erreicht ein \Gls{Spieler} eine Übersichts-Seite. Darauf ist ein Bereich, der eine aktuelle Tabelle
     anzeigt, in welcher die \Gls{Spieler} aufgelistet sind, die in einem bestimmten Zeitraum die meisten Punkte erreicht haben.
 
     \section{Objektmodell}
+
     \section{Dynamische Modelle}
+
     \section{Benutzerschnittstelle}
+
     \subsection{Anmeldung}
     \centering
     \includegraphics[width=400px]{../pictures/1_Anmeldung.jpg}
+    \caption{Anmeldung} %Nur ein Test
+
     \subsection{Organisator-Start (Desktop)}
     \centering
     \includegraphics[width=400px]{../pictures/2_Organisator.jpg}
+
     \subsection{Organisator-Start (Responsive)}
     \centering
     \includegraphics[width=400px]{../pictures/3_Organisator(responsive).jpg}
+
     \subsection{Spielerstellung}
     \centering
     \includegraphics[width=400px]{../pictures/4_Spielerstellung.jpg}
+
     \subsection{Spieler-Übersicht}
     \centering
     \includegraphics[width=400px]{../pictures/5_Spieler.jpg}
+
     \subsection{Spiel}
     \centering
     \includegraphics[width=400px]{../pictures/6_Spiel.jpg}
+
     \clearpage
+
+
     \chapter{Glossar}
-    \printglossary[title=Glossar]
+
+    \printglossary
+
 \end{document}
