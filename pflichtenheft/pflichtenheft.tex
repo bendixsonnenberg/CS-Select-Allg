@@ -182,6 +182,34 @@ description={Ein Computer, welcher der Verwaltung von CS:Select dient und eine I
 
     \section{Anwendungsfälle}
 
+    \subsection{Ergebnisse auslesen}
+    \begin{itemize}
+        \item Teilnehmende Akteure: \Gls{Organisator}
+        \item Eingangsaktionen: \Gls{Organisator} öffnet die Auswertungsseite
+        \item Ausgangsaktionen: \Gls{Organisator} erhält die Auswertung
+        \item Ereignisfluss -
+    \end{itemize}
+
+    \subsection{Server installieren}
+    \begin{itemize}
+        \item Teilnehmende Akteure: \Gls{Administrator} 
+        \item Eingangsaktionen: Computer mit MySQL und Tomcat installiert installiert
+        \item Ausgangsaktionen: Spiele-Server starten
+        \item Ereignisfluss: 
+            \begin{itemize}
+                \item Administrator kopiert die War datei in den Tomcat webapps Ordner
+                \item Administrator fügt den Pfad zur CFG Datei in die `tomcat/conf/Catalina/<host>` Datei ein
+                \item Administrator konfiguriert die CFG Datei aus der Dokumentation mit den relevanten Werten
+                \item Administrator führt \texttt{tomcat/bin/startup.sh}(Linux \& Mac) bzw. \texttt{tomcat\textbackslash bin\textbackslash startup.bat}(Windows) aus
+            \end{itemize}
+    \end{itemize}
+    \subsection{Server beenden}
+    \begin{itemize}
+        \item Teilnehmende Akteure: Administrator
+        \item Eingangsaktionen: Spiele-Server ist aktiv
+        \item Ausgangsaktion: MySQL beenden falls sonst nichts weiteres auf der Datenbank läuft
+        \item Ereignisfluss: Administrator führt \texttt{tomcat/bin/shutdown.sh}(Linux \& Mac) bzw. \texttt{tomcat\textbackslash bin\textbackslash shutdown.bat}(Windows)
+    \end{itemize}
     \subsection{Spiel erstellen}
     Der \Gls{Organisator} kann nach erfolgreicher Anmeldung über sein Menü ein neues \Gls{Spiel} erstellen.
     Dazu wählt er die gewünschten \Gls{Spieleinstellungen} aus und startet das Spiel.
@@ -219,7 +247,7 @@ description={Ein Computer, welcher der Verwaltung von CS:Select dient und eine I
     \subsection{Anmeldung}
     \centering
     \includegraphics[width=400px]{../pictures/1_Anmeldung.jpg}
-    \caption{Anmeldung} %Nur ein Test
+    %\caption{Anmeldung} %Nur ein Test
 
     \subsection{Organisator-Start (Desktop)}
     \centering
