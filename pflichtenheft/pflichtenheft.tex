@@ -210,6 +210,80 @@ description={Ein Computer, welcher der Verwaltung von CS:Select dient und eine I
         \item Ausgangsaktion: MySQL beenden falls sonst nichts weiteres auf der Datenbank läuft
         \item Ereignisfluss: Administrator führt \texttt{tomcat/bin/shutdown.sh}(Linux \& Mac) bzw. \texttt{tomcat\textbackslash bin\textbackslash shutdown.bat}(Windows)
     \end{itemize}
+
+    \subsection{Spieler registrieren}
+    \begin{itemize}
+        \item Teilnehmende Akteure: Organisator, Spieler
+        \item Eingangsaktionen: Spiele-Server ist aktiv
+        \item Ereignisfluss:
+        \begin{itemize}
+            \item Organisator lädt den Spieler über das Organisator-GUI ein.
+            \item Der Spieler klickt auf den Einladungslink in der E-Mail und wird auf die Registrierungsseite weitergeleitet.
+            \item Der Spieler gibt einen einzigartigen Nutzernamen, seine E-Mail-Addresse sowie ein persönliches Passwort ein und bestätigt.
+        \end{itemize}
+    \end{itemize}
+
+    \subsection{Spieler anmelden}
+    \begin{itemize}
+        \item Teilnehmende Akteure: Spieler
+        \item Eingangsaktionen: Spiele-Server ist aktiv
+        \item Ereignisfluss:
+        \begin{itemize}
+            \item Spieler öffnet die Produktwebsite
+            \item Spieler wählt die Rolle "Spieler" aus
+            \item Spieler gibt E-Mail und Passwort ein
+            \item Spieler klickt auf anmelden
+        \end{itemize}
+    \end{itemize}
+
+    \subsection{Spieler löschen}
+    \begin{itemize}
+        \item Teilnehmende Akteure: Administrator
+        \item Eingangsaktionen: Spiele-Server ist aktiv
+        \item Ereignisfluss:
+        \begin{itemize}
+            \item Administrator loggt sich am Server ein
+            \item Administrator führt das Löschen-Kommando mit dem Nutzernamen des zu löschenden Spielers aus
+            \item Administrator bestätigt den Vorgang
+        \end{itemize}
+    \end{itemize}
+
+    \subsection{Organisator registrieren}
+    \begin{itemize}
+        \item Teilnehmende Akteure: Organisator
+        \item Eingangsaktionen: Spiele-Server ist aktiv, Organisator-Registrierungspasswort ist gesetzt.
+        \item Ereignisfluss:
+        \begin{itemize}
+            \item Der Organisator öffnet die Produktwebsite und klickt auf Registrieren.
+            \item Der Spieler gibt einen einzigartigen Nutzernamen, seine E-Mail-Addresse, das Organisator-Registrierungspasswort sowie ein persönliches Passwort ein und bestätigt.
+        \end{itemize}
+    \end{itemize}
+
+    \subsection{Organisator anmelden}
+    \begin{itemize}
+        \item Teilnehmende Akteure: Organisator
+        \item Eingangsaktionen: Spiele-Server ist aktiv
+        \item Ereignisfluss:
+        \begin{itemize}
+            \item Organisator öffnet die Produktwebsite
+            \item Organisator wählt die Rolle "Organisator" aus
+            \item Organisator gibt E-Mail und Passwort ein
+            \item Organisator klickt auf anmelden
+        \end{itemize}
+    \end{itemize}
+
+    \subsection{Organisator löschen}
+    \begin{itemize}
+        \item Teilnehmende Akteure: Administrator
+        \item Eingangsaktionen: Spiele-Server ist aktiv
+        \item Ereignisfluss:
+        \begin{itemize}
+            \item Administrator loggt sich am Server ein
+            \item Administrator führt das Löschen-Kommando mit dem Nutzernamen des zu löschenden Organisators aus
+            \item Administrator bestätigt den Vorgang
+        \end{itemize}
+    \end{itemize}
+
     \subsection{Spiel erstellen}
     Der \Gls{Organisator} kann nach erfolgreicher Anmeldung über sein Menü ein neues \Gls{Spiel} erstellen.
     Dazu wählt er die gewünschten \Gls{Spieleinstellungen} aus und startet das Spiel.
