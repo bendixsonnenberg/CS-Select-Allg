@@ -203,11 +203,12 @@ description={Ein Computer, welcher der Verwaltung von CS:Select dient und eine I
                 \item Administrator führt \texttt{tomcat/bin/startup.sh}(Linux \& Mac) bzw. \texttt{tomcat\textbackslash bin\textbackslash startup.bat}(Windows) aus
             \end{itemize}
     \end{itemize}
+
     \subsection{Server beenden}
     \begin{itemize}
         \item Teilnehmende Akteure: Administrator
         \item Eingangsaktionen: Spiele-Server ist aktiv
-        \item Ausgangsaktion: MySQL beenden falls sonst nichts weiteres auf der Datenbank läuft
+        \item Ausgangsaktion: MySQL beenden, falls sonst nichts Weiteres auf der Datenbank läuft
         \item Ereignisfluss: Administrator führt \texttt{tomcat/bin/shutdown.sh}(Linux \& Mac) bzw. \texttt{tomcat\textbackslash bin\textbackslash shutdown.bat}(Windows)
     \end{itemize}
 
@@ -285,32 +286,104 @@ description={Ein Computer, welcher der Verwaltung von CS:Select dient und eine I
     \end{itemize}
 
     \subsection{Spiel erstellen}
-    Der \Gls{Organisator} kann nach erfolgreicher Anmeldung über sein Menü ein neues \Gls{Spiel} erstellen.
-    Dazu wählt er die gewünschten \Gls{Spieleinstellungen} aus und startet das Spiel.
+    \begin{itemize}
+        \item Teilnehmende Akteure: \Gls{Organisator}
+        \item Eingangsaktionen: Spiele-Server ist aktiv
+        \item Ausgangsaktionen: Spiel starten
+        \item Ereignisfluss:
+        \begin{itemize}
+            \item Organisator meldet sich an
+            \item Organisator sucht sich über seine GUI die gewünschten Spieleinstellungen aus
+            \item Organisator bestätigt seine Auswahl und erstellt das Spiel
+        \end{itemize}
+    \end{itemize}
 
     \subsection{Spiel löschen}
-    Der \Gls{Organisator} kann nach erfolgreicher Anmeldung seine durchgeführten Spiele ansehen und
-    auswählen, welche er löschen möchte.
+    \begin{itemize}
+        \item Teilnehmende Akteure: \Gls{Organisator}
+        \item Eingangsaktionen: Spiele-Server ist aktiv, es existiert bereits ein Spiel
+        \item Ausgangsaktionen: Spiel löschen
+        \item Ereignisfluss:
+        \begin{itemize}
+            \item Organisator meldet sich an
+            \item Organisator wählt über seine GUI das zu löschende Spiel
+            \item Organisator bestätigt seine Auswahl
+        \end{itemize}
+    \end{itemize}
 
     \subsection{Spieleinstellungen speichern}
-    Der \Gls{Organisator} kann bereits vorhandene Spieleinstellungen eines Spiels speichern, um diese
-    für ein neues Spiel mit gleichen Einstellungen wiederzuverwenden.
+    \begin{itemize}
+        \item Teilnehmende Akteure: \Gls{Organisator}
+        \item Eingangsaktionen: Spiele-Server ist aktiv
+        \item Ausgangsaktionen: Spieleinstellungen wiederverwenden
+        \item Ereignisfluss:
+        \begin{itemize}
+            \item Organisator meldet sich an
+            \item Organisator sucht sich über seine GUI das Spiel aus, von dem er die Einstellungen speichern möchte
+            \item Organisator wählt die Option \enquote{Spieleinstellungen speichern}
+            \item Organisator bestätigt seine Auswahl und speichert die Einstellungen
+        \end{itemize}
+    \end{itemize}
 
     \subsection{Spieleinstellungen laden}
-    Der \Gls{Organisator} kann über sein Menü seine gespeicherten Spieleinstellungen einsehen und laden, wenn
-    er sie erneut verwenden möchte.
+    \begin{itemize}
+        \item Teilnehmende Akteure: \Gls{Organisator}
+        \item Eingangsaktionen: Spiele-Server ist aktiv, Spieleinstellungen wurden bereits gespeichert
+        \item Ausgangsaktionen: Spiel starten
+        \item Ereignisfluss:
+        \begin{itemize}
+            \item Organisator meldet sich an
+            \item Organisator erstellt über seine GUI ein neues Spiel
+            \item Organisator wählt für dieses Spiel \enquote{Spieleinstellungen laden}
+            \item Organisator sucht sich die bereits gespeicherte Spieleinstellungen heraus
+            \item Organisator bestätigt seine Auswahl
+        \end{itemize}
+    \end{itemize}
 
     \subsection{Admin-Account einrichten}
-    Beim erstmaligen Aufsetzen des \Gls{Spiele-Server}s kann ein Admin-Account in einer config-Datei festgelegt werden.
-    Dazu werden Name, Email und Passwort des \Gls{Administrator}s gespeichert.
+    \begin{itemize}
+        \item Teilnehmende Akteure: \Gls{Administrator}
+        \item Eingangsaktionen: %??
+        \item Ausgangsaktionen: Admin-Account erstellen
+        \item Ereignisfluss:
+        \begin{itemize}
+            \item Admin-Account wird in einer config-Datei festgelegt
+            \item Man gibt Name, E-Mail und Passwort des Admins ein
+        \end{itemize}
+    \end{itemize}
+    %Beim erstmaligen Aufsetzen des \Gls{Spiele-Server}s kann ein Admin-Account in einer config-Datei festgelegt werden.
+    %Dazu werden Name, Email und Passwort des \Gls{Administrator}s gespeichert.
 
     \subsection{Achievements ansehen}
-    Nach der Anmeldung erreicht ein \Gls{Spieler} eine Übersichts-Seite. Beim Klicken auf die Spieler-Übersicht-Schaltfläche
-    (in \fref{fig:Spieler-Übersicht} gezeigt) kann der \Gls{Spieler} seine \Gls{Achievement}s einsehen.
+    \begin{itemize}
+        \item Teilnehmende Akteure: \Gls{Spieler}
+        \item Eingangsaktionen: Spiele-Server ist aktiv
+        \item Ausgangsaktionen: Achievements ansehen
+        \item Ereignisfluss:
+        \begin{itemize}
+            \item Spieler meldet sich an
+            \item Spieler erreicht seine Übersichts-Seite
+            \item Spieler klickt auf die Spieler-Übersichts-Schaltfläche
+            \item Spieler schaut seine Achievements an
+        \end{itemize}
+    \end{itemize}
+    %Nach der Anmeldung erreicht ein \Gls{Spieler} eine Übersichts-Seite. Beim Klicken auf die Spieler-Übersicht-Schaltfläche
+    %(in \fref{fig:Spieler-Übersicht} gezeigt) kann der \Gls{Spieler} seine \Gls{Achievement}s einsehen.
+
     \subsection{Leaderboard ansehen}
-    
-    Nach der Anmeldung erreicht ein \Gls{Spieler} eine Übersichts-Seite. Darauf ist ein Bereich, der eine aktuelle Tabelle
-    anzeigt, in welcher die \Gls{Spieler} aufgelistet sind, die in einem bestimmten Zeitraum die meisten Punkte erreicht haben.
+    \begin{itemize}
+        \item Teilnehmende Akteure: \Gls{Spieler}
+        \item Eingangsaktionen: Spiele-Server ist aktiv
+        \item Ausgangsaktionen: Leaderboard ansehen
+        \item Ereignisfluss:
+        \begin{itemize}
+            \item Spieler meldet sich an
+            \item Spieler erreicht seine Übersichtsseite
+            \item Spieler sieht dort in einer Tabelle die Spieler mit den meisten Punkten über einen gewissen Zeitraum
+        \end{itemize}
+    \end{itemize}
+    %Nach der Anmeldung erreicht ein \Gls{Spieler} eine Übersichts-Seite. Darauf ist ein Bereich, der eine aktuelle Tabelle
+    %anzeigt, in welcher die \Gls{Spieler} aufgelistet sind, die in einem bestimmten Zeitraum die meisten Punkte erreicht haben.
 
     \section{Objektmodell}
 
