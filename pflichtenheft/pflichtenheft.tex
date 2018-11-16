@@ -93,10 +93,10 @@ description={Ein Computer, der der Verwaltung von CS:Select dient und Internetan
         /FA60/ & \Gls{Spieler} müssen bei einem \Gls{Spiel} mitspielen können. \\
         /FA70/ & Ein \Gls{Organisator} muss \Gls{Spieler} zu einem \Gls{Spiel} einladen können. \\
         /FA80/ & Die Ergebnisse eines \Gls{Spiel} können ausgelesen werden. \\
-        /FA90/ & Ein Spiel muss Endbedingungen besitzten. \\
-        /FA100/ & Ein Spiel muss bei erreichen seiner Endbedingungen enden. \\
+        /FA90/ & Ein Spiel muss Endbedingungen besitzen. \\
+        /FA100/ & Ein Spiel muss bei Erreichen seiner Endbedingungen enden. \\
         /FA110/ & Das System muss mit dem ML-Server kommunizieren. \\
-        /FA120/ & Der Organisator kann in einem GUI überprüfen wie der Spielstand ist.\\
+        /FA120/ & Der Organisator kann in einem GUI den Spielstand überprüfen.\\
     \end{tabular}
 
     \section{Kannkriterien}
@@ -178,6 +178,24 @@ description={Ein Computer, der der Verwaltung von CS:Select dient und Internetan
         \end{itemize}
     \end{tabularx}
 
+
+    \chapter{Nichtfunktionale Anforderungen}
+
+    \begin{tabular}{ l | l}
+        /NF10/ & Es müssen mindestens 30 Spieler zur gleichen Zeit spielen können.\\
+        /NF20/ & Die Interaktionszeiten dürfen nicht länger als zwei Sekunden betragen. \\
+        /NF30/ & Ein Spieler soll das Ergebnis eines Spiels innerhalb von zwei Sekunden erhalten. \\
+        /NF40/ & Das Design soll modern sein. \\
+        /NF50/ & Die ML-Datenbanken sollen leicht austauschbar sein. \\
+        /NF60/ & Neue Spielmodi sollen leicht erweitert werden können. \\
+        /NF70/ & Neue Sprachen sollen leicht hinzugefügt werden können. \\
+        /NF80/ & Das Produkt enthält nicht mehr als 0,1\% plattformspezifischer Anweisungen. \\
+        /NF90/ & Es gibt nicht mehr als einen Ausfall des Systems pro Monat. \\ %Realistisch?
+        /NF100/ & \\
+        /NF110/ & \\
+        /NF120/ & \\
+    \end{tabular}
+
     \chapter{Systemmodelle}
     \section{Szenarien}
     \section{Anwendungsfälle}
@@ -192,7 +210,9 @@ description={Ein Computer, der der Verwaltung von CS:Select dient und Internetan
     anzeigt, in welcher die \Gls{Spieler} aufgelistet sind, die in einem bestimmten Zeitraum die meisten Punkte erreicht haben.
 
     \section{Objektmodell}
+
     \section{Dynamische Modelle}
+
     \section{Benutzerschnittstelle}
     \subsection{Anmeldung}
     \centering
