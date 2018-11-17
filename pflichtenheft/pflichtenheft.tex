@@ -29,9 +29,27 @@ description={Für dieses Produkt wird nur auf Google Chrome und Mozilla Firefox 
 
 \newglossaryentry{Spiel}
 {
-name=Spiel,
-plural=Spiele,
-description={Ein Spiel ist eine Instanz eines Spielmodus. Ein Spiel hat das Ziel das Wissen des Spielers zu nutzen, um die Merkmalsauswahl für Machine Learning zu unterstützen.}
+name={Spiel},
+plural={Spiele},
+description={Ein Spiel ist eine Instanz eines \Gls{Spielmodus}. Ein Spiel hat das Ziel, das Wissen des Spielers zu nutzen, um die Merkmalsauswahl für Machine Learning zu unterstützen.}
+}
+\newglossaryentry{Spielmodus}
+{
+name={Spielmodus},
+plural={Spielmodi},
+description={Ein Spielmodus ist eine definierte Art und Weise, die Merkmalsauswahl durchzuführen. Standardmäßig gibt es die Spielmodi \Gls{Matrix Select} und \Gls{Binar Select}.}
+}
+\newglossaryentry{Matrix Select}
+{
+name={Matrix Select},
+plural={Matrix Select},
+description={Matrix Select ist ein \Gls{Spielmodus}, in dem ein \Gls{Spieler} aus einer bestimmten Anzahl an Merkmalen eine Teilmenge auswählt.}
+}
+\newglossaryentry{Binar Select}
+{
+name={Binär Select},
+plural={Binär Select},
+description={Binär Select ist ein \Gls{Spielmodus}, in dem ein \Gls{Spieler} Merkmale jeweils paarweise vergleicht und eins auswählt.}
 }
 
 \newglossaryentry{Spieler}
@@ -57,7 +75,7 @@ description={Ein Organisator ist ein Nutzer, der neue Spiele erstellt und die Er
 {
 name=Achievement,
 plural=Achievements,
-description={Ein Ziel oder eine Errungenschaft, welche den Spieler motiviert weiter zu spielen.}
+description={Ein Ziel oder eine Errungenschaft, welche den Spieler motiviert, weiterzuspielen.}
 }
 \newglossaryentry{Administrator}
 {
@@ -83,7 +101,7 @@ description={Ein Computer, welcher der Verwaltung von CS:Select dient und eine I
     \tableofcontents
 
     \chapter{Zielbestimmung}
-    Eine Organisation soll durch das \Gls{Produkt} das Domänenwissen ihrer Mitarbeiter dazu nutzen die Merksmalsauswahl für ein Machine-Learning-Modell zu vereinfachen.
+    Eine Organisation soll durch das \Gls{Produkt} das Domänenwissen ihrer Mitarbeiter dazu nutzen, die Merksmalsauswahl für ein Machine-Learning-Modell zu vereinfachen.
 
     \section{Musskriterien}
     \begin{tabular}{ l | l}
@@ -93,7 +111,12 @@ description={Ein Computer, welcher der Verwaltung von CS:Select dient und eine I
         /FA40/ & Ein \Gls{Organisator} muss ein \Gls{Spiel} erstellen und beenden können. \\
         /FA50/ & Die Anmeldung muss in einem modernem \Gls{Webbrowser} möglich sein. \\
         /FA60/ & \Gls{Spieler} müssen bei einem \Gls{Spiel} mitspielen können. \\
-        /FA70/ & Ein \Gls{Organisator} muss \Gls{Spieler} zu einem \Gls{Spiel} einladen. \\
+        /FA70/ & Ein \Gls{Organisator} muss \Gls{Spieler} zu einem \Gls{Spiel} einladen können. \\
+        /FA80/ & Die Ergebnisse eines \Gls{Spiel} können ausgelesen werden. \\
+        /FA90/ & Ein Spiel muss Endbedingungen besitzen. \\
+        /FA100/ & Ein Spiel muss bei Erreichen seiner Endbedingungen enden. \\
+        /FA110/ & Das System muss mit dem ML-Server kommunizieren. \\
+        /FA120/ & Der Organisator kann in einem GUI den Spielstand überprüfen.\\
     \end{tabular}
 
     \section{Kannkriterien}
@@ -125,9 +148,21 @@ description={Ein Computer, welcher der Verwaltung von CS:Select dient und eine I
     \end{tabularx}
 
     \section{Abgrenzungskriterien}
-    \begin{itemize}
-        \item 1
-    \end{itemize}
+    \begin{tabular}{ l | l}
+    /AK10/ & Das Produkt muss nicht bestimmen welches Subset an Merkmalen optimal ist.\\
+    /AK20/ & Das Produkt muss nicht die Auswertung der Ergebnisse unterstützen.\\
+    /AK30/ & \\
+    /AK40/ & \\
+    /AK50/ & \\
+    /AK60/ & \\
+    /AK70/ & \\
+    /AK80/ & \\
+    /AK90/ & \\
+    /AK100/ & \\
+    /AK110/ & \\
+    /AK120/ & \\
+    /AK130/ & \\
+    \end{tabular}
 
     \chapter{Einsatz}
 
@@ -156,24 +191,47 @@ description={Ein Computer, welcher der Verwaltung von CS:Select dient und eine I
 
     \section{Nutzerdaten}
     \begin{tabularx}{\linewidth}{@{}>{\bfseries}l@{\hspace{.5em}}X@{}}
-        /D10/ & Über Nutzer(\Gls{Spieler}, \Gls{Organisator}) sind folgende Daten zu speichern /ND10/: \begin{itemize}
-                                                                                                           \item Email-Adresse, Nutzername, Punktestand, Rolle, Passwort(als Hash)
-        \end{itemize}
+        /D10/ & Über Nutzer(\Gls{Spieler}, \Gls{Organisator}) sind folgende Daten zu speichern /ND10/: 
+        \begin{itemize}
+              \item Email-Adresse, Nutzername, Punktestand, Rolle, Passwort(als Hash)
+        \end{itemize} \\
+        /KD10/ & Über einen \Gls{Spieler} werden außerdem seine Achievements gespeichert. \\
+        /KD20/ & Über einen \Gls{Organisator} werden außerdem seine Spieleinstellungen gespeichert. \\
     \end{tabularx}
 
     \section{Merkmalsdatensätze}
     \begin{tabularx}{\linewidth}{@{}>{\bfseries}l@{\hspace{.5em}}X@{}}
-        /D20/ & Für jeden Merkmalsdatensatz ist zu speichern: /ND20/: \begin{itemize}
-                                                                          \item Liste an Merkmalen mit jeweiligen Graphen und Beschreibung
+        /D20/ & Für jeden Merkmalsdatensatz ist zu speichern: /ND20/: 
+        \begin{itemize}
+             \item Liste an Merkmalen mit jeweiligen Graphen und Beschreibung
         \end{itemize}
     \end{tabularx}
 
     \section{Spieledaten}
     \begin{tabularx}{\linewidth}{@{}>{\bfseries}l@{\hspace{.5em}}X@{}}
-        /D30/ & Für jedes \Gls{Spiel} ist zu speichern /ND30/: \begin{itemize}
-                                                                   \item \Gls{Organisator}, \Gls{Spieleinstellungen}, \Gls{Spieler}, zugehöriger Merkmalsdatensatz % zuständiger ML Server?
+        /D30/ & Für jedes \Gls{Spiel} ist zu speichern /ND30/: 
+        \begin{itemize}
+             \item \Gls{Organisator}, \Gls{Spieleinstellungen}, \Gls{Spieler}, zugehöriger Merkmalsdatensatz % zuständiger ML Server?
         \end{itemize}
     \end{tabularx}
+
+
+    \chapter{Nichtfunktionale Anforderungen}
+
+    \begin{tabular}{ l | l}
+        /NF10/ & Es müssen mindestens 30 Spieler zur gleichen Zeit spielen können.\\
+        /NF20/ & Die Interaktionszeiten dürfen nicht länger als zwei Sekunden betragen. \\
+        /NF30/ & Ein Spieler soll das Ergebnis eines Spiels innerhalb von zwei Sekunden erhalten. \\
+        /NF40/ & Das Design soll modern sein. \\
+        /NF50/ & Die ML-Datenbanken sollen leicht austauschbar sein. \\
+        /NF60/ & Neue Spielmodi sollen leicht erweitert werden können. \\
+        /NF70/ & Neue Sprachen sollen leicht hinzugefügt werden können. \\
+        /NF80/ & Das Produkt enthält nicht mehr als 0,1\% plattformspezifischer Anweisungen. \\
+        /NF90/ & Es gibt nicht mehr als einen Ausfall des Systems pro Monat. \\ %Realistisch?
+        /NF100/ & \\
+        /NF110/ & \\
+        /NF120/ & \\
+    \end{tabular}
 
     \chapter{Systemmodelle}
 
