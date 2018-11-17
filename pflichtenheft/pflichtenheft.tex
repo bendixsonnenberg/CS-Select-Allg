@@ -29,27 +29,27 @@ description={Für dieses Produkt wird nur auf Google Chrome und Mozilla Firefox 
 
 \newglossaryentry{Spiel}
 {
-name={Spiel},
-plural={Spiele},
+name=Spiel,
+plural=Spiele,
 description={Ein Spiel ist eine Instanz eines \Gls{Spielmodus}. Ein Spiel hat das Ziel, das Wissen des Spielers zu nutzen, um die Merkmalsauswahl für Machine Learning zu unterstützen.}
 }
 \newglossaryentry{Spielmodus}
 {
-name={Spielmodus},
-plural={Spielmodi},
-description={Ein Spielmodus ist eine definierte Art und Weise, die Merkmalsauswahl durchzuführen. Standardmäßig gibt es die Spielmodi \Gls{Matrix Select} und \Gls{Binar Select}.}
+name=Spielmodus,
+plural=Spielmodi,
+description={Ein Spielmodus ist eine definierte Art und Weise, die Merkmalsauswahl durchzuführen. Standardmäßig gibt es die Spielmodi \Gls{Matrix Select} und \Gls{Binar Select}}.
 }
 \newglossaryentry{Matrix Select}
 {
-name={Matrix Select},
-plural={Matrix Select},
+name=Matrix Select,
+plural=Matrix Select,
 description={Matrix Select ist ein \Gls{Spielmodus}, in dem ein \Gls{Spieler} aus einer bestimmten Anzahl an Merkmalen eine Teilmenge auswählt.}
 }
 \newglossaryentry{Binar Select}
 {
-name={Binär Select},
-plural={Binär Select},
-description={Binär Select ist ein \Gls{Spielmodus}, in dem ein \Gls{Spieler} Merkmale jeweils paarweise vergleicht und eins auswählt.}
+name=Binär Select,
+plural=Binär Select,
+description={Binär Select ist ein \Gls{Spielmodus}, in dem ein \Gls{Spieler} Merkmale jeweils paarweise vergleicht und eines auswählt.}
 }
 
 \newglossaryentry{Spieler}
@@ -81,8 +81,7 @@ description={Ein Ziel oder eine Errungenschaft, welche den Spieler motiviert, we
 {
 name=Administrator,
 plural=Administratoren,
-description={Die Person, welche das System installiert und den Nutzern zur Verfügung stellt. Sie verwaltet den
-\Gls{Spiele-Server}}
+description={Die Person, welche das System installiert und den Nutzern zur Verfügung stellt. Sie verwaltet den \Gls{Spiele-Server}.}
 }
 \newglossaryentry{Spiele-Server}
 {
@@ -172,7 +171,7 @@ description={Ein Computer, welcher der Verwaltung von CS:Select dient und eine I
 
     \section{Zielgruppen}
     Die Zielgruppen des \Gls{Produkt}s lassen sich in \Glspl{Organisator} und \Glspl{Spieler} unterscheiden.
-    Der Organisator möchte eine Verbesserung der Machine-Learning Prozesse erreichen indem er das Domänenwissen der Spieler nutzt.
+    Der Organisator möchte eine Verbesserung der Machine-Learning Prozesse erreichen, indem er das Domänenwissen der Spieler nutzt.
     Die Spieler tragen durch Spielen des \Gls{Produkt}s mit ihrem Domänenwissen zur besseren Merkmalsauswahl bei.
 
     \section{Betriebsbedingungen}
@@ -255,7 +254,7 @@ description={Ein Computer, welcher der Verwaltung von CS:Select dient und eine I
         \item Ausgangsaktionen: Spiele-Server starten
         \item Ereignisfluss: 
             \begin{itemize}
-                \item Administrator kopiert die War datei in den Tomcat webapps Ordner
+                \item Administrator kopiert die War Datei in den Tomcat webapps Ordner
                 \item Administrator fügt den Pfad zur CFG Datei in die `tomcat/conf/Catalina/<host>` Datei ein
                 \item Administrator konfiguriert die CFG Datei aus der Dokumentation mit den relevanten Werten
                 \item Administrator führt \texttt{tomcat/bin/startup.sh}(Linux \& Mac) bzw. \texttt{tomcat\textbackslash bin\textbackslash startup.bat}(Windows) aus
@@ -266,7 +265,7 @@ description={Ein Computer, welcher der Verwaltung von CS:Select dient und eine I
     \begin{itemize}
         \item Teilnehmende Akteure: Administrator
         \item Eingangsaktionen: Spiele-Server ist aktiv
-        \item Ausgangsaktion: MySQL beenden, falls sonst nichts Weiteres auf der Datenbank läuft
+        \item Ausgangsaktionen: MySQL beenden, falls sonst nichts Weiteres auf der Datenbank läuft
         \item Ereignisfluss: Administrator führt \texttt{tomcat/bin/shutdown.sh}(Linux \& Mac) bzw. \texttt{tomcat\textbackslash bin\textbackslash shutdown.bat}(Windows)
     \end{itemize}
 
@@ -310,11 +309,11 @@ description={Ein Computer, welcher der Verwaltung von CS:Select dient und eine I
     \subsection{Organisator registrieren}
     \begin{itemize}
         \item Teilnehmende Akteure: Organisator
-        \item Eingangsaktionen: Spiele-Server ist aktiv, Organisator-Registrierungspasswort ist gesetzt.
+        \item Eingangsaktionen: Spiele-Server ist aktiv, Organisator-Registrierungspasswort ist gesetzt
         \item Ereignisfluss:
         \begin{itemize}
-            \item Der Organisator öffnet die Produktwebsite und klickt auf Registrieren.
-            \item Der Spieler gibt einen einzigartigen Nutzernamen, seine E-Mail-Addresse, das Organisator-Registrierungspasswort sowie ein persönliches Passwort ein und bestätigt.
+            \item Organisator öffnet die Produktwebsite und klickt auf Registrieren
+            \item Organisator gibt einen einzigartigen Nutzernamen, seine E-Mail-Addresse, das Organisator-Registrierungspasswort sowie ein persönliches Passwort ein und bestätigt seine Auswahl
         \end{itemize}
     \end{itemize}
 
@@ -401,7 +400,7 @@ description={Ein Computer, welcher der Verwaltung von CS:Select dient und eine I
     \subsection{Admin-Account einrichten}
     \begin{itemize}
         \item Teilnehmende Akteure: \Gls{Administrator}
-        \item Eingangsaktionen: %??
+        \item Eingangsaktionen: - %??
         \item Ausgangsaktionen: Admin-Account erstellen
         \item Ereignisfluss:
         \begin{itemize}
@@ -416,7 +415,7 @@ description={Ein Computer, welcher der Verwaltung von CS:Select dient und eine I
     \begin{itemize}
         \item Teilnehmende Akteure: \Gls{Spieler}
         \item Eingangsaktionen: Spiele-Server ist aktiv
-        \item Ausgangsaktionen: Achievements ansehen
+        %\item Ausgangsaktionen: Achievements ansehen
         \item Ereignisfluss:
         \begin{itemize}
             \item Spieler meldet sich an
@@ -432,7 +431,7 @@ description={Ein Computer, welcher der Verwaltung von CS:Select dient und eine I
     \begin{itemize}
         \item Teilnehmende Akteure: \Gls{Spieler}
         \item Eingangsaktionen: Spiele-Server ist aktiv
-        \item Ausgangsaktionen: Leaderboard ansehen
+        %\item Ausgangsaktionen: Leaderboard ansehen
         \item Ereignisfluss:
         \begin{itemize}
             \item Spieler meldet sich an
@@ -443,7 +442,7 @@ description={Ein Computer, welcher der Verwaltung von CS:Select dient und eine I
     %Nach der Anmeldung erreicht ein \Gls{Spieler} eine Übersichts-Seite. Darauf ist ein Bereich, der eine aktuelle Tabelle
     %anzeigt, in welcher die \Gls{Spieler} aufgelistet sind, die in einem bestimmten Zeitraum die meisten Punkte erreicht haben.
     
-    \subsection{Runde spielen Matrix Select}
+    \subsection{Runde spielen: Matrix Select}
     \begin{itemize}
     	\item Teilnehmende Akteure: \Gls{Spieler}
     	\item Eingangsaktionen: Spiele-Server ist aktiv, Spieler hat offenes Spiel des Spielmodus Matrix Select
@@ -459,7 +458,7 @@ description={Ein Computer, welcher der Verwaltung von CS:Select dient und eine I
     	\end{itemize}
     \end{itemize}
 	
-	\subsection{Runde spielen Binär Select}
+	\subsection{Runde spielen: Binär Select}
 	\begin{itemize}
 		\item Teilnehmende Akteure: \Gls{Spieler}
 		\item Eingangsaktionen: Spiele-Server ist aktiv, Spieler hat offenes Spiel des Spielmodus Binär Select
@@ -500,6 +499,47 @@ description={Ein Computer, welcher der Verwaltung von CS:Select dient und eine I
 			\item Organisator sieht den Zustand seiner laufenden Spiele
 		\end{itemize}
 	\end{itemize}
+
+    \subsection{Sprache ändern}
+    \begin{itemize}
+    \item Teilnehmende Akteure: \Gls{Spieler}, \Gls{Organisator}
+    \item Eingangsaktionen: Spiele-Server ist aktiv
+    \item Ereignisfluss:
+        \begin{itemize}
+            \item Organisator oder Spieler meldet sich an
+            \item Organisator oder Spieler erreicht seine Übersichtsseite
+            \item Organisator oder Spieler wählt die Sprachänderungs-Schaltfläche aus
+            \item Organisator oder Spieler bestätigt seine Auswahl
+        \end{itemize}
+    \end{itemize}
+
+    \subsection{Passwort ändern}
+    \begin{itemize}
+    \item Teilnehmende Akteure: \Gls{Spieler}, \Gls{Organisator}
+    \item Eingangsaktionen: Spiele-Server ist aktiv
+    \item Ereignisfluss:
+        \begin{itemize}
+            \item Organisator oder Spieler meldet sich an
+            \item Organisator oder Spieler erreicht seine Übersichtsseite
+            \item Organisator oder Spieler wählt die Profileinstellungen aus
+            \item Organisator oder Spieler klickt aus die \enquote{Passwort ändern}-Schaltfläche
+            \item Organisator oder Spieler gibt sein aktuelle sowie sein neues gewünschtes Passwort ein
+            \item Organisator oder Spieler bestätigt seine Auswahl
+        \end{itemize}
+    \end{itemize}
+
+\subsection{Passwort zurücksetzen}
+    \begin{itemize}
+        \item Teilnehmende Akteure: \Gls{Spieler}, \Gls{Organisator}
+        \item Eingangsaktionen: Spiele-Server ist aktiv
+        \item Ausgangsaktionen: Temporäres Passwort ändern
+        \item Ereignisfluss:
+        \begin{itemize}
+            \item Organisator oder Spieler öffnet die Produktwebsite und klickt auf \enquote{Passwort zurücksetzen}
+            \item Organisator oder Spieler erhält per Mail ein neues temporäres Passwort
+            \item Organisator oder Spieler meldet sich mit dem neuen Passwort an
+        \end{itemize}
+    \end{itemize}
 
     \section{Objektmodell}
 
