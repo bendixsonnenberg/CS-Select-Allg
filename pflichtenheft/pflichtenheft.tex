@@ -177,22 +177,27 @@ description={Ein Computer, der der Verwaltung von CS:Select dient und Internetan
 
     \section{Nutzerdaten}
     \begin{tabularx}{\linewidth}{@{}>{\bfseries}l@{\hspace{.5em}}X@{}}
-        /D10/ & Über Nutzer(\Gls{Spieler}, \Gls{Organisator}) sind folgende Daten zu speichern /ND10/: \begin{itemize}
-                                                                                                           \item Email-Adresse, Nutzername, Punktestand, Rolle, Passwort(als Hash)
+        /D10/ & Über Nutzer(\Gls{Spieler}, \Gls{Organisator}) sind folgende Daten zu speichern /ND10/:
+        \begin{itemize}
+              \item Email-Adresse, Nutzername, Punktestand, Rolle, Passwort(als Hash)
         \end{itemize}
+        /KD10/ & Über einen \Gls{Spieler} werden außerdem seine Achievements gespeichert.
+        /KD20/ & Über einen \Gls{Organisator} werden außerdem seine Spieleinstellungen gespeichert.
     \end{tabularx}
 
     \section{Merkmalsdatensätze}
     \begin{tabularx}{\linewidth}{@{}>{\bfseries}l@{\hspace{.5em}}X@{}}
-        /D20/ & Für jeden Merkmalsdatensatz ist zu speichern: /ND20/: \begin{itemize}
-                                                                          \item Liste an Merkmalen mit jeweiligen Graphen und Beschreibung
+        /D20/ & Für jeden Merkmalsdatensatz ist zu speichern: /ND20/: 
+        \begin{itemize}
+             \item Liste an Merkmalen mit jeweiligen Graphen und Beschreibung
         \end{itemize}
     \end{tabularx}
 
     \section{Spieledaten}
     \begin{tabularx}{\linewidth}{@{}>{\bfseries}l@{\hspace{.5em}}X@{}}
-        /D30/ & Für jedes \Gls{Spiel} ist zu speichern /ND30/: \begin{itemize}
-                                                                   \item \Gls{Organisator}, \Gls{Spieleinstellungen}, \Gls{Spieler}, zugehöriger Merkmalsdatensatz % zuständiger ML Server?
+        /D30/ & Für jedes \Gls{Spiel} ist zu speichern /ND30/: 
+        \begin{itemize}
+             \item \Gls{Organisator}, \Gls{Spieleinstellungen}, \Gls{Spieler}, zugehöriger Merkmalsdatensatz % zuständiger ML Server?
         \end{itemize}
     \end{tabularx}
 
