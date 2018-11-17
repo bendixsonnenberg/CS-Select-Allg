@@ -116,6 +116,8 @@ description={Ein Computer, welcher der Verwaltung von CS:Select dient und eine I
         /FA100/ & Ein Spiel muss bei Erreichen seiner Endbedingungen enden. \\
         /FA110/ & Das System muss mit dem ML-Server kommunizieren. \\
         /FA120/ & Der Organisator kann in einem GUI den Spielstand überprüfen.\\
+        /FA130/ & Für den Spieler gibt es ein GUI.
+        /KA240/ & Es gibt mindestens zwei Spielmodi: \Gls{Matrix Select} und \Gls{Binar Select}.
     \end{tabular}
 
     \section{Kannkriterien}
@@ -133,22 +135,25 @@ description={Ein Computer, welcher der Verwaltung von CS:Select dient und eine I
         /KA110/ & Der Knopf aus /KA100/ kostet den \Gls{Spieler} Punkte beim Betätigen. \\
         /KA120/ & Es ist \Gls{Spieler}n möglich Kriterien auszuschließen, also diese als unwichtig zu markieren. \\
         /KA130/ & Der \Gls{Organisator} eines Spiels kann nach dem Begin eines Spiels noch weitere Spieler einladen. \\
-        /KA140/ & Die Merkmale, die pro Runde angezeigt werden, sind schlauer ausgewählt als durch Zufall. \\ %Schlauer präzisieren? Da mir nichts einfällt kann ich da wenig präzisieren
+        /KA140/ & Die Merkmale, die pro Runde angezeigt werden, sind schlauer ausgewählt als durch Zufall. \\
         /KA150/ & Die maximale Anzahl an Runden pro Spieler pro Tag können durch den \Gls{Organisator} eingeschränkt werden. \\
-        /KA160/ & \Glspl{Spieler} erhalten mehr Punkte, wenn sie mehrere Runden in Folge spielen. \\
-        /KA170/ & Es gibt \Gls{Achievement}s, welche von Spielern freigeschaltet werden. \\
-        /KA180/ & Es gibt eine Auflistung der \Gls{Achievement}s aus /KA170/. \\
-        /KA190/ & Es gibt eine Hilfe Schaltfläche im \Gls{Spieler} GUI. \\ 
-        /KA200/ & Es gibt eine Hilfe Schaltfläche im \Gls{Organisator} GUI. \\ 
-        /KA210/ & Das Webinterface unterstüzt Internet Explorer. \\
-        /KA220/ & Mehrere Sprachen sind einfach zu integrieren. \\
-        /KA230/ & Es ist möglich die Punkte eines \Gls{Spieler}s zurückzusetzten. \\ %Durch Spieler oder Orga?
-        /KA240/ & Es gibt eine GUI für \Glspl{Administrator}. \\ 
+        /KA160/ & Für Spieler gibt es ein Punktesystem basierend auf den Spielergebnissen der Spiele. \\
+        /KA170/ & \Glspl{Spieler} erhalten mehr Punkte, wenn sie mehrere Runden in Folge spielen. \\
+        /KA180/ & Es gibt \Gls{Achievement}s, welche von Spielern freigeschaltet werden. \\
+        /KA190/ & Es gibt eine Auflistung der \Gls{Achievement}s aus /KA170/. \\
+        /KA200/ & Es gibt eine Hilfe Schaltfläche im \Gls{Spieler} GUI. \\
+        /KA210/ & Es gibt eine Hilfe Schaltfläche im \Gls{Organisator} GUI. \\
+        /KA220/ & Das Webinterface unterstüzt Internet Explorer. \\
+        /KA230/ & Es gibt mehrere Sprachen zur Auswahl. \\
+        /KA240/ & Es ist möglich die Punkte eines \Gls{Spieler}s zurückzusetzten. \\ %Durch Spieler oder Orga?
+        /KA250/ & Es gibt eine GUI für \Glspl{Administrator}. \\
+        /KA260/ & Ein Spieler oder Organisator kann sein Passwort ändern.
+        /KA270/ & Ein Spieler oder Organisator kann sein Passwort zurücksetzen.
     \end{tabularx}
 
     \section{Abgrenzungskriterien}
     \begin{tabular}{ l | l}
-    /AK10/ & Das Produkt muss nicht bestimmen welches Subset an Merkmalen optimal ist.\\
+    /AK10/ & Das Produkt muss nicht bestimmen, welches Subset an Merkmalen optimal ist.\\
     /AK20/ & Das Produkt muss nicht die Auswertung der Ergebnisse unterstützen.\\
     /AK30/ & \\
     /AK40/ & \\
@@ -224,12 +229,13 @@ description={Ein Computer, welcher der Verwaltung von CS:Select dient und eine I
         /NF40/ & Das Design soll modern sein. \\
         /NF50/ & Die ML-Datenbanken sollen leicht austauschbar sein. \\
         /NF60/ & Neue Spielmodi sollen leicht erweitert werden können. \\
-        /NF70/ & Neue Sprachen sollen leicht hinzugefügt werden können. \\
-        /NF80/ & Das Produkt enthält nicht mehr als 0,1\% plattformspezifischer Anweisungen. \\
-        /NF90/ & Es gibt nicht mehr als einen Ausfall des Systems pro Monat. \\ %Realistisch?
-        /NF100/ & \\
-        /NF110/ & \\
+        /NF70/ & Neue Spieloberflächen sollen leicht erweiterbar sein. \\
+        /NF80/ & Neue Sprachen sollen leicht hinzugefügt werden können. \\
+        /NF90/ & Das Produkt enthält nicht mehr als 0,1\% plattformspezifischer Anweisungen. \\
+        /NF100/ & Es gibt nicht mehr als einen Ausfall des Systems pro Monat. \\ %Realistisch?
+        /NF110/ & Die Anmeldedauer darf nicht mehr als zwei Sekunden batragen. \\
         /NF120/ & \\
+        /NF130/ & \\
     \end{tabular}
 
     \chapter{Systemmodelle}
