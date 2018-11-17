@@ -384,6 +384,64 @@ description={Ein Computer, welcher der Verwaltung von CS:Select dient und eine I
     \end{itemize}
     %Nach der Anmeldung erreicht ein \Gls{Spieler} eine Übersichts-Seite. Darauf ist ein Bereich, der eine aktuelle Tabelle
     %anzeigt, in welcher die \Gls{Spieler} aufgelistet sind, die in einem bestimmten Zeitraum die meisten Punkte erreicht haben.
+    
+    \subsection{Runde spielen Matrix Select}
+    \begin{itemize}
+    	\item Teilnehmende Akteure: \Gls{Spieler}
+    	\item Eingangsaktionen: Spiele-Server ist aktiv, Spieler hat offenes Spiel des Spielmodus Matrix Select
+    	\item Ereignisfluss:
+    	\begin{itemize}
+    		\item Spieler meldet sich an
+    		\item Spieler erreicht seine Übersichtsseite
+    		\item Spieler klickt auf Weiterspielen-Schaltfläche
+    		\item Spieler erreicht Spiel-GUI
+    		\item Spieler klickt auf ein Merkmal und sieht Merkmalsgraphen und Merkmalsbeschreibung
+    		\item Spieler wählt mehrere Merkmale aus
+    		\item Spieler klickt auf Schaltfläche, um Auswahl zu bestätigen 
+    	\end{itemize}
+    \end{itemize}
+	
+	\subsection{Runde spielen Binär Select}
+	\begin{itemize}
+		\item Teilnehmende Akteure: \Gls{Spieler}
+		\item Eingangsaktionen: Spiele-Server ist aktiv, Spieler hat offenes Spiel des Spielmodus Binär Select
+		\item Ereignisfluss:
+		\begin{itemize}
+			\item Spieler meldet sich an
+			\item Spieler erreicht seine Übersichtsseite
+			\item Spieler klickt auf Weiterspielen-Schaltfläche
+			\item Spieler erreicht Spiel-GUI
+			\item Spieler klickt auf ein Merkmal und sieht Merkmalsgraphen und Merkmalsbeschreibung
+			\item Spieler wählt eines der beiden Merkmale aus
+			\item Spieler klickt auf Schaltfläche, um Auswahl zu bestätigen 
+		\end{itemize}
+	\end{itemize}
+
+	\subsection{Runde überspringen}
+	\begin{itemize}
+		\item Teilnehmende Akteure: \Gls{Spieler}
+		\item Eingangsaktionen: Spiele-Server ist aktiv, Spieler hat offenes Spiel 
+		\item Ereignisfluss:
+		\begin{itemize}
+			\item Spieler meldet sich an
+			\item Spieler erreicht seine Übersichtsseite
+			\item Spieler klickt auf Weiterspielen-Schaltfläche
+			\item Spieler erreicht Spiel-GUI
+			\item Spieler klickt Runde-Überspringen-Schaltfläche und bestätigt seine Auswahl
+		\end{itemize}
+	\end{itemize}
+
+	\subsection{Spielzustand auslesen}
+	\begin{itemize}
+		\item Teilnehmende Akteure: \Gls{Organisator}
+		\item Eingangsaktionen: Spiele-Server ist aktiv
+		\item Ereignisfluss:
+		\begin{itemize}
+			\item Organisator meldet sich an
+			\item Organisator erreicht seine Übersichtsseite
+			\item Organisator sieht den Zustand seiner laufenden Spiele
+		\end{itemize}
+	\end{itemize}
 
     \section{Objektmodell}
 
