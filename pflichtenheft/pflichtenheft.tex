@@ -245,37 +245,15 @@ description={Ein Computer, welcher der Verwaltung von CS:Select dient und eine I
 
     \section{Anwendungsfälle}
 
-    \subsection{Ergebnisse auslesen}
+    \includegraphics[width=\textwidth]{uml/export/Organisation.png}
+    Akteure:
     \begin{itemize}
-        \item Teilnehmende Akteure: \Gls{Organisator}
-        \item Eingangsaktionen: \Gls{Organisator} öffnet die Auswertungsseite
-        \item Ausgangsaktionen: \Gls{Organisator} erhält die Auswertung
-        \item Ereignisfluss -
+        \item \Gls{Administrator}
+        \item \Gls{Organisator}
+        \item \Gls{Spieler}
     \end{itemize}
-
-    \subsection{Server installieren}
-    \begin{itemize}
-        \item Teilnehmende Akteure: \Gls{Administrator} 
-        \item Eingangsaktionen: Computer mit MySQL und Tomcat installiert
-        \item Ausgangsaktionen: Spiele-Server starten
-        \item Ereignisfluss: 
-            \begin{itemize}
-                \item Administrator kopiert die War Datei in den Tomcat webapps Ordner
-                \item Administrator fügt den Pfad zur CFG Datei in die `tomcat/conf/Catalina/<host>` Datei ein
-                \item Administrator konfiguriert die CFG Datei aus der Dokumentation mit den relevanten Werten
-                \item Administrator führt \texttt{tomcat/bin/startup.sh}(Linux \& Mac) bzw. \texttt{tomcat\textbackslash bin\textbackslash startup.bat}(Windows) aus
-            \end{itemize}
-    \end{itemize}
-
-    \subsection{Server beenden}
-    \begin{itemize}
-        \item Teilnehmende Akteure: Administrator
-        \item Eingangsaktionen: Spiele-Server ist aktiv
-        \item Ausgangsaktionen: MySQL beenden, falls sonst nichts Weiteres auf der Datenbank läuft
-        \item Ereignisfluss: Administrator führt \texttt{tomcat/bin/shutdown.sh}(Linux \& Mac) bzw. \texttt{tomcat\textbackslash bin\textbackslash shutdown.bat}(Windows)
-    \end{itemize}
-
-    \subsection{Spieler registrieren}
+    \newpage
+   \subsection{Spieler registrieren}
     \begin{itemize}
         \item Teilnehmende Akteure: Organisator, Spieler
         \item Eingangsaktionen: Spiele-Server ist aktiv
@@ -434,20 +412,6 @@ description={Ein Computer, welcher der Verwaltung von CS:Select dient und eine I
         \end{itemize}
     \end{itemize}
 
-    \subsection{Admin-Account einrichten}
-    \begin{itemize}
-        \item Teilnehmende Akteure: \Gls{Administrator}
-        \item Eingangsaktionen: - %??
-        \item Ausgangsaktionen: Admin-Account erstellen
-        \item Ereignisfluss:
-        \begin{itemize}
-            \item Admin-Account wird in einer config-Datei festgelegt
-            \item Man gibt Name, E-Mail und Passwort des Admins ein
-        \end{itemize}
-    \end{itemize}
-    %Beim erstmaligen Aufsetzen des \Gls{Spiele-Server}s kann ein Admin-Account in einer config-Datei festgelegt werden.
-    %Dazu werden Name, Email und Passwort des \Gls{Administrator}s gespeichert.
-
     \subsection{Punkte eines Spielers zurücksetzen}
     \begin{itemize}
         \item Teilnehmende Akteure: \Gls{Administrator}, \Gls{Spieler}
@@ -462,37 +426,26 @@ description={Ein Computer, welcher der Verwaltung von CS:Select dient und eine I
         \end{itemize}
     \end{itemize}
 
-    \subsection{Achievements ansehen}
-    \begin{itemize}
-        \item Teilnehmende Akteure: \Gls{Spieler}
-        \item Eingangsaktionen: Spiele-Server ist aktiv
-        %\item Ausgangsaktionen: Achievements ansehen
-        \item Ereignisfluss:
-        \begin{itemize}
-            \item Spieler meldet sich an
-            \item Spieler erreicht seine Übersichts-Seite
-            \item Spieler klickt auf die Spieler-Übersichts-Schaltfläche
-            \item Spieler schaut seine Achievements an
-        \end{itemize}
-    \end{itemize}
-    %Nach der Anmeldung erreicht ein \Gls{Spieler} eine Übersichts-Seite. Beim Klicken auf die Spieler-Übersicht-Schaltfläche
-    %(in \fref{fig:Spieler-Übersicht} gezeigt) kann der \Gls{Spieler} seine \Gls{Achievement}s einsehen.
 
-    \subsection{Leaderboard ansehen}
+    \subsection{Ergebnisse auslesen}
+
     \begin{itemize}
-        \item Teilnehmende Akteure: \Gls{Spieler}
-        \item Eingangsaktionen: Spiele-Server ist aktiv
-        %\item Ausgangsaktionen: Leaderboard ansehen
-        \item Ereignisfluss:
-        \begin{itemize}
-            \item Spieler meldet sich an
-            \item Spieler erreicht seine Übersichtsseite
-            \item Spieler sieht dort in einer Tabelle die Spieler mit den meisten Punkten über einen gewissen Zeitraum
-        \end{itemize}
+        \item Teilnehmende Akteure: \Gls{Organisator}
+        \item Eingangsaktionen: \Gls{Organisator} öffnet die Auswertungsseite
+        \item Ausgangsaktionen: \Gls{Organisator} erhält die Auswertung
+        \item Ereignisfluss -
     \end{itemize}
-    %Nach der Anmeldung erreicht ein \Gls{Spieler} eine Übersichts-Seite. Darauf ist ein Bereich, der eine aktuelle Tabelle
-    %anzeigt, in welcher die \Gls{Spieler} aufgelistet sind, die in einem bestimmten Zeitraum die meisten Punkte erreicht haben.
+ 
+    \newpage
+    \includegraphics[width=\textwidth]{uml/export/Spiel.png}
+    Akteure: 
+    \begin{itemize}
+    \item \Gls{Spieler}
+    \item \Gls{Organisator}
+    \newpage
+    \end{itemize}
     
+   
     \subsection{Runde spielen: Matrix Select}
     \begin{itemize}
     	\item Teilnehmende Akteure: \Gls{Spieler}
@@ -565,6 +518,58 @@ description={Ein Computer, welcher der Verwaltung von CS:Select dient und eine I
             \item Organisator oder Spieler bestätigt seine Auswahl
         \end{itemize}
     \end{itemize}
+    \subsection{Server installieren}
+    \begin{itemize}
+        \item Teilnehmende Akteure: \Gls{Administrator} 
+        \item Eingangsaktionen: Computer mit MySQL und Tomcat installiert
+        \item Ausgangsaktionen: Spiele-Server starten
+        \item Ereignisfluss: 
+            \begin{itemize}
+                \item Administrator kopiert die War Datei in den Tomcat webapps Ordner
+                \item Administrator fügt den Pfad zur CFG Datei in die `tomcat/conf/Catalina/<host>` Datei ein
+                \item Administrator konfiguriert die CFG Datei aus der Dokumentation mit den relevanten Werten
+                \item Administrator führt \texttt{tomcat/bin/startup.sh}(Linux \& Mac) bzw. \texttt{tomcat\textbackslash bin\textbackslash startup.bat}(Windows) aus
+            \end{itemize}
+    \end{itemize}
+
+    \subsection{Server beenden}
+    \begin{itemize}
+        \item Teilnehmende Akteure: Administrator
+        \item Eingangsaktionen: Spiele-Server ist aktiv
+        \item Ausgangsaktionen: MySQL beenden, falls sonst nichts Weiteres auf der Datenbank läuft
+        \item Ereignisfluss: Administrator führt \texttt{tomcat/bin/shutdown.sh}(Linux \& Mac) bzw. \texttt{tomcat\textbackslash bin\textbackslash shutdown.bat}(Windows)
+    \end{itemize}
+    \subsection{Achievements ansehen}
+    \begin{itemize}
+        \item Teilnehmende Akteure: \Gls{Spieler}
+        \item Eingangsaktionen: Spiele-Server ist aktiv
+        %\item Ausgangsaktionen: Achievements ansehen
+        \item Ereignisfluss:
+        \begin{itemize}
+            \item Spieler meldet sich an
+            \item Spieler erreicht seine Übersichts-Seite
+            \item Spieler klickt auf die Spieler-Übersichts-Schaltfläche
+            \item Spieler schaut seine Achievements an
+        \end{itemize}
+    \end{itemize}
+    %Nach der Anmeldung erreicht ein \Gls{Spieler} eine Übersichts-Seite. Beim Klicken auf die Spieler-Übersicht-Schaltfläche
+    %(in \fref{fig:Spieler-Übersicht} gezeigt) kann der \Gls{Spieler} seine \Gls{Achievement}s einsehen.
+    \subsection{Leaderboard ansehen}
+    \begin{itemize}
+        \item Teilnehmende Akteure: \Gls{Spieler}
+        \item Eingangsaktionen: Spiele-Server ist aktiv
+        %\item Ausgangsaktionen: Leaderboard ansehen
+        \item Ereignisfluss:
+        \begin{itemize}
+            \item Spieler meldet sich an
+            \item Spieler erreicht seine Übersichtsseite
+            \item Spieler sieht dort in einer Tabelle die Spieler mit den meisten Punkten über einen gewissen Zeitraum
+        \end{itemize}
+    \end{itemize}
+    %Nach der Anmeldung erreicht ein \Gls{Spieler} eine Übersichts-Seite. Darauf ist ein Bereich, der eine aktuelle Tabelle
+    %anzeigt, in welcher die \Gls{Spieler} aufgelistet sind, die in einem bestimmten Zeitraum die meisten Punkte erreicht haben.
+ 
+
 
     \subsection{Passwort ändern}
     \begin{itemize}
