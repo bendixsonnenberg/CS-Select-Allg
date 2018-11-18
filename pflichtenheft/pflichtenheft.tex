@@ -535,7 +535,7 @@ description={Ein Computer, welcher der Verwaltung von CS:Select dient und eine I
         \end{itemize}
     \end{itemize}
 
-\subsection{Passwort zurücksetzen}
+    \subsection{Passwort zurücksetzen}
     \begin{itemize}
         \item Teilnehmende Akteure: \Gls{Spieler}, \Gls{Organisator}
         \item Eingangsaktionen: Spiele-Server ist aktiv
@@ -547,8 +547,30 @@ description={Ein Computer, welcher der Verwaltung von CS:Select dient und eine I
             \item Organisator oder Spieler meldet sich mit dem neuen Passwort an
         \end{itemize}
     \end{itemize}
-
-    \section{Objektmodell}
+    
+    \subsection{Streak erreichen}
+    \begin{itemize}
+        \item Teilnehmende Akteure: \Gls{Spieler}
+        \item Eingangsaktionen: Spieler spielt eine Runde
+        \item Ausgangsaktionen: Spieler erhält extra Punkte für seine Runde
+        \item Ereignisfluss:
+        \begin{itemize}
+            \item Spieler spielt n Runden um eine Streak zu erreichen. 
+            \item System teilt dem Spieler mit, dass er eine Streak erreicht hat.
+        \end{itemize}
+    \end{itemize}
+    
+    \subsection{Hilfe-Schaltfläche verwenden}
+    \begin{itemize}
+        \item Teilnehmende Akteure: \Gls{Spieler}, \Gls{Organisator}
+        \item Eingangsaktionen: Spieler oder Organisator benötigt Hilfe mit dem Produkt
+        \item Ausgangsaktionen: System zeigt dem Akteur die relevante Hilfe Seite
+        \item Ereignissfluss:
+            \begin{itemize}
+                \item Spieler oder Organisator klickt auf die Hilfe-Schaltfläche(oben links)
+            \end{itemize}
+    \end{itemize}
+        \section{Objektmodell}
 
     \section{Dynamische Modelle}
 
