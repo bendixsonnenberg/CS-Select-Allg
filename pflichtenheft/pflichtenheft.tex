@@ -404,19 +404,28 @@ description={Ein Computer, welcher der Verwaltung von CS:Select dient und eine I
         \end{itemize}
     \end{itemize}
 
-    \subsection{Admin-Account einrichten}
+    \subsection{Server installieren}
     \begin{itemize}
-        \item Teilnehmende Akteure: \Gls{Administrator}
-        \item Eingangsaktionen: - %??
-        \item Ausgangsaktionen: Admin-Account erstellen
-        \item Ereignisfluss:
-        \begin{itemize}
-            \item Admin-Account wird in einer config-Datei festgelegt
-            \item Man gibt Name, E-Mail und Passwort des Admins ein
-        \end{itemize}
+        \item Teilnehmende Akteure: \Gls{Administrator} 
+        \item Eingangsaktionen: Computer mit MySQL und Tomcat installiert
+        \item Ausgangsaktionen: Spiele-Server starten
+        \item Ereignisfluss: 
+            \begin{itemize}
+                \item Administrator kopiert die War Datei in den Tomcat webapps Ordner
+                \item Administrator fügt den Pfad zur CFG Datei in die `tomcat/conf/Catalina/<host>` Datei ein
+                \item Administrator konfiguriert die CFG Datei aus der Dokumentation mit den relevanten Werten
+                \item Administrator führt \texttt{tomcat/bin/startup.sh}(Linux \& Mac) bzw. \texttt{tomcat\textbackslash bin\textbackslash startup.bat}(Windows) aus
+            \end{itemize}
     \end{itemize}
-    %Beim erstmaligen Aufsetzen des \Gls{Spiele-Server}s kann ein Admin-Account in einer config-Datei festgelegt werden.
-    %Dazu werden Name, Email und Passwort des \Gls{Administrator}s gespeichert.
+
+    \subsection{Server beenden}
+    \begin{itemize}
+        \item Teilnehmende Akteure: Administrator
+        \item Eingangsaktionen: Spiele-Server ist aktiv
+        \item Ausgangsaktionen: MySQL beenden, falls sonst nichts Weiteres auf der Datenbank läuft
+        \item Ereignisfluss: Administrator führt \texttt{tomcat/bin/shutdown.sh}(Linux \& Mac) bzw. \texttt{tomcat\textbackslash bin\textbackslash shutdown.bat}(Windows)
+    \end{itemize}
+
 
     \subsection{Achievements ansehen}
     \begin{itemize}
