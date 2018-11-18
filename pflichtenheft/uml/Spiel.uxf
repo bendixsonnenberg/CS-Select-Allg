@@ -3,9 +3,9 @@
   <element>
     <id>UMLGeneric</id>
     <coordinates>
-      <x>550</x>
+      <x>480</x>
       <y>140</y>
-      <w>490</w>
+      <w>560</w>
       <h>660</h>
     </coordinates>
     <panel_attributes>Spiel
@@ -288,5 +288,41 @@ ansehen</panel_attributes>
     </coordinates>
     <panel_attributes/>
     <additional_attributes>10.0;230.0;290.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLUseCase</id>
+    <coordinates>
+      <x>500</x>
+      <y>230</y>
+      <w>120</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>Runde 
+überspringen</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>560</x>
+      <y>210</y>
+      <w>120</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=.&gt;
+&lt;&lt;includes&gt;&gt;</panel_attributes>
+    <additional_attributes>100.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>540</x>
+      <y>250</y>
+      <w>110</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=.&gt;
+&lt;&lt;includes&gt;&gt;</panel_attributes>
+    <additional_attributes>90.0;30.0;10.0;20.0</additional_attributes>
   </element>
 </diagram>
