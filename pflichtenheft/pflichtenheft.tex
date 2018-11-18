@@ -154,7 +154,7 @@ description={Ein Server, der uns bereitgestellt wird und mit REST-API. Der ML-Se
         /KA110/ & Der Knopf aus /KA100/ kostet den \Gls{Spieler} Punkte beim Betätigen. \\
         /KA120/ & Es ist \Gls{Spieler}n möglich Kriterien auszuschließen, also diese als unwichtig zu markieren. \\
         /KA130/ & Der \Gls{Organisator} eines Spiels kann nach dem Begin eines Spiels noch weitere Spieler einladen. \\
-        /KA140/ & Die Merkmale, die pro Runde angezeigt werden, sind schlauer ausgewählt als durch Zufall. \\
+        /KA140/ & Die Merkmale, die pro Runde angezeigt werden, sind schlauer ausgewählt als durch Zufall.\footnote{Durch verschiedene mögliche Auswahlklassen. \fref{fig:FeatureSelect}} \\
         /KA150/ & Die maximale Anzahl an Runden pro Spieler pro Tag können durch den \Gls{Organisator} eingeschränkt werden. \\
         /KA160/ & Für Spieler gibt es ein Punktesystem basierend auf den Spielergebnissen der Spiele. \\
         /KA170/ & \Glspl{Spieler} erhalten mehr Punkte, wenn sie mehrere Runden in Folge spielen. \\
@@ -682,7 +682,10 @@ description={Ein Server, der uns bereitgestellt wird und mit REST-API. Der ML-Se
 
 
     \chapter{Glossar}
-
     \printglossary
-
+    \chapter{Anhang}
+    \subsection{Auswahl an zu zeigenden Merkmalen}
+    \label{fig:FeatureSelect}
+    \includegraphics[width=\textwidth]{uml/export/FeatureSelect.png}
+    
 \end{document}
