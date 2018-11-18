@@ -125,7 +125,7 @@ description={Ein Computer, welcher der Verwaltung von CS:Select dient und eine I
         /KA10/ & Ein \Gls{Organisator} kann die Ergebnisse/Eingabe eines Spielers ansehen. \\
         /KA20/ & Der \Gls{Administrator} kann Spiele aus dem System löschen. \\
         /KA30/ & Der \Gls{Organisator} kann Spiele löschen. \\
-        /KA40/ & Ein \Gls{Organisator} kann eines seiner \Glspl{Spiel} löschen. \\
+        /KA40/ & Ein \Gls{Organisator} kann seine \Glspl{Spiel} beenden. \\
         /KA50/ & Der \Gls{Spiele-Server} kann vom Terminal aus beendet werden. \\
         /KA60/ & Beim Erstellen eines Spiels kann der \Gls{Organisator} die \Gls{Spieleinstellungen} speichern und laden. \\
         /KA70/ & Das System kann auf verschiedenen Ports ausgeführt werden. \\
@@ -146,10 +146,9 @@ description={Ein Computer, welcher der Verwaltung von CS:Select dient und eine I
         /KA220/ & Das Webinterface unterstüzt Internet Explorer. \\
         /KA230/ & Es gibt mehrere Sprachen zur Auswahl. \\
         /KA240/ & Es ist möglich die Punkte eines \Gls{Spieler}s zurückzusetzten. \\ %Durch Spieler oder Orga?
-        /KA250/ & Es gibt eine GUI für \Glspl{Administrator}. \\
-        /KA260/ & Ein Spieler oder Organisator kann sein Passwort ändern. \\
-        /KA270/ & Ein Spieler oder Organisator kann sein Passwort zurücksetzen. \\
-        /KA280/ & In jedem Spiel wird eine Kombination an Features nur genau ein mal abgefragt.\\
+        /KA250/ & Ein Spieler oder Organisator kann sein Passwort ändern. \\
+        /KA260/ & Ein Spieler oder Organisator kann sein Passwort zurücksetzen. \\
+        /KA270/ & In jedem Spiel wird eine Kombination an Features nur genau ein mal abgefragt.\\
     \end{tabularx}
 
     \section{Abgrenzungskriterien}
@@ -329,14 +328,45 @@ description={Ein Computer, welcher der Verwaltung von CS:Select dient und eine I
 
     \subsection{Spiel erstellen}
     \begin{itemize}
-        \item Teilnehmende Akteure: \Gls{Organisator}
+        \item Teilnehmende Akteure: \Gls{Organisator}, \Gls{Spieler}
         \item Eingangsaktionen: Spiele-Server ist aktiv
-        \item Ausgangsaktionen: Spiel starten
+        \item Ausgangsaktionen: Spiel starten, Spieler werden eingeladen
         \item Ereignisfluss:
         \begin{itemize}
             \item Organisator meldet sich an
+            \item Organisator klickt auf "Spiel erstellen"-Schaltfläche
             \item Organisator sucht sich über seine GUI die gewünschten Spieleinstellungen aus
+            \item Organisator lädt Spieler über Angabe der Email in einem Texfeld ein
             \item Organisator bestätigt seine Auswahl und erstellt das Spiel
+        \end{itemize}
+    \end{itemize}
+
+    \subsection{Spieler nach Spielbeginn einladen}
+    \begin{itemize}
+        \item Teilnehmende Akteure: \Gls{Organisator}, \Gls{Spieler}
+        \item Eingangsaktionen: Spiele-Server ist aktiv, Spiel ist gestartet
+        \item Ausgangsaktionen: Spieler werden eingeladen
+        \item Ereignisfluss:
+        \begin{itemize}
+            \item Organisator meldet sich an
+            \item Organisator wählt gestartetes Spiel aus der Übersicht
+            \item Organisator betätigt "Einladen"-Schaltfläche
+            \item Organisator tippt Emails der Spieler in Textfeld ein
+            \item Organisator bestätigt seine Auswahl
+        \end{itemize}
+    \end{itemize}
+
+    \subsection{Spiel vorzeitig beenden}
+    \begin{itemize}
+        \item Teilnehmende Akteure: \Gls{Organisator}, \Gls{Spieler}
+        \item Eingangsaktionen: Spiel ist aktiv und gestartet
+        \item Ausgangsaktionen: Spieler können Spiel nicht mehr spielen %werden sie benachrichtigt?
+        \item Ereignissfluss:
+        \begin{itemize}
+            \item Organisator meldet sich an
+            \item Organisator wählt gestartetes Spiel aus der Übersicht
+            \item Organisator betätigt "Beenden"-Schaltfläche
+            \item Organisator bestätig seine Auswahl
         \end{itemize}
     \end{itemize}
 
@@ -381,7 +411,24 @@ description={Ein Computer, welcher der Verwaltung von CS:Select dient und eine I
             \item Organisator bestätigt seine Auswahl
         \end{itemize}
     \end{itemize}
+
+    \subsection{Punkte eines Spielers zurücksetzen}
+    \begin{itemize}
+        \item Teilnehmende Akteure: \Gls{Administrator}, \Gls{Spieler}
+        \item Eingangsaktionen: Spiele-Server ist aktiv
+        \item Ausgangsaktionen: Die Punkte des Spielers sind zurückgesetzt
+        \item Ereignisfluss:
+        \begin{itemize}
+            \item Administrator loggt sich in Spiele-Server ein
+            \item Administrator gibt das "Punkte zurücksetzen"-Kommando und die Email des registrierten Spielers ein
+            \item Administrator bestätigt seine Auswahl
+            \item Die Punkte des entsprechenden Spielers werden zurückgesetzt
+        \end{itemize}
+    \end{itemize}
+
+
     \subsection{Ergebnisse auslesen}
+
     \begin{itemize}
         \item Teilnehmende Akteure: \Gls{Organisator}
         \item Eingangsaktionen: \Gls{Organisator} öffnet die Auswertungsseite
@@ -431,17 +478,19 @@ description={Ein Computer, welcher der Verwaltung von CS:Select dient und eine I
 		\end{itemize}
 	\end{itemize}
 
-	\subsection{Runde überspringen}
+	\subsection{Auswahl überspringen}
 	\begin{itemize}
 		\item Teilnehmende Akteure: \Gls{Spieler}
-		\item Eingangsaktionen: Spiele-Server ist aktiv, Spieler hat offenes Spiel 
+		\item Eingangsaktionen: Spiele-Server ist aktiv, Spieler hat offenes Spiel
+        \item Ausgangsaktionen: Der Spieler kommt in die nächste Runde des aktiven Spiels
 		\item Ereignisfluss:
 		\begin{itemize}
 			\item Spieler meldet sich an
 			\item Spieler erreicht seine Übersichtsseite
 			\item Spieler klickt auf Weiterspielen-Schaltfläche
 			\item Spieler erreicht Spiel-GUI
-			\item Spieler klickt Runde-Überspringen-Schaltfläche und bestätigt seine Auswahl
+			\item Spieler klickt Auswahl-Überspringen-Schaltfläche und bestätigt seine Auswahl
+            \item Dem Spieler werden Punkte abzegogen
 		\end{itemize}
 	\end{itemize}
 
@@ -572,6 +621,9 @@ description={Ein Computer, welcher der Verwaltung von CS:Select dient und eine I
                 \item Spieler oder Organisator klickt auf die Hilfe-Schaltfläche(oben links)
             \end{itemize}
     \end{itemize}
+
+    %TODO: Ausführung auf verschiedenem Ports
+
         \section{Objektmodell}
 
     \section{Dynamische Modelle}
