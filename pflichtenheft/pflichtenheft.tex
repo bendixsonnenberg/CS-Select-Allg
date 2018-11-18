@@ -89,7 +89,22 @@ name=Spiele-Server,
 plural=Spiele-Server,
 description={Ein Computer, welcher der Verwaltung von CS:Select dient und eine Internetanbindung hat.}
 }
+\newglossaryentry{ML-Server}
+{
+name=Machine-learning-Server,
+description={Ein Server, der uns bereitgestellt wird und mit REST-API. Der ML-Server übernimmt das Machine Learning und stellt die Datensätze für das Spiel zur Verfügung. Die API kann mind. folgende 2 
+    Anfragen behandeln: 
+    \begin{itemize}
+    \item \texttt{GET /features} Liefert einen \Gls{Datensatz} an den Spiele-Server. Parameter: Datensatzidentifier
+    \item \texttt{GET /score} Bewertet eine Merkmalsauswahl eines Spielers. Gibt eine Zahl zwischen 0 und 1 zurück, was der Bewertung des Datensatzes enspricht. Parameter: Datensatzidentifier, ausgewählte Merkmale
+    \end{itemize}}
+}
 
+\newglossaryentry{Datensatz}
+{
+    name=Datensatz,
+    description={Die Menge an Features, die ein Machine Learning Model zur Verfügung hat. Zu jedem Feature gehört noch eine Beschreibung und 2 Bilder.}
+}
 \begin{document}
 
     \title{Pflichtenheft CS-Select}
@@ -108,16 +123,20 @@ description={Ein Computer, welcher der Verwaltung von CS:Select dient und eine I
         /FA20/ & Ein \Gls{Spieler} muss sich registrieren können. \\
         /FA30/ & Ein \Gls{Organisator} muss sich anmelden können. \\
         /FA40/ & Ein \Gls{Organisator} muss ein \Gls{Spiel} erstellen und beenden können. \\
+        /FA45/ & Die Erstellung eines Spieles muss in einem GUI erfolgen. \\
         /FA50/ & Die Anmeldung muss in einem modernem \Gls{Webbrowser} möglich sein. \\
         /FA60/ & \Gls{Spieler} müssen bei einem \Gls{Spiel} mitspielen können. \\
+        /FA65/ & Ein \Gls{Spieler} kann alle Spiele sehen, an denen er teilnimmt. \\
         /FA70/ & Ein \Gls{Organisator} muss \Gls{Spieler} zu einem \Gls{Spiel} einladen können. \\
+        /FA75/ & Ein \Gls{Spieler}  muss eine Einladung zu einem Spiel annehmen können. \\
         /FA80/ & Die Ergebnisse eines \Gls{Spiel} können ausgelesen werden. \\
         /FA90/ & Ein Spiel muss Endbedingungen besitzen. \\
         /FA100/ & Ein Spiel muss bei Erreichen seiner Endbedingungen enden. \\
-        /FA110/ & Das System muss mit dem ML-Server kommunizieren. \\
+        /FA110/ & Das System muss mit dem \Gls{ML-Server} kommunizieren. \\
         /FA120/ & Der Organisator kann in einem GUI den Spielstand überprüfen.\\
         /FA130/ & Für den Spieler gibt es ein GUI. \\
-        /KA240/ & Es gibt mindestens zwei Spielmodi: \Gls{Matrix Select} und \Gls{Binar Select}. \\
+        /FA140/ & Es gibt mindestens zwei Spielmodi: \Gls{Matrix Select} und \Gls{Binar Select}. \\
+        /FA150/ & Beim Spiel werden dem Spieler die Daten zu jedem Merkmal angezeigt. \\ 
     \end{tabular}
 
     \section{Kannkriterien}
