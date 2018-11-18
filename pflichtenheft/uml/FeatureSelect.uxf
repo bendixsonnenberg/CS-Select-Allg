@@ -202,4 +202,15 @@ returnFeature(result: float): void</panel_attributes>
     <panel_attributes>K.O. System</panel_attributes>
     <additional_attributes/>
   </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>880</x>
+      <y>510</y>
+      <w>140</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>This is room for YOUR addon</panel_attributes>
+    <additional_attributes/>
+  </element>
 </diagram>
