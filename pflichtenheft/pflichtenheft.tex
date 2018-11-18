@@ -170,6 +170,8 @@ description={Ein Computer, welcher der Verwaltung von CS:Select dient und eine I
 
     \chapter{Einsatz}
 
+    \section{Architektur}
+    \includegraphics[width=\textwidth]{uml/export/Architektur.png}
     \section{Anwendungsbereiche}
     Das \Gls{Produkt} dient der Verbesserung der Merkmalsauswahl bei Machine-Learning Prozessen in wissenschaftlichen
     Experimenten beziehungsweise privatwirtschaftlichen Unternehmen durch das Domänenwissen der \Gls{Spieler}.
@@ -412,21 +414,6 @@ description={Ein Computer, welcher der Verwaltung von CS:Select dient und eine I
         \end{itemize}
     \end{itemize}
 
-    \subsection{Punkte eines Spielers zurücksetzen}
-    \begin{itemize}
-        \item Teilnehmende Akteure: \Gls{Administrator}, \Gls{Spieler}
-        \item Eingangsaktionen: Spiele-Server ist aktiv
-        \item Ausgangsaktionen: Die Punkte des Spielers sind zurückgesetzt
-        \item Ereignisfluss:
-        \begin{itemize}
-            \item Administrator loggt sich in Spiele-Server ein
-            \item Administrator gibt das "Punkte zurücksetzen"-Kommando und die Email des registrierten Spielers ein
-            \item Administrator bestätigt seine Auswahl
-            \item Die Punkte des entsprechenden Spielers werden zurückgesetzt
-        \end{itemize}
-    \end{itemize}
-
-
     \subsection{Ergebnisse auslesen}
 
     \begin{itemize}
@@ -435,13 +422,24 @@ description={Ein Computer, welcher der Verwaltung von CS:Select dient und eine I
         \item Ausgangsaktionen: \Gls{Organisator} erhält die Auswertung
         \item Ereignisfluss -
     \end{itemize}
- 
+ \subsection{Spielzustand auslesen}
+	\begin{itemize}
+		\item Teilnehmende Akteure: \Gls{Organisator}
+		\item Eingangsaktionen: Spiele-Server ist aktiv
+		\item Ereignisfluss:
+		\begin{itemize}
+			\item Organisator meldet sich an
+			\item Organisator erreicht seine Übersichtsseite
+			\item Organisator sieht den Zustand seiner laufenden Spiele
+		\end{itemize}
+	\end{itemize}
+
+
     \newpage
     \includegraphics[width=\textwidth]{uml/export/Spiel.png}
     Akteure: 
     \begin{itemize}
     \item \Gls{Spieler}
-    \item \Gls{Organisator}
     \newpage
     \end{itemize}
     
@@ -494,19 +492,7 @@ description={Ein Computer, welcher der Verwaltung von CS:Select dient und eine I
 		\end{itemize}
 	\end{itemize}
 
-	\subsection{Spielzustand auslesen}
-	\begin{itemize}
-		\item Teilnehmende Akteure: \Gls{Organisator}
-		\item Eingangsaktionen: Spiele-Server ist aktiv
-		\item Ereignisfluss:
-		\begin{itemize}
-			\item Organisator meldet sich an
-			\item Organisator erreicht seine Übersichtsseite
-			\item Organisator sieht den Zustand seiner laufenden Spiele
-		\end{itemize}
-	\end{itemize}
-
-    \subsection{Sprache ändern}
+	    \subsection{Sprache ändern}
     \begin{itemize}
     \item Teilnehmende Akteure: \Gls{Spieler}, \Gls{Organisator}
     \item Eingangsaktionen: Spiele-Server ist aktiv
@@ -569,6 +555,21 @@ description={Ein Computer, welcher der Verwaltung von CS:Select dient und eine I
     %Nach der Anmeldung erreicht ein \Gls{Spieler} eine Übersichts-Seite. Darauf ist ein Bereich, der eine aktuelle Tabelle
     %anzeigt, in welcher die \Gls{Spieler} aufgelistet sind, die in einem bestimmten Zeitraum die meisten Punkte erreicht haben.
  
+    \subsection{Punkte eines Spielers zurücksetzen}
+    \begin{itemize}
+        \item Teilnehmende Akteure: \Gls{Administrator}, \Gls{Spieler}
+        \item Eingangsaktionen: Spiele-Server ist aktiv
+        \item Ausgangsaktionen: Die Punkte des Spielers sind zurückgesetzt
+        \item Ereignisfluss:
+        \begin{itemize}
+            \item Administrator loggt sich in Spiele-Server ein
+            \item Administrator gibt das "Punkte zurücksetzen"-Kommando und die Email des registrierten Spielers ein
+            \item Administrator bestätigt seine Auswahl
+            \item Die Punkte des entsprechenden Spielers werden zurückgesetzt
+        \end{itemize}
+    \end{itemize}
+
+
 
 
     \subsection{Passwort ändern}
