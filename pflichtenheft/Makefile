@@ -1,4 +1,4 @@
-make: pflichtenheft.tex pflichtenheft.gls uml/export/Architektur.png uml/export/Organisation.png uml/export/Spiel.png
+make: pflichtenheft.tex pflichtenheft.gls uml/export/Architektur.png uml/export/Organisation.png uml/export/Spiel.png uml/export/FeatureSelect.png
 	pdflatex pflichtenheft.tex
 
 pflichtenheft.gls: pflichtenheft.glo
@@ -14,3 +14,5 @@ uml/export/Organisation.png:
 	umlet -action=convert -format=png -filename=uml/Organisation.uxf -output=uml/export/Organisation.png
 uml/export/Spiel.png: 
 	umlet -action=convert -format=png -filename=uml/Spiel.uxf -output=uml/export/Spiel.png
+uml/export/FeatureSelect.png:
+	umlet -action=convert -format=png -filename=uml/FeatureSelect.uxf -output=uml/export/FeatureSelect.png

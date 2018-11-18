@@ -168,6 +168,8 @@ description={Ein Server, der uns bereitgestellt wird und mit REST-API. Der ML-Se
         /KA250/ & Ein Spieler oder Organisator kann sein Passwort ändern. \\
         /KA260/ & Ein Spieler oder Organisator kann sein Passwort zurücksetzen. \\
         /KA270/ & In jedem Spiel wird eine Kombination an Features nur genau ein mal abgefragt.\\
+        /KA280/ & Der \Gls{Spiele-Server} hält seinen Zustand über das stoppen und starten hinweg.\footnote{Also wenn der Server beendet wird und danach wieder gestartet,
+ sind Spiele und Nutzer immernoch die selben. Man kann also ohne Sorge den Server neu starten.} \\
     \end{tabularx}
 
     \section{Abgrenzungskriterien}
@@ -248,14 +250,14 @@ description={Ein Server, der uns bereitgestellt wird und mit REST-API. Der ML-Se
         /NF20/ & Die Interaktionszeiten dürfen nicht länger als zwei Sekunden betragen. \\
         /NF30/ & Ein Spieler soll das Ergebnis eines Spiels innerhalb von zwei Sekunden erhalten. \\
         /NF40/ & Das Design soll modern sein. \\
-        /NF50/ & Die ML-Datenbanken sollen leicht austauschbar sein. \\
-        /NF60/ & Neue Spielmodi sollen leicht erweitert werden können. \\
+        /NF50/ & Der \Gls{ML-Server} soll leicht austauschbar sein. \\
+        /NF60/ & Neue Spielmodi sollen leicht hinzugefügt werden können. \\
         /NF70/ & Neue Spieloberflächen sollen leicht erweiterbar sein. \\
         /NF80/ & Neue Sprachen sollen leicht hinzugefügt werden können. \\
         /NF90/ & Das Produkt enthält nicht mehr als 0,1\% plattformspezifischer Anweisungen. \\
         /NF100/ & Es gibt nicht mehr als einen Ausfall des Systems pro Monat. \\ %Realistisch?
         /NF110/ & Die Anmeldedauer darf nicht mehr als zwei Sekunden betragen. \\
-        /NF120/ & \\
+        /NF120/ & Die Daten zu den Spielergebnissen werden strukturiert und menschenlesbar abgespeichert.\footnote{Also csv oder eine Datenbank}\\
         /NF130/ & \\
     \end{tabular}
 
