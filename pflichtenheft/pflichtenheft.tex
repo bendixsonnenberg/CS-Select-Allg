@@ -103,31 +103,31 @@ description={Ein Server, der uns bereitgestellt wird und mit REST-API. Der ML-Se
 \newglossaryentry{Datensatz}
 {
     name=Datensatz,
-    description={Die Menge an Features, die ein Machine Learning Model zur Verfügung hat. Zu jedem Feature gehört noch eine Beschreibung und 2 Bilder.}
+    description={Die Menge an Features, die ein Machine Learning Model zur Verfügung hat. Zu jedem Feature gehört noch eine Beschreibung und zwei Bilder.}
 }
 \begin{document}
 
     \title{Pflichtenheft CS-Select}
-    \author{Luca Springer, Alexander Lindner, Julian NACHNAME, Nicolas NACHNAME, Bendix Sonnenberg}
+    \author{Luca Springer, Alexander Linder, Julian Dinh, Nicholas Bieker, Bendix Sonnenberg}
     \maketitle
 
     % Platzierung des Inhaltsverzeichnisses
     \tableofcontents
 
     \chapter{Einleitung}
-        In der heutigen Zeit wird Machine Learning in immer mehr Organisationen eingesetzt um vorhersagende System zu entwickeln. 
-        Das Problem dabei ist: es werden Werte für viele Merkmale aufgenommen, aber die Personen, welche das Netzwerk trainieren haben meist kein Wissen über die Zusammenhänge dieser Daten.
-        Das sogennante Domänenwissen liegt oft bei den Personen welche den gesamten Tag an z.B. der Produktionslinie verbringen. Einige der Merkmale sind vielleicht offensichtlich nutzlos 
+        In der heutigen Zeit wird Machine Learning in immer mehr Organisationen eingesetzt, um vorhersagende Systeme zu entwickeln.
+        Das Problem dabei ist: es werden Werte für viele Merkmale aufgenommen, aber die Personen, welche das Netzwerk trainieren, haben meist kaum Wissen über die Zusammenhänge dieser Daten.
+        Das sogennante Domänenwissen liegt oft bei den Personen, welche den gesamten Tag z.B. an der Produktionslinie verbringen. Einige der Merkmale sind vielleicht offensichtlich nutzlos
         für das, was mit dem Machine Learning vorhergesagt werden soll. \footnote{Zum Beispiel ist die Außentemperatur nicht sehr aussagekräftig, wenn es um die Geschwindigkeit eines fallenden
-        Balles geht. Aber woher soll das denn der Computer wissen.} Es gibt bereits verschiedene Algorithmen, die dies übernehmen, aber diese sind meist zu langsam oder zu ineffizient.
+        Balls geht. Aber woher soll das denn der Computer wissen.} Es gibt bereits verschiedene Algorithmen, die dies übernehmen, aber diese sind meist zu langsam oder zu ineffizient.
         \footnote{\href{https://de.wikipedia.org/wiki/Feature\_Subset\_Selection}{Feature Subset Selection Wikipedia}} 
-        Deshalb soll ein Crowdsourcing Ansatz verfolgt werden, der mit Hilfe von Gamification\footnote{Das Anwenden von spieletypischen Elementen auf eigentlich nicht Spieleumgebungen. Zum Beispiel Workout tracking Apps verwenden dies häufig um die Nutzer zu mehr Bewegung zu animieren. \href{https://de.wikipedia.org/wiki/Gamification}{Wikipedia}} Elementen die Inhaber des Domänenwissens 
+        Deshalb soll ein Crouwdsourcing Ansatz verfolgt werden, der mit Hilfe von Gamification\footnote{Das Anwenden von spieletypischen Elementen auf eigentlich nicht Spielumgebungen. Zum Beispiel Workout tracking Apps verwenden dies häufig, um die Nutzer zu mehr Bewegung zu animieren. \href{https://de.wikipedia.org/wiki/Gamification}{Wikipedia}} Elementen die Inhaber des Domänenwissens
         zum Mithelfen motivieren soll. \\
-        Hierfür soll ein Spiel für den Browser entwickelt werden, welches Gamification verwendet, mit einem Machine Learning Server verbunden ist um die Ergebnisse zu bewerten und am
-        Ende die aggregierten Spielergebnisse ausgibt für die Auswertung.
+        Hierfür soll ein Spiel für den Browser entwickelt werden, welches Gamification verwendet und mit einem Machine Learning Server verbunden ist, um die Ergebnisse zu bewerten und am
+        Ende die aggregierten Spielergebnisse für die Auswertung ausgibt.
         \\
-        Der Name \texttt{CS:Select} bedeutet: \textbf{C}rowd \textbf{S}ourcing\textbf{:Select}, wobei das Select auf den Merkmalsauswahl (engl. Feature Select) anspielt und CS auf die bekannte
-        Computerspiel Serie Counter-Strike\footnote{\href{https://de.wikipedia.org/wiki/Counter-Strike}{Wikipedia}}
+        Der Name \texttt{CS:Select} bedeutet: \textbf{C}rowd \textbf{S}ourcing\textbf{:Select}, wobei das Select auf die Merkmalsauswahl (engl. Feature Select) anspielt und CS auf die bekannte
+        Computerspiel Serie Counter-Strike\footnote{\href{https://de.wikipedia.org/wiki/Counter-Strike}{Wikipedia}}.
     \chapter{Zielbestimmung}
     Eine Organisation soll durch das \Gls{Produkt} das Domänenwissen ihrer Mitarbeiter dazu nutzen, die Merksmalsauswahl für ein Machine-Learning-Modell zu vereinfachen.
 
