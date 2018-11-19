@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?><diagram program="umlet" version="13.3">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLGeneric</id>
+    <coordinates>
+      <x>500</x>
+      <y>190</y>
+      <w>240</w>
+      <h>300</h>
+    </coordinates>
+    <panel_attributes>Spieler Übersicht
+halign=left</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLActor</id>
+    <coordinates>
+      <x>830</x>
+      <y>310</y>
+      <w>60</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>Spieler</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLUseCase</id>
+    <coordinates>
+      <x>530</x>
+      <y>280</y>
+      <w>120</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>fontsize=11
+Achievments 
+ansehen</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLUseCase</id>
+    <coordinates>
+      <x>530</x>
+      <y>360</y>
+      <w>120</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>fontsize=11
+Leaderboard
+ansehen</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>640</x>
+      <y>290</y>
+      <w>230</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes>10.0;10.0;210.0;60.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>640</x>
+      <y>340</y>
+      <w>230</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes>10.0;40.0;210.0;10.0</additional_attributes>
+  </element>
+</diagram>
