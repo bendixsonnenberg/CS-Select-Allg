@@ -170,8 +170,10 @@ description={Ein Server, der uns bereitgestellt wird und mit REST-API. Der ML-Se
         /KA270/ & In jedem Spiel wird eine Kombination an Features nur genau ein mal abgefragt.\\
         /KA280/ & Der \Gls{Spiele-Server} hält seinen Zustand über das stoppen und starten hinweg.\footnote{Also wenn der Server beendet wird und danach wieder gestartet,
  sind Spiele und Nutzer immernoch die selben. Man kann also ohne Sorge den Server neu starten.} \\
+        /KA290/ & Der Server wird als ein Docker Image geliefert.\footnotemark \\
     \end{tabularx}
 
+    \footnotetext{Siehe \href{www.docker.com}{Docker}}
     \section{Abgrenzungskriterien}
     \begin{tabular}{ l | l}
     /AK10/ & Das Produkt muss nicht bestimmen, welches Subset an Merkmalen optimal ist.\\
