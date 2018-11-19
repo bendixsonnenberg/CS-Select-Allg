@@ -176,4 +176,18 @@ Ergebnisse auslesen</panel_attributes>
 löschen</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;90.0</additional_attributes>
   </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>540</x>
+      <y>330</y>
+      <w>230</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;
+
+
+Organisator beendet vorzeitig</panel_attributes>
+    <additional_attributes>210.0;20.0;10.0;20.0;10.0;90.0</additional_attributes>
+  </element>
 </diagram>
