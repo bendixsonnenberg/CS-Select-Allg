@@ -137,13 +137,13 @@ description={Ein Server, der uns bereitgestellt wird und mit REST-API. Der ML-Se
         /FA20/ & Ein \Gls{Spieler} muss sich registrieren können. \\
         /FA30/ & Ein \Gls{Organisator} muss sich anmelden können. \\
         /FA40/ & Ein \Gls{Organisator} muss ein \Gls{Spiel} erstellen und beenden können. \\
-        /FA45/ & Die Erstellung eines Spieles muss in einem GUI erfolgen. \\
+        /FA45/ & Die Erstellung eines Spiels muss in einem GUI erfolgen. \\
         /FA50/ & Die Anmeldung muss in einem modernem \Gls{Webbrowser} möglich sein. \\
         /FA60/ & \Gls{Spieler} müssen bei einem \Gls{Spiel} mitspielen können. \\
         /FA65/ & Ein \Gls{Spieler} kann alle Spiele sehen, an denen er teilnimmt. \\
         /FA70/ & Ein \Gls{Organisator} muss \Gls{Spieler} zu einem \Gls{Spiel} einladen können. \\
-        /FA75/ & Ein \Gls{Spieler}  muss eine Einladung zu einem Spiel annehmen können. \\
-        /FA80/ & Die Ergebnisse eines \Gls{Spiel} können ausgelesen werden. \\
+        /FA75/ & Ein \Gls{Spieler} muss eine Einladung zu einem Spiel annehmen können. \\
+        /FA80/ & Die Ergebnisse eines \Gls{Spiel}s können ausgelesen werden. \\
         /FA90/ & Ein Spiel muss Endbedingungen besitzen. \\
         /FA100/ & Ein Spiel muss bei Erreichen seiner Endbedingungen enden. \\
         /FA110/ & Das System muss mit dem \Gls{ML-Server} kommunizieren. \\
@@ -157,7 +157,7 @@ description={Ein Server, der uns bereitgestellt wird und mit REST-API. Der ML-Se
     \begin{tabularx}{\linewidth}{@{}>{\bfseries}l@{\hspace{.5em}}X@{}} % Linebreaks in der Tabelle
         /KA10/ & Ein \Gls{Organisator} kann die Ergebnisse/Eingabe eines Spielers ansehen. \\
         /KA20/ & Der \Gls{Administrator} kann Spiele aus dem System löschen. \\
-        /KA30/ & Der \Gls{Organisator} kann Spiele löschen. \\
+        /KA30/ & Der \Gls{Organisator} kann seine Spiele löschen. \\
         /KA40/ & Ein \Gls{Organisator} kann seine \Glspl{Spiel} beenden. \\
         /KA50/ & Der \Gls{Spiele-Server} kann vom Terminal aus beendet werden. \\
         /KA60/ & Beim Erstellen eines Spiels kann der \Gls{Organisator} die \Gls{Spieleinstellungen} speichern und laden. \\
@@ -165,25 +165,25 @@ description={Ein Server, der uns bereitgestellt wird und mit REST-API. Der ML-Se
         /KA80/ & Beim Start des Systems erscheint ein Dialog zum Einrichten des Systems. \\
         /KA90/ & Die Ergebnisse eines \Gls{Spiel}s werden im Interface des \Gls{Organisator}s angezeigt. \\
         /KA100/ & Beim Spielen existiert ein Knopf, welcher das Überspringen der aktuellen Runde ermöglicht. \\
-        /KA110/ & Der Knopf aus /KA100/ kostet den \Gls{Spieler} Punkte beim Betätigen. \\
+        /KA110/ & Der Knopf aus /KA100/ kostet den \Gls{Spieler} bei Betätigung Punkte. \\
         /KA120/ & Es ist \Gls{Spieler}n möglich Kriterien auszuschließen, also diese als unwichtig zu markieren. \\
-        /KA130/ & Der \Gls{Organisator} eines Spiels kann nach dem Beginn eines Spiels noch weitere Spieler einladen. \\
+        /KA130/ & Der \Gls{Organisator} eines Spiels kann nach Beginn eines Spiels noch weitere Spieler einladen. \\
         /KA140/ & Die Merkmale, die pro Runde angezeigt werden, sind schlauer ausgewählt als durch Zufall.\footnote{Durch verschiedene mögliche Auswahlklassen. \fref{fig:FeatureSelect}} \\
-        /KA150/ & Die maximale Anzahl an Runden pro Spieler pro Tag können durch den \Gls{Organisator} eingeschränkt werden. \\
-        /KA160/ & Für Spieler gibt es ein Punktsystem basierend auf den Spielergebnissen der Spiele. \\
+        /KA150/ & Die maximale Anzahl an Runden pro Spieler am gleichen Tag können durch den \Gls{Organisator} eingeschränkt werden. \\
+        /KA160/ & Für Spieler gibt es basierend auf den Spielergebnissen der Spiele ein Punktesystem. \\
         /KA170/ & \Glspl{Spieler} erhalten mehr Punkte, wenn sie mehrere Runden in Folge spielen. \\
         /KA180/ & Es gibt \Gls{Achievement}s, welche von Spielern freigeschaltet werden. \\
         /KA190/ & Es gibt eine Auflistung der \Gls{Achievement}s aus /KA170/. \\
-        /KA200/ & Es gibt eine Hilfe Schaltfläche im \Gls{Spieler} GUI. \\
-        /KA210/ & Es gibt eine Hilfe Schaltfläche im \Gls{Organisator} GUI. \\
+        /KA200/ & Es gibt eine Hilfe-Schaltfläche im \Gls{Spieler} GUI. \\
+        /KA210/ & Es gibt eine Hilfe-Schaltfläche im \Gls{Organisator} GUI. \\
         /KA220/ & Das Webinterface unterstützt Internet Explorer. \\
         /KA230/ & Es gibt mehrere Sprachen zur Auswahl. \\
-        /KA240/ & Es ist möglich die Punkte eines \Gls{Spieler}s zurückzusetzen. \\ %Durch Spieler oder Orga?
+        /KA240/ & Es ist möglich, die Punkte eines \Gls{Spieler}s zurückzusetzen. \\ %Durch Spieler oder Orga?
         /KA250/ & Ein Spieler oder Organisator kann sein Passwort ändern. \\
         /KA260/ & Ein Spieler oder Organisator kann sein Passwort zurücksetzen. \\
         /KA270/ & In jedem Spiel wird eine Kombination an Features nur genau ein mal abgefragt.\\
-        /KA280/ & Der \Gls{Spiele-Server} hält seinen Zustand über das stoppen und starten hinweg.\footnote{Also wenn der Server beendet wird und danach wieder gestartet,
- sind Spiele und Nutzer immer noch die selben. Man kann also ohne Sorge den Server neu starten.} \\
+        /KA280/ & Der \Gls{Spiele-Server} behält seinen Zustand über das Stoppen und Starten hinweg.\footnote{Das heißt, wenn der Server beendet und danach wieder gestartet wird,
+ sind Spiele und Nutzer immer noch dieselben. Man kann also ohne Sorge den Server neustarten.} \\
         /KA290/ & Der Server wird als ein Docker Image geliefert.\footnotemark \\
     \end{tabularx}
 
@@ -264,7 +264,7 @@ description={Ein Server, der uns bereitgestellt wird und mit REST-API. Der ML-Se
     \begin{tabular}{ l | l}
         /NF10/ & Es müssen mindestens 30 Spieler zur gleichen Zeit spielen können.\\
         /NF20/ & Die Interaktionszeiten dürfen nicht länger als zwei Sekunden betragen. \\
-        /NF30/ & Ein Spieler soll das Ergebnis eines Spiels innerhalb von zwei Sekunden erhalten. \\
+        /NF30/ & Ein Spieler soll das Ergebnis seines Spiels innerhalb von zwei Sekunden erhalten. \\
         /NF40/ & Das Design soll modern sein. \\
         /NF50/ & Der \Gls{ML-Server} soll leicht austauschbar sein. \\
         /NF60/ & Neue Spielmodi sollen leicht hinzugefügt werden können. \\
