@@ -1,4 +1,4 @@
-make: pflichtenheft.tex pflichtenheft.gls uml/export/Architektur.png uml/export/Organisation.png uml/export/Spiel.png uml/export/FeatureSelect.png uml/export/Administration.png uml/export/Spieler_Ubersicht.png
+make: pflichtenheft.tex pflichtenheft.gls uml/export/Architektur.png uml/export/Organisation.png uml/export/Spiel.png uml/export/FeatureSelect.png uml/export/Administration.png uml/export/Spieler_Ubersicht.png uml/export/Achievment_State.png uml/export/Spiel_Zustand.png uml/export/Streak_Zustand.png
 	pdflatex pflichtenheft.tex
 
 pflichtenheft.gls: pflichtenheft.glo
@@ -20,3 +20,9 @@ uml/export/Administration.png: uml/Administration.uxf
 	umlet -action=convert -format=png -filename=uml/Administration.uxf -output=uml/export/Administration.png
 uml/export/Spieler_Ubersicht.png: uml/Spieler_Ubersicht.uxf
 	umlet -action=convert -format=png -filename=uml/Spieler_Ubersicht.uxf -output=uml/export/Spieler_Ubersicht.png
+uml/export/Streak_Zustand.png: uml/Streak_Zustand.uxf
+	umlet -action=convert -format=png -filename=uml/Streak_Zustand.uxf -output=uml/export/Streak_Zustand.png
+uml/export/Spiel_Zustand.png: uml/Spiel_Zustand.uxf
+	umlet -action=convert -format=png -filename=uml/Spiel_Zustand.uxf -output=uml/export/Spiel_Zustand.png
+uml/export/Achievment_State.png: uml/Achievment_State.uxf
+	umlet -action=convert -format=png -filename=uml/Achievment_State.uxf -output=uml/export/Achievment_State.png
