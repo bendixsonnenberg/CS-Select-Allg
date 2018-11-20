@@ -43,13 +43,13 @@ description={Ein Spielmodus ist eine definierte Art und Weise, die Merkmalsauswa
 {
 name=Matrix Select,
 plural=Matrix Select,
-description={Matrix Select ist ein \Gls{Spielmodus}, in dem ein \Gls{Spieler} aus einer bestimmten Anzahl an Merkmalen eine Teilmenge auswählt.}
+description={Matrix Select ist ein \Gls{Spielmodus}, in dem ein \Gls{Spieler} eine Matrix, bestehend aus einer vom \Gls{Organisator} festgelegten Anzahl an Merkmalen, angezeigt bekommt und davon eine Teilmenge auswählt, die die Merkmale enthält, die für das Machine Learning am wichtigsten sind. Die Größe der Teilmenge wird ebenfalls vom Organisator in den Spieleinstellungen festgelegt. Eine Runde besteht aus genau einer Matrix von Merkmalen.}
 }
 \newglossaryentry{Binar Select}
 {
 name=Binär Select,
 plural=Binär Select,
-description={Binär Select ist ein \Gls{Spielmodus}, in dem ein \Gls{Spieler} Merkmale jeweils paarweise vergleicht und eines auswählt.}
+description={Binär Select ist ein \Gls{Spielmodus}, in dem ein \Gls{Spieler} genau zwei Merkmale angezeigt bekommt, diese vergleicht und das Merkmal auswählt, welches für das Machine Learning wichtiger ist. Eine Runde besteht aus fünf Vergleichen.}
 }
 
 \newglossaryentry{Spieler}
@@ -63,7 +63,7 @@ description={Ein Nutzer, welcher an einem Spiel teilnimmt. Meist ist dies ein An
 {
 name=Spieleinstellungen,
 plural=Spieleinstellungen,
-description={Einstelllungen für ein Spiel umfassen: die Merkmale, welche ausgewählt werden soll, die Art des Spiels, die teilnehmenden Spieler, Endbedingungen des Spiels.}
+description={Einstellungen für ein Spiel umfassen: die Merkmale, welche ausgewählt werden soll, die Art des Spiels, die teilnehmenden Spieler, Endbedingungen des Spiels.}
 }
 \newglossaryentry{Organisator}
 {
@@ -91,19 +91,19 @@ description={Ein Computer, welcher der Verwaltung von CS:Select dient und eine I
 }
 \newglossaryentry{ML-Server}
 {
-name=Machine-learning-Server,
+name=Machine-Learning-Server,
 description={Ein Server, der uns bereitgestellt wird und mit REST-API. Der ML-Server übernimmt das Machine Learning und stellt die Datensätze für das Spiel zur Verfügung. Die API kann mind. folgende 2 
     Anfragen behandeln: 
     \begin{itemize}
     \item \texttt{GET /features} Liefert einen \Gls{Datensatz} an den Spiele-Server. Parameter: Datensatzidentifier
-    \item \texttt{GET /score} Bewertet eine Merkmalsauswahl eines Spielers. Gibt eine Zahl zwischen 0 und 1 zurück, was der Bewertung des Datensatzes enspricht. Parameter: Datensatzidentifier, ausgewählte Merkmale
+    \item \texttt{GET /score} Bewertet eine Merkmalsauswahl eines Spielers. Gibt eine Zahl zwischen 0 und 1 zurück, was der Bewertung des Datensatzes entspricht. Parameter: Datensatzidentifier, ausgewählte Merkmale
     \end{itemize}}
 }
 
 \newglossaryentry{Datensatz}
 {
     name=Datensatz,
-    description={Die Menge an Features, die ein Machine Learning Model zur Verfügung hat. Zu jedem Feature gehört noch eine Beschreibung und zwei Bilder.}
+    description={Die Menge an Features, die ein Machine Learning Modell zur Verfügung hat. Zu jedem Feature gehört noch eine Beschreibung und zwei Bilder.}
 }
 \begin{document}
 
@@ -117,16 +117,16 @@ description={Ein Server, der uns bereitgestellt wird und mit REST-API. Der ML-Se
     \chapter{Einleitung}
         In der heutigen Zeit wird Machine Learning in immer mehr Organisationen eingesetzt, um vorhersagende Systeme zu entwickeln.
         Das Problem dabei ist: Es werden Werte für viele Merkmale aufgenommen, aber die Personen, welche das Netzwerk trainieren, haben meist kaum Wissen über die Zusammenhänge dieser Daten.
-        Das sogennante Domänenwissen liegt oft bei den Personen, welche den gesamten Tag z.B. an der Produktionslinie verbringen. Einige der Merkmale sind vielleicht offensichtlich nutzlos
+        Das sogenannte Domänenwissen liegt oft bei den Personen, welche den gesamten Tag z.B. an der Produktionslinie verbringen. Einige der Merkmale sind vielleicht offensichtlich nutzlos
         für das, was mit dem Machine Learning vorhergesagt werden soll. \footnote{Zum Beispiel ist die Außentemperatur nicht sehr aussagekräftig, wenn es um die Geschwindigkeit eines fallenden
         Balls geht. Aber woher soll das denn der Computer wissen.} Es gibt bereits verschiedene Algorithmen, die dies übernehmen, aber diese sind meist zu langsam oder zu ineffizient.
         \footnote{\href{https://de.wikipedia.org/wiki/Feature\_Subset\_Selection}{Feature Subset Selection Wikipedia}} 
-        Deshalb soll ein Crowdsourcing-Ansatz verfolgt werden, der mit Hilfe von Gamification\footnote{Das Anwenden von spieletypischen Elementen auf eigentlich nicht Spielumgebungen. Zum Beispiel Workout tracking Apps verwenden dies häufig, um die Nutzer zu mehr Bewegung zu animieren. \href{https://de.wikipedia.org/wiki/Gamification}{Wikipedia}} Elementen die Inhaber des Domänenwissens
+        Deshalb soll ein Crowdsourcing-Ansatz verfolgt werden, der mit Hilfe von Gamification\footnote{Das Anwenden von spiele typischen Elementen auf eigentlich nicht Spielumgebungen. Zum Beispiel Workout tracking Apps verwenden dies häufig, um die Nutzer zu mehr Bewegung zu animieren. \href{https://de.wikipedia.org/wiki/Gamification}{Wikipedia}} Elementen die Inhaber des Domänenwissens
         zum Mithelfen motivieren soll. \\
         Hierfür soll ein Spiel für den Browser entwickelt werden, welches Gamification verwendet und mit einem Machine Learning Server verbunden ist, um die Ergebnisse zu bewerten und am
         Ende die aggregierten Spielergebnisse für die Auswertung ausgibt.
         \\
-        Der Name \texttt{CS:Select} bedeutet: \textbf{C}rowd \textbf{S}ourcing\textbf{:Select}, wobei das Select auf die Merkmalsauswahl (engl. Feature Select) anspielt und CS auf die bekannte
+        Der Name \texttt{CS:Select} bedeutet: \textbf{C}rowd \textbf{S}ourcing\textbf{:Select}, wobei das Select auf die Merkmalsauswahl (eng. Feature Select) anspielt und CS auf die bekannte
         Computerspiel Serie Counter-Strike\footnote{\href{https://de.wikipedia.org/wiki/Counter-Strike}{Wikipedia}}.
     \chapter{Zielbestimmung}
     Eine Organisation soll durch das \Gls{Produkt} das Domänenwissen ihrer Mitarbeiter dazu nutzen, die Merkmalsauswahl für ein Machine-Learning-Modell zu vereinfachen.
@@ -137,16 +137,16 @@ description={Ein Server, der uns bereitgestellt wird und mit REST-API. Der ML-Se
         /FA20/ & Ein \Gls{Spieler} muss sich registrieren können. \\
         /FA30/ & Ein \Gls{Organisator} muss sich anmelden können. \\
         /FA40/ & Ein \Gls{Organisator} muss ein \Gls{Spiel} erstellen und beenden können. \\
-        /FA45/ & Die Erstellung eines Spiels muss in einem GUI erfolgen. \\
+        /FA45/ & Die Erstellung eines Spieles muss in einem GUI erfolgen. \\
         /FA50/ & Die Anmeldung muss in einem modernem \Gls{Webbrowser} möglich sein. \\
         /FA60/ & \Gls{Spieler} müssen bei einem \Gls{Spiel} mitspielen können. \\
         /FA65/ & Ein \Gls{Spieler} kann alle Spiele sehen, an denen er teilnimmt. \\
         /FA70/ & Ein \Gls{Organisator} muss \Gls{Spieler} zu einem \Gls{Spiel} einladen können. \\
-        /FA75/ & Ein \Gls{Spieler} muss eine Einladung zu einem Spiel annehmen können. \\
-        /FA80/ & Die Ergebnisse eines \Gls{Spiel}s können ausgelesen werden. \\
+        /FA75/ & Ein \Gls{Spieler}  muss eine Einladung zu einem Spiel annehmen können. \\
+        /FA80/ & Die Ergebnisse eines \Gls{Spiel} können ausgelesen werden. \\
         /FA90/ & Ein Spiel muss Endbedingungen besitzen. \\
         /FA100/ & Ein Spiel muss bei Erreichen seiner Endbedingungen enden. \\
-        /FA110/ & Das System muss mit dem \Gls{ML-Server} kommunizieren. \\ %Einheitliche Schreibweise ML-Server
+        /FA110/ & Das System muss mit dem \Gls{ML-Server} kommunizieren. \\
         /FA120/ & Der Organisator kann in einem GUI den Spielstand überprüfen.\\
         /FA130/ & Für den Spieler gibt es ein GUI. \\
         /FA140/ & Es gibt mindestens zwei Spielmodi: \Gls{Matrix Select} und \Gls{Binar Select}. \\
@@ -157,7 +157,7 @@ description={Ein Server, der uns bereitgestellt wird und mit REST-API. Der ML-Se
     \begin{tabularx}{\linewidth}{@{}>{\bfseries}l@{\hspace{.5em}}X@{}} % Linebreaks in der Tabelle
         /KA10/ & Ein \Gls{Organisator} kann die Ergebnisse/Eingabe eines Spielers ansehen. \\
         /KA20/ & Der \Gls{Administrator} kann Spiele aus dem System löschen. \\
-        /KA30/ & Der \Gls{Organisator} kann seine Spiele löschen. \\
+        /KA30/ & Der \Gls{Organisator} kann Spiele löschen. \\
         /KA40/ & Ein \Gls{Organisator} kann seine \Glspl{Spiel} beenden. \\
         /KA50/ & Der \Gls{Spiele-Server} kann vom Terminal aus beendet werden. \\
         /KA60/ & Beim Erstellen eines Spiels kann der \Gls{Organisator} die \Gls{Spieleinstellungen} speichern und laden. \\
@@ -165,25 +165,25 @@ description={Ein Server, der uns bereitgestellt wird und mit REST-API. Der ML-Se
         /KA80/ & Beim Start des Systems erscheint ein Dialog zum Einrichten des Systems. \\
         /KA90/ & Die Ergebnisse eines \Gls{Spiel}s werden im Interface des \Gls{Organisator}s angezeigt. \\
         /KA100/ & Beim Spielen existiert ein Knopf, welcher das Überspringen der aktuellen Runde ermöglicht. \\
-        /KA110/ & Der Knopf aus /KA100/ kostet den \Gls{Spieler} bei Betätigung Punkte. \\
+        /KA110/ & Der Knopf aus /KA100/ kostet den \Gls{Spieler} Punkte beim Betätigen. \\
         /KA120/ & Es ist \Gls{Spieler}n möglich Kriterien auszuschließen, also diese als unwichtig zu markieren. \\
-        /KA130/ & Der \Gls{Organisator} eines Spiels kann nach Beginn eines Spiels noch weitere Spieler einladen. \\
+        /KA130/ & Der \Gls{Organisator} eines Spiels kann nach dem Beginn eines Spiels noch weitere Spieler einladen. \\
         /KA140/ & Die Merkmale, die pro Runde angezeigt werden, sind schlauer ausgewählt als durch Zufall.\footnote{Durch verschiedene mögliche Auswahlklassen. \fref{fig:FeatureSelect}} \\
-        /KA150/ & Die maximale Anzahl an Runden pro Spieler am gleichen Tag können durch den \Gls{Organisator} eingeschränkt werden. \\
-        /KA160/ & Für Spieler gibt es basierend auf den Spielergebnissen der Spiele ein Punktesystem. \\
+        /KA150/ & Die maximale Anzahl an Runden pro Spieler pro Tag können durch den \Gls{Organisator} eingeschränkt werden. \\
+        /KA160/ & Für Spieler gibt es ein Punktsystem basierend auf den Spielergebnissen der Spiele. \\
         /KA170/ & \Glspl{Spieler} erhalten mehr Punkte, wenn sie mehrere Runden in Folge spielen. \\
         /KA180/ & Es gibt \Gls{Achievement}s, welche von Spielern freigeschaltet werden. \\
         /KA190/ & Es gibt eine Auflistung der \Gls{Achievement}s aus /KA170/. \\
-        /KA200/ & Es gibt eine Hilfe-Schaltfläche im \Gls{Spieler} GUI. \\
-        /KA210/ & Es gibt eine Hilfe-Schaltfläche im \Gls{Organisator} GUI. \\
-        /KA220/ & Das Webinterface unterstüzt Internet Explorer. \\
+        /KA200/ & Es gibt eine Hilfe Schaltfläche im \Gls{Spieler} GUI. \\
+        /KA210/ & Es gibt eine Hilfe Schaltfläche im \Gls{Organisator} GUI. \\
+        /KA220/ & Das Webinterface unterstützt Internet Explorer. \\
         /KA230/ & Es gibt mehrere Sprachen zur Auswahl. \\
-        /KA240/ & Es ist möglich, die Punkte eines \Gls{Spieler}s zurückzusetzen. \\
+        /KA240/ & Es ist möglich die Punkte eines \Gls{Spieler}s zurückzusetzen. \\ %Durch Spieler oder Orga?
         /KA250/ & Ein Spieler oder Organisator kann sein Passwort ändern. \\
         /KA260/ & Ein Spieler oder Organisator kann sein Passwort zurücksetzen. \\
-        /KA270/ & In jedem Spiel wird eine Kombination an Features nur genau ein Mal abgefragt.\\
-        /KA280/ & Der \Gls{Spiele-Server} behält seinen Zustand über das Stoppen und Starten hinweg.\footnote{Das heißt, wenn der Server beendet und anschließend wieder gestartet wird,
- sind Spiele und Nutzer immer noch dieselben. Man kann also ohne Sorge den Server neustarten.} \\
+        /KA270/ & In jedem Spiel wird eine Kombination an Features nur genau ein mal abgefragt.\\
+        /KA280/ & Der \Gls{Spiele-Server} hält seinen Zustand über das stoppen und starten hinweg.\footnote{Also wenn der Server beendet wird und danach wieder gestartet,
+ sind Spiele und Nutzer immer noch die selben. Man kann also ohne Sorge den Server neu starten.} \\
         /KA290/ & Der Server wird als ein Docker Image geliefert.\footnotemark \\
     \end{tabularx}
 
@@ -209,7 +209,6 @@ description={Ein Server, der uns bereitgestellt wird und mit REST-API. Der ML-Se
 
     \section{Architektur}
     \includegraphics[width=\textwidth]{uml/export/Architektur.png}
-    %Hier vielleicht eine Caption
     \section{Anwendungsbereiche}
     Das \Gls{Produkt} dient der Verbesserung der Merkmalsauswahl bei Machine-Learning Prozessen in wissenschaftlichen
     Experimenten beziehungsweise privatwirtschaftlichen Unternehmen durch das Domänenwissen der \Gls{Spieler}.
@@ -235,9 +234,9 @@ description={Ein Server, der uns bereitgestellt wird und mit REST-API. Der ML-Se
 
     \section{Nutzerdaten}
     \begin{tabularx}{\linewidth}{@{}>{\bfseries}l@{\hspace{.5em}}X@{}}
-        /D10/ & Über Nutzer (\Gls{Spieler}, \Gls{Organisator}) sind folgende Daten zu speichern /ND10/:
+        /D10/ & Über Nutzer(\Gls{Spieler}, \Gls{Organisator}) sind folgende Daten zu speichern /ND10/: 
         \begin{itemize}
-              \item E-Mail-Adresse, Nutzername, Punktestand, Rolle, Passwort (als Hash)
+              \item Email-Adresse, Nutzername, Punktestand, Rolle, Passwort(als Hash)
         \end{itemize} \\
         /KD10/ & Über einen \Gls{Spieler} werden außerdem seine Achievements gespeichert. \\
         /KD20/ & Über einen \Gls{Organisator} werden außerdem seine Spieleinstellungen gespeichert. \\
@@ -245,7 +244,7 @@ description={Ein Server, der uns bereitgestellt wird und mit REST-API. Der ML-Se
 
     \section{Merkmalsdatensätze}
     \begin{tabularx}{\linewidth}{@{}>{\bfseries}l@{\hspace{.5em}}X@{}}
-        /D20/ & Für jeden Merkmalsdatensatz ist zu speichern /ND20/:
+        /D20/ & Für jeden Merkmalsdatensatz ist zu speichern: /ND20/: 
         \begin{itemize}
              \item Liste an Merkmalen mit jeweiligen Graphen und Beschreibung
         \end{itemize}
@@ -265,7 +264,7 @@ description={Ein Server, der uns bereitgestellt wird und mit REST-API. Der ML-Se
     \begin{tabular}{ l | l}
         /NF10/ & Es müssen mindestens 30 Spieler zur gleichen Zeit spielen können.\\
         /NF20/ & Die Interaktionszeiten dürfen nicht länger als zwei Sekunden betragen. \\
-        /NF30/ & Ein Spieler soll das Ergebnis seines Spiels innerhalb von zwei Sekunden erhalten. \\
+        /NF30/ & Ein Spieler soll das Ergebnis eines Spiels innerhalb von zwei Sekunden erhalten. \\
         /NF40/ & Das Design soll modern sein. \\
         /NF50/ & Der \Gls{ML-Server} soll leicht austauschbar sein. \\
         /NF60/ & Neue Spielmodi sollen leicht hinzugefügt werden können. \\
@@ -274,10 +273,10 @@ description={Ein Server, der uns bereitgestellt wird und mit REST-API. Der ML-Se
         /NF90/ & Das Produkt enthält nicht mehr als 0,1\% plattformspezifischer Anweisungen. \\
         /NF100/ & Es gibt nicht mehr als einen Ausfall des Systems pro Monat. \\ %Realistisch?
         /NF110/ & Die Anmeldedauer darf nicht mehr als zwei Sekunden betragen. \\
-        /NF120/ & Die Daten zu den Spielergebnissen werden strukturiert und menschenlesbar \\ abgespeichert.\footnotemark\\
+        /NF120/ & Die Daten zu den Spielergebnissen werden strukturiert und menschenlesbar abgespeichert.\footnotemark\\
         /NF130/ & \\
     \end{tabular}
-    \footnotetext{Also csv oder eine Datenbank} 
+    \footnotetext{Also .csv oder eine Datenbank} 
 
     \chapter{Systemmodelle}
     \section{Anwendungsfälle}
@@ -298,7 +297,7 @@ description={Ein Server, der uns bereitgestellt wird und mit REST-API. Der ML-Se
         \begin{itemize}
             \item Organisator lädt den Spieler über das Organisator-GUI ein.
             \item Der Spieler klickt auf den Einladungslink in der E-Mail und wird auf die Registrierungsseite weitergeleitet.
-            \item Der Spieler gibt einen einzigartigen Nutzernamen, seine E-Mail-Addresse sowie ein persönliches Passwort ein und bestätigt.
+            \item Der Spieler gibt einen einzigartigen Nutzernamen, seine E-Mail-Adresse sowie ein persönliches Passwort ein und bestätigt.
         \end{itemize}
     \end{itemize}
 
@@ -334,7 +333,7 @@ description={Ein Server, der uns bereitgestellt wird und mit REST-API. Der ML-Se
         \item Ereignisfluss:
         \begin{itemize}
             \item Organisator öffnet die Produktwebsite und klickt auf Registrieren
-            \item Organisator gibt einen einzigartigen Nutzernamen, seine E-Mail-Addresse, das Organisator-Registrierungspasswort sowie ein persönliches Passwort ein und bestätigt seine Auswahl
+            \item Organisator gibt einen einzigartigen Nutzernamen, seine E-Mail-Adresse, das Organisator-Registrierungspasswort sowie ein persönliches Passwort ein und bestätigt seine Auswahl
         \end{itemize}
     \end{itemize}
 
@@ -373,7 +372,7 @@ description={Ein Server, der uns bereitgestellt wird und mit REST-API. Der ML-Se
             \item Organisator meldet sich an
             \item Organisator klickt auf "Spiel erstellen"-Schaltfläche
             \item Organisator sucht sich über seine GUI die gewünschten Spieleinstellungen aus
-            \item Organisator lädt Spieler über Angabe der Email in einem Texfeld ein
+            \item Organisator lädt Spieler über Angabe der Email in einem Textfeld ein
             \item Organisator bestätigt seine Auswahl und erstellt das Spiel
         \end{itemize}
     \end{itemize}
@@ -398,12 +397,12 @@ description={Ein Server, der uns bereitgestellt wird und mit REST-API. Der ML-Se
         \item Teilnehmende Akteure: \Gls{Organisator}, \Gls{Spieler}
         \item Eingangsaktionen: Spiel ist aktiv und gestartet
         \item Ausgangsaktionen: Spieler können Spiel nicht mehr spielen %werden sie benachrichtigt?
-        \item Ereignissfluss:
+        \item Ereignisfluss:
         \begin{itemize}
             \item Organisator meldet sich an
             \item Organisator wählt gestartetes Spiel aus der Übersicht
             \item Organisator betätigt "Beenden"-Schaltfläche
-            \item Organisator bestätig seine Auswahl
+            \item Organisator bestätigt seine Auswahl
         \end{itemize}
     \end{itemize}
 
@@ -523,11 +522,11 @@ description={Ein Server, der uns bereitgestellt wird und mit REST-API. Der ML-Se
 			\item Spieler klickt auf Weiterspielen-Schaltfläche
 			\item Spieler erreicht Spiel-GUI
 			\item Spieler klickt Auswahl-Überspringen-Schaltfläche und bestätigt seine Auswahl
-            \item Dem Spieler werden Punkte abzegogen
+            \item Dem Spieler werden Punkte abgezogen
 		\end{itemize}
 	\end{itemize}
      
-    \subsection{Streak erreichen}\footnote{Zur erklärung von Streak siehe \fref{fig:Streak_State}}
+    \subsection{Streak erreichen}\footnote{Zur Erklärung von Streak siehe \fref{fig:Streak_State}}
     \begin{itemize}
         \item Teilnehmende Akteure: \Gls{Spieler}
         \item Eingangsaktionen: Spieler spielt eine Runde
@@ -549,8 +548,8 @@ description={Ein Server, der uns bereitgestellt wird und mit REST-API. Der ML-Se
         \item Ereignisfluss:
         \begin{itemize}
             \item Spieler meldet sich an
-            \item Spieler erreicht seine Übersichts-Seite
-            \item Spieler klickt auf die Spieler-Übersichts-Schaltfläche
+            \item Spieler erreicht seine Übersicht-Seite
+            \item Spieler klickt auf die Spieler-Übersicht-Schaltfläche
             \item Spieler schaut seine Achievements an
         \end{itemize}
     \end{itemize}
@@ -655,7 +654,7 @@ description={Ein Server, der uns bereitgestellt wird und mit REST-API. Der ML-Se
         \item Teilnehmende Akteure: \Gls{Spieler}, \Gls{Organisator}
         \item Eingangsaktionen: Spieler oder Organisator benötigt Hilfe mit dem Produkt
         \item Ausgangsaktionen: System zeigt dem Akteur die relevante Hilfe Seite
-        \item Ereignissfluss:
+        \item Ereignisfluss:
             \begin{itemize}
                 \item Spieler oder Organisator klickt auf die Hilfe-Schaltfläche(oben links)
             \end{itemize}
@@ -672,7 +671,7 @@ description={Ein Server, der uns bereitgestellt wird und mit REST-API. Der ML-Se
     \subsection{Spiel Zustandsdiagramm}
     \label{fig:Spiel_State}
     \includegraphics[width=\textwidth]{uml/export/Spiel_Zustand.png}
-    \subsection{Achievments Zustandsdiagramm}
+    \subsection{Achievements Zustandsdiagramm}
     \label{fig:Achievment_State}
     \includegraphics[width=\textwidth]{uml/export/Achievment_State.png}
     
@@ -710,7 +709,6 @@ description={Ein Server, der uns bereitgestellt wird und mit REST-API. Der ML-Se
 
     \chapter{Glossar}
     \printglossary
-    
     \chapter{Anhang}
     \subsection{Auswahl an zu zeigenden Merkmalen}
     \label{fig:FeatureSelect}
