@@ -132,7 +132,7 @@ description={Ein Server, der uns bereitgestellt wird und mit REST-API. Der ML-Se
     Eine Organisation soll durch das \Gls{Produkt} das Domänenwissen ihrer Mitarbeiter dazu nutzen, die Merkmalsauswahl für ein Machine-Learning-Modell zu vereinfachen.
 
     \section{Musskriterien}
-    \begin{tabular}{ l | l}
+    \begin{tabular}{ l l}
         /FA10/ & Ein \Gls{Spieler} muss sich anmelden können. \\
         /FA20/ & Ein \Gls{Spieler} muss sich registrieren können. \\
         /FA30/ & Ein \Gls{Organisator} muss sich anmelden können. \\
@@ -189,20 +189,9 @@ description={Ein Server, der uns bereitgestellt wird und mit REST-API. Der ML-Se
 
     \footnotetext{Siehe \href{www.docker.com}{Docker}}
     \section{Abgrenzungskriterien}
-    \begin{tabular}{ l | l}
+    \begin{tabular}{ l l}
     /AK10/ & Das Produkt muss nicht bestimmen, welches Subset an Merkmalen optimal ist.\\
     /AK20/ & Das Produkt muss nicht die Auswertung der Ergebnisse unterstützen.\\
-    /AK30/ & \\
-    /AK40/ & \\
-    /AK50/ & \\
-    /AK60/ & \\
-    /AK70/ & \\
-    /AK80/ & \\
-    /AK90/ & \\
-    /AK100/ & \\
-    /AK110/ & \\
-    /AK120/ & \\
-    /AK130/ & \\
     \end{tabular}
 
     \chapter{Einsatz}
@@ -261,7 +250,7 @@ description={Ein Server, der uns bereitgestellt wird und mit REST-API. Der ML-Se
 
     \chapter{Nichtfunktionale Anforderungen}
 
-    \begin{tabular}{ l | l}
+    \begin{tabular}{ l l}
         /NF10/ & Es müssen mindestens 30 Spieler zur gleichen Zeit spielen können.\\
         /NF20/ & Die Interaktionszeiten dürfen nicht länger als zwei Sekunden betragen. \\
         /NF30/ & Ein Spieler soll das Ergebnis seines Spiels innerhalb von zwei Sekunden erhalten. \\
@@ -274,7 +263,6 @@ description={Ein Server, der uns bereitgestellt wird und mit REST-API. Der ML-Se
         /NF100/ & Es gibt nicht mehr als einen Ausfall des Systems pro Monat. \\ %Realistisch?
         /NF110/ & Die Anmeldedauer darf nicht mehr als zwei Sekunden betragen. \\
         /NF120/ & Die Daten zu den Spielergebnissen werden strukturiert und menschenlesbar abgespeichert.\footnotemark\\
-        /NF130/ & \\
     \end{tabular}
     \footnotetext{Also .csv oder eine Datenbank} 
 
@@ -291,7 +279,7 @@ description={Ein Server, der uns bereitgestellt wird und mit REST-API. Der ML-Se
     \newpage
    \subsection{Spieler registrieren}
     \begin{itemize}
-        \item Teilnehmende Akteure: Organisator, Spieler
+        \item Teilnehmende Akteure: \Gls{Organisator}, \Gls{Spieler}
         \item Eingangsaktionen: Spiele-Server ist aktiv
         \item Ereignisfluss:
         \begin{itemize}
@@ -303,7 +291,7 @@ description={Ein Server, der uns bereitgestellt wird und mit REST-API. Der ML-Se
 
     \subsection{Spieler anmelden}
     \begin{itemize}
-        \item Teilnehmende Akteure: Spieler
+        \item Teilnehmende Akteure: \Gls{Spieler}
         \item Eingangsaktionen: Spiele-Server ist aktiv
         \item Ereignisfluss:
         \begin{itemize}
@@ -316,7 +304,7 @@ description={Ein Server, der uns bereitgestellt wird und mit REST-API. Der ML-Se
 
     \subsection{Spieler löschen}
     \begin{itemize}
-        \item Teilnehmende Akteure: Administrator
+        \item Teilnehmende Akteure: \Gls{Administrator}
         \item Eingangsaktionen: Spiele-Server ist aktiv
         \item Ereignisfluss:
         \begin{itemize}
@@ -328,7 +316,7 @@ description={Ein Server, der uns bereitgestellt wird und mit REST-API. Der ML-Se
 
     \subsection{Organisator registrieren}
     \begin{itemize}
-        \item Teilnehmende Akteure: Organisator
+        \item Teilnehmende Akteure: \Gls{Organisator}
         \item Eingangsaktionen: Spiele-Server ist aktiv, Organisator-Registrierungspasswort ist gesetzt
         \item Ereignisfluss:
         \begin{itemize}
@@ -339,7 +327,7 @@ description={Ein Server, der uns bereitgestellt wird und mit REST-API. Der ML-Se
 
     \subsection{Organisator anmelden}
     \begin{itemize}
-        \item Teilnehmende Akteure: Organisator
+        \item Teilnehmende Akteure: \Gls{Organisator}
         \item Eingangsaktionen: Spiele-Server ist aktiv
         \item Ereignisfluss:
         \begin{itemize}
@@ -352,7 +340,7 @@ description={Ein Server, der uns bereitgestellt wird und mit REST-API. Der ML-Se
 
     \subsection{Organisator löschen}
     \begin{itemize}
-        \item Teilnehmende Akteure: Administrator
+        \item Teilnehmende Akteure: \Gls{Administrator}
         \item Eingangsaktionen: Spiele-Server ist aktiv
         \item Ereignisfluss:
         \begin{itemize}
@@ -599,7 +587,7 @@ description={Ein Server, der uns bereitgestellt wird und mit REST-API. Der ML-Se
 
     \subsection{Server beenden}
     \begin{itemize}
-        \item Teilnehmende Akteure: Administrator
+        \item Teilnehmende Akteure: \Gls{Administrator}
         \item Eingangsaktionen: Spiele-Server ist aktiv
         \item Ausgangsaktionen: MySQL beenden, falls sonst nichts Weiteres auf der Datenbank läuft
         \item Ereignisfluss: Administrator führt \texttt{tomcat/bin/shutdown.sh}(Linux \& Mac) bzw. \texttt{tomcat\textbackslash bin\textbackslash shutdown.bat}(Windows)
