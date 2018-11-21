@@ -92,12 +92,7 @@ description={Ein Computer, welcher der Verwaltung von CS:Select dient und eine I
 \newglossaryentry{ML-Server}
 {
 name=Machine-Learning-Server,
-description={Ein Server, der uns bereitgestellt wird und mit REST-API. Der ML-Server übernimmt das Machine Learning und stellt die Datensätze für das Spiel zur Verfügung. Die API kann mind. folgende 2 
-    Anfragen behandeln: 
-    \begin{itemize}
-    \item \texttt{GET /features} Liefert einen \Gls{Datensatz} an den Spiele-Server. Parameter: Datensatzidentifier
-    \item \texttt{GET /score} Bewertet eine Merkmalsauswahl eines Spielers. Gibt eine Zahl zwischen 0 und 1 zurück, was der Bewertung des Datensatzes entspricht. Parameter: Datensatzidentifier, ausgewählte Merkmale
-    \end{itemize}}
+description={Ein Server, der nicht Bestandteil des Produktes ist, jedoch benötigt wird, um die Funktionalität des Produktes herzustellen.}
 }
 
 \newglossaryentry{Datensatz}
@@ -208,16 +203,32 @@ description={Ein Server, der uns bereitgestellt wird und mit REST-API. Der ML-Se
     Die Spieler tragen durch Spielen des \Gls{Produkt}s mit ihrem Domänenwissen zur besseren Merkmalsauswahl bei.
 
     \section{Betriebsbedingungen}
-    Das \Gls{Produkt} ist für die Nutzung in Büroräumlichkeiten vorgesehen.
+    Das \Gls{Produkt} ist für die Nutzung in Büroräumlichkeiten mit gewöhnlichen Arbeitsplatzrechnern vorgesehen.
 
     \chapter{Umgebung}
     Das \Gls{Produkt} läuft auf einem Server, die Nutzung erfolgt an Arbeitsplatzrechnern.
 
     \section{Software}
     Das \Gls{Produkt} läuft auf Linux ab Kernel Version 4 und Windows 7 oder neuer.
+    Serverseitig benötigt das Produkt außerdem eine MYSQL-Datenbank, eine Java-Laufzeitumgebung sowie einen verfügbaren Machine-Learning-Server.
+    Clientseitig wird entweder Google Chrome oder Mozilla Firefox sowie eine funktionierende Internetverbindung vorausgesetzt.
 
     \section{Hardware}
-    Das \Gls{Produkt} läuft auf Server-Computern.
+    Das \Gls{Produkt} läuft auf Server-Computern, das Frontend wird von gewöhnlichen Arbeitsplatzrechnern angesteuert.
+
+    \section{Machine-Learning-Server}
+    Bei dem Machine-Learning-Server handelt es sich um einen Server, der nicht Bestandteil des Produktes ist, jedoch zur Herstellung der Funktionalität benötigt wird.
+    Der Machine-Learning-Server kommuniziert mit dem Produkt über das Internet mittels einer REST-API.
+    Der Machine-Learning-Server übernimmt das Machine Learning und stellt die Datensätze für das Spiel zur Verfügung.
+    Der Machine-Learning-Server unterstützt mindestens die nachfolgenden Anfragen:
+    \begin{itemize}
+        \item \texttt{GET /features} Liefert einen \Gls{Datensatz} an den Spiele-Server.
+        Parameter: Datensatzidentifier
+        \item \texttt{GET /score} Bewertet eine Merkmalsauswahl eines Spielers.
+        Gibt eine Zahl zwischen 0 und 1 zurück, die die Güte der Merkmalsauswahl entspricht.
+        Parameter: Datensatzidentifier, ausgewählte Merkmale
+    \end{itemize}
+
 
     \chapter{Produktdaten}
 
