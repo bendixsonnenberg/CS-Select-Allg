@@ -261,21 +261,19 @@ description={Ein Server, der nicht Bestandteil des Produktes ist, jedoch benöti
 
     \chapter{Nichtfunktionale Anforderungen}
 
-    \begin{tabular}{ l l}
+    \begin{tabularx}{\linewidth}{@{}>{\bfseries}l@{\hspace{.5em}}X@{}}
         /NF10/ & Es müssen mindestens 30 Spieler zur gleichen Zeit spielen können.\\
-        /NF20/ & Die Interaktionszeiten dürfen nicht länger als zwei Sekunden betragen. \\
-        /NF30/ & Ein Spieler soll das Ergebnis seines Spiels innerhalb von zwei Sekunden erhalten. \\
-        /NF40/ & Das Design soll modern sein. \\
-        /NF50/ & Der \Gls{ML-Server} soll leicht austauschbar sein. \\
-        /NF60/ & Neue Spielmodi sollen leicht hinzugefügt werden können. \\
-        /NF70/ & Neue Spieloberflächen sollen leicht erweiterbar sein. \\
-        /NF80/ & Neue Sprachen sollen leicht hinzugefügt werden können. \\
-        /NF90/ & Das Produkt enthält nicht mehr als 0,1\% plattformspezifischer Anweisungen. \\
-        /NF100/ & Es gibt nicht mehr als einen Ausfall des Systems pro Monat. \\ %Realistisch?
-        /NF110/ & Die Anmeldedauer darf nicht mehr als zwei Sekunden betragen. \\
-        /NF120/ & Die Daten zu den Spielergebnissen werden strukturiert und menschenlesbar abgespeichert.\footnotemark\\
-    \end{tabular}
-    \footnotetext{Also .csv oder eine Datenbank} 
+        /NF20/ & Die Wartezeiten auf die Reaktion des GUIs dürfen nicht länger als zwei Sekunden betragen. \\
+	/NF30/ & Die Anmeldedauer darf nicht mehr als zwei Sekunden betragen. \\
+        /NF40/ & Ein Spieler soll das Ergebnis seines Spiels innerhalb von zwei Sekunden erhalten. \\
+        /NF50/ & Das Design soll modern wirken. \\
+        /NF60/ & Der \Gls{ML-Server} soll leicht austauschbar sein. \\
+        /NF70/ & Neue Spielmodi sollen leicht hinzugefügt werden können. \\
+        /NF80/ & Neue Spieloberflächen sollen leicht erweiterbar sein. \\
+        /NF90/ & Neue Sprachen sollen leicht hinzugefügt werden können. \\
+        /NF100/ & Browserkompatibilität: Das Produkt enthält nicht mehr als 0,1\% plattformspezifischer Anweisungen. \\
+        %/NF100/ & Es gibt nicht mehr als einen Ausfall des Systems pro Monat. \\ %Realistisch?
+    \end{tabularx}
 
     \chapter{Systemmodelle}
     \section{Anwendungsfälle}
