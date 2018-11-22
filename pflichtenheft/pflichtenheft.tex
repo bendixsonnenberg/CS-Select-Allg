@@ -348,7 +348,7 @@ description={Ein Server, der nicht Bestandteil des Produktes ist, jedoch benöti
 	/F50/ & \\
     \end{tabularx}
     
-    \section{Spielerstellung} %ICH
+    \section{Spielerstellung}
     \begin{tabularx}{\linewidth}{@{}>{\bfseries}l@{\hspace{.5em}}X@{}} % Linebreaks in der Tabelle
     /F10/ & Organisator kann in Spielerstellungs-GUI Spieler zum Spiel einladen, in dem er E-Mail-Adresse angibt \\
     /F20/ & Eingeladene Spieler erhalten Einladungs-E-Mail \\
@@ -357,7 +357,7 @@ description={Ein Server, der nicht Bestandteil des Produktes ist, jedoch benöti
     /F50/ & Organisator muss Name des Merkmalsdatensatzes angeben \\
     /F60/ & Organisator muss Adresse einer Datenbank angeben \\ %Kann?
     /F70/ & Organisator muss Spieltitel und Spielbeschreibung angeben \\ %Kann?
-    /F80/ & Organisator muss aus den folgenden mindestens eine auswählen und eventuell Werte angeben: Ende nach bestimmter Zeit, Ende nach bestimmter Anzahl an Runden, Ende durch Spielabbruch durch Organisator
+    /F80/ & Organisator muss aus den folgenden mindestens eine auswählen und eventuell Werte angeben: Ende nach bestimmter Zeit, Ende nach bestimmter Anzahl an Runden, Ende durch Spielabbruch durch Organisator \\
     /F80/ & Organisator kann Spielerstellung abbrechen \\
     /F90/ & Organisator muss Spielerstellung bestätigen \\
     \end{tabularx}
@@ -380,7 +380,7 @@ description={Ein Server, der nicht Bestandteil des Produktes ist, jedoch benöti
     	/F40/ & Nach Beenden der Runde sieht Spieler Punktzahl und kann entscheiden, ob er noch eine Runde spielen will \\
     \end{tabularx}
     
-    \subsection{Binär Select} %ICH
+    \subsection{Binär Select}
     \begin{tabularx}{\linewidth}{@{}>{\bfseries}l@{\hspace{.5em}}X@{}} % Linebreaks in der Tabelle
     	/F10/ & Runde Binär Select besteht aus genau fünf Vergleichen \\
     	/F20/ & Genau zwei Merkmale werden angezeigt \\
@@ -388,7 +388,7 @@ description={Ein Server, der nicht Bestandteil des Produktes ist, jedoch benöti
     	/F40/ & Spieler muss bestätigen, dafür muss er genau ein Merkmal ausgewählt haben \\
     \end{tabularx}
 
-    \subsection{Matrix Select} %ICH
+    \subsection{Matrix Select}
     \begin{tabularx}{\linewidth}{@{}>{\bfseries}l@{\hspace{.5em}}X@{}} % Linebreaks in der Tabelle
     	/F10/ & Runde besteht aus genau einer Matrix \\
     	/F20/ & Genau die Anzahl an Merkmalen, die Organisator bei Spielerstellung ausgewählt hat, wird angezeigt \\
@@ -409,7 +409,7 @@ description={Ein Server, der nicht Bestandteil des Produktes ist, jedoch benöti
 		/F20/ & Selbe Merkmalskombination wird nicht mehrfach in einem Spiel angezeigt \\		
 	\end{tabularx}
 	    
-    \section{Bewertung der Merkmalsauswahl des Spielers und Ergebnissicherung} %ICH
+    \section{Bewertung der Merkmalsauswahl des Spielers und Ergebnissicherung}
     \begin{tabularx}{\linewidth}{@{}>{\bfseries}l@{\hspace{.5em}}X@{}} % Linebreaks in der Tabelle
     /F10/ & Merkmalsauswahl des Spielers wird per http-Anfrage an ML-Server geschickt\\
     /F20/ & Bei Binär Select wird gebündelte Menge der Vergleiche geschickt \\
@@ -418,7 +418,7 @@ description={Ein Server, der nicht Bestandteil des Produktes ist, jedoch benöti
     /F50/ & Rundendaten \footnote{Ausgewählte Merkmale, Spielername, Zeitpunkt, Rundenanzahl, Vorhersagequalität, Punkte} wird in von Organisator ausgewählte Datenbank gespeichert \\
     \end{tabularx}
     
-    \section{GUI} %ICH
+    \section{GUI}
     \begin{tabularx}{\linewidth}{@{}>{\bfseries}l@{\hspace{.5em}}X@{}} % Linebreaks in der Tabelle
     /F10/ & Nutzer haben Zugriff auf die Anmeldungs-GUI in einem Webbrowser\\
     /F20/ & Organisatoren erreichen nach erfolgreicher Anmeldung die Organisator-Überschichts-GUI \\
@@ -438,9 +438,9 @@ description={Ein Server, der nicht Bestandteil des Produktes ist, jedoch benöti
 
     \section{Optional: Weitere Gamification-Elemente}
     \begin{tabularx}{\linewidth}{@{}>{\bfseries}l@{\hspace{.5em}}X@{}} % Linebreaks in der Tabelle
-	/F10/ & Leaderboard: Auflistung der Spieler mit den meisten Punkten %in der GUI? \\
+	/F10/ & Leaderboard: Auflistung der Spieler mit den meisten Punkten \\ %in der GUI? \\
 	/F20/ & Achievements: Errungenschaften für Spieler, die freigeschaltet werden können, nachdem der Spieler bestimmte Ziele oder 		Aufgaben erledigt \\
-	/F25/ & Auflistung der Achievements aus /F20/ %in der GUI?:
+	/F25/ & Auflistung der Achievements aus /F20/ \\ %in der GUI?:
 	/F30/ & Daily Challenges: Jeden Tag erhält ein Spieler eine neue Herausforderung, die er abschließen kann \\
 	/F40/ & Streaks: Mehr Punkte für einen Spieler, wenn er zwei (oder mehrere) Spiele in Folge spielt \\
 	/F50/ & Erweitertes Punktesystem: Abschließen von /F20/ und /F30/ geben zusätzliche Punkte \\
