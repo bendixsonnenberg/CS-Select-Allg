@@ -131,6 +131,7 @@ description={Ein Server, der nicht Bestandteil des Produktes ist, jedoch benöti
 
     \section{Musskriterien}
     \begin{itemize} %TODO: In diesem Absatz, Glossar Links
+        \item Verwalten des Spiel-Servers durch Administrator 
     	\item Verwalten der Nutzer 
         \begin{itemize}
             \item Anmeldemechanismus 
@@ -138,7 +139,7 @@ description={Ein Server, der nicht Bestandteil des Produktes ist, jedoch benöti
         \item Merkmalsauswahl anhand von Spielen 
         \begin{itemize}
             \item Spielerstellung durch Organisator
-            \item Spielablauf 
+            \item Teilnahme von Spielern %Formulierung
             \item Bewertung der Merkmalsauswahl durch Kommunikation mit Machine-Learning-Server 
             \item Ergebnissicherung in einer Datenbank 
         \end{itemize}
@@ -147,7 +148,6 @@ description={Ein Server, der nicht Bestandteil des Produktes ist, jedoch benöti
             \item Matrix Select: Spieler erhält mehrere Merkmale und wählt eine Teilmenge davon aus 
             \item Binar Select: Spieler erhält zwei Merkmale und wählt eines davon aus 
         \end{itemize}
-        \item Verwalten des Spiel-Servers durch Administrator 
         \item Grafische Benutzeroberflächen für Anwender 
         \begin{itemize}
             \item Organisator-GUI (Übersichts-GUI, Spielerstellungs-GUI) 
@@ -315,24 +315,37 @@ description={Ein Server, der nicht Bestandteil des Produktes ist, jedoch benöti
     
     
     \chapter{Funktionale Anforderungen}
-    \section{Nutzerverwaltung}
-    \begin{tabularx}{\linewidth}{@{}>{\bfseries}l@{\hspace{.5em}}X@{}} % Linebreaks in der Tabelle
-    /F10/ & \\ % Nach Admin-Einladung?
-    /F20/ & \\
-    /F30/ & \\
-    /F40/ & \\
-    /F50/ & \\
-    /F60/ & \\
-    /F70/ & \\
-    /F80/ & \\
-    /F90/ & \\
-    \end{tabularx}
     
     \section{Verwaltung Spiele-Server}
     \begin{tabularx}{\linewidth}{@{}>{\bfseries}l@{\hspace{.5em}}X@{}} % Linebreaks in der Tabelle
-    /F10/ & \\
-    /F20/ & \\
-    /F30/ & \\
+	/F10/ & \\ 
+	/F20/ & \\
+	/F30/ & \\
+    \end{tabularx}
+
+    \section{Optional: Einfachere Verwaltung des Spiele-Servers}
+    \begin{tabularx}{\linewidth}{@{}>{\bfseries}l@{\hspace{.5em}}X@{}} % Linebreaks in der Tabelle
+	/F10/ & Bei Start des Systems gibt es ein Dialog zur Einrichtung \\ %Explizit: Was kann man da machen?
+	/F20/ & Spiele aus dem System löschen \\ 
+	/F30/ & Spiele-Server vom Terminal aus beenden \\
+	/F40/ & Kontrollierter Neustart: Spiele-Server behält seinen Zustand über Stoppen und Starten hinweg
+    \end{tabularx}
+    
+    \section{Nutzerverwaltung}
+    \begin{tabularx}{\linewidth}{@{}>{\bfseries}l@{\hspace{.5em}}X@{}} % Linebreaks in der Tabelle
+	/F10/ & Registrierung des Organisators durch global gesetztes Passwort \\ %Machen wir das so?
+	/F20/ & Anmelden des Organisators \\
+	/F30/ & Registrierung eines Spielers \\
+	/F40/ & Anmelden eines Spielers \\
+    \end{tabularx}
+
+    \section{Optional: Zusätzliche Funktionen für Nutzerverwaltung}
+    \begin{tabularx}{\linewidth}{@{}>{\bfseries}l@{\hspace{.5em}}X@{}} % Linebreaks in der Tabelle
+	/F10/ & Änderung des Nutzernamens \\ %Gibt es den?
+	/F20/ & Änderung des Passworts\\
+	/F30/ & Zurücksetzen des Passworts ohne Kenntnis des derzeitigen Passworts \\
+	/F40/ & \\
+	/F50/ & \\
     \end{tabularx}
     
     \section{Spielerstellung} %ICH
@@ -395,7 +408,7 @@ description={Ein Server, der nicht Bestandteil des Produktes ist, jedoch benöti
 		/F10/ & Merkmalsauswahl durch System erfolgt nicht zufällig \\
 		/F20/ & Selbe Merkmalskombination wird nicht mehrfach in einem Spiel angezeigt \\		
 	\end{tabularx}
-    
+	    
     \section{Bewertung der Merkmalsauswahl des Spielers und Ergebnissicherung} %ICH
     \begin{tabularx}{\linewidth}{@{}>{\bfseries}l@{\hspace{.5em}}X@{}} % Linebreaks in der Tabelle
     /F10/ & Merkmalsauswahl des Spielers wird per http-Anfrage an ML-Server geschickt\\
@@ -416,41 +429,50 @@ description={Ein Server, der nicht Bestandteil des Produktes ist, jedoch benöti
     /F70/ & Nach Beenden der Runde kehren Spieler entweder auf die Spieler-Übersichts-GUI oder die Spiel-GUI zurück \\
     /F80/ & Nach Abmeldung kehren Nutzer auf die Anmeldungs-GUI zurück \\
     \end{tabularx}
-    
+        
     \section{Gamification-Elemente}
     \begin{tabularx}{\linewidth}{@{}>{\bfseries}l@{\hspace{.5em}}X@{}} % Linebreaks in der Tabelle
-    /F10/ & \\
+    /F10/ & Punktesystem für Spieler basierend auf ihren Eingaben, erhaltener Wert des ML-Servers mit 100 multiplizieren und aufrunden    	auf nächstgrößere ganze Zahl \\
     /F20/ & \\
-    /F30/ & \\
-    /F40/ & \\
-    /F50/ & \\
-    /F60/ & \\
-    /F70/ & \\
-    /F80/ & \\
-    /F90/ & \\
-    \end{tabularx}
-    
-    \section{Bedienungshilfen} %Optional
-    \begin{tabularx}{\linewidth}{@{}>{\bfseries}l@{\hspace{.5em}}X@{}} % Linebreaks in der Tabelle
-    /F10/ & Registrierung \\
-    /F20/ & \\
-    /F30/ & \\
-    \end{tabularx}
-    
-    \section{Internationalisierung} %Optional
-    \begin{tabularx}{\linewidth}{@{}>{\bfseries}l@{\hspace{.5em}}X@{}} % Linebreaks in der Tabelle
-    /F10/ & Registrierung \\
-    /F20/ & \\
-    /F30/ & \\
     \end{tabularx}
 
-	\section{Optional: Bessere Verfügbarkeit des Systems}
+    \section{Optional: Weitere Gamification-Elemente}
+    \begin{tabularx}{\linewidth}{@{}>{\bfseries}l@{\hspace{.5em}}X@{}} % Linebreaks in der Tabelle
+	/F10/ & Leaderboard: Auflistung der Spieler mit den meisten Punkten %in der GUI? \\
+	/F20/ & Achievements: Errungenschaften für Spieler, die freigeschaltet werden können, nachdem der Spieler bestimmte Ziele oder 		Aufgaben erledigt \\
+	/F25/ & Auflistung der Achievements aus /F20/ %in der GUI?:
+	/F30/ & Daily Challenges: Jeden Tag erhält ein Spieler eine neue Herausforderung, die er abschließen kann \\
+	/F40/ & Streaks: Mehr Punkte für einen Spieler, wenn er zwei (oder mehrere) Spiele in Folge spielt \\
+	/F50/ & Erweitertes Punktesystem: Abschließen von /F20/ und /F30/ geben zusätzliche Punkte \\
+    \end{tabularx}
+    
+    \section{Bedienungshilfen}
 	\begin{tabularx}{\linewidth}{@{}>{\bfseries}l@{\hspace{.5em}}X@{}} % Linebreaks in der Tabelle
-		/F10/ & Unterstützung von Internet Explorer \\
-		/F20/ & Unterstützung von Mobilgeräten mit Responsive-GUIs \\
-		/F30/ & Lieferung des Servers als Docker-Image \\
-		/F40/ & Der Server kann auf verschiedenen Ports ausgeführt werden \\
+	/F10/ & Hilfe-Schaltfläche im Organisator-GUI \\ 
+	/F20/ & Hilfe Schaltfläche im Spieler-GUI \\ %Die beiden erklären?
+	/F30/ &  \\
 	\end{tabularx}
+
+
+    \section{Internationalisierung}
+    \begin{tabularx}{\linewidth}{@{}>{\bfseries}l@{\hspace{.5em}}X@{}} % Linebreaks in der Tabelle
+	/F10/ & Umsetzung in der deutscher Sprache \\ 
+    \end{tabularx}
+
+
+    \section{Optional: Internationalisierung}
+    \begin{tabularx}{\linewidth}{@{}>{\bfseries}l@{\hspace{.5em}}X@{}} % Linebreaks in der Tabelle
+	/F10/ & Bereitstellung eines englischen Sprachpakets \\ 
+	/F20/ & Sprachänderung \\
+    \end{tabularx}
+
+    \section{Optional: Bessere Verfügbarkeit des Systems}
+    \begin{tabularx}{\linewidth}{@{}>{\bfseries}l@{\hspace{.5em}}X@{}} % Linebreaks in der Tabelle
+	/F10/ & Unterstützung von Internet Explorer \\
+	/F20/ & Unterstützung von Mobilgeräten mit Responsive-GUIs \\
+	/F30/ & Lieferung des Servers als Docker-Image \\
+	/F40/ & Der Server kann auf verschiedenen Ports ausgeführt werden \\
+    \end{tabularx}
 
     \chapter{Produktdaten}
 
