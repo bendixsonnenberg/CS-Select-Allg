@@ -101,6 +101,7 @@ description={Ein Server, der nicht Bestandteil des Produktes ist, jedoch benöti
     name=Datensatz,
     description={Die Menge an Features, die ein Machine Learning Modell zur Verfügung hat. Zu jedem Feature gehört noch eine Beschreibung und zwei Bilder.}
 }
+
 \begin{document}
 
     \title{Pflichtenheft CS-Select}
@@ -309,14 +310,14 @@ description={Ein Server, der nicht Bestandteil des Produktes ist, jedoch benöti
     \chapter{Funktionale Anforderungen}
     
     \section{Verwaltung Spiele-Server}
-    \begin{tabularx}{\linewidth}{@{}>{\bfseries}l@{\hspace{.5em}}X@{}} % Linebreaks in der Tabelle
-	/F10/ & %Config Datei und so?\\ 
+    \begin{tabularx}{\linewidth}{@{}>{\bfseries}l@{\hspace{.5em}}X@{}} 
+	/F10/ & \\ %Config Datei und so?
 	/F20/ & \\
 	/F30/ & \\
     \end{tabularx}
 
     \section{Optional: Einfachere Verwaltung des Spiele-Servers}
-    \begin{tabularx}{\linewidth}{@{}>{\bfseries}l@{\hspace{.5em}}X@{}} % Linebreaks in der Tabelle
+    \begin{tabularx}{\linewidth}{@{}>{\bfseries}l@{\hspace{.5em}}X@{}} 
 	/F10/ & Bei Start des Systems gibt es ein Dialog zur Einrichtung \\ %Explizit: Was kann man da machen?
 	/F20/ & Spiele aus dem System löschen \\ 
 	/F30/ & Spiele-Server vom Terminal aus beenden \\
@@ -324,28 +325,27 @@ description={Ein Server, der nicht Bestandteil des Produktes ist, jedoch benöti
     \end{tabularx}
     
     \section{Nutzerverwaltung}
-    \begin{tabularx}{\linewidth}{@{}>{\bfseries}l@{\hspace{.5em}}X@{}} % Linebreaks in der Tabelle
+    \begin{tabularx}{\linewidth}{@{}>{\bfseries}l@{\hspace{.5em}}X@{}} 
 	/F10/ & Erstregistrierung des Organisators durch global gesetztes Passwort \\ %Machen wir das so?
-	/F20/ & Anmelden des Organisators \\
-	/F30/ & Erstregistrierung eines Spielers \\
-	/F40/ & Anmelden eines Spielers \\
+	/F20/ & Anmelden des Organisators mit E-Mail und Passwort \\
+	/F30/ & Erstregistrierung eines Spielers mit Passwort, dass er in einer Einladungs-E-Mail erhalten hat \\ 
+	/F40/ & Anmelden eines Spielers mit E-Mail und Passwort \\
     \end{tabularx}
 
     \section{Optional: Zusätzliche Funktionen für Nutzerverwaltung}
-    \begin{tabularx}{\linewidth}{@{}>{\bfseries}l@{\hspace{.5em}}X@{}} % Linebreaks in der Tabelle
-	/F10/ & Änderung des Nutzernamens \\ %Gibt es den?
-	/F20/ & Änderung des Passworts\\
+    \begin{tabularx}{\linewidth}{@{}>{\bfseries}l@{\hspace{.5em}}X@{}} 
+	/F10/ & Änderung der E-Mail \\
+	/F20/ & Änderung des Passworts \\
 	/F30/ & Zurücksetzen des Passworts ohne Kenntnis des derzeitigen Passworts \\
 	/F40/ & \\
-	/F50/ & \\
     \end{tabularx}
     
     \section{Spielerstellung}
-    \begin{tabularx}{\linewidth}{@{}>{\bfseries}l@{\hspace{.5em}}X@{}} % Linebreaks in der Tabelle
+    \begin{tabularx}{\linewidth}{@{}>{\bfseries}l@{\hspace{.5em}}X@{}} 
     /F10/ & Organisator kann in Spielerstellungs-GUI Spieler zum Spiel einladen, in dem er E-Mail-Adresse angibt \\
     /F20/ & Eingeladene Spieler erhalten Einladungs-E-Mail \\
     /F30/ & Organisator muss mindestens einen Spielmodus auswählen\\
-    /F40/ & Falls Matrix Select ausgewählt ist, muss Organisator Matrixgröße angeben \\
+    /F35/ & Falls Matrix Select ausgewählt ist, muss Organisator Matrixgröße angeben \\
     /F50/ & Organisator muss Name des Merkmalsdatensatzes angeben \\
     /F60/ & Organisator muss Adresse einer Datenbank angeben \\ %Kann?
     /F70/ & Organisator muss Spieltitel und Spielbeschreibung angeben \\ %Kann?
@@ -412,7 +412,7 @@ description={Ein Server, der nicht Bestandteil des Produktes ist, jedoch benöti
     \begin{tabularx}{\linewidth}{@{}>{\bfseries}l@{\hspace{.5em}}X@{}} % Linebreaks in der Tabelle
     /F10/ & Merkmalsauswahl des Spielers wird per http-Anfrage an ML-Server geschickt\\
     /F20/ & Bei Binär Select wird gebündelte Menge der Vergleiche geschickt \\
-    /F30/ & Rückmeldung wird in Rundenpunktzahl umgewandelt \\ %Wie?
+    /F30/ & Rückmeldung wird in Rundenpunktzahl umgewandelt \\ %Wie? Das wird bei Punktesystem erklärt
     /F40/ & Rundenpunktzahl wird zur Gesamtpunktzahl des Spielers addiert \\
     /F50/ & Rundendaten \footnote{Ausgewählte Merkmale, Spielername, Zeitpunkt, Rundenanzahl, Vorhersagequalität, Punkte} wird in von Organisator ausgewählte Datenbank gespeichert \\ %Datenbank zu Spiel
     \end{tabularx}
@@ -432,7 +432,8 @@ description={Ein Server, der nicht Bestandteil des Produktes ist, jedoch benöti
         
     \section{Gamification-Elemente}
     \begin{tabularx}{\linewidth}{@{}>{\bfseries}l@{\hspace{.5em}}X@{}} % Linebreaks in der Tabelle
-    /F10/ & Punktesystem für Spieler basierend auf ihren Eingaben, erhaltener Wert des ML-Servers mit 100 multiplizieren und aufrunden    	auf nächstgrößere ganze Zahl \\
+    /F10/ & Punktesystem für Spieler basierend auf ihren Eingaben, der erhaltene Wert des ML-Servers wird mit 100 multipliziert und 
+    auf nächstgrößere ganze Zahl aufgerundet \\
     /F20/ & \\
     \end{tabularx}
 
@@ -456,14 +457,14 @@ description={Ein Server, der nicht Bestandteil des Produktes ist, jedoch benöti
 
     \section{Internationalisierung}
     \begin{tabularx}{\linewidth}{@{}>{\bfseries}l@{\hspace{.5em}}X@{}} % Linebreaks in der Tabelle
-	/F10/ & Umsetzung in deutscher Sprache \\ 
+	/F10/ & Bereitstellung eines deutschen Sprachpakets für die GUIs \\ 
     \end{tabularx}
 
 
     \section{Optional: Internationalisierung}
     \begin{tabularx}{\linewidth}{@{}>{\bfseries}l@{\hspace{.5em}}X@{}} % Linebreaks in der Tabelle
-	/F10/ & Bereitstellung eines deutschen und englischen Sprachpakets \\ 
-	/F20/ & Sprachänderung \\
+	/F10/ & Bereitstellung eines englischen Sprachpakets \\ 
+	/F20/ & Änderung der Sprache für Nutzer in der GUI möglich \\
     \end{tabularx}
 
     \section{Optional: Bessere Verfügbarkeit des Systems}
