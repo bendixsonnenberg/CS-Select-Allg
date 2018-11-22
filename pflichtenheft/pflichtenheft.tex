@@ -202,6 +202,12 @@ description={Ein Server, der nicht Bestandteil des Produktes ist, jedoch benöti
 	\item Das Produkt selbst kann keine optimale Merkmalsauswahl treffen 
     \end{itemize}
 
+    \section{Gamification}
+    \label{sec:gamification}
+    Gamification bezeichnet die Verwendung spieltypischer Elemente wie beispielsweise Levels, Achievements, Leaderboards etc in Anwendungen, um eine Motivationssteigerung bei den Nutzern zu erreichen.
+    Im \Gls{Produkt} wird eine Mehrzahl an Gamification-Elementen zu eben jenem Zweck genutzt.
+    Die verwendeten Gamification-Elemente finden sich in \fref{sec:Gamification-Elemente} sowie \fref{sec:Optionale Gamification-Elemente}
+
     \begin{comment}
     \begin{tabular}{ l l}
         /FA10/ & Ein \Gls{Spieler} muss sich anmelden können. \\
@@ -431,13 +437,15 @@ description={Ein Server, der nicht Bestandteil des Produktes ist, jedoch benöti
     \end{tabularx}
         
     \section{Gamification-Elemente}
+    \label{sec:Gamification-Elemente}
     \begin{tabularx}{\linewidth}{@{}>{\bfseries}l@{\hspace{.5em}}X@{}} % Linebreaks in der Tabelle
-    /F10/ & Punktesystem für Spieler basierend auf ihren Eingaben, der erhaltene Wert des ML-Servers wird mit 100 multipliziert und 
-    auf nächstgrößere ganze Zahl aufgerundet \\
+    /F10/ & Punktesystem für Spieler basierend auf ihren Eingaben, der für die Merkmalsauswahl erhaltene Wert des ML-Servers wird mit 100 multipliziert und
+    auf die nächstgrößere ganze Zahl aufgerundet \\
     /F20/ & \\
     \end{tabularx}
 
     \section{Optional: Weitere Gamification-Elemente}
+    \label{sec:Optionale Gamification-Elemente}
     \begin{tabularx}{\linewidth}{@{}>{\bfseries}l@{\hspace{.5em}}X@{}} % Linebreaks in der Tabelle
 	/F10/ & Leaderboard: Auflistung der Spieler mit den meisten Punkten \\ %in der GUI? \\
 	/F20/ & Achievements: Errungenschaften für Spieler, die freigeschaltet werden können, nachdem der Spieler bestimmte Ziele oder 		Aufgaben erledigt \\
