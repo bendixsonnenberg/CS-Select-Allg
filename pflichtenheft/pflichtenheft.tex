@@ -316,7 +316,7 @@ description={Ein Server, der nicht Bestandteil des Produktes ist, jedoch benöti
     \chapter{Funktionale Anforderungen}
     \section{Nutzerverwaltung}
     \begin{tabularx}{\linewidth}{@{}>{\bfseries}l@{\hspace{.5em}}X@{}} % Linebreaks in der Tabelle
-    /F10/ & Registrierung \\
+    /F10/ & \\ % Nach Admin-Einladung?
     /F20/ & \\
     /F30/ & \\
     /F40/ & \\
@@ -334,20 +334,33 @@ description={Ein Server, der nicht Bestandteil des Produktes ist, jedoch benöti
     /F30/ & \\
     \end{tabularx}
     
-    \section{Spielerstellung}
+    \section{Spielerstellung} %ICH
     \begin{tabularx}{\linewidth}{@{}>{\bfseries}l@{\hspace{.5em}}X@{}} % Linebreaks in der Tabelle
-    /F10/ & Ein Organisator kann in der Spielerstellungs \\
-    /F20/ & \\
-    /F30/ & \\
-    /F40/ & \\
-    /F50/ & \\
-    /F60/ & \\
-    /F70/ & \\
-    /F80/ & \\
-    /F90/ & \\
+    /F10/ & Organisator kann in Spielerstellungs-GUI Spieler zum Spiel einladen, in dem er E-Mail-Adresse angibt \\
+    /F20/ & Eingeladene Spieler erhalten Einladungs-E-Mail \\
+    /F30/ & Organisator muss mindestens einen Spielmodus auswählen\\
+    /F40/ & Falls Matrix Select ausgewählt ist, muss Organisator Matrixgröße angeben \\
+    /F50/ & Organisator muss Name des Merkmalsdatensatzes angeben \\
+    /F60/ & Organisator muss Adresse einer Datenbank angeben \\ %Kann?
+    /F70/ & Organisator muss Spieltitel und Spielbeschreibung angeben \\ %Kann?
+    /F80/ & Organisator muss aus den folgenden mindestens eine auswählen und eventuell Werte angeben: Ende nach bestimmter Zeit, Ende nach bestimmter Anzahl an Runden, Ende durch Spielabbruch durch Organisator
+    /F80/ & Organisator kann Spielerstellung abbrechen \\
+    /F90/ & Organisator muss Spielerstellung bestätigen \\
     \end{tabularx}
     
-    \section{Merkmalsauswahl während eines Spiels}
+    \section{Optional: Zusätzliche Funktionen bei Spielerstellung}
+    \begin{tabularx}{\linewidth}{@{}>{\bfseries}l@{\hspace{.5em}}X@{}} % Linebreaks in der Tabelle
+    /F10/ & Organisator kann seine Spieleinstellungen speichern \\
+    /F20/ & Organisator kann seine Spieleinstellungen laden \\
+    /F30/ & Organisator kann weitere Spieler nach Beginn eines Spieles einladen \\
+	\end{tabularx}
+    
+    \section{Spielablauf} %ICH
+    
+    \subsection{Binär Select} %ICH
+    \subsection{Matrix Select} %ICH
+    
+    \section{Merkmalsauswahl während eines Spiels} %ICH
     \begin{tabularx}{\linewidth}{@{}>{\bfseries}l@{\hspace{.5em}}X@{}} % Linebreaks in der Tabelle
     /F10/ & \\
     /F20/ & \\
@@ -360,9 +373,9 @@ description={Ein Server, der nicht Bestandteil des Produktes ist, jedoch benöti
     /F90/ & \\
     \end{tabularx}
     
-    \section{GUI}
+    \section{GUI} %ICH
     \begin{tabularx}{\linewidth}{@{}>{\bfseries}l@{\hspace{.5em}}X@{}} % Linebreaks in der Tabelle
-    /F10/ & Nutzer haben Zugriff auf die Anmeldungs-GUI \\
+    /F10/ & Nutzer haben Zugriff auf die Anmeldungs-GUI in einem Webbrowser\\
     /F20/ & Organisatoren erreichen nach erfolgreicher Anmeldung die Organisator-Überschichts-GUI \\
     /F30/ & Spieler erreichen nach erfolgreicher Anmeldung die Spieler-Übersichts-GUI \\
     /F40/ & Organisatoren gelangen nach Betätigung der Spielerstellungs-Schaltfläche die Spielerstellungs-GUI \\
