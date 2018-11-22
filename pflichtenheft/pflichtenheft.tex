@@ -83,12 +83,12 @@ description={Ein Ziel oder eine Errungenschaft, welche den \Gls{Spieler} motivie
 {
 name=Administrator,
 plural=Administratoren,
-description={Die Person, welche das System installiert und den Nutzern zur Verfügung stellt. Sie verwaltet den \Gls{Spiele-Server}.}
+description={Die Person, welche das System installiert und den Nutzern zur Verfügung stellt. Sie verwaltet den \Gls{Spiel-Server}.}
 }
-\newglossaryentry{Spiele-Server}
+\newglossaryentry{Spiel-Server}
 {
-name=Spiele-Server,
-plural=Spiele-Server,
+name=Spiel-Server,
+plural=Spiel-Server,
 description={Ein Computer, welcher der Verwaltung von CS:Select dient und eine Internetanbindung hat.}
 }
 \newglossaryentry{ML-Server}
@@ -133,8 +133,8 @@ description={Ein Server, der nicht Bestandteil des Produktes ist, jedoch benöti
 
     \section{Musskriterien}
     \begin{itemize} %TODO: In diesem Absatz, Glossar Links
-        \item Verwalten des Spiel-Servers durch \Gls{Administrator}
-    	\item Anmeldemechanismus zum Verwalten der Nutzer %Wer ist Nutzer? Präzisieren? 
+        \item Verwalten des \Gls{Spiel-Server}s durch \Gls{Administrator}
+    	\item Anmeldemechanismus zum Verwalten der Nutzer
 	\item Grafische Benutzeroberflächen für Anwender 
         \begin{itemize}
             \item Organisator-GUI (Übersichts-GUI, Spielerstellungs-GUI) 
@@ -148,10 +148,10 @@ description={Ein Server, der nicht Bestandteil des Produktes ist, jedoch benöti
             \item Bewertung der Merkmalsauswahl durch Kommunikation mit Machine-Learning-Server 
             \item Ergebnissicherung in einer Datenbank 
         \end{itemize}
-        \item Zwei Spielmodi 
+        \item Zwei \Glspl{Spielmodus}
         \begin{itemize}
-            \item Matrix Select: \Gls{Spieler} erhält mehrere Merkmale und wählt eine Teilmenge davon aus %Später dazu mehr irgendwie dazu?
-            \item Binar Select: \Gls{Spieler} erhält zwei Merkmale und wählt eines davon aus
+            \item \Gls{Matrix Select}: \Gls{Spieler} erhält mehrere Merkmale und wählt eine Teilmenge davon aus %Später dazu mehr irgendwie dazu?
+            \item \Gls{Binar Select}: \Gls{Spieler} erhält zwei Merkmale und wählt eines davon aus
         \end{itemize}
         \item Gamification-Elemente
         \begin{itemize}
@@ -183,7 +183,7 @@ description={Ein Server, der nicht Bestandteil des Produktes ist, jedoch benöti
             \item Möglichkeit, Merkmale als unwichtig zu markieren 
         \end{itemize}
 	\item Weitere Spielmodi 
-	\item Verwendung von weiteren Gamification-Elementen 
+	\item Weitere Gamification-Elemente %Glossareintrag?
         \begin{itemize}
             \item Leaderboard %Glossareintrag? 
             \item Achievements %Hat schon einen
@@ -199,79 +199,16 @@ description={Ein Server, der nicht Bestandteil des Produktes ist, jedoch benöti
 
     \section{Abgrenzungskriterien}
     \begin{itemize}
-        \item Verwalten des Machine-Learning-Servers 
-	\item Das Produkt selbst kann keine optimale Merkmalsauswahl treffen 
+        \item Verwalten des \Gls{ML-Server}s
+	    \item Das Produkt selbst kann keine optimale Merkmalsauswahl treffen
     \end{itemize}
 
     \section{Gamification}
     \label{sec:gamification}
-    Gamification bezeichnet die Verwendung spieltypischer Elemente wie beispielsweise Levels, Achievements, Leaderboards etc in Anwendungen, um eine Motivationssteigerung bei den Nutzern zu erreichen.
+    Gamification bezeichnet die Verwendung spieltypischer Elemente wie beispielsweise Level, Achievements und Leaderboards in Anwendungen, um eine Motivationssteigerung bei den Nutzern zu erreichen.
     Im \Gls{Produkt} wird eine Mehrzahl an Gamification-Elementen zu eben jenem Zweck genutzt.
-    Die verwendeten Gamification-Elemente finden sich in \fref{sec:Gamification-Elemente} sowie \fref{sec:Optionale Gamification-Elemente}
+    Die verwendeten Gamification-Elemente finden sich in \fref{sec:Gamification-Elemente} sowie \fref{sec:Optionale Gamification-Elemente}.
 
-    \begin{comment}
-    \begin{tabular}{ l l}
-        /FA10/ & Ein \Gls{Spieler} muss sich anmelden können. \\
-        /FA20/ & Ein \Gls{Spieler} muss sich registrieren können. \\
-        /FA30/ & Ein \Gls{Organisator} muss sich anmelden können. \\
-        /FA40/ & Ein \Gls{Organisator} muss ein \Gls{Spiel} erstellen und beenden können. \\
-        /FA45/ & Die Erstellung eines Spiels muss in einem GUI erfolgen. \\
-        /FA50/ & Die Anmeldung muss in einem modernem \Gls{Webbrowser} möglich sein. \\
-        /FA60/ & \Gls{Spieler} müssen bei einem \Gls{Spiel} mitspielen können. \\
-        /FA65/ & Ein \Gls{Spieler} kann alle Spiele sehen, an denen er teilnimmt. \\
-        /FA70/ & Ein \Gls{Organisator} muss \Gls{Spieler} zu einem \Gls{Spiel} einladen können. \\
-        /FA75/ & Ein \Gls{Spieler} muss eine Einladung zu einem Spiel annehmen können. \\
-        /FA80/ & Die Ergebnisse eines \Gls{Spiel}s können ausgelesen werden. \\
-        /FA90/ & Ein Spiel muss Endbedingungen besitzen. \\
-        /FA100/ & Ein Spiel muss bei Erreichen seiner Endbedingungen enden. \\
-        /FA110/ & Das System muss mit dem \Gls{ML-Server} kommunizieren. \\
-        /FA120/ & Der Organisator kann in einem GUI den Spielstand überprüfen.\\
-        /FA130/ & Für den Spieler gibt es ein GUI. \\
-        /FA140/ & Es gibt mindestens zwei Spielmodi: \Gls{Matrix Select} und \Gls{Binar Select}. \\
-        /FA150/ & Beim Spiel werden dem Spieler die Daten zu jedem Merkmal angezeigt. \\ 
-    \end{tabular}
-
-    \section{Kannkriterien}
-    \begin{tabularx}{\linewidth}{@{}>{\bfseries}l@{\hspace{.5em}}X@{}} % Linebreaks in der Tabelle
-        /KA10/ & Ein \Gls{Organisator} kann die Ergebnisse/Eingabe eines Spielers ansehen. \\
-        /KA20/ & Der \Gls{Administrator} kann Spiele aus dem System löschen. \\
-        /KA30/ & Der \Gls{Organisator} kann seine Spiele löschen. \\
-        /KA40/ & Ein \Gls{Organisator} kann seine \Glspl{Spiel} beenden. \\
-        /KA50/ & Der \Gls{Spiele-Server} kann vom Terminal aus beendet werden. \\
-        /KA60/ & Beim Erstellen eines Spiels kann der \Gls{Organisator} die \Gls{Spieleinstellungen} speichern und laden. \\
-        /KA70/ & Das System kann auf verschiedenen Ports ausgeführt werden. \\
-        /KA80/ & Beim Start des Systems erscheint ein Dialog zum Einrichten des Systems. \\
-        /KA90/ & Die Ergebnisse eines \Gls{Spiel}s werden im Interface des \Gls{Organisator}s angezeigt. \\
-        /KA100/ & Beim Spielen existiert ein Knopf, welcher das Überspringen der aktuellen Runde ermöglicht. \\
-        /KA110/ & Der Knopf aus /KA100/ kostet den \Gls{Spieler} bei Betätigung Punkte. \\
-        /KA120/ & Es ist \Gls{Spieler}n möglich Kriterien auszuschließen, also diese als unwichtig zu markieren. \\
-        /KA130/ & Der \Gls{Organisator} eines Spiels kann nach Beginn eines Spiels noch weitere Spieler einladen. \\
-        /KA140/ & Die Merkmale, die pro Runde angezeigt werden, sind schlauer ausgewählt als durch Zufall.\footnote{Durch verschiedene mögliche Auswahlklassen. \fref{fig:FeatureSelect}} \\
-        /KA150/ & Die maximale Anzahl an Runden pro Spieler am gleichen Tag können durch den \Gls{Organisator} eingeschränkt werden. \\
-        /KA160/ & Für Spieler gibt es basierend auf den Spielergebnissen der Spiele ein Punktesystem. \\
-        /KA170/ & \Glspl{Spieler} erhalten mehr Punkte, wenn sie mehrere Runden in Folge spielen. \\
-        /KA180/ & Es gibt \Gls{Achievement}s, welche von Spielern freigeschaltet werden. \\
-        /KA190/ & Es gibt eine Auflistung der \Gls{Achievement}s aus /KA170/. \\
-        /KA200/ & Es gibt eine Hilfe-Schaltfläche im \Gls{Spieler} GUI. \\
-        /KA210/ & Es gibt eine Hilfe-Schaltfläche im \Gls{Organisator} GUI. \\
-        /KA220/ & Das Webinterface unterstützt Internet Explorer. \\
-        /KA230/ & Es gibt mehrere Sprachen zur Auswahl. \\
-        /KA240/ & Es ist möglich, die Punkte eines \Gls{Spieler}s zurückzusetzen. \\ %Durch Spieler oder Orga?
-        /KA250/ & Ein Spieler oder Organisator kann sein Passwort ändern. \\
-        /KA260/ & Ein Spieler oder Organisator kann sein Passwort zurücksetzen. \\
-        /KA270/ & In jedem Spiel wird eine Kombination an Features nur genau ein mal abgefragt.\\
-        /KA280/ & Der \Gls{Spiele-Server} behält seinen Zustand über das Stoppen und Starten hinweg.\footnote{Das heißt, wenn der Server beendet und danach wieder gestartet wird,
- sind Spiele und Nutzer immer noch dieselben. Man kann also ohne Sorge den Server neustarten.} \\
-        /KA290/ & Der Server wird als ein Docker Image geliefert.\footnotemark \\
-    \end{tabularx}
-
-    \footnotetext{Siehe \href{www.docker.com}{Docker}}
-    \section{Abgrenzungskriterien}
-    \begin{tabular}{ l l}
-    /AK10/ & Das Produkt muss nicht bestimmen, welches Subset an Merkmalen optimal ist.\\
-    /AK20/ & Das Produkt muss nicht die Auswertung der Ergebnisse unterstützen.\\
-    \end{tabular}
-    \end{comment}
     
     \chapter{Einsatz}
 
@@ -307,7 +244,7 @@ description={Ein Server, der nicht Bestandteil des Produktes ist, jedoch benöti
     Der Machine-Learning-Server übernimmt das Machine Learning und stellt die Datensätze für das Spiel zur Verfügung.
     Der Machine-Learning-Server unterstützt mindestens die nachfolgenden Anfragen:
     \begin{itemize}
-        \item \texttt{GET /features} Liefert einen \Gls{Datensatz} an den Spiele-Server.
+        \item \texttt{GET /features} Liefert einen \Gls{Datensatz} an den Spiel-Server.
         Parameter: Datensatzidentifier
         \item \texttt{GET /score} Bewertet eine Merkmalsauswahl eines \Gls{Spieler}s.
         Gibt eine Zahl zwischen 0 und 1 zurück, die die Güte der Merkmalsauswahl entspricht.
@@ -317,89 +254,87 @@ description={Ein Server, der nicht Bestandteil des Produktes ist, jedoch benöti
     
     \chapter{Funktionale Anforderungen}
     
-    \section{Verwaltung Spiele-Server}
+    \section{Verwaltung des \Gls{Spiel-Server}s}
     \begin{tabularx}{\linewidth}{@{}>{\bfseries}l@{\hspace{.5em}}X@{}} 
-	/F10/ & \\ %Config Datei und so?
-	/F20/ & \\
-	/F30/ & \\
+	/F10/ & \Gls{Administrator} konfiguriert eine Config-Datei \\ %Wie schreibt man das am besten
+	/F20/ & Globales Passwort für \Glspl{Organisator} muss setzbar sein \\
     \end{tabularx}
 
-    \section{Optional: Einfachere Verwaltung des Spiele-Servers}
+    \section{Optional: Einfachere Verwaltung des \Gls{Spiel-Server}s}
     \begin{tabularx}{\linewidth}{@{}>{\bfseries}l@{\hspace{.5em}}X@{}} 
 	/F10/ & Bei Start des Systems gibt es ein Dialog zur Einrichtung \\ %Explizit: Was kann man da machen?
-	/F20/ & Spiele aus dem System löschen \\ 
-	/F30/ & Spiele-Server vom Terminal aus beenden \\
-	/F40/ & Kontrollierter Neustart: Spiele-Server behält seinen Zustand über Stoppen und Starten hinweg
+	/F20/ & \Glspl{Spiel} sind aus dem System löschbar \\
+	/F30/ & Spiel-Server vom Terminal aus beenden \\
+	/F40/ & Kontrollierter Neustart: Spiel-Server behält seinen Zustand über Stoppen und Starten hinweg
     \end{tabularx}
     
     \section{Nutzerverwaltung}
     \begin{tabularx}{\linewidth}{@{}>{\bfseries}l@{\hspace{.5em}}X@{}} 
-	/F10/ & Erstregistrierung des \Gls{Organisator}s durch global gesetztes Passwort \\ %Machen wir das so?
+	/F10/ & Erstregistrierung des \Gls{Organisator}s mit E-Mail und global gesetztem Passwort \\ %Machen wir das so?
 	/F20/ & Anmelden des \Gls{Organisator}s mit E-Mail und Passwort \\
-	/F30/ & Erstregistrierung eines \Gls{Spieler}s mit Passwort, dass er in einer Einladungs-E-Mail erhalten hat \\
+	/F30/ & Erstregistrierung eines \Gls{Spieler}s mit E-Mail und Passwort, das er in einer Einladungs-E-Mail erhalten hat \\
 	/F40/ & Anmelden eines \Gls{Spieler}s mit E-Mail und Passwort \\
+    /F50/ & Abmelden der Nutzer
     \end{tabularx}
 
-    \section{Optional: Zusätzliche Funktionen für Nutzerverwaltung}
+    \section{Optional: Zusätzliche Funktionen für die Nutzerverwaltung}
     \begin{tabularx}{\linewidth}{@{}>{\bfseries}l@{\hspace{.5em}}X@{}} 
 	/F10/ & Änderung der E-Mail \\
 	/F20/ & Änderung des Passworts \\
 	/F30/ & Zurücksetzen des Passworts ohne Kenntnis des derzeitigen Passworts \\
-	/F40/ & \\
     \end{tabularx}
     
     \section{Spielerstellung}
     \begin{tabularx}{\linewidth}{@{}>{\bfseries}l@{\hspace{.5em}}X@{}} 
-    /F10/ & \Gls{Organisator} kann in Spielerstellungs-GUI \Gls{Spieler} zum Spiel einladen, in dem er E-Mail-Adresse angibt \\
+    /F10/ & \Gls{Organisator} kann in Spielerstellungs-GUI \Gls{Spieler} zu einem Spiel einladen, in dem er E-Mail-Adresse angibt \\
     /F20/ & Eingeladene \Gls{Spieler} erhalten Einladungs-E-Mail \\
-    /F30/ & \Gls{Organisator} muss mindestens einen \Gls{Spielmodus} auswählen\\
-    /F35/ & Falls Matrix Select ausgewählt ist, muss \Gls{Organisator} Matrixgröße angeben \\
+    /F30/ & \Gls{Organisator} muss mindestens einen \Gls{Spielmodus} auswählen \\
+    /F35/ & Falls \Gls{Matrix Select} ausgewählt ist, muss \Gls{Organisator} Matrixgröße angeben \\
     /F50/ & \Gls{Organisator} muss Name des Merkmalsdatensatzes angeben \\
     /F60/ & \Gls{Organisator} muss Adresse einer Datenbank angeben \\ %Kann?
     /F70/ & \Gls{Organisator} muss Spieltitel und Spielbeschreibung angeben \\ %Kann?
-    /F80/ & \Gls{Organisator} muss aus den folgenden mindestens eine auswählen und eventuell Werte angeben: Ende nach bestimmter Zeit, Ende nach bestimmter Anzahl an Runden, Ende durch Spielabbruch durch Organisator \\
+    /F80/ & \Gls{Organisator} muss aus den folgenden Möglichkeiten mindestens eine auswählen und gegebenenfalls Werte angeben: Ende nach bestimmter Zeit, Ende nach bestimmter Anzahl an Runden, Ende durch Spielabbruch durch Organisator \\
     /F80/ & \Gls{Organisator} kann Spielerstellung abbrechen \\
     /F90/ & \Gls{Organisator} muss Spielerstellung bestätigen \\
     %Kann Organisator mehrere Spielmodi zur Auswahl für Spieler geben
     \end{tabularx}
     
-    \section{Optional: Zusätzliche Funktionen bei Spielerstellung}
-    \begin{tabularx}{\linewidth}{@{}>{\bfseries}l@{\hspace{.5em}}X@{}} % Linebreaks in der Tabelle
+    \section{Optional: Zusätzliche Funktionen bei der Spielerstellung}
+    \begin{tabularx}{\linewidth}{@{}>{\bfseries}l@{\hspace{.5em}}X@{}}
     /F10/ & \Gls{Organisator} kann seine \Gls{Spieleinstellungen} speichern \\
     /F20/ & \Gls{Organisator} kann seine \Gls{Spieleinstellungen} laden \\
-    /F30/ & \Gls{Organisator} kann weitere \Gls{Spieler} nach Beginn eines Spieles einladen \\
-    /F40/ & \Gls{Spieler} erhalten eine Benachrichtigung, das sie eingeladen wurden, über die Spieler GUI.\\
+    /F30/ & \Gls{Organisator} kann weitere \Gls{Spieler} nach Beginn eines \Gls{Spiel}s einladen \\
+    /F40/ & \Gls{Spieler} erhalten über Spieler-GUI eine Benachrichtigung, dass sie eingeladen wurden \\ %Per Mail auch?
 	\end{tabularx}
     
     \section{Spielablauf} 
-    \begin{tabularx}{\linewidth}{@{}>{\bfseries}l@{\hspace{.5em}}X@{}} % Linebreaks in der Tabelle
-    	/F40/ & \Gls{Spieler} kann Einladungen zu Spielen annehmen und ablehnen \\
-    	/F10/ & \Gls{Spieler} sieht in Spieler-Übersichts-GUI alle Spiele, bei denen er Einladung angenommen hat und die aktiv sind \\
-    	/F20/ & \Gls{Spieler} kann Spiel auswählen und spielen, anschließend: \\
-    	/F30/ & \Gls{Spieler} spielt Runde des entsprechenden \Gls{Spielmodus}, für alle gilt: \\
-    	/F40/ & \Gls{Spieler} kann Merkmal auswählen \\
-    	/F40/ & \Gls{Spieler} kann sich zu Merkmal zusätzlich Beschreibung und Grafiken anzeigen lassen \\
-    	/F40/ & Nach Beenden der Runde sieht der \Gls{Spieler} seine Punktzahl und kann entscheiden, ob er noch eine Runde spielen will \\
-	/F50/ & Spiel terminiert nach Erreichen der Endbedingungen, danach kann keine Runde mehr gespielt werden \\
-	/F60/ & \Gls{Organisator} kann sich über aktuellen seines Spiels informieren \\ %Genauer? Gespielte Runden einsehen und so?
+    \begin{tabularx}{\linewidth}{@{}>{\bfseries}l@{\hspace{.5em}}X@{}}
+    /F40/ & \Gls{Spieler} kann Einladungen zu Spielen annehmen und ablehnen \\
+    /F10/ & \Gls{Spieler} sieht in Spieler-Übersichts-GUI alle Spiele, bei denen er die Einladung angenommen hat und die aktiv sind \\
+    /F20/ & \Gls{Spieler} kann Spiel auswählen und spielen, anschließend: \\
+    /F30/ & \Gls{Spieler} spielt Runde des entsprechenden \Gls{Spielmodus}, für alle gilt: \\
+    /F40/ & \Gls{Spieler} kann Merkmal auswählen \\
+    /F40/ & \Gls{Spieler} kann sich zu Merkmal zusätzlich eine Kurzbeschreibung und Grafiken anzeigen lassen \\
+    /F40/ & Nach Beenden der Runde sieht der \Gls{Spieler} seine Punktzahl und kann entscheiden, ob er noch eine Runde spielen will \\
+	/F50/ & Ein Spiel terminiert nach Erreichen seiner Endbedingungen /Fxxx/, danach kann keine Runde mehr gespielt werden \\
+    /F40/ & \Gls{Spieler} sieht in seinem GUI aktuelle Runde und Punktestand \\
+	/F60/ & \Gls{Organisator} kann sich über aktuellen Status seines Spiels informieren \\ %Genauer? Gespielte Runden einsehen und so?
 	/F70/ & \Gls{Organisator} kann ein Spiel vorzeitig beenden \\
-	/F40/ & \Gls{Spieler} sieht aktuelle Runde und Punktestand \\
     \end{tabularx}
     
-    \subsection{Binär Select}
-    \begin{tabularx}{\linewidth}{@{}>{\bfseries}l@{\hspace{.5em}}X@{}} % Linebreaks in der Tabelle
-    	/F10/ & Es werden zufällig zwei Merkmale angezeigt \\
-    	/F10/ & Runde Binär Select besteht aus genau fünf Vergleichen \\
-    	/F20/ & Genau zwei Merkmale werden angezeigt \\
-    	/F30/ & \Gls{Spieler} kann nur maximal eines davon auswählen \\
+    \subsection{\Gls{Binar Select}}
+    \begin{tabularx}{\linewidth}{@{}>{\bfseries}l@{\hspace{.5em}}X@{}}
+        /F10/ & Eine Runde Binär Select besteht aus genau fünf Vergleichen \\
+    	/F10/ & Dem \Gls{Spieler} werden zufällig immer zwei Merkmale angezeigt \\
+    	/F30/ & \Gls{Spieler} muss eines davon auswählen \\
     	/F40/ & \Gls{Spieler} muss bestätigen, dafür muss er genau ein Merkmal ausgewählt haben \\
     \end{tabularx}
 
-    \subsection{Matrix Select}
-    \begin{tabularx}{\linewidth}{@{}>{\bfseries}l@{\hspace{.5em}}X@{}} % Linebreaks in der Tabelle
-        /F10/ & Es werden zufällige Merkmale angezeigt in einer Matrix angezeigt \\
-    	/F10/ & Runde besteht aus genau einer Matrix \\
-    	/F20/ & Genau die Anzahl an Merkmalen, die \Gls{Organisator} bei Spielerstellung ausgewählt hat, wird angezeigt \\
+    \subsection{\Gls{Matrix Select}}
+    \begin{tabularx}{\linewidth}{@{}>{\bfseries}l@{\hspace{.5em}}X@{}}
+        /F10/ & Eine Runde Matrix Select besteht aus genau einer Matrix \\
+        /F10/ & Es werden zufällige Merkmale in einer Matrix angezeigt \\
+    	/F20/ & Genau die Anzahl an Merkmalen, die der \Gls{Organisator} bei Spielerstellung ausgewählt hat, werden angezeigt \\
     	/F30/ & \Gls{Spieler} kann maximal x Merkmale auswählen \\ % Wie viele Merkmale maximal? Gibt es Obergrenze?
     	/F40/ & \Gls{Spieler} muss bestätigen, dafür muss er genau/maximal x Merkmale ausgewählt haben \\ %Wie viele?
     \end{tabularx}
@@ -408,84 +343,85 @@ description={Ein Server, der nicht Bestandteil des Produktes ist, jedoch benöti
 	\begin{tabularx}{\linewidth}{@{}>{\bfseries}l@{\hspace{.5em}}X@{}} % Linebreaks in der Tabelle
 		/F10/ & \Gls{Spieler} kann Runde überspringen, dann: \\
 		/F20/ & Von der Gesamtpunktzahl des \Gls{Spieler}s werden 100 Punkte abgezogen, die Gesamtpunktzahl wird aber nicht negativ \\ %100? Kann sie negativ werden?
-		/F30/ & \Gls{Spieler} kann Merkmal als unwichtig markieren \\
+		/F30/ & \Gls{Spieler} kann ein Merkmal als unwichtig markieren \\
 	\end{tabularx}
 	
 	\section{Optional: Verbesserung der Merkmalsauswahl durch System} 
 	\begin{tabularx}{\linewidth}{@{}>{\bfseries}l@{\hspace{.5em}}X@{}} % Linebreaks in der Tabelle
-		/F10/ & Merkmalsauswahl durch System erfolgt nicht zufällig \\
-		/F20/ & Selbe Merkmalskombination wird nicht mehrfach in einem Spiel angezeigt \\		
+		/F10/ & Die dem \Gls{Spieler} angezeigten Merkmale werden nicht zufällig ausgewählt \\
+		/F20/ & Selbe Merkmalskombinationen werden nicht mehrfach in einem Spiel angezeigt \\
 	\end{tabularx}
 	    
     \section{Bewertung der Merkmalsauswahl des Spielers und Ergebnissicherung}
     \begin{tabularx}{\linewidth}{@{}>{\bfseries}l@{\hspace{.5em}}X@{}} % Linebreaks in der Tabelle
-    /F10/ & Merkmalsauswahl des \Gls{Spieler}s wird per http-Anfrage an ML-Server geschickt\\
-    /F20/ & Bei Binär Select wird gebündelte Menge der Vergleiche geschickt \\
-    /F30/ & Rückmeldung wird in Rundenpunktzahl umgewandelt \\ %Wie? Das wird bei Punktesystem erklärt
+    /F10/ & Merkmalsauswahl des \Gls{Spieler}s wird per http-Anfrage an ML-Server geschickt \\
+    /F20/ & Bei \Gls{Matrix Select} wird die ausgewählte Teilmenge der Vergleiche geschickt \\
+    /F20/ & Bei \Gls{Binar Select} wird eine gebündelte Menge der Vergleiche geschickt \\
+    /F30/ & Rückmeldung wird in Rundenpunktzahl /Fxxx/ umgewandelt \\ %Wie? Das wird bei Punktesystem erklärt
     /F40/ & Rundenpunktzahl wird zur Gesamtpunktzahl des \Gls{Spieler}s addiert \\
-    /F50/ & Rundendaten \footnote{Ausgewählte Merkmale, Spielername, Zeitpunkt, Rundenanzahl, Vorhersagequalität, Punkte} wird in von Organisator ausgewählte Datenbank gespeichert \\ %Datenbank zu Spiel
+    /F50/ & Rundendaten\footnote{Ausgewählte Merkmale, Spielername, Zeitpunkt, Rundenanzahl, Vorhersagequalität, Punkte} werden in von Organisator ausgewählte Datenbank gespeichert \\ %Datenbank zu Spiel
     \end{tabularx}
     
     \section{GUI}
     \begin{tabularx}{\linewidth}{@{}>{\bfseries}l@{\hspace{.5em}}X@{}} % Linebreaks in der Tabelle
-    /F10/ & Nutzer haben Zugriff auf die Anmeldungs-GUI in einem Webbrowser\\
+    /F10/ & Nutzer haben Zugriff auf die Anmeldungs-GUI in einem Webbrowser \\
     /F20/ & \Glspl{Organisator} erreichen nach erfolgreicher Anmeldung die Organisator-Überschichts-GUI \\
     /F30/ & \Gls{Spieler} erreichen nach erfolgreicher Anmeldung die Spieler-Übersichts-GUI \\
-    /F40/ & \Glspl{Organisator} gelangen nach Betätigung der Spielerstellungs-Schaltfläche die Spielerstellungs-GUI \\
+    /F40/ & \Glspl{Organisator} gelangen nach Betätigung der Spielerstellungs-Schaltfläche zur Spielerstellungs-GUI \\
     /F50/ & Nach Beenden der Spielerstellung kehren \Glspl{Organisator} auf die Organisator-Übersichts-GUI zurück \\
-    /F60/ & \Gls{Spieler} gelangen nach Betätigung der "Weiterspielen"-Schaltfläche die Spiel-GUI \\
+    /F60/ & \Gls{Spieler} gelangen nach Betätigung der \enquote{Weiterspielen}-Schaltfläche zur Spiel-GUI \\
     /F70/ & Nach Beenden der Runde kehren \Gls{Spieler} entweder auf die Spieler-Übersichts-GUI oder die Spiel-GUI zurück \\
     /F80/ & Nach Abmeldung kehren Nutzer auf die Anmeldungs-GUI zurück \\
-    /F90/ & \\  % GUI in Webbrowser irgendwo?
     \end{tabularx}
         
-    \section{Gamification-Elemente}
+    \section{Gamification-Elemente} %link?
     \label{sec:Gamification-Elemente}
-    \begin{tabularx}{\linewidth}{@{}>{\bfseries}l@{\hspace{.5em}}X@{}} % Linebreaks in der Tabelle
-    /F10/ & Punktesystem für \Gls{Spieler} basierend auf ihren Eingaben, der für die Merkmalsauswahl erhaltene Wert des ML-Servers wird mit 100 multipliziert und
-    auf die nächstgrößere ganze Zahl aufgerundet \\
-    /F20/ & \\
+    \begin{tabularx}{\linewidth}{@{}>{\bfseries}l@{\hspace{.5em}}X@{}}
+    /F10/ & Punktesystem für \Gls{Spieler} basierend auf ihren Eingaben: \\
+    /F15/ & Der für die Merkmalsauswahl erhaltene Wert des \Gls{ML-Server}s wird mit 100 multipliziert und
+        auf die nächstgrößere ganze Zahl aufgerundet \\
     \end{tabularx}
 
     \section{Optional: Weitere Gamification-Elemente}
     \label{sec:Optionale Gamification-Elemente}
-    \begin{tabularx}{\linewidth}{@{}>{\bfseries}l@{\hspace{.5em}}X@{}} % Linebreaks in der Tabelle
-	/F10/ & Leaderboard: Auflistung der \Gls{Spieler} mit den meisten Punkten \\ %in der GUI? \\
-	/F20/ & Achievements: Errungenschaften für \Gls{Spieler}, die freigeschaltet werden können, nachdem der Spieler bestimmte Ziele oder 		Aufgaben erledigt \\
-	/F25/ & Auflistung der Achievements aus /F20/ \\ %in der GUI?:
+    \begin{tabularx}{\linewidth}{@{}>{\bfseries}l@{\hspace{.5em}}X@{}}
+	/F10/ & Leaderboard: Auflistung der \Gls{Spieler} mit den meisten Punkten im Spieler-Übersichts-GUI \\
+	/F20/ & Achievements: Errungenschaften für \Gls{Spieler}, die freigeschaltet werden können, nachdem der Spieler bestimmte Ziele oder Aufgaben erledigt \\
+	/F25/ & Auflistung der Achievements aus /F20/ \\ %in der GUI?
 	/F30/ & Daily Challenges: Jeden Tag erhält ein \Gls{Spieler} eine neue Herausforderung, die er abschließen kann \\
 	/F40/ & Streaks: Mehr Punkte für einen \Gls{Spieler}, wenn er zwei (oder mehrere) Spiele in Folge spielt \\
-	/F50/ & Erweitertes Punktesystem: Abschließen von /F20/ und /F30/ geben zusätzliche Punkte \\
+	/F50/ & Erweitertes Punktesystem: Abschließen von /Fxx/ und /Fxx/ geben zusätzliche Punkte \\
     \end{tabularx}
     
     \section{Bedienungshilfen}
-	\begin{tabularx}{\linewidth}{@{}>{\bfseries}l@{\hspace{.5em}}X@{}} % Linebreaks in der Tabelle
+	\begin{tabularx}{\linewidth}{@{}>{\bfseries}l@{\hspace{.5em}}X@{}}
 	/F10/ & Hilfe-Schaltfläche im Organisator-GUI \\ 
 	/F20/ & Hilfe Schaltfläche im Spieler-GUI \\ %Die beiden erklären?
-	/F30/ &  \\
+	/F30/ & Wenn der Nutzer mit dem Mauszeiger auf einer Schaltfläche im GUI verweilt, erscheint ein Tooltip \\ %Glossar
 	\end{tabularx}
 
 
-    \section{Internationalisierung}
-    \begin{tabularx}{\linewidth}{@{}>{\bfseries}l@{\hspace{.5em}}X@{}} % Linebreaks in der Tabelle
+    \section{Sprache} %Kapitelname??
+    \begin{tabularx}{\linewidth}{@{}>{\bfseries}l@{\hspace{.5em}}X@{}}
 	/F10/ & Bereitstellung eines deutschen Sprachpakets für die GUIs \\ 
     \end{tabularx}
 
 
     \section{Optional: Internationalisierung}
-    \begin{tabularx}{\linewidth}{@{}>{\bfseries}l@{\hspace{.5em}}X@{}} % Linebreaks in der Tabelle
-	/F10/ & Bereitstellung eines englischen Sprachpakets \\ 
-	/F20/ & Änderung der Sprache für Nutzer in der GUI möglich \\
+    \begin{tabularx}{\linewidth}{@{}>{\bfseries}l@{\hspace{.5em}}X@{}}
+	/F10/ & Bereitstellung eines englischen Sprachpakets für die GUIs\\
+	/F20/ & Änderung der Sprache für Nutzer im GUI möglich \\
     \end{tabularx}
 
     \section{Optional: Bessere Verfügbarkeit des Systems}
-    \begin{tabularx}{\linewidth}{@{}>{\bfseries}l@{\hspace{.5em}}X@{}} % Linebreaks in der Tabelle
+    \begin{tabularx}{\linewidth}{@{}>{\bfseries}l@{\hspace{.5em}}X@{}}
 	/F10/ & Unterstützung von Internet Explorer \\
 	/F20/ & Unterstützung von Mobilgeräten mit Responsive-GUIs \\
 	/F30/ & Lieferung des Servers als Docker-Image \\
 	/F40/ & Der Server kann auf verschiedenen Ports ausgeführt werden \\
     \end{tabularx}
-    
+
+    %Kapitel Sonstiges, wenn noch irgendwas einfällt?
     %TODO: Abgeschlossene Spiele löschen
 
     \chapter{Produktdaten}
@@ -549,7 +485,7 @@ description={Ein Server, der nicht Bestandteil des Produktes ist, jedoch benöti
    \subsection{Spieler registrieren}
     \begin{itemize}
         \item Teilnehmende Akteure: \Gls{Organisator}, \Gls{Spieler}
-        \item Eingangsaktionen: Spiele-Server ist aktiv
+        \item Eingangsaktionen: Spiel-Server ist aktiv
         \item Ereignisfluss:
         \begin{itemize}
             \item \Gls{Organisator} lädt den \Gls{Spieler} über das Organisator-GUI ein.
@@ -561,7 +497,7 @@ description={Ein Server, der nicht Bestandteil des Produktes ist, jedoch benöti
     \subsection{Spieler anmelden}
     \begin{itemize}
         \item Teilnehmende Akteure: \Gls{Spieler}
-        \item Eingangsaktionen: Spiele-Server ist aktiv
+        \item Eingangsaktionen: Spiel-Server ist aktiv
         \item Ereignisfluss:
         \begin{itemize}
             \item \Gls{Spieler} öffnet die Produktwebsite
