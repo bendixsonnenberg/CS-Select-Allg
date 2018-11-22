@@ -17,7 +17,7 @@
 {
 name=Produkt,
 plural=Produkte,
-description={Das von uns gelieferte Softwaresystem.}
+description={Das von uns gelieferte Softwaresystem. Siehe \Gls{Spiele-Server}}
 }
 
 \newglossaryentry{Webbrowser}
@@ -87,7 +87,7 @@ description={Die Person, welche das System installiert und den Nutzern zur Verf�
 {
 name=Spiele-Server,
 plural=Spiele-Server,
-description={Ein Computer, welcher der Verwaltung von CS:Select dient und eine Internetanbindung hat.}
+description={Ein Computer, welcher der Verwaltung von CS:Select dient und eine Internetanbindung hat. Dies ist das von uns gelieferte Software-System}
 }
 \newglossaryentry{ML-Server}
 {
@@ -193,7 +193,7 @@ description={Ein Server, der nicht Bestandteil des Produktes ist, jedoch benöti
 
     \section{Architektur}
     \includegraphics[width=\textwidth]{uml/export/Architektur.png}
-    Das Organisator und Spieler GUI läuft in einem Webbrowser. Hier werden die Spieler und Organisatoren mit dem System interagieren. Der Spiele-Server koordiniert den Spielablauf, speichert Ergebnisse
+    Das Organisator und Spieler GUI läuft in einem Webbrowser. Hier interagieren die Spieler und Organisatoren mit dem \Gls{Produkt}. Der \Gls{Spiele-Server} koordiniert den Spielablauf, speichert Ergebnisse
     in eine Datenbank ab und kommuniziert mit dem ML-Server. Die Kommunikation zwischen Spiele-Server und ML-Server wird durch HTTP-Anfragen stattfinden.
     \section{Anwendungsbereiche}
     Das \Gls{Produkt} dient der Verbesserung der Merkmalsauswahl bei Machine-Learning Prozessen in wissenschaftlichen
@@ -665,15 +665,36 @@ description={Ein Server, der nicht Bestandteil des Produktes ist, jedoch benöti
     %TODO: Ausführung auf verschiedenem Ports
 
     \chapter{Dynamische Modelle}
-    \subsection{Streak Zustandsdiagramm}
+    \section{Zustandsdiagramme}
+    \subsection{Streak}
     \label{fig:Streak_State}
     \includegraphics[width=\textwidth]{uml/export/Streak_Zustand.png}
-    \subsection{Spiel Zustandsdiagramm}
+    Die Zustände, die eine Streak haben kann. Eine Streak ist immer auf einen Spieler beschränkt.
+    Zustandbeschreibung:
+    \begin{itemize}
+    \item begonnen: Eine angefangene Steak, die noch nicht lang genug ist, um für den Spieler eine erhöhte Punktzahl zu erreichten.
+    \item aktiv: Die Streak ist lang genug. In diesem Zustand erhält der Spieler Punkte * Faktor Punkte. (Faktor $\geq$ 1)
+    \end{itemize}
+    \subsection{Spiel}
     \label{fig:Spiel_State}
     \includegraphics[width=\textwidth]{uml/export/Spiel_Zustand.png}
-    \subsection{Achievements Zustandsdiagramm}
+    Die Zustände, die ein Spiel von der Erstellung bis zum beenden haben kann.
+    Zustandsbeschreibung:
+    \begin{itemize}
+    \item existiert: Das Spiel existiert, besitzt also einen Datensatz, Endbedingungen und Spielmodus. Es sind aber noch keine Spieler eingeladen, also kann es nicht gespielt werden.
+    \item läuft: Das Spiel kann von Spielern gespielt werden.
+    \item beendet: Das Spiel wurde beendet. Kein Spieler kann mehr eine Runde spielen. Die Ergebnisse können aber noch ausgelesen werden. 
+    \end{itemize}
+    \subsection{Achievements}
     \label{fig:Achievment_State}
     \includegraphics[width=\textwidth]{uml/export/Achievment_State.png}
+    Die Zustände die ein Achievment von \enquote{Spieler kennt das Achievment nicht} bis zu \enquote{Spieler hat das Achievment erreicht}.
+    \begin{itemize}
+    \item Nicht sichtbar: Spieler weiß nicht, dass das Achievment existiert.
+    \item Verdeckt: Spieler weiß, dass dieses Achievment existiert, aber nicht was er tun muss um es zu erreichen.
+    \item Freigeschaltet: Die Bedingungen für das Erreichen dieses Achievments sind dem Spieler bekannt.
+    \item Erreicht: Der Spieler hat die Bedingungen für das Erreichen dieses Achievments erfüllt.
+    \end{itemize}
     
 
     \chapter{Benutzerschnittstelle}
