@@ -137,8 +137,8 @@ description={Ein Server, der nicht Bestandteil des Produktes ist, jedoch benöti
         \end{itemize}
         \item Merkmalsauswahl anhand von Spielen 
         \begin{itemize}
-            \item Organisatoren erstellen Spiele 
-            \item Spieler nehmen an Spielen teil 
+            \item Spielerstellung durch Organisator
+            \item Spielablauf 
             \item Bewertung der Merkmalsauswahl durch Kommunikation mit Machine-Learning-Server 
             \item Ergebnissicherung in einer Datenbank 
         \end{itemize}
@@ -198,6 +198,7 @@ description={Ein Server, der nicht Bestandteil des Produktes ist, jedoch benöti
         \end{itemize}
         \item Verbesserung der Merkmalsauswahl %Bitte umformulieren: Die Merkmale, die der Spieler bekommt, das ist irgendwie zweideutig
         \item Internationalisierung 
+        \item Bessere Verfügbarkeit des Systems 
         %\item Verwendung von Docker, geht das gröber?
     \end{itemize}
 
@@ -395,7 +396,7 @@ description={Ein Server, der nicht Bestandteil des Produktes ist, jedoch benöti
 		/F20/ & Selbe Merkmalskombination wird nicht mehrfach in einem Spiel angezeigt \\		
 	\end{tabularx}
     
-    \section{Bewertung der Merkmalsauswahl des Spielers} %ICH
+    \section{Bewertung der Merkmalsauswahl des Spielers und Ergebnissicherung} %ICH
     \begin{tabularx}{\linewidth}{@{}>{\bfseries}l@{\hspace{.5em}}X@{}} % Linebreaks in der Tabelle
     /F10/ & Merkmalsauswahl des Spielers wird per http-Anfrage an ML-Server geschickt\\
     /F20/ & Bei Binär Select wird gebündelte Menge der Vergleiche geschickt \\
@@ -434,6 +435,7 @@ description={Ein Server, der nicht Bestandteil des Produktes ist, jedoch benöti
     /F10/ & Registrierung \\
     /F20/ & \\
     /F30/ & \\
+    \end{tabularx}
     
     \section{Internationalisierung} %Optional
     \begin{tabularx}{\linewidth}{@{}>{\bfseries}l@{\hspace{.5em}}X@{}} % Linebreaks in der Tabelle
@@ -442,7 +444,13 @@ description={Ein Server, der nicht Bestandteil des Produktes ist, jedoch benöti
     /F30/ & \\
     \end{tabularx}
 
-    \end{tabularx}
+	\section{Optional: Bessere Verfügbarkeit des Systems}
+	\begin{tabularx}{\linewidth}{@{}>{\bfseries}l@{\hspace{.5em}}X@{}} % Linebreaks in der Tabelle
+		/F10/ & Unterstützung von Internet Explorer \\
+		/F20/ & Unterstützung von Mobilgeräten mit Responsive-GUIs \\
+		/F30/ & Lieferung des Servers als Docker-Image \\
+		/F40/ & Der Server kann auf verschiedenen Ports ausgeführt werden \\
+	\end{tabularx}
 
     \chapter{Produktdaten}
 
