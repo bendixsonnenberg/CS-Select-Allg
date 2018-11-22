@@ -355,10 +355,40 @@ description={Ein Server, der nicht Bestandteil des Produktes ist, jedoch benöti
     /F30/ & Organisator kann weitere Spieler nach Beginn eines Spieles einladen \\
 	\end{tabularx}
     
-    \section{Spielablauf} %ICH
+    \section{Spielablauf} 
+    \begin{tabularx}{\linewidth}{@{}>{\bfseries}l@{\hspace{.5em}}X@{}} % Linebreaks in der Tabelle
+    	/F40/ & Spieler kann Einladungen zu Spielen annehmen und ablehnen \\
+    	/F10/ & Spieler sieht in Spieler-Übersichts-GUI alle Spiele, bei denen er Einladung angenommen hat und die aktiv sind \\
+    	/F20/ & Spieler kann Spiel auswählen und weiterspielen, anschließend: \\
+    	/F30/ & Spieler spielt Runde des entsprechenden Spielmodus, für alle gilt: \\
+    	/F40/ & Spieler kann Merkmal auswählen \\
+    	/F40/ & Spieler kann sich zu Merkmal zusätzlich Beschreibung und Grafiken anzeigen lassen \\
+    	/F40/ & Nach Beenden der Runde sieht Spieler Punktzahl und kann entscheiden, ob er noch eine Runde spielen will \\
+    	/F40/ & Rundenpunktzahl wird zur Gesamtpunktzahl des Spielers addiert \\ 
+    \end{tabularx}
     
     \subsection{Binär Select} %ICH
+    \begin{tabularx}{\linewidth}{@{}>{\bfseries}l@{\hspace{.5em}}X@{}} % Linebreaks in der Tabelle
+    	/F10/ & Runde Binär Select besteht aus genau fünf Vergleichen \\
+    	/F20/ & Genau zwei Merkmale werden angezeigt \\
+    	/F30/ & Spieler kann nur maximal eines davon auswählen \\
+    	/F40/ & Spieler muss bestätigen, dafür muss er genau ein Merkmal ausgewählt haben \\
+    \end{tabularx}
+
     \subsection{Matrix Select} %ICH
+    \begin{tabularx}{\linewidth}{@{}>{\bfseries}l@{\hspace{.5em}}X@{}} % Linebreaks in der Tabelle
+    	/F10/ & Runde besteht aus genau einer Matrix \\
+    	/F20/ & Genau die Anzahl an Merkmalen, die Organisator bei Spielerstellung ausgewählt hat, wird angezeigt \\
+    	/F30/ & Spieler kann maximal x Merkmale auswählen \\ % Wie viele Merkmale maximal? Gibt es Obergrenze?
+    	/F40/ & Spieler muss bestätigen, dafür muss er genau/maximal x Merkmale ausgewählt haben \\ %Wie viele?
+    \end{tabularx}
+	
+	\section{Optional: Zusätzliche Funktionen im Spielablauf}
+	\begin{tabularx}{\linewidth}{@{}>{\bfseries}l@{\hspace{.5em}}X@{}} % Linebreaks in der Tabelle
+		/F10/ & Spieler kann Runde überspringen, dann: \\
+		/F20/ & Von der Gesamtpunktzahl des Spielers werden 100 Punkte abgezogen, die Gesamtpunktzahl wird aber nicht negativ \\ %100? Kann sie negativ werden?
+		/F30/ & Spieler kann Merkmal als unwichtig markieren \\ 
+	\end{tabularx}
     
     \section{Merkmalsauswahl während eines Spiels} %ICH
     \begin{tabularx}{\linewidth}{@{}>{\bfseries}l@{\hspace{.5em}}X@{}} % Linebreaks in der Tabelle
