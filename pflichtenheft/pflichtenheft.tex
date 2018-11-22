@@ -18,7 +18,7 @@
 {
 name=Produkt,
 plural=Produkte,
-description={Das von uns gelieferte Softwaresystem.}
+description={Das von uns gelieferte Softwaresystem. Siehe \Gls{Spiele-Server}}
 }
 
 \newglossaryentry{Webbrowser}
@@ -89,7 +89,7 @@ description={Die Person, welche das System installiert und den Nutzern zur Verf�
 {
 name=Spiel-Server,
 plural=Spiel-Server,
-description={Ein Computer, welcher der Verwaltung von CS:Select dient und eine Internetanbindung hat.}
+description={Ein Computer, welcher der Verwaltung von CS:Select dient und eine Internetanbindung hat. Dies ist das von uns gelieferte Software-System}
 }
 \newglossaryentry{ML-Server}
 {
@@ -105,7 +105,7 @@ description={Ein Server, der nicht Bestandteil des Produktes ist, jedoch benöti
 
 \begin{document}
 
-    \title{Pflichtenheft CS-Select}
+    \title{Pflichtenheft CS:Select}
     \author{Luca Springer, Alexander Linder, Julian Dinh, Nicholas Bieker,\\ Bendix Sonnenberg}
     \maketitle
 
@@ -214,6 +214,8 @@ description={Ein Server, der nicht Bestandteil des Produktes ist, jedoch benöti
 
     \section{Architektur}
     \includegraphics[width=\textwidth]{uml/export/Architektur.png}
+    Das Organisator und Spieler GUI läuft in einem Webbrowser. Hier interagieren die Spieler und Organisatoren mit dem \Gls{Produkt}. Der \Gls{Spiele-Server} koordiniert den Spielablauf, speichert Ergebnisse
+    in eine Datenbank ab und kommuniziert mit dem ML-Server. Die Kommunikation zwischen Spiele-Server und ML-Server wird durch HTTP-Anfragen stattfinden.
     \section{Anwendungsbereiche}
     Das \Gls{Produkt} dient der Verbesserung der Merkmalsauswahl bei Machine-Learning Prozessen in wissenschaftlichen
     Experimenten beziehungsweise privatwirtschaftlichen Unternehmen durch das Domänenwissen der \Gls{Spieler}.
@@ -438,9 +440,9 @@ description={Ein Server, der nicht Bestandteil des Produktes ist, jedoch benöti
 
     \section{Merkmalsdatensätze}
     \begin{tabularx}{\linewidth}{@{}>{\bfseries}l@{\hspace{.5em}}X@{}}
-        /D20/ & Für jeden Merkmalsdatensatz ist zu speichern: /ND20/: 
+        /D20/ & Für jeden Merkmalsdatensatz ist zu speichern, solange dieser von mindestens einem Spiel benutzt wird: /ND20/: 
         \begin{itemize}
-             \item Liste an Merkmalen mit jeweiligen Graphen und Beschreibung
+             \item Liste an Merkmalen mit jeweiligen Grafiken und Beschreibung
         \end{itemize}
     \end{tabularx}
 
@@ -448,32 +450,30 @@ description={Ein Server, der nicht Bestandteil des Produktes ist, jedoch benöti
     \begin{tabularx}{\linewidth}{@{}>{\bfseries}l@{\hspace{.5em}}X@{}}
         /D30/ & Für jedes \Gls{Spiel} ist zu speichern /ND30/: 
         \begin{itemize}
-             \item \Gls{Organisator}, \Gls{Spieleinstellungen}, \Gls{Spieler}, zugehöriger Merkmalsdatensatz % zuständiger ML Server?
-        \end{itemize}
+             \item \Gls{Organisator}, \Gls{Spieleinstellungen}, \Gls{Spieler}, zugehöriger Merkmalsdatensatz, Spielablauf, also Ergebnis einzelner Runden			 % zuständiger ML Server?
+			 \item Für jede Runde: Ausgewählte Merkmale, Spielername, Zeitpunkt, Rundenanzahl, Vorhersagequalität, Punkte
+		\end{itemize}
     \end{tabularx}
 
 
     \chapter{Nichtfunktionale Anforderungen}
 
-    \begin{tabular}{ l l}
-        /NF10/ & Es müssen mindestens 30 \Gls{Spieler} zur gleichen Zeit spielen können.\\
-        /NF20/ & Die Interaktionszeiten dürfen nicht länger als zwei Sekunden betragen. \\
-        /NF30/ & Ein \Gls{Spieler} soll das Ergebnis seines Spiels innerhalb von zwei Sekunden erhalten. \\
-        /NF40/ & Das Design soll modern sein. \\
-        /NF50/ & Der \Gls{ML-Server} soll leicht austauschbar sein. \\
-        /NF60/ & Neue Spielmodi sollen leicht hinzugefügt werden können. \\
-        /NF70/ & Neue Spieloberflächen sollen leicht erweiterbar sein. \\
-        /NF80/ & Neue Sprachen sollen leicht hinzugefügt werden können. \\
-        /NF90/ & Das Produkt enthält nicht mehr als 0,1\% plattformspezifischer Anweisungen. \\
-        /NF100/ & Es gibt nicht mehr als einen Ausfall des Systems pro Monat. \\ %Realistisch?
-        /NF110/ & Die Anmeldedauer darf nicht mehr als zwei Sekunden betragen. \\
-        /NF120/ & Die Daten zu den Spielergebnissen werden strukturiert und menschenlesbar abgespeichert.\footnotemark\\
-    \end{tabular}
-    \footnotetext{Also .csv oder eine Datenbank} 
+    \begin{tabularx}{\linewidth}{@{}>{\bfseries}l@{\hspace{.5em}}X@{}}
+        /NF10/ & Es müssen mindestens 30 Spieler zur gleichen Zeit spielen können.\\
+        /NF20/ & Die Wartezeiten auf die Reaktion des GUIs dürfen nicht länger als zwei Sekunden betragen. \\
+	/NF30/ & Die Anmeldedauer darf nicht mehr als zwei Sekunden betragen. \\
+        /NF40/ & Ein Spieler soll das Ergebnis seines Spiels innerhalb von zwei Sekunden erhalten. \\
+        /NF50/ & Das Design soll modern wirken. \\
+        /NF60/ & Der \Gls{ML-Server} soll leicht austauschbar sein. \\
+        /NF70/ & Neue Spielmodi sollen leicht hinzugefügt werden können. \\
+        /NF80/ & Neue Spieloberflächen sollen leicht erweiterbar sein. \\
+        /NF90/ & Neue Sprachen sollen leicht hinzugefügt werden können. \\
+        /NF100/ & Browserkompatibilität: Das Produkt enthält nicht mehr als 0,1\% plattformspezifischer Anweisungen. \\
+        /NF110/ & Lizensierung des Produkts mit MIT-Lizenz.
+    \end{tabularx}
 
-    \chapter{Systemmodelle}
-    \section{Anwendungsfälle}
-
+    \chapter{Testszenarien}
+    \section{Organisation}
     \includegraphics[width=\textwidth]{uml/export/Organisation.png}
     Akteure:
     \begin{itemize}
@@ -663,6 +663,7 @@ description={Ein Server, der nicht Bestandteil des Produktes ist, jedoch benöti
 
 
     \newpage
+    \section{Spiel}
     \includegraphics[width=\textwidth]{uml/export/Spiel.png}
     Akteure: 
     \begin{itemize}
@@ -732,6 +733,7 @@ description={Ein Server, der nicht Bestandteil des Produktes ist, jedoch benöti
     \end{itemize}
     
 \newpage
+    \section{Spieler-Übersicht}
     \includegraphics[width=\textwidth]{uml/export/Spieler_Ubersicht.png}
 	    \subsection{Achievements ansehen}
     \begin{itemize}
@@ -763,6 +765,7 @@ description={Ein Server, der nicht Bestandteil des Produktes ist, jedoch benöti
     %Nach der Anmeldung erreicht ein \Gls{Spieler} eine Übersichts-Seite. Darauf ist ein Bereich, der eine aktuelle Tabelle
     %anzeigt, in welcher die \Gls{Spieler} aufgelistet sind, die in einem bestimmten Zeitraum die meisten Punkte erreicht haben.
     \newpage
+    \section{Administration}
     \includegraphics[width=\textwidth]{uml/export/Administration.png}
      \subsection{Sprache ändern}
     \begin{itemize}
@@ -855,18 +858,37 @@ description={Ein Server, der nicht Bestandteil des Produktes ist, jedoch benöti
 
     %TODO: Ausführung auf verschiedenem Ports
 
-        \section{Objektmodell}
-
-    \section{Dynamische Modelle}
-    \subsection{Streak Zustandsdiagramm}
+    \chapter{Dynamische Modelle}
+    \section{Zustandsdiagramme}
+    \subsection{Streak}
     \label{fig:Streak_State}
     \includegraphics[width=\textwidth]{uml/export/Streak_Zustand.png}
-    \subsection{Spiel Zustandsdiagramm}
+    Die Zustände, die eine Streak haben kann. Eine Streak ist immer auf einen Spieler beschränkt.
+    Zustandbeschreibung:
+    \begin{itemize}
+    \item begonnen: Eine angefangene Steak, die noch nicht lang genug ist, um für den Spieler eine erhöhte Punktzahl zu erreichten.
+    \item aktiv: Die Streak ist lang genug. In diesem Zustand erhält der Spieler Punkte * Faktor Punkte. (Faktor $\geq$ 1)
+    \end{itemize}
+    \subsection{Spiel}
     \label{fig:Spiel_State}
     \includegraphics[width=\textwidth]{uml/export/Spiel_Zustand.png}
-    \subsection{Achievements Zustandsdiagramm}
+    Die Zustände, die ein Spiel von der Erstellung bis zum beenden haben kann.
+    Zustandsbeschreibung:
+    \begin{itemize}
+    \item existiert: Das Spiel existiert, besitzt also einen Datensatz, Endbedingungen und Spielmodus. Es sind aber noch keine Spieler eingeladen, also kann es nicht gespielt werden.
+    \item läuft: Das Spiel kann von Spielern gespielt werden.
+    \item beendet: Das Spiel wurde beendet. Kein Spieler kann mehr eine Runde spielen. Die Ergebnisse können aber noch ausgelesen werden. 
+    \end{itemize}
+    \subsection{Achievements}
     \label{fig:Achievment_State}
     \includegraphics[width=\textwidth]{uml/export/Achievment_State.png}
+    Die Zustände die ein Achievment von \enquote{Spieler kennt das Achievment nicht} bis zu \enquote{Spieler hat das Achievment erreicht}.
+    \begin{itemize}
+    \item Nicht sichtbar: Spieler weiß nicht, dass das Achievment existiert.
+    \item Verdeckt: Spieler weiß, dass dieses Achievment existiert, aber nicht was er tun muss um es zu erreichen.
+    \item Freigeschaltet: Die Bedingungen für das Erreichen dieses Achievments sind dem Spieler bekannt.
+    \item Erreicht: Der Spieler hat die Bedingungen für das Erreichen dieses Achievments erfüllt.
+    \end{itemize}
     
 
     \chapter{Benutzerschnittstelle}
@@ -910,9 +932,5 @@ description={Ein Server, der nicht Bestandteil des Produktes ist, jedoch benöti
 
     \chapter{Glossar}
     \printglossary
-    \chapter{Anhang}
-    \subsection{Auswahl an zu zeigenden Merkmalen}
-    \label{fig:FeatureSelect}
-    \includegraphics[width=\textwidth]{uml/export/FeatureSelect.png}
     
 \end{document}
