@@ -136,8 +136,8 @@ halign=left</panel_attributes>
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>560</x>
-      <y>460</y>
+      <x>570</x>
+      <y>480</y>
       <w>120</w>
       <h>40</h>
     </coordinates>
@@ -149,8 +149,8 @@ speichern</panel_attributes>
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>560</x>
-      <y>530</y>
+      <x>590</x>
+      <y>570</y>
       <w>120</w>
       <h>40</h>
     </coordinates>
@@ -164,24 +164,24 @@ laden</panel_attributes>
     <coordinates>
       <x>480</x>
       <y>510</y>
-      <w>100</w>
-      <h>60</h>
+      <w>130</w>
+      <h>100</h>
     </coordinates>
     <panel_attributes>lt=.&gt;
-&lt;&lt;extends&gt;&gt;</panel_attributes>
-    <additional_attributes>80.0;40.0;10.0;10.0</additional_attributes>
+&lt;&lt;extend&gt;&gt;</panel_attributes>
+    <additional_attributes>110.0;80.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
       <x>470</x>
-      <y>470</y>
-      <w>110</w>
-      <h>60</h>
+      <y>480</y>
+      <w>120</w>
+      <h>50</h>
     </coordinates>
     <panel_attributes>lt=.&gt;
-&lt;&lt;extends&gt;&gt;</panel_attributes>
-    <additional_attributes>90.0;10.0;10.0;40.0</additional_attributes>
+&lt;&lt;extend&gt;&gt;</panel_attributes>
+    <additional_attributes>100.0;20.0;10.0;30.0</additional_attributes>
   </element>
   <element>
     <id>UMLUseCase</id>
@@ -215,8 +215,7 @@ auslesen</panel_attributes>
       <w>120</w>
       <h>40</h>
     </coordinates>
-    <panel_attributes>Nutzer
-registieren</panel_attributes>
+    <panel_attributes>Registieren</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -227,8 +226,7 @@ registieren</panel_attributes>
       <w>120</w>
       <h>40</h>
     </coordinates>
-    <panel_attributes>Nutzer 
-anmelden</panel_attributes>
+    <panel_attributes>Anmelden</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -258,11 +256,11 @@ anmelden</panel_attributes>
     <coordinates>
       <x>600</x>
       <y>190</y>
-      <w>100</w>
+      <w>90</w>
       <h>70</h>
     </coordinates>
-    <panel_attributes>lt=.&gt;
-&lt;&lt;includes&gt;&gt;</panel_attributes>
+    <panel_attributes>lt=&lt;.
+&lt;&lt;extend&gt;&gt;</panel_attributes>
     <additional_attributes>10.0;50.0;10.0;10.0</additional_attributes>
   </element>
   <element>
@@ -301,8 +299,8 @@ anmelden</panel_attributes>
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>600</x>
-      <y>380</y>
+      <x>590</x>
+      <y>360</y>
       <w>120</w>
       <h>40</h>
     </coordinates>
@@ -316,24 +314,24 @@ Spielbeginn einladen</panel_attributes>
     <coordinates>
       <x>440</x>
       <y>430</y>
-      <w>120</w>
+      <w>110</w>
       <h>90</h>
     </coordinates>
-    <panel_attributes>lt=.&gt;
-&lt;&lt;extends&gt;&gt;</panel_attributes>
+    <panel_attributes>lt=&lt;.
+&lt;&lt;include&gt;&gt;</panel_attributes>
     <additional_attributes>50.0;10.0;10.0;70.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
       <x>540</x>
-      <y>390</y>
-      <w>90</w>
-      <h>50</h>
+      <y>380</y>
+      <w>80</w>
+      <h>60</h>
     </coordinates>
     <panel_attributes>lt=.&gt;
-&lt;&lt;includes&gt;&gt;</panel_attributes>
-    <additional_attributes>70.0;20.0;10.0;30.0</additional_attributes>
+&lt;&lt;include&gt;&gt;</panel_attributes>
+    <additional_attributes>60.0;10.0;10.0;40.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
@@ -349,24 +347,24 @@ Spielbeginn einladen</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>710</x>
+      <x>700</x>
       <y>310</y>
-      <w>160</w>
-      <h>110</h>
+      <w>170</w>
+      <h>90</h>
     </coordinates>
     <panel_attributes/>
-    <additional_attributes>10.0;90.0;140.0;10.0</additional_attributes>
+    <additional_attributes>10.0;70.0;150.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
       <x>240</x>
-      <y>380</y>
-      <w>390</w>
-      <h>130</h>
+      <y>360</y>
+      <w>380</w>
+      <h>150</h>
     </coordinates>
     <panel_attributes/>
-    <additional_attributes>10.0;110.0;200.0;10.0;370.0;10.0</additional_attributes>
+    <additional_attributes>10.0;130.0;200.0;30.0;360.0;10.0</additional_attributes>
   </element>
   <element>
     <id>UMLUseCase</id>
