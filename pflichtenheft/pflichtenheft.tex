@@ -32,7 +32,8 @@ description={Für dieses Produkt wird nur auf Google Chrome und Mozilla Firefox 
 {
 name=Spiel,
 plural=Spiele,
-description={Ein Spiel ist eine Instanz eines \Gls{Spielmodus}. Ein Spiel hat das Ziel, das Wissen des Spielers zu nutzen, um die Merkmalsauswahl für Machine Learning zu unterstützen.}
+description={Ein Spiel ist eine Instanz eines \Gls{Spielmodus}.
+Ein Spiel hat das Ziel, das Wissen des Spielers zu nutzen, um die Merkmalsauswahl für Machine Learning zu unterstützen.}
 }
 \newglossaryentry{Spielmodus}
 {
@@ -76,7 +77,7 @@ description={Ein Organisator ist ein Nutzer, der neue Spiele erstellt und die Er
 {
 name=Achievement,
 plural=Achievements,
-description={Ein Ziel oder eine Errungenschaft, welche den Spieler motiviert, weiterzuspielen.}
+description={Ein Ziel oder eine Errungenschaft, welche den \Gls{Spieler} motiviert, weiterzuspielen.}
 }
 \newglossaryentry{Administrator}
 {
@@ -143,14 +144,14 @@ description={Ein Server, der nicht Bestandteil des Produktes ist, jedoch benöti
         \item Merkmalsauswahl anhand von Spielen  %Formulierung
         \begin{itemize}
             \item Spielerstellung durch Organisator
-            \item Teilnahme von Spielern %Formulierung
+            \item Teilnahme von \Gls{Spieler}n %Formulierung
             \item Bewertung der Merkmalsauswahl durch Kommunikation mit Machine-Learning-Server 
             \item Ergebnissicherung in einer Datenbank 
         \end{itemize}
         \item Zwei Spielmodi 
         \begin{itemize}
-            \item Matrix Select: Spieler erhält mehrere Merkmale und wählt eine Teilmenge davon aus %Später dazu mehr irgendwie dazu?
-            \item Binar Select: Spieler erhält zwei Merkmale und wählt eines davon aus 
+            \item Matrix Select: \Gls{Spieler} erhält mehrere Merkmale und wählt eine Teilmenge davon aus %Später dazu mehr irgendwie dazu?
+            \item Binar Select: \Gls{Spieler} erhält zwei Merkmale und wählt eines davon aus
         \end{itemize}
         \item Gamification-Elemente
         \begin{itemize}
@@ -282,8 +283,9 @@ description={Ein Server, der nicht Bestandteil des Produktes ist, jedoch benöti
 
     \section{Zielgruppen}
     Die Zielgruppen des \Gls{Produkt}s lassen sich in \Glspl{Organisator} und \Glspl{Spieler} unterscheiden.
-    Der Organisator möchte eine Verbesserung der Machine-Learning Prozesse erreichen, indem er das Domänenwissen der Spieler nutzt.
-    Die Spieler tragen durch Spielen des \Gls{Produkt}s mit ihrem Domänenwissen zur besseren Merkmalsauswahl bei.
+    Der Organisator möchte eine Verbesserung der Machine-Learning Prozesse erreichen, indem er das Domänenwissen der \Gls{Spieler} nutzt.
+    Die \Gls{Spieler} tragen durch Spielen des \Gls{Produkt}s mit ihrem Domänenwissen zur besseren Merkmalsauswahl bei.
+
 
     \section{Betriebsbedingungen}
     Das \Gls{Produkt} ist für die Nutzung in Büroräumlichkeiten mit gewöhnlichen Arbeitsplatzrechnern vorgesehen.
@@ -307,7 +309,7 @@ description={Ein Server, der nicht Bestandteil des Produktes ist, jedoch benöti
     \begin{itemize}
         \item \texttt{GET /features} Liefert einen \Gls{Datensatz} an den Spiele-Server.
         Parameter: Datensatzidentifier
-        \item \texttt{GET /score} Bewertet eine Merkmalsauswahl eines Spielers.
+        \item \texttt{GET /score} Bewertet eine Merkmalsauswahl eines \Gls{Spieler}s.
         Gibt eine Zahl zwischen 0 und 1 zurück, die die Güte der Merkmalsauswahl entspricht.
         Parameter: Datensatzidentifier, ausgewählte Merkmale
     \end{itemize}
@@ -334,8 +336,8 @@ description={Ein Server, der nicht Bestandteil des Produktes ist, jedoch benöti
     \begin{tabularx}{\linewidth}{@{}>{\bfseries}l@{\hspace{.5em}}X@{}} 
 	/F10/ & Erstregistrierung des Organisators durch global gesetztes Passwort \\ %Machen wir das so?
 	/F20/ & Anmelden des Organisators mit E-Mail und Passwort \\
-	/F30/ & Erstregistrierung eines Spielers mit Passwort, dass er in einer Einladungs-E-Mail erhalten hat \\ 
-	/F40/ & Anmelden eines Spielers mit E-Mail und Passwort \\
+	/F30/ & Erstregistrierung eines \Gls{Spieler}s mit Passwort, dass er in einer Einladungs-E-Mail erhalten hat \\
+	/F40/ & Anmelden eines \Gls{Spieler}s mit E-Mail und Passwort \\
     \end{tabularx}
 
     \section{Optional: Zusätzliche Funktionen für Nutzerverwaltung}
@@ -348,8 +350,8 @@ description={Ein Server, der nicht Bestandteil des Produktes ist, jedoch benöti
     
     \section{Spielerstellung}
     \begin{tabularx}{\linewidth}{@{}>{\bfseries}l@{\hspace{.5em}}X@{}} 
-    /F10/ & Organisator kann in Spielerstellungs-GUI Spieler zum Spiel einladen, in dem er E-Mail-Adresse angibt \\
-    /F20/ & Eingeladene Spieler erhalten Einladungs-E-Mail \\
+    /F10/ & Organisator kann in Spielerstellungs-GUI \Gls{Spieler} zum Spiel einladen, in dem er E-Mail-Adresse angibt \\
+    /F20/ & Eingeladene \Gls{Spieler} erhalten Einladungs-E-Mail \\
     /F30/ & Organisator muss mindestens einen Spielmodus auswählen\\
     /F35/ & Falls Matrix Select ausgewählt ist, muss Organisator Matrixgröße angeben \\
     /F50/ & Organisator muss Name des Merkmalsdatensatzes angeben \\
@@ -365,22 +367,22 @@ description={Ein Server, der nicht Bestandteil des Produktes ist, jedoch benöti
     \begin{tabularx}{\linewidth}{@{}>{\bfseries}l@{\hspace{.5em}}X@{}} % Linebreaks in der Tabelle
     /F10/ & Organisator kann seine Spieleinstellungen speichern \\
     /F20/ & Organisator kann seine Spieleinstellungen laden \\
-    /F30/ & Organisator kann weitere Spieler nach Beginn eines Spieles einladen \\
+    /F30/ & Organisator kann weitere \Gls{Spieler} nach Beginn eines Spieles einladen \\
 	\end{tabularx}
     
     \section{Spielablauf} 
     \begin{tabularx}{\linewidth}{@{}>{\bfseries}l@{\hspace{.5em}}X@{}} % Linebreaks in der Tabelle
-    	/F40/ & Spieler kann Einladungen zu Spielen annehmen und ablehnen \\
-    	/F10/ & Spieler sieht in Spieler-Übersichts-GUI alle Spiele, bei denen er Einladung angenommen hat und die aktiv sind \\
-    	/F20/ & Spieler kann Spiel auswählen und weiterspielen, anschließend: \\
-    	/F30/ & Spieler spielt Runde des entsprechenden Spielmodus, für alle gilt: \\
-    	/F40/ & Spieler kann Merkmal auswählen \\
-    	/F40/ & Spieler kann sich zu Merkmal zusätzlich Beschreibung und Grafiken anzeigen lassen \\
-    	/F40/ & Nach Beenden der Runde sieht Spieler Punktzahl und kann entscheiden, ob er noch eine Runde spielen will \\
+    	/F40/ & \Gls{Spieler} kann Einladungen zu Spielen annehmen und ablehnen \\
+    	/F10/ & \Gls{Spieler} sieht in Spieler-Übersichts-GUI alle Spiele, bei denen er Einladung angenommen hat und die aktiv sind \\
+    	/F20/ & \Gls{Spieler} kann Spiel auswählen und weiterspielen, anschließend: \\
+    	/F30/ & \Gls{Spieler} spielt Runde des entsprechenden Spielmodus, für alle gilt: \\
+    	/F40/ & \Gls{Spieler} kann Merkmal auswählen \\
+    	/F40/ & \Gls{Spieler} kann sich zu Merkmal zusätzlich Beschreibung und Grafiken anzeigen lassen \\
+    	/F40/ & Nach Beenden der Runde sieht der \Gls{Spieler} seine Punktzahl und kann entscheiden, ob er noch eine Runde spielen will \\
 	/F50/ & Spiel terminiert nach Erreichen der Endbedingungen, danach kann keine Runde mehr gespielt werden \\
 	/F60/ & Organisator kann sich über aktuellen seines Spiels informieren \\ %Genauer? Gespielte Runden einsehen und so?
 	/F70/ & Organisator kann ein Spiel vorzeitig beenden \\
-	/F40/ & Spieler sieht aktuelle Runde und Punktestand \\
+	/F40/ & \Gls{Spieler} sieht aktuelle Runde und Punktestand \\
     \end{tabularx}
     
     \subsection{Binär Select}
@@ -388,8 +390,8 @@ description={Ein Server, der nicht Bestandteil des Produktes ist, jedoch benöti
     	/F10/ & Es werden zufällig zwei Merkmale angezeigt \\
     	/F10/ & Runde Binär Select besteht aus genau fünf Vergleichen \\
     	/F20/ & Genau zwei Merkmale werden angezeigt \\
-    	/F30/ & Spieler kann nur maximal eines davon auswählen \\
-    	/F40/ & Spieler muss bestätigen, dafür muss er genau ein Merkmal ausgewählt haben \\
+    	/F30/ & \Gls{Spieler} kann nur maximal eines davon auswählen \\
+    	/F40/ & \Gls{Spieler} muss bestätigen, dafür muss er genau ein Merkmal ausgewählt haben \\
     \end{tabularx}
 
     \subsection{Matrix Select}
@@ -397,15 +399,15 @@ description={Ein Server, der nicht Bestandteil des Produktes ist, jedoch benöti
         /F10/ & Es werden zufällige Merkmale angezeigt in einer Matrix angezeigt \\
     	/F10/ & Runde besteht aus genau einer Matrix \\
     	/F20/ & Genau die Anzahl an Merkmalen, die Organisator bei Spielerstellung ausgewählt hat, wird angezeigt \\
-    	/F30/ & Spieler kann maximal x Merkmale auswählen \\ % Wie viele Merkmale maximal? Gibt es Obergrenze?
-    	/F40/ & Spieler muss bestätigen, dafür muss er genau/maximal x Merkmale ausgewählt haben \\ %Wie viele?
+    	/F30/ & \Gls{Spieler} kann maximal x Merkmale auswählen \\ % Wie viele Merkmale maximal? Gibt es Obergrenze?
+    	/F40/ & \Gls{Spieler} muss bestätigen, dafür muss er genau/maximal x Merkmale ausgewählt haben \\ %Wie viele?
     \end{tabularx}
 	
 	\section{Optional: Zusätzliche Funktionen im Spielablauf}
 	\begin{tabularx}{\linewidth}{@{}>{\bfseries}l@{\hspace{.5em}}X@{}} % Linebreaks in der Tabelle
-		/F10/ & Spieler kann Runde überspringen, dann: \\
-		/F20/ & Von der Gesamtpunktzahl des Spielers werden 100 Punkte abgezogen, die Gesamtpunktzahl wird aber nicht negativ \\ %100? Kann sie negativ werden?
-		/F30/ & Spieler kann Merkmal als unwichtig markieren \\ 
+		/F10/ & \Gls{Spieler} kann Runde überspringen, dann: \\
+		/F20/ & Von der Gesamtpunktzahl des \Gls{Spieler}s werden 100 Punkte abgezogen, die Gesamtpunktzahl wird aber nicht negativ \\ %100? Kann sie negativ werden?
+		/F30/ & \Gls{Spieler} kann Merkmal als unwichtig markieren \\
 	\end{tabularx}
 	
 	\section{Optional: Verbesserung der Merkmalsauswahl durch System} 
@@ -416,10 +418,10 @@ description={Ein Server, der nicht Bestandteil des Produktes ist, jedoch benöti
 	    
     \section{Bewertung der Merkmalsauswahl des Spielers und Ergebnissicherung}
     \begin{tabularx}{\linewidth}{@{}>{\bfseries}l@{\hspace{.5em}}X@{}} % Linebreaks in der Tabelle
-    /F10/ & Merkmalsauswahl des Spielers wird per http-Anfrage an ML-Server geschickt\\
+    /F10/ & Merkmalsauswahl des \Gls{Spieler}s wird per http-Anfrage an ML-Server geschickt\\
     /F20/ & Bei Binär Select wird gebündelte Menge der Vergleiche geschickt \\
     /F30/ & Rückmeldung wird in Rundenpunktzahl umgewandelt \\ %Wie? Das wird bei Punktesystem erklärt
-    /F40/ & Rundenpunktzahl wird zur Gesamtpunktzahl des Spielers addiert \\
+    /F40/ & Rundenpunktzahl wird zur Gesamtpunktzahl des \Gls{Spieler}s addiert \\
     /F50/ & Rundendaten \footnote{Ausgewählte Merkmale, Spielername, Zeitpunkt, Rundenanzahl, Vorhersagequalität, Punkte} wird in von Organisator ausgewählte Datenbank gespeichert \\ %Datenbank zu Spiel
     \end{tabularx}
     
@@ -427,11 +429,11 @@ description={Ein Server, der nicht Bestandteil des Produktes ist, jedoch benöti
     \begin{tabularx}{\linewidth}{@{}>{\bfseries}l@{\hspace{.5em}}X@{}} % Linebreaks in der Tabelle
     /F10/ & Nutzer haben Zugriff auf die Anmeldungs-GUI in einem Webbrowser\\
     /F20/ & Organisatoren erreichen nach erfolgreicher Anmeldung die Organisator-Überschichts-GUI \\
-    /F30/ & Spieler erreichen nach erfolgreicher Anmeldung die Spieler-Übersichts-GUI \\
+    /F30/ & \Gls{Spieler} erreichen nach erfolgreicher Anmeldung die Spieler-Übersichts-GUI \\
     /F40/ & Organisatoren gelangen nach Betätigung der Spielerstellungs-Schaltfläche die Spielerstellungs-GUI \\
     /F50/ & Nach Beenden der Spielerstellung kehren Organisatoren auf die Organisator-Übersichts-GUI zurück \\
-    /F60/ & Spieler gelangen nach Betätigung der "Weiterspielen"-Schaltfläche die Spiel-GUI \\
-    /F70/ & Nach Beenden der Runde kehren Spieler entweder auf die Spieler-Übersichts-GUI oder die Spiel-GUI zurück \\
+    /F60/ & \Gls{Spieler} gelangen nach Betätigung der "Weiterspielen"-Schaltfläche die Spiel-GUI \\
+    /F70/ & Nach Beenden der Runde kehren \Gls{Spieler} entweder auf die Spieler-Übersichts-GUI oder die Spiel-GUI zurück \\
     /F80/ & Nach Abmeldung kehren Nutzer auf die Anmeldungs-GUI zurück \\
     /F90/ & \\  % GUI in Webbrowser irgendwo?
     \end{tabularx}
@@ -439,7 +441,7 @@ description={Ein Server, der nicht Bestandteil des Produktes ist, jedoch benöti
     \section{Gamification-Elemente}
     \label{sec:Gamification-Elemente}
     \begin{tabularx}{\linewidth}{@{}>{\bfseries}l@{\hspace{.5em}}X@{}} % Linebreaks in der Tabelle
-    /F10/ & Punktesystem für Spieler basierend auf ihren Eingaben, der für die Merkmalsauswahl erhaltene Wert des ML-Servers wird mit 100 multipliziert und
+    /F10/ & Punktesystem für \Gls{Spieler} basierend auf ihren Eingaben, der für die Merkmalsauswahl erhaltene Wert des ML-Servers wird mit 100 multipliziert und
     auf die nächstgrößere ganze Zahl aufgerundet \\
     /F20/ & \\
     \end{tabularx}
@@ -447,11 +449,11 @@ description={Ein Server, der nicht Bestandteil des Produktes ist, jedoch benöti
     \section{Optional: Weitere Gamification-Elemente}
     \label{sec:Optionale Gamification-Elemente}
     \begin{tabularx}{\linewidth}{@{}>{\bfseries}l@{\hspace{.5em}}X@{}} % Linebreaks in der Tabelle
-	/F10/ & Leaderboard: Auflistung der Spieler mit den meisten Punkten \\ %in der GUI? \\
-	/F20/ & Achievements: Errungenschaften für Spieler, die freigeschaltet werden können, nachdem der Spieler bestimmte Ziele oder 		Aufgaben erledigt \\
+	/F10/ & Leaderboard: Auflistung der \Gls{Spieler} mit den meisten Punkten \\ %in der GUI? \\
+	/F20/ & Achievements: Errungenschaften für \Gls{Spieler}, die freigeschaltet werden können, nachdem der Spieler bestimmte Ziele oder 		Aufgaben erledigt \\
 	/F25/ & Auflistung der Achievements aus /F20/ \\ %in der GUI?:
-	/F30/ & Daily Challenges: Jeden Tag erhält ein Spieler eine neue Herausforderung, die er abschließen kann \\
-	/F40/ & Streaks: Mehr Punkte für einen Spieler, wenn er zwei (oder mehrere) Spiele in Folge spielt \\
+	/F30/ & Daily Challenges: Jeden Tag erhält ein \Gls{Spieler} eine neue Herausforderung, die er abschließen kann \\
+	/F40/ & Streaks: Mehr Punkte für einen \Gls{Spieler}, wenn er zwei (oder mehrere) Spiele in Folge spielt \\
 	/F50/ & Erweitertes Punktesystem: Abschließen von /F20/ und /F30/ geben zusätzliche Punkte \\
     \end{tabularx}
     
@@ -517,9 +519,9 @@ description={Ein Server, der nicht Bestandteil des Produktes ist, jedoch benöti
     \chapter{Nichtfunktionale Anforderungen}
 
     \begin{tabular}{ l l}
-        /NF10/ & Es müssen mindestens 30 Spieler zur gleichen Zeit spielen können.\\
+        /NF10/ & Es müssen mindestens 30 \Gls{Spieler} zur gleichen Zeit spielen können.\\
         /NF20/ & Die Interaktionszeiten dürfen nicht länger als zwei Sekunden betragen. \\
-        /NF30/ & Ein Spieler soll das Ergebnis seines Spiels innerhalb von zwei Sekunden erhalten. \\
+        /NF30/ & Ein \Gls{Spieler} soll das Ergebnis seines Spiels innerhalb von zwei Sekunden erhalten. \\
         /NF40/ & Das Design soll modern sein. \\
         /NF50/ & Der \Gls{ML-Server} soll leicht austauschbar sein. \\
         /NF60/ & Neue Spielmodi sollen leicht hinzugefügt werden können. \\
@@ -549,9 +551,9 @@ description={Ein Server, der nicht Bestandteil des Produktes ist, jedoch benöti
         \item Eingangsaktionen: Spiele-Server ist aktiv
         \item Ereignisfluss:
         \begin{itemize}
-            \item Organisator lädt den Spieler über das Organisator-GUI ein.
-            \item Der Spieler klickt auf den Einladungslink in der E-Mail und wird auf die Registrierungsseite weitergeleitet.
-            \item Der Spieler gibt einen einzigartigen Nutzernamen, seine E-Mail-Adresse sowie ein persönliches Passwort ein und bestätigt.
+            \item Organisator lädt den \Gls{Spieler} über das Organisator-GUI ein.
+            \item Der \Gls{Spieler} klickt auf den Einladungslink in der E-Mail und wird auf die Registrierungsseite weitergeleitet.
+            \item Der \Gls{Spieler} gibt einen einzigartigen Nutzernamen, seine E-Mail-Adresse sowie ein persönliches Passwort ein und bestätigt.
         \end{itemize}
     \end{itemize}
 
@@ -561,10 +563,10 @@ description={Ein Server, der nicht Bestandteil des Produktes ist, jedoch benöti
         \item Eingangsaktionen: Spiele-Server ist aktiv
         \item Ereignisfluss:
         \begin{itemize}
-            \item Spieler öffnet die Produktwebsite
-            \item Spieler wählt die Rolle "Spieler" aus
-            \item Spieler gibt E-Mail und Passwort ein
-            \item Spieler klickt auf anmelden
+            \item \Gls{Spieler} öffnet die Produktwebsite
+            \item \Gls{Spieler} wählt die Rolle "\Gls{Spieler}" aus
+            \item \Gls{Spieler} gibt E-Mail und Passwort ein
+            \item \Gls{Spieler} klickt auf anmelden
         \end{itemize}
     \end{itemize}
 
@@ -575,7 +577,7 @@ description={Ein Server, der nicht Bestandteil des Produktes ist, jedoch benöti
         \item Ereignisfluss:
         \begin{itemize}
             \item Administrator loggt sich am Server ein
-            \item Administrator führt das Löschen-Kommando mit dem Nutzernamen des zu löschenden Spielers aus
+            \item Administrator führt das Löschen-Kommando mit dem Nutzernamen des zu löschenden \Gls{Spieler}s aus
             \item Administrator bestätigt den Vorgang
         \end{itemize}
     \end{itemize}
@@ -620,13 +622,13 @@ description={Ein Server, der nicht Bestandteil des Produktes ist, jedoch benöti
     \begin{itemize}
         \item Teilnehmende Akteure: \Gls{Organisator}, \Gls{Spieler}
         \item Eingangsaktionen: Spiele-Server ist aktiv
-        \item Ausgangsaktionen: Spiel starten, Spieler werden eingeladen
+        \item Ausgangsaktionen: Spiel starten, \Gls{Spieler} werden eingeladen
         \item Ereignisfluss:
         \begin{itemize}
             \item Organisator meldet sich an
             \item Organisator klickt auf "Spiel erstellen"-Schaltfläche
             \item Organisator sucht sich über seine GUI die gewünschten Spieleinstellungen aus
-            \item Organisator lädt Spieler über Angabe der Email in einem Textfeld ein
+            \item Organisator lädt \Gls{Spieler} über Angabe der Email in einem Textfeld ein
             \item Organisator bestätigt seine Auswahl und erstellt das Spiel
         \end{itemize}
     \end{itemize}
@@ -635,13 +637,13 @@ description={Ein Server, der nicht Bestandteil des Produktes ist, jedoch benöti
     \begin{itemize}
         \item Teilnehmende Akteure: \Gls{Organisator}, \Gls{Spieler}
         \item Eingangsaktionen: Spiele-Server ist aktiv, Spiel ist gestartet
-        \item Ausgangsaktionen: Spieler werden eingeladen
+        \item Ausgangsaktionen: \Gls{Spieler} werden eingeladen
         \item Ereignisfluss:
         \begin{itemize}
             \item Organisator meldet sich an
             \item Organisator wählt gestartetes Spiel aus der Übersicht
             \item Organisator betätigt "Einladen"-Schaltfläche
-            \item Organisator tippt Emails der Spieler in Textfeld ein
+            \item Organisator tippt Emails der \Gls{Spieler} in Textfeld ein
             \item Organisator bestätigt seine Auswahl
         \end{itemize}
     \end{itemize}
@@ -650,7 +652,7 @@ description={Ein Server, der nicht Bestandteil des Produktes ist, jedoch benöti
     \begin{itemize}
         \item Teilnehmende Akteure: \Gls{Organisator}, \Gls{Spieler}
         \item Eingangsaktionen: Spiel ist aktiv und gestartet
-        \item Ausgangsaktionen: Spieler können Spiel nicht mehr spielen %werden sie benachrichtigt?
+        \item Ausgangsaktionen: \Gls{Spieler} können Spiel nicht mehr spielen %werden sie benachrichtigt?
         \item Ereignisfluss:
         \begin{itemize}
             \item Organisator meldet sich an
@@ -738,57 +740,57 @@ description={Ein Server, der nicht Bestandteil des Produktes ist, jedoch benöti
     	\item Eingangsaktionen: Spiele-Server ist aktiv, Spieler hat offenes Spiel des Spielmodus Matrix Select
     	\item Ereignisfluss:
     	\begin{itemize}
-    		\item Spieler meldet sich an
-    		\item Spieler erreicht seine Übersichtsseite
-    		\item Spieler klickt auf Weiterspielen-Schaltfläche
-    		\item Spieler erreicht Spiel-GUI
-    		\item Spieler klickt auf ein Merkmal und sieht Merkmalsgraphen und Merkmalsbeschreibung
-    		\item Spieler wählt mehrere Merkmale aus
-    		\item Spieler klickt auf Schaltfläche, um Auswahl zu bestätigen 
+    		\item \Gls{Spieler} meldet sich an
+    		\item \Gls{Spieler} erreicht seine Übersichtsseite
+    		\item \Gls{Spieler} klickt auf Weiterspielen-Schaltfläche
+    		\item \Gls{Spieler} erreicht Spiel-GUI
+    		\item \Gls{Spieler} klickt auf ein Merkmal und sieht Merkmalsgraphen und Merkmalsbeschreibung
+    		\item \Gls{Spieler} wählt mehrere Merkmale aus
+    		\item \Gls{Spieler} klickt auf Schaltfläche, um Auswahl zu bestätigen
     	\end{itemize}
     \end{itemize}
 	
 	\subsection{Runde spielen: Binär Select}
 	\begin{itemize}
 		\item Teilnehmende Akteure: \Gls{Spieler}
-		\item Eingangsaktionen: Spiele-Server ist aktiv, Spieler hat offenes Spiel des Spielmodus Binär Select
+		\item Eingangsaktionen: Spiele-Server ist aktiv, \Gls{Spieler} hat offenes Spiel des Spielmodus Binär Select
 		\item Ereignisfluss:
 		\begin{itemize}
-			\item Spieler meldet sich an
-			\item Spieler erreicht seine Übersichtsseite
-			\item Spieler klickt auf Weiterspielen-Schaltfläche
-			\item Spieler erreicht Spiel-GUI
-			\item Spieler klickt auf ein Merkmal und sieht Merkmalsgraphen und Merkmalsbeschreibung
-			\item Spieler wählt eines der beiden Merkmale aus
-			\item Spieler klickt auf Schaltfläche, um Auswahl zu bestätigen 
+			\item \Gls{Spieler} meldet sich an
+			\item \Gls{Spieler} erreicht seine Übersichtsseite
+			\item \Gls{Spieler} klickt auf Weiterspielen-Schaltfläche
+			\item \Gls{Spieler} erreicht Spiel-GUI
+			\item \Gls{Spieler} klickt auf ein Merkmal und sieht Merkmalsgraphen und Merkmalsbeschreibung
+			\item \Gls{Spieler} wählt eines der beiden Merkmale aus
+			\item \Gls{Spieler} klickt auf Schaltfläche, um Auswahl zu bestätigen
 		\end{itemize}
 	\end{itemize}
 
 	\subsection{Auswahl überspringen}
 	\begin{itemize}
 		\item Teilnehmende Akteure: \Gls{Spieler}
-		\item Eingangsaktionen: Spiele-Server ist aktiv, Spieler hat offenes Spiel
-        \item Ausgangsaktionen: Der Spieler kommt in die nächste Runde des aktiven Spiels
+		\item Eingangsaktionen: Spiele-Server ist aktiv, \Gls{Spieler} hat offenes Spiel
+        \item Ausgangsaktionen: Der \Gls{Spieler} kommt in die nächste Runde des aktiven Spiels
 		\item Ereignisfluss:
 		\begin{itemize}
-			\item Spieler meldet sich an
-			\item Spieler erreicht seine Übersichtsseite
-			\item Spieler klickt auf Weiterspielen-Schaltfläche
-			\item Spieler erreicht Spiel-GUI
-			\item Spieler klickt Auswahl-Überspringen-Schaltfläche und bestätigt seine Auswahl
-            \item Dem Spieler werden Punkte abgezogen
+			\item \Gls{Spieler} meldet sich an
+			\item \Gls{Spieler} erreicht seine Übersichtsseite
+			\item \Gls{Spieler} klickt auf Weiterspielen-Schaltfläche
+			\item \Gls{Spieler} erreicht Spiel-GUI
+			\item \Gls{Spieler} klickt Auswahl-Überspringen-Schaltfläche und bestätigt seine Auswahl
+            \item Dem \Gls{Spieler} werden Punkte abgezogen
 		\end{itemize}
 	\end{itemize}
      
     \subsection{Streak erreichen}\footnote{Zur Erklärung von Streak siehe \fref{fig:Streak_State}}
     \begin{itemize}
         \item Teilnehmende Akteure: \Gls{Spieler}
-        \item Eingangsaktionen: Spieler spielt eine Runde
-        \item Ausgangsaktionen: Spieler erhält extra Punkte für seine Runde
+        \item Eingangsaktionen: \Gls{Spieler} spielt eine Runde
+        \item Ausgangsaktionen: \Gls{Spieler} erhält extra Punkte für seine Runde
         \item Ereignisfluss:
         \begin{itemize}
-            \item Spieler spielt n Runden um eine Streak zu erreichen. 
-            \item System teilt dem Spieler mit, dass er eine Streak erreicht hat.
+            \item \Gls{Spieler} spielt n Runden um eine Streak zu erreichen.
+            \item System teilt dem \Gls{Spieler} mit, dass er eine Streak erreicht hat.
         \end{itemize}
     \end{itemize}
     
@@ -801,10 +803,10 @@ description={Ein Server, der nicht Bestandteil des Produktes ist, jedoch benöti
         %\item Ausgangsaktionen: Achievements ansehen
         \item Ereignisfluss:
         \begin{itemize}
-            \item Spieler meldet sich an
-            \item Spieler erreicht seine Übersicht-Seite
-            \item Spieler klickt auf die Spieler-Übersicht-Schaltfläche
-            \item Spieler schaut seine Achievements an
+            \item \Gls{Spieler} meldet sich an
+            \item \Gls{Spieler} erreicht seine Übersicht-Seite
+            \item \Gls{Spieler} klickt auf die Spieler-Übersicht-Schaltfläche
+            \item \Gls{Spieler} schaut seine Achievements an
         \end{itemize}
     \end{itemize}
     %Nach der Anmeldung erreicht ein \Gls{Spieler} eine Übersichts-Seite. Beim Klicken auf die Spieler-Übersicht-Schaltfläche
@@ -816,9 +818,9 @@ description={Ein Server, der nicht Bestandteil des Produktes ist, jedoch benöti
         %\item Ausgangsaktionen: Leaderboard ansehen
         \item Ereignisfluss:
         \begin{itemize}
-            \item Spieler meldet sich an
-            \item Spieler erreicht seine Übersichtsseite
-            \item Spieler sieht dort in einer Tabelle die Spieler mit den meisten Punkten über einen gewissen Zeitraum
+            \item \Gls{Spieler} meldet sich an
+            \item \Gls{Spieler} erreicht seine Übersichtsseite
+            \item \Gls{Spieler} sieht dort in einer Tabelle die \Gls{Spieler} mit den meisten Punkten über einen gewissen Zeitraum
         \end{itemize}
     \end{itemize}
     %Nach der Anmeldung erreicht ein \Gls{Spieler} eine Übersichts-Seite. Darauf ist ein Bereich, der eine aktuelle Tabelle
@@ -831,10 +833,10 @@ description={Ein Server, der nicht Bestandteil des Produktes ist, jedoch benöti
     \item Eingangsaktionen: Spiele-Server ist aktiv
     \item Ereignisfluss:
         \begin{itemize}
-            \item Organisator oder Spieler meldet sich an
-            \item Organisator oder Spieler erreicht seine Übersichtsseite
-            \item Organisator oder Spieler wählt die Sprachänderungs-Schaltfläche aus
-            \item Organisator oder Spieler bestätigt seine Auswahl
+            \item Organisator oder \Gls{Spieler} meldet sich an
+            \item Organisator oder \Gls{Spieler} erreicht seine Übersichtsseite
+            \item Organisator oder \Gls{Spieler} wählt die Sprachänderungs-Schaltfläche aus
+            \item Organisator oder \Gls{Spieler} bestätigt seine Auswahl
         \end{itemize}
     \end{itemize}
     \subsection{Server installieren}
@@ -863,13 +865,13 @@ description={Ein Server, der nicht Bestandteil des Produktes ist, jedoch benöti
     \begin{itemize}
         \item Teilnehmende Akteure: \Gls{Administrator}, \Gls{Spieler}
         \item Eingangsaktionen: Spiele-Server ist aktiv
-        \item Ausgangsaktionen: Die Punkte des Spielers sind zurückgesetzt
+        \item Ausgangsaktionen: Die Punkte des \Gls{Spieler}s sind zurückgesetzt
         \item Ereignisfluss:
         \begin{itemize}
             \item Administrator loggt sich in Spiele-Server ein
             \item Administrator gibt das "Punkte zurücksetzen"-Kommando und die Email des registrierten Spielers ein
             \item Administrator bestätigt seine Auswahl
-            \item Die Punkte des entsprechenden Spielers werden zurückgesetzt
+            \item Die Punkte des entsprechenden \Gls{Spieler}s werden zurückgesetzt
         \end{itemize}
     \end{itemize}
 
@@ -882,12 +884,12 @@ description={Ein Server, der nicht Bestandteil des Produktes ist, jedoch benöti
     \item Eingangsaktionen: Spiele-Server ist aktiv
     \item Ereignisfluss:
         \begin{itemize}
-            \item Organisator oder Spieler meldet sich an
-            \item Organisator oder Spieler erreicht seine Übersichtsseite
-            \item Organisator oder Spieler wählt die Profileinstellungen aus
-            \item Organisator oder Spieler klickt aus die \enquote{Passwort ändern}-Schaltfläche
-            \item Organisator oder Spieler gibt sein aktuelle sowie sein neues gewünschtes Passwort ein
-            \item Organisator oder Spieler bestätigt seine Auswahl
+            \item Organisator oder \Gls{Spieler} meldet sich an
+            \item Organisator oder \Gls{Spieler} erreicht seine Übersichtsseite
+            \item Organisator oder \Gls{Spieler} wählt die Profileinstellungen aus
+            \item Organisator oder \Gls{Spieler} klickt aus die \enquote{Passwort ändern}-Schaltfläche
+            \item Organisator oder \Gls{Spieler} gibt sein aktuelle sowie sein neues gewünschtes Passwort ein
+            \item Organisator oder \Gls{Spieler} bestätigt seine Auswahl
         \end{itemize}
     \end{itemize}
 
@@ -898,19 +900,19 @@ description={Ein Server, der nicht Bestandteil des Produktes ist, jedoch benöti
         \item Ausgangsaktionen: Temporäres Passwort ändern
         \item Ereignisfluss:
         \begin{itemize}
-            \item Organisator oder Spieler öffnet die Produktwebsite und klickt auf \enquote{Passwort zurücksetzen}
-            \item Organisator oder Spieler erhält per Mail ein neues temporäres Passwort
-            \item Organisator oder Spieler meldet sich mit dem neuen Passwort an
+            \item Organisator oder \Gls{Spieler} öffnet die Produktwebsite und klickt auf \enquote{Passwort zurücksetzen}
+            \item Organisator oder \Gls{Spieler} erhält per Mail ein neues temporäres Passwort
+            \item Organisator oder \Gls{Spieler} meldet sich mit dem neuen Passwort an
         \end{itemize}
     \end{itemize}
        \subsection{Hilfe-Schaltfläche verwenden}
     \begin{itemize}
         \item Teilnehmende Akteure: \Gls{Spieler}, \Gls{Organisator}
-        \item Eingangsaktionen: Spieler oder Organisator benötigt Hilfe mit dem Produkt
+        \item Eingangsaktionen: \Gls{Spieler} oder Organisator benötigt Hilfe mit dem Produkt
         \item Ausgangsaktionen: System zeigt dem Akteur die relevante Hilfe Seite
         \item Ereignisfluss:
             \begin{itemize}
-                \item Spieler oder Organisator klickt auf die Hilfe-Schaltfläche(oben links)
+                \item \Gls{Spieler} oder Organisator klickt auf die Hilfe-Schaltfläche(oben links)
             \end{itemize}
     \end{itemize}
 
