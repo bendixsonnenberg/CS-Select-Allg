@@ -18,7 +18,7 @@
 {
 name=Produkt,
 plural=Produkte,
-description={Das von uns gelieferte Softwaresystem. Siehe \Gls{Spiele-Server}}
+description={Das von uns gelieferte Softwaresystem. Siehe \Gls{Spiel-Server}}
 }
 
 \newglossaryentry{Webbrowser}
@@ -214,8 +214,8 @@ description={Ein Server, der nicht Bestandteil des Produktes ist, jedoch benöti
 
     \section{Architektur}
     \includegraphics[width=\textwidth]{uml/export/Architektur.png}
-    Das Organisator und Spieler GUI läuft in einem Webbrowser. Hier interagieren die Spieler und Organisatoren mit dem \Gls{Produkt}. Der \Gls{Spiele-Server} koordiniert den Spielablauf, speichert Ergebnisse
-    in eine Datenbank ab und kommuniziert mit dem ML-Server. Die Kommunikation zwischen Spiele-Server und ML-Server wird durch HTTP-Anfragen stattfinden.
+    Das Organisator und Spieler GUI läuft in einem Webbrowser. Hier interagieren die Spieler und Organisatoren mit dem \Gls{Produkt}. Der \Gls{Spiel-Server} koordiniert den Spielablauf, speichert Ergebnisse
+    in eine Datenbank ab und kommuniziert mit dem ML-Server. Die Kommunikation zwischen Spiel-Server und ML-Server wird durch HTTP-Anfragen stattfinden.
     \section{Anwendungsbereiche}
     Das \Gls{Produkt} dient der Verbesserung der Merkmalsauswahl bei Machine-Learning Prozessen in wissenschaftlichen
     Experimenten beziehungsweise privatwirtschaftlichen Unternehmen durch das Domänenwissen der \Gls{Spieler}.
@@ -510,7 +510,7 @@ description={Ein Server, der nicht Bestandteil des Produktes ist, jedoch benöti
     \subsection{Spieler löschen}
     \begin{itemize}
         \item Teilnehmende Akteure: \Gls{Administrator}
-        \item Eingangsaktionen: Spiele-Server ist aktiv
+        \item Eingangsaktionen: Spiel-Server ist aktiv
         \item Ereignisfluss:
         \begin{itemize}
             \item \Gls{Administrator} loggt sich am Server ein
@@ -522,7 +522,7 @@ description={Ein Server, der nicht Bestandteil des Produktes ist, jedoch benöti
     \subsection{Organisator registrieren}
     \begin{itemize}
         \item Teilnehmende Akteure: \Gls{Organisator}
-        \item Eingangsaktionen: Spiele-Server ist aktiv, Organisator-Registrierungspasswort ist gesetzt
+        \item Eingangsaktionen: Spiel-Server ist aktiv, Organisator-Registrierungspasswort ist gesetzt
         \item Ereignisfluss:
         \begin{itemize}
             \item \Gls{Organisator} öffnet die Produktwebsite und klickt auf Registrieren
@@ -533,7 +533,7 @@ description={Ein Server, der nicht Bestandteil des Produktes ist, jedoch benöti
     \subsection{Organisator anmelden}
     \begin{itemize}
         \item Teilnehmende Akteure: \Gls{Organisator}
-        \item Eingangsaktionen: Spiele-Server ist aktiv
+        \item Eingangsaktionen: Spiel-Server ist aktiv
         \item Ereignisfluss:
         \begin{itemize}
             \item \Gls{Organisator} öffnet die Produktwebsite
@@ -546,7 +546,7 @@ description={Ein Server, der nicht Bestandteil des Produktes ist, jedoch benöti
     \subsection{Organisator löschen}
     \begin{itemize}
         \item Teilnehmende Akteure: \Gls{Administrator}
-        \item Eingangsaktionen: Spiele-Server ist aktiv
+        \item Eingangsaktionen: Spiel-Server ist aktiv
         \item Ereignisfluss:
         \begin{itemize}
             \item \Gls{Administrator} loggt sich am Server ein
@@ -558,7 +558,7 @@ description={Ein Server, der nicht Bestandteil des Produktes ist, jedoch benöti
     \subsection{Spiel erstellen}
     \begin{itemize}
         \item Teilnehmende Akteure: \Gls{Organisator}, \Gls{Spieler}
-        \item Eingangsaktionen: Spiele-Server ist aktiv
+        \item Eingangsaktionen: Spiel-Server ist aktiv
         \item Ausgangsaktionen: Spiel starten, \Gls{Spieler} werden eingeladen
         \item Ereignisfluss:
         \begin{itemize}
@@ -573,7 +573,7 @@ description={Ein Server, der nicht Bestandteil des Produktes ist, jedoch benöti
     \subsection{Spieler nach Spielbeginn einladen}
     \begin{itemize}
         \item Teilnehmende Akteure: \Gls{Organisator}, \Gls{Spieler}
-        \item Eingangsaktionen: Spiele-Server ist aktiv, Spiel ist gestartet
+        \item Eingangsaktionen: Spiel-Server ist aktiv, Spiel ist gestartet
         \item Ausgangsaktionen: \Gls{Spieler} werden eingeladen
         \item Ereignisfluss:
         \begin{itemize}
@@ -602,7 +602,7 @@ description={Ein Server, der nicht Bestandteil des Produktes ist, jedoch benöti
     \subsection{Spiel löschen}
     \begin{itemize}
         \item Teilnehmende Akteure: \Gls{Organisator}
-        \item Eingangsaktionen: Spiele-Server ist aktiv, es existiert bereits ein Spiel
+        \item Eingangsaktionen: Spiel-Server ist aktiv, es existiert bereits ein Spiel
         \item Ausgangsaktionen: Spiel löschen
         \item Ereignisfluss:
         \begin{itemize}
@@ -615,7 +615,7 @@ description={Ein Server, der nicht Bestandteil des Produktes ist, jedoch benöti
     \subsection{Spieleinstellungen speichern}
     \begin{itemize}
         \item Teilnehmende Akteure: \Gls{Organisator}
-        \item Eingangsaktionen: Spiele-Server ist aktiv
+        \item Eingangsaktionen: Spiel-Server ist aktiv
         \item Ausgangsaktionen: \Gls{Spieleinstellungen} wiederverwenden
         \item Ereignisfluss:
         \begin{itemize}
@@ -629,7 +629,7 @@ description={Ein Server, der nicht Bestandteil des Produktes ist, jedoch benöti
     \subsection{Spieleinstellungen laden}
     \begin{itemize}
         \item Teilnehmende Akteure: \Gls{Organisator}
-        \item Eingangsaktionen: Spiele-Server ist aktiv, \Gls{Spieleinstellungen} wurden bereits gespeichert
+        \item Eingangsaktionen: Spiel-Server ist aktiv, \Gls{Spieleinstellungen} wurden bereits gespeichert
         \item Ausgangsaktionen: Spiel starten
         \item Ereignisfluss:
         \begin{itemize}
@@ -652,7 +652,7 @@ description={Ein Server, der nicht Bestandteil des Produktes ist, jedoch benöti
  \subsection{Spielzustand auslesen}
 	\begin{itemize}
 		\item Teilnehmende Akteure: \Gls{Organisator}
-		\item Eingangsaktionen: Spiele-Server ist aktiv
+		\item Eingangsaktionen: Spiel-Server ist aktiv
 		\item Ereignisfluss:
 		\begin{itemize}
 			\item \Gls{Organisator} meldet sich an
@@ -675,7 +675,7 @@ description={Ein Server, der nicht Bestandteil des Produktes ist, jedoch benöti
     \subsection{Runde spielen: Matrix Select}
     \begin{itemize}
     	\item Teilnehmende Akteure: \Gls{Spieler}
-    	\item Eingangsaktionen: Spiele-Server ist aktiv, Spieler hat offenes Spiel des \Gls{Spielmodus} Matrix Select
+    	\item Eingangsaktionen: Spiel-Server ist aktiv, Spieler hat offenes Spiel des \Gls{Spielmodus} Matrix Select
     	\item Ereignisfluss:
     	\begin{itemize}
     		\item \Gls{Spieler} meldet sich an
@@ -691,7 +691,7 @@ description={Ein Server, der nicht Bestandteil des Produktes ist, jedoch benöti
 	\subsection{Runde spielen: Binär Select}
 	\begin{itemize}
 		\item Teilnehmende Akteure: \Gls{Spieler}
-		\item Eingangsaktionen: Spiele-Server ist aktiv, \Gls{Spieler} hat offenes Spiel des \Gls{Spielmodus} Binär Select
+		\item Eingangsaktionen: Spiel-Server ist aktiv, \Gls{Spieler} hat offenes Spiel des \Gls{Spielmodus} Binär Select
 		\item Ereignisfluss:
 		\begin{itemize}
 			\item \Gls{Spieler} meldet sich an
@@ -707,7 +707,7 @@ description={Ein Server, der nicht Bestandteil des Produktes ist, jedoch benöti
 	\subsection{Auswahl überspringen}
 	\begin{itemize}
 		\item Teilnehmende Akteure: \Gls{Spieler}
-		\item Eingangsaktionen: Spiele-Server ist aktiv, \Gls{Spieler} hat offenes Spiel
+		\item Eingangsaktionen: Spiel-Server ist aktiv, \Gls{Spieler} hat offenes Spiel
         \item Ausgangsaktionen: Der \Gls{Spieler} kommt in die nächste Runde des aktiven Spiels
 		\item Ereignisfluss:
 		\begin{itemize}
@@ -738,7 +738,7 @@ description={Ein Server, der nicht Bestandteil des Produktes ist, jedoch benöti
 	    \subsection{Achievements ansehen}
     \begin{itemize}
         \item Teilnehmende Akteure: \Gls{Spieler}
-        \item Eingangsaktionen: Spiele-Server ist aktiv
+        \item Eingangsaktionen: Spiel-Server ist aktiv
         %\item Ausgangsaktionen: Achievements ansehen
         \item Ereignisfluss:
         \begin{itemize}
@@ -753,7 +753,7 @@ description={Ein Server, der nicht Bestandteil des Produktes ist, jedoch benöti
     \subsection{Leaderboard ansehen}
     \begin{itemize}
         \item Teilnehmende Akteure: \Gls{Spieler}
-        \item Eingangsaktionen: Spiele-Server ist aktiv
+        \item Eingangsaktionen: Spiel-Server ist aktiv
         %\item Ausgangsaktionen: Leaderboard ansehen
         \item Ereignisfluss:
         \begin{itemize}
@@ -770,7 +770,7 @@ description={Ein Server, der nicht Bestandteil des Produktes ist, jedoch benöti
      \subsection{Sprache ändern}
     \begin{itemize}
     \item Teilnehmende Akteure: \Gls{Spieler}, \Gls{Organisator}
-    \item Eingangsaktionen: Spiele-Server ist aktiv
+    \item Eingangsaktionen: Spiel-Server ist aktiv
     \item Ereignisfluss:
         \begin{itemize}
             \item \Gls{Organisator} oder \Gls{Spieler} meldet sich an
@@ -783,7 +783,7 @@ description={Ein Server, der nicht Bestandteil des Produktes ist, jedoch benöti
     \begin{itemize}
         \item Teilnehmende Akteure: \Gls{Administrator} 
         \item Eingangsaktionen: Computer mit MySQL und Tomcat installiert
-        \item Ausgangsaktionen: Spiele-Server starten
+        \item Ausgangsaktionen: Spiel-Server starten
         \item Ereignisfluss: 
             \begin{itemize}
                 \item \Gls{Administrator} kopiert die War Datei in den Tomcat webapps Ordner
@@ -796,7 +796,7 @@ description={Ein Server, der nicht Bestandteil des Produktes ist, jedoch benöti
     \subsection{Server beenden}
     \begin{itemize}
         \item Teilnehmende Akteure: \Gls{Administrator}
-        \item Eingangsaktionen: Spiele-Server ist aktiv
+        \item Eingangsaktionen: Spiel-Server ist aktiv
         \item Ausgangsaktionen: MySQL beenden, falls sonst nichts Weiteres auf der Datenbank läuft
         \item Ereignisfluss: \Gls{Administrator} führt \texttt{tomcat/bin/shutdown.sh}(Linux \& Mac) bzw. \texttt{tomcat\textbackslash bin\textbackslash shutdown.bat}(Windows)
     \end{itemize}
@@ -804,11 +804,11 @@ description={Ein Server, der nicht Bestandteil des Produktes ist, jedoch benöti
     \subsection{Punkte eines Spielers zurücksetzen}
     \begin{itemize}
         \item Teilnehmende Akteure: \Gls{Administrator}, \Gls{Spieler}
-        \item Eingangsaktionen: Spiele-Server ist aktiv
+        \item Eingangsaktionen: Spiel-Server ist aktiv
         \item Ausgangsaktionen: Die Punkte des \Gls{Spieler}s sind zurückgesetzt
         \item Ereignisfluss:
         \begin{itemize}
-            \item \Gls{Administrator} loggt sich in Spiele-Server ein
+            \item \Gls{Administrator} loggt sich in Spiel-Server ein
             \item \Gls{Administrator} gibt das "Punkte zurücksetzen"-Kommando und die Email des registrierten Spielers ein
             \item \Gls{Administrator} bestätigt seine Auswahl
             \item Die Punkte des entsprechenden \Gls{Spieler}s werden zurückgesetzt
@@ -821,7 +821,7 @@ description={Ein Server, der nicht Bestandteil des Produktes ist, jedoch benöti
     \subsection{Passwort ändern}
     \begin{itemize}
     \item Teilnehmende Akteure: \Gls{Spieler}, \Gls{Organisator}
-    \item Eingangsaktionen: Spiele-Server ist aktiv
+    \item Eingangsaktionen: Spiel-Server ist aktiv
     \item Ereignisfluss:
         \begin{itemize}
             \item \Gls{Organisator} oder \Gls{Spieler} meldet sich an
@@ -836,7 +836,7 @@ description={Ein Server, der nicht Bestandteil des Produktes ist, jedoch benöti
     \subsection{Passwort zurücksetzen}
     \begin{itemize}
         \item Teilnehmende Akteure: \Gls{Spieler}, \Gls{Organisator}
-        \item Eingangsaktionen: Spiele-Server ist aktiv
+        \item Eingangsaktionen: Spiel-Server ist aktiv
         \item Ausgangsaktionen: Temporäres Passwort ändern
         \item Ereignisfluss:
         \begin{itemize}
