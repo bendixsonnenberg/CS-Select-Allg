@@ -244,9 +244,9 @@ description={Ein Server, der nicht Bestandteil des Produktes ist, jedoch benöti
 
     \section{Merkmalsdatensätze}
     \begin{tabularx}{\linewidth}{@{}>{\bfseries}l@{\hspace{.5em}}X@{}}
-        /D20/ & Für jeden Merkmalsdatensatz ist zu speichern: /ND20/: 
+        /D20/ & Für jeden Merkmalsdatensatz ist zu speichern, solange dieser von mindestens einem Spiel benutzt wird: /ND20/: 
         \begin{itemize}
-             \item Liste an Merkmalen mit jeweiligen Graphen und Beschreibung
+             \item Liste an Merkmalen mit jeweiligen Grafiken und Beschreibung
         \end{itemize}
     \end{tabularx}
 
@@ -254,8 +254,9 @@ description={Ein Server, der nicht Bestandteil des Produktes ist, jedoch benöti
     \begin{tabularx}{\linewidth}{@{}>{\bfseries}l@{\hspace{.5em}}X@{}}
         /D30/ & Für jedes \Gls{Spiel} ist zu speichern /ND30/: 
         \begin{itemize}
-             \item \Gls{Organisator}, \Gls{Spieleinstellungen}, \Gls{Spieler}, zugehöriger Merkmalsdatensatz % zuständiger ML Server?
-        \end{itemize}
+             \item \Gls{Organisator}, \Gls{Spieleinstellungen}, \Gls{Spieler}, zugehöriger Merkmalsdatensatz, Spielablauf, also Ergebnis einzelner Runden			 % zuständiger ML Server?
+			 \item Für jede Runde: Ausgewählte Merkmale, Spielername, Zeitpunkt, Rundenanzahl, Vorhersagequalität, Punkte
+		\end{itemize}
     \end{tabularx}
 
 
