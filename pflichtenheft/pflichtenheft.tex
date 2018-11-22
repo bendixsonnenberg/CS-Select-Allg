@@ -364,7 +364,6 @@ description={Ein Server, der nicht Bestandteil des Produktes ist, jedoch benöti
     	/F40/ & Spieler kann Merkmal auswählen \\
     	/F40/ & Spieler kann sich zu Merkmal zusätzlich Beschreibung und Grafiken anzeigen lassen \\
     	/F40/ & Nach Beenden der Runde sieht Spieler Punktzahl und kann entscheiden, ob er noch eine Runde spielen will \\
-    	/F40/ & Rundenpunktzahl wird zur Gesamtpunktzahl des Spielers addiert \\ 
     \end{tabularx}
     
     \subsection{Binär Select} %ICH
@@ -389,18 +388,20 @@ description={Ein Server, der nicht Bestandteil des Produktes ist, jedoch benöti
 		/F20/ & Von der Gesamtpunktzahl des Spielers werden 100 Punkte abgezogen, die Gesamtpunktzahl wird aber nicht negativ \\ %100? Kann sie negativ werden?
 		/F30/ & Spieler kann Merkmal als unwichtig markieren \\ 
 	\end{tabularx}
+	
+	\section{Optional: Verbesserung der Merkmalsauswahl durch System} 
+	\begin{tabularx}{\linewidth}{@{}>{\bfseries}l@{\hspace{.5em}}X@{}} % Linebreaks in der Tabelle
+		/F10/ & Merkmalsauswahl durch System erfolgt nicht zufällig \\
+		/F20/ & Selbe Merkmalskombination wird nicht mehrfach in einem Spiel angezeigt \\		
+	\end{tabularx}
     
-    \section{Merkmalsauswahl während eines Spiels} %ICH
+    \section{Bewertung der Merkmalsauswahl des Spielers} %ICH
     \begin{tabularx}{\linewidth}{@{}>{\bfseries}l@{\hspace{.5em}}X@{}} % Linebreaks in der Tabelle
-    /F10/ & \\
-    /F20/ & \\
-    /F30/ & \\
-    /F40/ & \\
-    /F50/ & \\
-    /F60/ & \\
-    /F70/ & \\
-    /F80/ & \\
-    /F90/ & \\
+    /F10/ & Merkmalsauswahl des Spielers wird per http-Anfrage an ML-Server geschickt\\
+    /F20/ & Bei Binär Select wird gebündelte Menge der Vergleiche geschickt \\
+    /F30/ & Rückmeldung wird in Rundenpunktzahl umgewandelt \\ %Wie?
+    /F40/ & Rundenpunktzahl wird zur Gesamtpunktzahl des Spielers addiert \\
+    /F50/ & Rundendaten \footnote{Ausgewählte Merkmale, Spielername, Zeitpunkt, Rundenanzahl, Vorhersagequalität, Punkte} wird in von Organisator ausgewählte Datenbank gespeichert \\
     \end{tabularx}
     
     \section{GUI} %ICH
@@ -411,7 +412,7 @@ description={Ein Server, der nicht Bestandteil des Produktes ist, jedoch benöti
     /F40/ & Organisatoren gelangen nach Betätigung der Spielerstellungs-Schaltfläche die Spielerstellungs-GUI \\
     /F50/ & Nach Beenden der Spielerstellung kehren Organisatoren auf die Organisator-Übersichts-GUI zurück \\
     /F60/ & Spieler gelangen nach Betätigung der "Weiterspielen"-Schaltfläche die Spiel-GUI \\
-    /F70/ & Nach Beenden des Spiels kehren Spieler auf die Spieler-Übersichts-GUI zurück \\
+    /F70/ & Nach Beenden der Runde kehren Spieler entweder auf die Spieler-Übersichts-GUI oder die Spiel-GUI zurück \\
     /F80/ & Nach Abmeldung kehren Nutzer auf die Anmeldungs-GUI zurück \\
     \end{tabularx}
     
@@ -426,14 +427,6 @@ description={Ein Server, der nicht Bestandteil des Produktes ist, jedoch benöti
     /F70/ & \\
     /F80/ & \\
     /F90/ & \\
-    \end{tabularx}
-        
-    \section{Verbesserung Merkmalsauswahl} %Optional
-    \begin{tabularx}{\linewidth}{@{}>{\bfseries}l@{\hspace{.5em}}X@{}} % Linebreaks in der Tabelle
-    /F10/ & Registrierung \\
-    /F20/ & \\
-    /F30/ & \\
-
     \end{tabularx}
     
     \section{Bedienungshilfen} %Optional
