@@ -310,7 +310,7 @@ description={Ein Server, der nicht Bestandteil des Produktes ist, jedoch benöti
     
     \section{Verwaltung Spiele-Server}
     \begin{tabularx}{\linewidth}{@{}>{\bfseries}l@{\hspace{.5em}}X@{}} % Linebreaks in der Tabelle
-	/F10/ & \\ 
+	/F10/ & %Config Datei und so?\\ 
 	/F20/ & \\
 	/F30/ & \\
     \end{tabularx}
@@ -325,9 +325,9 @@ description={Ein Server, der nicht Bestandteil des Produktes ist, jedoch benöti
     
     \section{Nutzerverwaltung}
     \begin{tabularx}{\linewidth}{@{}>{\bfseries}l@{\hspace{.5em}}X@{}} % Linebreaks in der Tabelle
-	/F10/ & Registrierung des Organisators durch global gesetztes Passwort \\ %Machen wir das so?
+	/F10/ & Erstregistrierung des Organisators durch global gesetztes Passwort \\ %Machen wir das so?
 	/F20/ & Anmelden des Organisators \\
-	/F30/ & Registrierung eines Spielers \\
+	/F30/ & Erstregistrierung eines Spielers \\
 	/F40/ & Anmelden eines Spielers \\
     \end{tabularx}
 
@@ -352,6 +352,7 @@ description={Ein Server, der nicht Bestandteil des Produktes ist, jedoch benöti
     /F80/ & Organisator muss aus den folgenden mindestens eine auswählen und eventuell Werte angeben: Ende nach bestimmter Zeit, Ende nach bestimmter Anzahl an Runden, Ende durch Spielabbruch durch Organisator \\
     /F80/ & Organisator kann Spielerstellung abbrechen \\
     /F90/ & Organisator muss Spielerstellung bestätigen \\
+    %Kann Organisator mehrere Spielmodi zur Auswahl für Spieler geben
     \end{tabularx}
     
     \section{Optional: Zusätzliche Funktionen bei Spielerstellung}
@@ -370,10 +371,15 @@ description={Ein Server, der nicht Bestandteil des Produktes ist, jedoch benöti
     	/F40/ & Spieler kann Merkmal auswählen \\
     	/F40/ & Spieler kann sich zu Merkmal zusätzlich Beschreibung und Grafiken anzeigen lassen \\
     	/F40/ & Nach Beenden der Runde sieht Spieler Punktzahl und kann entscheiden, ob er noch eine Runde spielen will \\
+	/F50/ & Spiel terminiert nach Erreichen der Endbedingungen, danach kann keine Runde mehr gespielt werden \\
+	/F60/ & Organisator kann sich über aktuellen seines Spiels informieren \\ %Genauer? Gespielte Runden einsehen und so?
+	/F70/ & Organisator kann ein Spiel vorzeitig beenden \\
+	/F40/ & Spieler sieht aktuelle Runde und Punktestand \\
     \end{tabularx}
     
     \subsection{Binär Select}
     \begin{tabularx}{\linewidth}{@{}>{\bfseries}l@{\hspace{.5em}}X@{}} % Linebreaks in der Tabelle
+    	/F10/ & Es werden zufällig zwei Merkmale angezeigt \\
     	/F10/ & Runde Binär Select besteht aus genau fünf Vergleichen \\
     	/F20/ & Genau zwei Merkmale werden angezeigt \\
     	/F30/ & Spieler kann nur maximal eines davon auswählen \\
@@ -382,6 +388,7 @@ description={Ein Server, der nicht Bestandteil des Produktes ist, jedoch benöti
 
     \subsection{Matrix Select}
     \begin{tabularx}{\linewidth}{@{}>{\bfseries}l@{\hspace{.5em}}X@{}} % Linebreaks in der Tabelle
+        /F10/ & Es werden zufällige Merkmale angezeigt in einer Matrix angezeigt \\
     	/F10/ & Runde besteht aus genau einer Matrix \\
     	/F20/ & Genau die Anzahl an Merkmalen, die Organisator bei Spielerstellung ausgewählt hat, wird angezeigt \\
     	/F30/ & Spieler kann maximal x Merkmale auswählen \\ % Wie viele Merkmale maximal? Gibt es Obergrenze?
@@ -407,7 +414,7 @@ description={Ein Server, der nicht Bestandteil des Produktes ist, jedoch benöti
     /F20/ & Bei Binär Select wird gebündelte Menge der Vergleiche geschickt \\
     /F30/ & Rückmeldung wird in Rundenpunktzahl umgewandelt \\ %Wie?
     /F40/ & Rundenpunktzahl wird zur Gesamtpunktzahl des Spielers addiert \\
-    /F50/ & Rundendaten \footnote{Ausgewählte Merkmale, Spielername, Zeitpunkt, Rundenanzahl, Vorhersagequalität, Punkte} wird in von Organisator ausgewählte Datenbank gespeichert \\
+    /F50/ & Rundendaten \footnote{Ausgewählte Merkmale, Spielername, Zeitpunkt, Rundenanzahl, Vorhersagequalität, Punkte} wird in von Organisator ausgewählte Datenbank gespeichert \\ %Datenbank zu Spiel
     \end{tabularx}
     
     \section{GUI}
@@ -420,6 +427,7 @@ description={Ein Server, der nicht Bestandteil des Produktes ist, jedoch benöti
     /F60/ & Spieler gelangen nach Betätigung der "Weiterspielen"-Schaltfläche die Spiel-GUI \\
     /F70/ & Nach Beenden der Runde kehren Spieler entweder auf die Spieler-Übersichts-GUI oder die Spiel-GUI zurück \\
     /F80/ & Nach Abmeldung kehren Nutzer auf die Anmeldungs-GUI zurück \\
+    /F90/ & \\  % GUI in Webbrowser irgendwo?
     \end{tabularx}
         
     \section{Gamification-Elemente}
@@ -448,13 +456,13 @@ description={Ein Server, der nicht Bestandteil des Produktes ist, jedoch benöti
 
     \section{Internationalisierung}
     \begin{tabularx}{\linewidth}{@{}>{\bfseries}l@{\hspace{.5em}}X@{}} % Linebreaks in der Tabelle
-	/F10/ & Umsetzung in der deutscher Sprache \\ 
+	/F10/ & Umsetzung in deutscher Sprache \\ 
     \end{tabularx}
 
 
     \section{Optional: Internationalisierung}
     \begin{tabularx}{\linewidth}{@{}>{\bfseries}l@{\hspace{.5em}}X@{}} % Linebreaks in der Tabelle
-	/F10/ & Bereitstellung eines englischen Sprachpakets \\ 
+	/F10/ & Bereitstellung eines deutschen und englischen Sprachpakets \\ 
 	/F20/ & Sprachänderung \\
     \end{tabularx}
 
@@ -465,6 +473,8 @@ description={Ein Server, der nicht Bestandteil des Produktes ist, jedoch benöti
 	/F30/ & Lieferung des Servers als Docker-Image \\
 	/F40/ & Der Server kann auf verschiedenen Ports ausgeführt werden \\
     \end{tabularx}
+    
+    %TODO: Abgeschlossene Spiele löschen
 
     \chapter{Produktdaten}
 
