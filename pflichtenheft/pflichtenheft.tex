@@ -767,16 +767,16 @@ Das Domänenwissen liegt oft bei den Mitarbeitern bzw. Personen, die sich tägli
     \begin{itemize}
     \item \Gls{Spieler}
     \end{itemize}
-	    \subsection{Achievements ansehen}
+
+    \subsection{Achievements ansehen}
     \begin{itemize}
         \item Teilnehmende Akteure: \Gls{Spieler}
-        \item Eingangsbedingungen: \Gls{Spiel-Server} ist aktiv
-        %\item Ausgangsaktionen: Achievements ansehen
+        \item Eingangsbedingungen: \Gls{Spiel-Server} ist aktiv, \Gls{Spieler} ist angemeldet
         \item Ereignisfluss:
         \begin{itemize}
-            \item \Gls{Spieler} meldet sich an
-            \item \Gls{Spieler} erreicht seine Übersicht-Seite
-            \item \Gls{Spieler} klickt auf die Spieler-Übersicht-Schaltfläche
+            \item \Gls{Spieler} erreicht seine Spieler-Übersichts-GUI
+            \item \Gls{Spieler} klickt auf die Achievements-Schaltfläche %TODO Wo werden die angezeigt
+            \item \Gls{Spieler} erhält Auflistung der Achievements
             \item \Gls{Spieler} schaut seine Achievements an
         \end{itemize}
         \item Anforderungen: /F710/
@@ -785,13 +785,11 @@ Das Domänenwissen liegt oft bei den Mitarbeitern bzw. Personen, die sich tägli
     \subsection{Leaderboard ansehen}
     \begin{itemize}
         \item Teilnehmende Akteure: \Gls{Spieler}
-        \item Eingangsbedingungen: \Gls{Spiel-Server} ist aktiv
-        %\item Ausgangsaktionen: Leaderboard ansehen
+        \item Eingangsbedingungen: \Gls{Spiel-Server} ist aktiv, \Gls{Spieler} ist angemeldet
         \item Ereignisfluss:
         \begin{itemize}
-            \item \Gls{Spieler} meldet sich an
-            \item \Gls{Spieler} erreicht seine Übersichtsseite
-            \item \Gls{Spieler} sieht dort in einer Tabelle die \Gls{Spieler} mit den meisten Punkten über einen gewissen Zeitraum
+            \item \Gls{Spieler} erreicht seine Spieler-Übersichts-GUI
+            \item \Gls{Spieler} sieht dort in einer Tabelle die \Gls{Spieler} mit den meisten Punkten
         \end{itemize}
         \item Anforderungen: /F700/
     \end{itemize}
@@ -799,19 +797,21 @@ Das Domänenwissen liegt oft bei den Mitarbeitern bzw. Personen, die sich tägli
     \newpage
     \section{Administration}
     \includegraphics[width=\textwidth]{uml/export/Administration.png}
-     \subsection{Sprache ändern}
+
+    \subsection{Sprache ändern}
     \begin{itemize}
     \item Teilnehmende Akteure: \Gls{Spieler}, \Gls{Organisator}
-    \item Eingangsbedingungen: \Gls{Spiel-Server} ist aktiv
+    \item Eingangsbedingungen: \Gls{Spiel-Server} ist aktiv, \Gls{Spieler} oder \Gls{Organisator} ist angemeldet
     \item Ereignisfluss:
         \begin{itemize}
-            \item \Gls{Organisator} oder \Gls{Spieler} meldet sich an
-            \item \Gls{Organisator} oder \Gls{Spieler} erreicht seine Übersichtsseite
-            \item \Gls{Organisator} oder \Gls{Spieler} wählt die Sprachänderungs-Schaltfläche aus
+            \item \Gls{Organisator} oder \Gls{Spieler} erreicht über sein Klappmenü seine Einstellungen
+            \item \Gls{Organisator} oder \Gls{Spieler} wählt \enquote{Sprache ändern} aus
+            \item \Gls{Organisator} oder \Gls{Spieler} wählt eine der verfügbaren Sprachen
             \item \Gls{Organisator} oder \Gls{Spieler} bestätigt seine Auswahl
         \end{itemize}
         \item Anforderungen: /F790/ - /F810/
     \end{itemize}
+
     \subsection{Server beenden}
     \begin{itemize}
         \item Teilnehmende Akteure: \Gls{Administrator}
@@ -823,15 +823,12 @@ Das Domänenwissen liegt oft bei den Mitarbeitern bzw. Personen, die sich tägli
     \subsection{Passwort ändern}
     \begin{itemize}
     \item Teilnehmende Akteure: \Gls{Spieler}, \Gls{Organisator}
-    \item Eingangsbedingungenn: \Gls{Spiel-Server} ist aktiv
-
+    \item Eingangsbedingungenn: \Gls{Spiel-Server} ist aktiv, \Gls{Spieler} oder \Gls{Organisator} ist angemeldet
     \item Ereignisfluss:
         \begin{itemize}
-            \item \Gls{Organisator} oder \Gls{Spieler} meldet sich an
-            \item \Gls{Organisator} oder \Gls{Spieler} erreicht seine Übersichtsseite
-            \item \Gls{Organisator} oder \Gls{Spieler} wählt die Profileinstellungen aus
-            \item \Gls{Organisator} oder \Gls{Spieler} klickt aus die \enquote{Passwort ändern}-Schaltfläche
-            \item \Gls{Organisator} oder \Gls{Spieler} gibt sein aktuelle sowie sein neues gewünschtes Passwort ein
+            \item \Gls{Organisator} oder \Gls{Spieler} erreicht über sein Klappmenü seine Einstellungen
+            \item \Gls{Organisator} oder \Gls{Spieler} klickt auf \enquote{Passwort ändern}
+            \item \Gls{Organisator} oder \Gls{Spieler} gibt sein aktuelles sowie sein neues gewünschtes Passwort ein
             \item \Gls{Organisator} oder \Gls{Spieler} bestätigt seine Auswahl
         \end{itemize}
         \item Anforderungen: /F130/
@@ -840,25 +837,24 @@ Das Domänenwissen liegt oft bei den Mitarbeitern bzw. Personen, die sich tägli
     \subsection{Passwort zurücksetzen}
     \begin{itemize}
         \item Teilnehmende Akteure: \Gls{Spieler}, \Gls{Organisator}
-        \item Eingangsbedingungen: Spiel-Server ist aktiv
-        \item Eingangsbedingungen: \Gls{Spiel-Server} ist aktiv
-        \item Ausgangsaktionen: Temporäres Passwort ändern
+        \item Eingangsbedingungen: \Gls{Spiel-Server} ist aktiv, \Gls{Spieler} oder \Gls{Organisator} ist nicht angemeldet
         \item Ereignisfluss:
         \begin{itemize}
-            \item \Gls{Organisator} oder \Gls{Spieler} öffnet die Produktwebsite und klickt auf \enquote{Passwort zurücksetzen}
-            \item \Gls{Organisator} oder \Gls{Spieler} erhält per Mail ein neues temporäres Passwort
+            \item \Gls{Organisator} oder \Gls{Spieler} klickt in Anmelde-GUI auf \enquote{Passwort zurücksetzen}
+            \item \Gls{Organisator} oder \Gls{Spieler} erhält per E-Mail ein neues temporäres Passwort
             \item \Gls{Organisator} oder \Gls{Spieler} meldet sich mit dem neuen Passwort an
         \end{itemize}
         \item Anforderungen: /F140/
     \end{itemize}
-       \subsection{Hilfe-Schaltfläche verwenden}
+
+    \subsection{Hilfe-Schaltfläche verwenden}
     \begin{itemize}
         \item Teilnehmende Akteure: \Gls{Spieler}, \Gls{Organisator}
         \item Eingangsbedingungen: \Gls{Spieler} oder \Gls{Organisator} benötigt Hilfe mit dem Produkt
-        \item Ausgangsaktionen: System zeigt dem Akteur die relevante Hilfe Seite
+        \item Ausgangsaktionen: System zeigt dem Akteur die relevante Hilfe-Seite
         \item Ereignisfluss:
             \begin{itemize}
-                \item \Gls{Spieler} oder \Gls{Organisator} klickt auf die Hilfe-Schaltfläche(oben links)
+                \item \Gls{Spieler} oder \Gls{Organisator} klickt in seinem GUI auf die Hilfe-Schaltfläche(oben rechts)
             \end{itemize}
         \item Anforderungen: /F760/
     \end{itemize}
