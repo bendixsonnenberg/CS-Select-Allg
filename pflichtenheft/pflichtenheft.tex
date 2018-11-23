@@ -801,6 +801,7 @@ Das Domanenwissen liegt oft bei den Mitarbeitern bzw. Personen, die sich täglic
             \item \Gls{Organisator} oder \Gls{Spieler} wählt die Sprachänderungs-Schaltfläche aus
             \item \Gls{Organisator} oder \Gls{Spieler} bestätigt seine Auswahl
         \end{itemize}
+        \item Anforderungen: /F790/ - /F810/
     \end{itemize}
     \subsection{Server beenden}
     \begin{itemize}
@@ -808,24 +809,8 @@ Das Domanenwissen liegt oft bei den Mitarbeitern bzw. Personen, die sich täglic
         \item Eingangsbedingungen: Spiel-Server ist aktiv
         \item Ausgangsaktionen: MySQL beenden, falls sonst nichts Weiteres auf der Datenbank läuft
         \item Ereignisfluss: \Gls{Administrator} führt \texttt{tomcat/bin/shutdown.sh}(Linux \& Mac) bzw. \texttt{tomcat\textbackslash bin\textbackslash shutdown.bat}(Windows)
+        \item Anforderungen: /F50/
     \end{itemize}
-
-    \subsection{Punkte eines Spielers zurücksetzen}
-    \begin{itemize}
-        \item Teilnehmende Akteure: \Gls{Administrator}, \Gls{Spieler}
-        \item Eingangsbedingungen: Spiel-Server ist aktiv
-        \item Ausgangsaktionen: Die Punkte des \Gls{Spieler}s sind zurückgesetzt
-        \item Ereignisfluss:
-        \begin{itemize}
-            \item \Gls{Administrator} loggt sich in Spiel-Server ein
-            \item \Gls{Administrator} gibt das "Punkte zurücksetzen"-Kommando und die Email des registrierten Spielers ein
-            \item \Gls{Administrator} bestätigt seine Auswahl
-            \item Die Punkte des entsprechenden \Gls{Spieler}s werden zurückgesetzt
-        \end{itemize}
-    \end{itemize}
-
-
-
 
     \subsection{Passwort ändern}
     \begin{itemize}
@@ -840,6 +825,7 @@ Das Domanenwissen liegt oft bei den Mitarbeitern bzw. Personen, die sich täglic
             \item \Gls{Organisator} oder \Gls{Spieler} gibt sein aktuelle sowie sein neues gewünschtes Passwort ein
             \item \Gls{Organisator} oder \Gls{Spieler} bestätigt seine Auswahl
         \end{itemize}
+        \item Anforderungen: /F130/
     \end{itemize}
 
     \subsection{Passwort zurücksetzen}
@@ -853,6 +839,7 @@ Das Domanenwissen liegt oft bei den Mitarbeitern bzw. Personen, die sich täglic
             \item \Gls{Organisator} oder \Gls{Spieler} erhält per Mail ein neues temporäres Passwort
             \item \Gls{Organisator} oder \Gls{Spieler} meldet sich mit dem neuen Passwort an
         \end{itemize}
+        \item Anforderungen: /F140/
     \end{itemize}
        \subsection{Hilfe-Schaltfläche verwenden}
     \begin{itemize}
@@ -863,6 +850,7 @@ Das Domanenwissen liegt oft bei den Mitarbeitern bzw. Personen, die sich täglic
             \begin{itemize}
                 \item \Gls{Spieler} oder \Gls{Organisator} klickt auf die Hilfe-Schaltfläche(oben links)
             \end{itemize}
+        \item Anforderungen: /F760/
     \end{itemize}
 
     %TODO: Ausführung auf verschiedenem Ports
