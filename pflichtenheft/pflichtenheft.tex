@@ -680,49 +680,44 @@ Das Domanenwissen liegt oft bei den Mitarbeitern bzw. Personen, die sich täglic
 			\item \Gls{Organisator} erreicht seine Übersichtsseite
 			\item \Gls{Organisator} sieht den Zustand seiner laufenden Spiele
 		\end{itemize}
+        \item Anforderungen: /F380/
 	\end{itemize}
 
-
-    \newpage
     \section{Spiel}
     \includegraphics[width=\textwidth]{uml/export/Spiel.png}
     Akteure: 
     \begin{itemize}
     \item \Gls{Spieler}
-    \newpage
     \end{itemize}
     
    
     \subsection{Runde spielen: Matrix Select}
     \begin{itemize}
     	\item Teilnehmende Akteure: \Gls{Spieler}
-    	\item Eingangsbedingungen: Spiel-Server ist aktiv, Spieler hat offenes Spiel des \Gls{Spielmodus} Matrix Select
+    	\item Eingangsbedingungen: Spiel-Server ist aktiv, Spieler hat offenes Spiel des \Gls{Spielmodus} Matrix Select. \Gls{Spieler} ist angemeldet
+        \item Ausgangsaktion: System gibt Spieler die erreichten Punkte an
     	\item Ereignisfluss:
     	\begin{itemize}
-    		\item \Gls{Spieler} meldet sich an
-    		\item \Gls{Spieler} erreicht seine Übersichtsseite
-    		\item \Gls{Spieler} klickt auf Weiterspielen-Schaltfläche
-    		\item \Gls{Spieler} erreicht Spiel-GUI
     		\item \Gls{Spieler} klickt auf ein Merkmal und sieht Merkmalsgraphen und Merkmalsbeschreibung
     		\item \Gls{Spieler} wählt mehrere Merkmale aus
     		\item \Gls{Spieler} klickt auf Schaltfläche, um Auswahl zu bestätigen
     	\end{itemize}
+        \item Anforderungen: /F400/ - /F430/
     \end{itemize}
 	
 	\subsection{Runde spielen: Binär Select}
 	\begin{itemize}
 		\item Teilnehmende Akteure: \Gls{Spieler}
-		\item Eingangsbedingungen: Spiel-Server ist aktiv, \Gls{Spieler} hat offenes Spiel des \Gls{Spielmodus} Binär Select
+		\item Eingangsbedingungen: Spiel-Server ist aktiv, \Gls{Spieler} hat offenes Spiel des \Gls{Spielmodus} Binär Select, \Gls{Spieler} ist angemeldet
+        \item Ausgangsaktion: System gibt Spieler die erreichten Punkte an
 		\item Ereignisfluss:
 		\begin{itemize}
-			\item \Gls{Spieler} meldet sich an
-			\item \Gls{Spieler} erreicht seine Übersichtsseite
-			\item \Gls{Spieler} klickt auf Weiterspielen-Schaltfläche
-			\item \Gls{Spieler} erreicht Spiel-GUI
 			\item \Gls{Spieler} klickt auf ein Merkmal und sieht Merkmalsgraphen und Merkmalsbeschreibung
 			\item \Gls{Spieler} wählt eines der beiden Merkmale aus
 			\item \Gls{Spieler} klickt auf Schaltfläche, um Auswahl zu bestätigen
+            \item Wiederhole Ereignisfluss 5 mal
 		\end{itemize}
+        \item Anforderungen: /F440/ - /F480/
 	\end{itemize}
 
 	\subsection{Auswahl überspringen}
@@ -739,6 +734,7 @@ Das Domanenwissen liegt oft bei den Mitarbeitern bzw. Personen, die sich täglic
 			\item \Gls{Spieler} klickt Auswahl-Überspringen-Schaltfläche und bestätigt seine Auswahl
             \item Dem \Gls{Spieler} werden Punkte abgezogen
 		\end{itemize}
+        \item Anforderungen: /F490/
 	\end{itemize}
      
     \subsection{Streak erreichen}\footnote{Zur Erklärung von Streak siehe \fref{fig:Streak_State}}
@@ -751,11 +747,15 @@ Das Domanenwissen liegt oft bei den Mitarbeitern bzw. Personen, die sich täglic
             \item \Gls{Spieler} spielt n Runden um eine Streak zu erreichen.
             \item System teilt dem \Gls{Spieler} mit, dass er eine Streak erreicht hat.
         \end{itemize}
+        \item Anforderungen: /F740/
     \end{itemize}
     
-\newpage
     \section{Spieler-Übersicht}
     \includegraphics[width=\textwidth]{uml/export/Spieler_Ubersicht.png}
+    Akteure: 
+    \begin{itemize}
+    \item \Gls{Spieler}
+    \end{itemize}
 	    \subsection{Achievements ansehen}
     \begin{itemize}
         \item Teilnehmende Akteure: \Gls{Spieler}
@@ -768,6 +768,7 @@ Das Domanenwissen liegt oft bei den Mitarbeitern bzw. Personen, die sich täglic
             \item \Gls{Spieler} klickt auf die Spieler-Übersicht-Schaltfläche
             \item \Gls{Spieler} schaut seine Achievements an
         \end{itemize}
+        \item Anforderungen: /F710/
     \end{itemize}
     %Nach der Anmeldung erreicht ein \Gls{Spieler} eine Übersichts-Seite. Beim Klicken auf die Spieler-Übersicht-Schaltfläche
     %(in \fref{fig:Spieler-Übersicht} gezeigt) kann der \Gls{Spieler} seine \Gls{Achievement}s einsehen.
@@ -782,6 +783,7 @@ Das Domanenwissen liegt oft bei den Mitarbeitern bzw. Personen, die sich täglic
             \item \Gls{Spieler} erreicht seine Übersichtsseite
             \item \Gls{Spieler} sieht dort in einer Tabelle die \Gls{Spieler} mit den meisten Punkten über einen gewissen Zeitraum
         \end{itemize}
+        \item Anforderungen: /F700/
     \end{itemize}
     %Nach der Anmeldung erreicht ein \Gls{Spieler} eine Übersichts-Seite. Darauf ist ein Bereich, der eine aktuelle Tabelle
     %anzeigt, in welcher die \Gls{Spieler} aufgelistet sind, die in einem bestimmten Zeitraum die meisten Punkte erreicht haben.
