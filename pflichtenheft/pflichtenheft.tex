@@ -286,7 +286,7 @@ Das Domänenwissen liegt oft bei den Mitarbeitern bzw. Personen, die sich tägli
     \begin{tabularx}{\linewidth}{@{}>{\bfseries}l@{\hspace{.5em}}X@{}} 
 	/F70/ & Erstregistrierung des \Gls{Organisator}s mit E-Mail und dem in /F20/ global gesetztem Passwort \\
 	/F80/ & Anmelden des \Gls{Organisator}s mit E-Mail und Passwort \\
-	/F90/ & Erstregistrierung eines \Gls{Spieler}s mit E-Mail und Passwort, das er in einer Einladungs-E-Mail erhalten hat \\
+	/F90/ & Erstregistrierung eines \Gls{Spieler}s mit E-Mail und Passwort nach dem Erhalten einer Einladung per E-Mail \\
 	/F100/ & Anmelden eines \Gls{Spieler}s mit E-Mail und Passwort \\
     /F110/ & Abmelden der Nutzer
     \end{tabularx}
@@ -359,6 +359,12 @@ Das Domänenwissen liegt oft bei den Mitarbeitern bzw. Personen, die sich tägli
 		/F500/ & Von der Gesamtpunktzahl des \Gls{Spieler}s werden 100 Punkte abgezogen, die Gesamtpunktzahl wird aber nicht negativ \\ %100? Kann sie negativ werden?
 		/F510/ & \Gls{Spieler} kann ein Merkmal als unwichtig markieren \\
 	\end{tabularx}
+    
+    \section{Spielverwaltung}
+	\begin{tabularx}{\linewidth}{@{}>{\bfseries}l@{\hspace{.5em}}X@{}} % Linebreaks in der Tabelle
+        /F515/ & Spiele können gelöscht werden
+	\end{tabularx}
+
 	
 	\section{Optional: Verbesserung der Merkmalsbereitstellung durch das System}
 	\begin{tabularx}{\linewidth}{@{}>{\bfseries}l@{\hspace{.5em}}X@{}}
@@ -467,6 +473,10 @@ Das Domänenwissen liegt oft bei den Mitarbeitern bzw. Personen, die sich tägli
 		\end{itemize}
     \end{tabularx}
 
+    \section{Administrationsdaten}
+    \begin{tabularx}{\linewidth}{@{}>{\bfseries}l@{\hspace{.5em}}X@{}}
+        /D40/ & Allgemeines Organisator-Passwort für die Registrierung von neuen Organisatoren /F20/
+    \end{tabularx}
 
     \chapter{Nichtfunktionale Anforderungen}
 
@@ -497,19 +507,22 @@ Das Domänenwissen liegt oft bei den Mitarbeitern bzw. Personen, die sich tägli
    \subsection{Spieler registrieren}
     \begin{itemize}
         \item Teilnehmende Akteure: \Gls{Organisator}, \Gls{Spieler}
-        \item Eingangsaktionen: \Gls{Spiel-Server} ist aktiv
+        \item Eingangsbedingungen: \Gls{Spiel-Server} ist aktiv
         \item Ereignisfluss:
         \begin{itemize}
             \item \Gls{Organisator} lädt den \Gls{Spieler} über das Organisator-GUI ein.
             \item Der \Gls{Spieler} klickt auf den Einladungslink in der E-Mail und wird auf die Registrierungsseite weitergeleitet.
             \item Der \Gls{Spieler} gibt einen einzigartigen Nutzernamen, seine E-Mail-Adresse sowie ein persönliches Passwort ein und bestätigt.
         \end{itemize}
+        \item Anforderungen: /F90/
     \end{itemize}
 
     \subsection{Spieler anmelden}
     \begin{itemize}
         \item Teilnehmende Akteure: \Gls{Spieler}
-        \item Eingangsaktionen: \Gls{Spiel-Server} ist aktiv
+
+        \item Eingangsbedingungen: \Gls{Spiel-Server} ist aktiv, Spieler ist registriert
+
         \item Ereignisfluss:
         \begin{itemize}
             \item \Gls{Spieler} öffnet die Produktwebsite
@@ -517,12 +530,14 @@ Das Domänenwissen liegt oft bei den Mitarbeitern bzw. Personen, die sich tägli
             \item \Gls{Spieler} gibt E-Mail und Passwort ein
             \item \Gls{Spieler} klickt auf anmelden
         \end{itemize}
+        \item Anforderungen: /F100/
     \end{itemize}
 
+    \begin{comment} %% das ist noch nicht in den anforderungen
     \subsection{Spieler löschen}
     \begin{itemize}
         \item Teilnehmende Akteure: \Gls{Administrator}
-        \item Eingangsaktionen: \Gls{Spiel-Server} ist aktiv
+        \item Eingangsbedingungen: \Gls{Spiel-Server} ist aktiv
         \item Ereignisfluss:
         \begin{itemize}
             \item \Gls{Administrator} loggt sich am Server ein
@@ -530,22 +545,24 @@ Das Domänenwissen liegt oft bei den Mitarbeitern bzw. Personen, die sich tägli
             \item \Gls{Administrator} bestätigt den Vorgang
         \end{itemize}
     \end{itemize}
+    \end{comment}
 
     \subsection{Organisator registrieren}
     \begin{itemize}
         \item Teilnehmende Akteure: \Gls{Organisator}
-        \item Eingangsaktionen: \Gls{Spiel-Server} ist aktiv, Organisator-Registrierungspasswort ist gesetzt
+        \item Eingangsbedingungen: \Gls{Spiel-Server} ist aktiv, Organisator-Registrierungspasswort ist gesetzt
         \item Ereignisfluss:
         \begin{itemize}
             \item \Gls{Organisator} öffnet die Produktwebsite und klickt auf Registrieren
             \item \Gls{Organisator} gibt einen einzigartigen Nutzernamen, seine E-Mail-Adresse, das Organisator-Registrierungspasswort sowie ein persönliches Passwort ein und bestätigt seine Auswahl
         \end{itemize}
+        \item Anforderungen: /F70/
     \end{itemize}
 
     \subsection{Organisator anmelden}
     \begin{itemize}
         \item Teilnehmende Akteure: \Gls{Organisator}
-        \item Eingangsaktionen: \Gls{Spiel-Server} ist aktiv
+        \item Eingangsbedingungen: \Gls{Spiel-Server} ist aktiv
         \item Ereignisfluss:
         \begin{itemize}
             \item \Gls{Organisator} öffnet die Produktwebsite
@@ -553,12 +570,16 @@ Das Domänenwissen liegt oft bei den Mitarbeitern bzw. Personen, die sich tägli
             \item \Gls{Organisator} gibt E-Mail und Passwort ein
             \item \Gls{Organisator} klickt auf anmelden
         \end{itemize}
+        \item Anforderungen: /F80/
     \end{itemize}
 
+    \begin{comment} %% steht auch nicht in den anforderungen
     \subsection{Organisator löschen}
     \begin{itemize}
         \item Teilnehmende Akteure: \Gls{Administrator}
-        \item Eingangsaktionen: \Gls{Spiel-Server} ist aktiv
+
+        \item Eingangsbedingungen: \Gls{Spiel-Server} ist aktiv
+
         \item Ereignisfluss:
         \begin{itemize}
             \item \Gls{Administrator} loggt sich am Server ein
@@ -566,11 +587,11 @@ Das Domänenwissen liegt oft bei den Mitarbeitern bzw. Personen, die sich tägli
             \item \Gls{Administrator} bestätigt den Vorgang
         \end{itemize}
     \end{itemize}
-
+    \end{comment}
     \subsection{Spiel erstellen}
     \begin{itemize}
         \item Teilnehmende Akteure: \Gls{Organisator}, \Gls{Spieler}
-        \item Eingangsaktionen: \Gls{Spiel-Server} ist aktiv
+        \item Eingangsbedingungen: \Gls{Spiel-Server} ist aktiv
         \item Ausgangsaktionen: \Gls{Spiel} starten, \Gls{Spieler} werden eingeladen
         \item Ereignisfluss:
         \begin{itemize}
@@ -578,14 +599,16 @@ Das Domänenwissen liegt oft bei den Mitarbeitern bzw. Personen, die sich tägli
             \item \Gls{Organisator} klickt auf "Spiel erstellen"-Schaltfläche
             \item \Gls{Organisator} sucht sich über seine GUI die gewünschten \Gls{Spieleinstellungen} aus
             \item \Gls{Organisator} lädt \Gls{Spieler} über Angabe der Email in einem Textfeld ein
+            \item Eingeladene \Gls{Spieler} erhalten Benachrichtigung über Einladung
             \item \Gls{Organisator} bestätigt seine Auswahl und erstellt das Spiel
         \end{itemize}
+        \item Anforderungen: /F150/ - /F260/, /F280/, /F290/
     \end{itemize}
 
     \subsection{Spieler nach Spielbeginn einladen}
     \begin{itemize}
         \item Teilnehmende Akteure: \Gls{Organisator}, \Gls{Spieler}
-        \item Eingangsaktionen: \Gls{Spiel-Server} ist aktiv, \Gls{Spiel} ist gestartet
+        \item Eingangsbedingungen: \Gls{Spiel-Server} ist aktiv, \Gls{Spiel} ist gestartet
         \item Ausgangsaktionen: \Gls{Spieler} werden eingeladen
         \item Ereignisfluss:
         \begin{itemize}
@@ -594,13 +617,15 @@ Das Domänenwissen liegt oft bei den Mitarbeitern bzw. Personen, die sich tägli
             \item \Gls{Organisator} betätigt "Einladen"-Schaltfläche
             \item \Gls{Organisator} tippt Emails der \Gls{Spieler} in Textfeld ein
             \item \Gls{Organisator} bestätigt seine Auswahl
+            \item \Gls{Spieler} erhält Benachrichtigung über die Einladung
         \end{itemize}
+        \item Anforderungen: /F270/ - /F290/ 
     \end{itemize}
 
     \subsection{Spiel vorzeitig beenden}
     \begin{itemize}
         \item Teilnehmende Akteure: \Gls{Organisator}, \Gls{Spieler}
-        \item Eingangsaktionen: \Gls{Spiel} ist aktiv und gestartet
+        \item Eingangsbedingungen: \Gls{Spiel} ist aktiv und gestartet
         \item Ausgangsaktionen: \Gls{Spieler} können \Gls{Spiel} nicht mehr spielen %werden sie benachrichtigt?
         \item Ereignisfluss:
         \begin{itemize}
@@ -609,12 +634,13 @@ Das Domänenwissen liegt oft bei den Mitarbeitern bzw. Personen, die sich tägli
             \item \Gls{Organisator} betätigt "Beenden"-Schaltfläche
             \item \Gls{Organisator} bestätigt seine Auswahl
         \end{itemize}
+        \item Anforderungen: /F390/
     \end{itemize}
 
     \subsection{Spiel löschen}
     \begin{itemize}
         \item Teilnehmende Akteure: \Gls{Organisator}
-        \item Eingangsaktionen: \Gls{Spiel-Server} ist aktiv, es existiert bereits ein Spiel
+        \item Eingangsbedingungen: \Gls{Spiel-Server} ist aktiv, es existiert bereits ein Spiel
         \item Ausgangsaktionen: \Gls{Spiel} löschen
         \item Ereignisfluss:
         \begin{itemize}
@@ -622,12 +648,13 @@ Das Domänenwissen liegt oft bei den Mitarbeitern bzw. Personen, die sich tägli
             \item \Gls{Organisator} wählt über seine GUI das zu löschende Spiel
             \item \Gls{Organisator} bestätigt seine Auswahl
         \end{itemize}
+        \item Anforderungen: /F515/
     \end{itemize}
 
     \subsection{Spieleinstellungen speichern}
     \begin{itemize}
         \item Teilnehmende Akteure: \Gls{Organisator}
-        \item Eingangsaktionen: \Gls{Spiel-Server} ist aktiv
+        \item Eingangsbedingungen: \Gls{Spiel-Server} ist aktiv
         \item Ausgangsaktionen: \Gls{Spieleinstellungen} wiederverwenden
         \item Ereignisfluss:
         \begin{itemize}
@@ -636,45 +663,37 @@ Das Domänenwissen liegt oft bei den Mitarbeitern bzw. Personen, die sich tägli
             \item \Gls{Organisator} wählt die Option \enquote{Spieleinstellungen speichern}
             \item \Gls{Organisator} bestätigt seine Auswahl und speichert die Einstellungen
         \end{itemize}
+        \item Anforderungen: /F250/
     \end{itemize}
 
     \subsection{Spieleinstellungen laden}
     \begin{itemize}
         \item Teilnehmende Akteure: \Gls{Organisator}
-        \item Eingangsaktionen: \Gls{Spiel-Server} ist aktiv, \Gls{Spieleinstellungen} wurden bereits gespeichert
+        \item Eingangsbedingungen: \Gls{Spiel-Server} ist aktiv, \Gls{Spieleinstellungen} wurden bereits gespeichert, \Gls{Organisator} ist angemeldet
         \item Ausgangsaktionen: \Gls{Spiel} starten
         \item Ereignisfluss:
         \begin{itemize}
-            \item \Gls{Organisator} meldet sich an
             \item \Gls{Organisator} erstellt über seine GUI ein neues Spiel
             \item \Gls{Organisator} wählt für dieses \Gls{Spiel} \enquote{Spieleinstellungen laden}
             \item \Gls{Organisator} sucht sich die bereits gespeicherte \Gls{Spieleinstellungen} heraus
             \item \Gls{Organisator} bestätigt seine Auswahl
         \end{itemize}
+        \item Anforderungen: /F260/
     \end{itemize}
 
-    \subsection{Ergebnisse auslesen}
-
-    \begin{itemize}
-        \item Teilnehmende Akteure: \Gls{Organisator}
-        \item Eingangsaktionen: \Gls{Organisator} öffnet die Auswertungsseite
-        \item Ausgangsaktionen: \Gls{Organisator} erhält die Auswertung
-        \item Ereignisfluss -
-    \end{itemize}
  \subsection{Spielzustand auslesen}
 	\begin{itemize}
 		\item Teilnehmende Akteure: \Gls{Organisator}
-		\item Eingangsaktionen: \Gls{Spiel-Server} ist aktiv
+		\item Eingangsbedingungen: \Gls{Spiel-Server} ist aktiv
 		\item Ereignisfluss:
 		\begin{itemize}
 			\item \Gls{Organisator} meldet sich an
 			\item \Gls{Organisator} erreicht seine Übersichtsseite
 			\item \Gls{Organisator} sieht den Zustand seiner laufenden Spiele
 		\end{itemize}
+        \item Anforderungen: /F380/
 	\end{itemize}
 
-
-    \newpage
     \section{Spiel}
     \includegraphics[width=\textwidth]{uml/export/Spiel.png}
     Akteure: 
@@ -686,39 +705,38 @@ Das Domänenwissen liegt oft bei den Mitarbeitern bzw. Personen, die sich tägli
     \subsection{Runde spielen: Matrix Select}
     \begin{itemize}
     	\item Teilnehmende Akteure: \Gls{Spieler}
-    	\item Eingangsaktionen: \Gls{Spiel-Server} ist aktiv, Spieler hat offenes \Gls{Spiel} des \Gls{Spielmodus} Matrix Select
+
+    	\item Eingangsbedingungen: \Gls{Spiel-Server} ist aktiv, Spieler hat offenes \Gls{Spiel} des \Gls{Spielmodus} Matrix Select, \Gls{Spieler} ist angemeldet
+        \item Ausgangsaktion: System gibt Spieler die erreichten Punkte an
     	\item Ereignisfluss:
     	\begin{itemize}
-    		\item \Gls{Spieler} meldet sich an
-    		\item \Gls{Spieler} erreicht seine Übersichtsseite
-    		\item \Gls{Spieler} klickt auf Weiterspielen-Schaltfläche
-    		\item \Gls{Spieler} erreicht Spiel-GUI
     		\item \Gls{Spieler} klickt auf ein Merkmal und sieht Merkmalsgraphen und Merkmalsbeschreibung
     		\item \Gls{Spieler} wählt mehrere Merkmale aus
     		\item \Gls{Spieler} klickt auf Schaltfläche, um Auswahl zu bestätigen
     	\end{itemize}
+        \item Anforderungen: /F400/ - /F430/
     \end{itemize}
 	
 	\subsection{Runde spielen: Binär Select}
 	\begin{itemize}
 		\item Teilnehmende Akteure: \Gls{Spieler}
-		\item Eingangsaktionen: \Gls{Spiel-Server} ist aktiv, \Gls{Spieler} hat offenes \Gls{Spiel} des \Gls{Spielmodus} Binär Select
+
+		\item Eingangsbedingungen: \Gls{Spiel-Server} ist aktiv, \Gls{Spieler} hat offenes \Gls{Spiel} des \Gls{Spielmodus} Binär Select, \Gls{Spieler} ist angemeldet
+        \item Ausgangsaktion: System gibt Spieler die erreichten Punkte an
 		\item Ereignisfluss:
 		\begin{itemize}
-			\item \Gls{Spieler} meldet sich an
-			\item \Gls{Spieler} erreicht seine Übersichtsseite
-			\item \Gls{Spieler} klickt auf Weiterspielen-Schaltfläche
-			\item \Gls{Spieler} erreicht Spiel-GUI
 			\item \Gls{Spieler} klickt auf ein Merkmal und sieht Merkmalsgraphen und Merkmalsbeschreibung
 			\item \Gls{Spieler} wählt eines der beiden Merkmale aus
 			\item \Gls{Spieler} klickt auf Schaltfläche, um Auswahl zu bestätigen
+            \item Wiederhole Ereignisfluss 5 mal
 		\end{itemize}
+        \item Anforderungen: /F440/ - /F480/
 	\end{itemize}
 
 	\subsection{Auswahl überspringen}
 	\begin{itemize}
 		\item Teilnehmende Akteure: \Gls{Spieler}
-		\item Eingangsaktionen: \Gls{Spiel-Server} ist aktiv, \Gls{Spieler} hat offenes Spiel
+		\item Eingangsbedingungen: \Gls{Spiel-Server} ist aktiv, \Gls{Spieler} hat offenes Spiel
         \item Ausgangsaktionen: Der \Gls{Spieler} kommt in die nächste Runde des aktiven Spiels
 		\item Ereignisfluss:
 		\begin{itemize}
@@ -727,142 +745,119 @@ Das Domänenwissen liegt oft bei den Mitarbeitern bzw. Personen, die sich tägli
 			\item \Gls{Spieler} klickt auf Weiterspielen-Schaltfläche
 			\item \Gls{Spieler} erreicht Spiel-GUI
 			\item \Gls{Spieler} klickt Auswahl-Überspringen-Schaltfläche und bestätigt seine Auswahl
-            \item Dem \Gls{Spieler} werden Punkte abgezogen
 		\end{itemize}
+        \item Anforderungen: /F490/
 	\end{itemize}
      
     \subsection{Streak erreichen}\footnote{Zur Erklärung von Streak siehe \fref{fig:Streak_State}}
     \begin{itemize}
         \item Teilnehmende Akteure: \Gls{Spieler}
-        \item Eingangsaktionen: \Gls{Spieler} spielt eine Runde
+        \item Eingangsbedingungen: \Gls{Spieler} spielt eine Runde
         \item Ausgangsaktionen: \Gls{Spieler} erhält extra Punkte für seine Runde
         \item Ereignisfluss:
         \begin{itemize}
             \item \Gls{Spieler} spielt n Runden um eine Streak zu erreichen.
             \item System teilt dem \Gls{Spieler} mit, dass er eine Streak erreicht hat.
         \end{itemize}
+        \item Anforderungen: /F740/
     \end{itemize}
     
-\newpage
     \section{Spieler-Übersicht}
     \includegraphics[width=\textwidth]{uml/export/Spieler_Ubersicht.png}
-	    \subsection{Achievements ansehen}
+    Akteure: 
+    \begin{itemize}
+    \item \Gls{Spieler}
+    \end{itemize}
+
+    \subsection{Achievements ansehen}
     \begin{itemize}
         \item Teilnehmende Akteure: \Gls{Spieler}
-        \item Eingangsaktionen: \Gls{Spiel-Server} ist aktiv
-        %\item Ausgangsaktionen: Achievements ansehen
+        \item Eingangsbedingungen: \Gls{Spiel-Server} ist aktiv, \Gls{Spieler} ist angemeldet
         \item Ereignisfluss:
         \begin{itemize}
-            \item \Gls{Spieler} meldet sich an
-            \item \Gls{Spieler} erreicht seine Übersicht-Seite
-            \item \Gls{Spieler} klickt auf die Spieler-Übersicht-Schaltfläche
+            \item \Gls{Spieler} erreicht seine Spieler-Übersichts-GUI
+            \item \Gls{Spieler} klickt auf die Achievements-Schaltfläche %TODO Wo werden die angezeigt
+            \item \Gls{Spieler} erhält Auflistung der Achievements
             \item \Gls{Spieler} schaut seine Achievements an
         \end{itemize}
+        \item Anforderungen: /F710/
     \end{itemize}
 
     \subsection{Leaderboard ansehen}
     \begin{itemize}
         \item Teilnehmende Akteure: \Gls{Spieler}
-        \item Eingangsaktionen: \Gls{Spiel-Server} ist aktiv
-        %\item Ausgangsaktionen: Leaderboard ansehen
+        \item Eingangsbedingungen: \Gls{Spiel-Server} ist aktiv, \Gls{Spieler} ist angemeldet
         \item Ereignisfluss:
         \begin{itemize}
-            \item \Gls{Spieler} meldet sich an
-            \item \Gls{Spieler} erreicht seine Übersichtsseite
-            \item \Gls{Spieler} sieht dort in einer Tabelle die \Gls{Spieler} mit den meisten Punkten über einen gewissen Zeitraum
+            \item \Gls{Spieler} erreicht seine Spieler-Übersichts-GUI
+            \item \Gls{Spieler} sieht dort in einer Tabelle die \Gls{Spieler} mit den meisten Punkten
         \end{itemize}
+        \item Anforderungen: /F700/
     \end{itemize}
 
     \newpage
     \section{Administration}
     \includegraphics[width=\textwidth]{uml/export/Administration.png}
-     \subsection{Sprache ändern}
+
+    \subsection{Sprache ändern}
     \begin{itemize}
     \item Teilnehmende Akteure: \Gls{Spieler}, \Gls{Organisator}
-    \item Eingangsaktionen: \Gls{Spiel-Server} ist aktiv
+    \item Eingangsbedingungen: \Gls{Spiel-Server} ist aktiv, \Gls{Spieler} oder \Gls{Organisator} ist angemeldet
     \item Ereignisfluss:
         \begin{itemize}
-            \item \Gls{Organisator} oder \Gls{Spieler} meldet sich an
-            \item \Gls{Organisator} oder \Gls{Spieler} erreicht seine Übersichtsseite
-            \item \Gls{Organisator} oder \Gls{Spieler} wählt die Sprachänderungs-Schaltfläche aus
+            \item \Gls{Organisator} oder \Gls{Spieler} erreicht über sein Klappmenü seine Einstellungen
+            \item \Gls{Organisator} oder \Gls{Spieler} wählt \enquote{Sprache ändern} aus
+            \item \Gls{Organisator} oder \Gls{Spieler} wählt eine der verfügbaren Sprachen
             \item \Gls{Organisator} oder \Gls{Spieler} bestätigt seine Auswahl
         \end{itemize}
-    \end{itemize}
-    \subsection{Server installieren}
-    \begin{itemize}
-        \item Teilnehmende Akteure: \Gls{Administrator} 
-        \item Eingangsaktionen: Computer mit MySQL und Tomcat installiert
-        \item Ausgangsaktionen: \Gls{Spiel-Server} starten
-        \item Ereignisfluss: 
-            \begin{itemize}
-                \item \Gls{Administrator} kopiert die War Datei in den Tomcat webapps Ordner
-                \item \Gls{Administrator} fügt den Pfad zur CFG Datei in die `tomcat/conf/Catalina/<host>` Datei ein
-                \item \Gls{Administrator} konfiguriert die CFG Datei aus der Dokumentation mit den relevanten Werten
-                \item \Gls{Administrator} führt \texttt{tomcat/bin/startup.sh}(Linux \& Mac) bzw. \texttt{tomcat\textbackslash bin\textbackslash startup.bat}(Windows) aus
-            \end{itemize}
+        \item Anforderungen: /F790/ - /F810/
     \end{itemize}
 
     \subsection{Server beenden}
     \begin{itemize}
         \item Teilnehmende Akteure: \Gls{Administrator}
-        \item Eingangsaktionen: \Gls{Spiel-Server} ist aktiv
-        \item Ausgangsaktionen: MySQL beenden, falls sonst nichts Weiteres auf der Datenbank läuft
-        \item Ereignisfluss: \Gls{Administrator} führt \texttt{tomcat/bin/shutdown.sh}(Linux \& Mac) bzw. \texttt{tomcat\textbackslash bin\textbackslash shutdown.bat}(Windows)
+        \item Eingangsbedingungen: \Gls{Spiel-Server} ist aktiv
+        \item Ereignisfluss: \Gls{Administrator} führt \texttt{tomcat/bin/shutdown.sh}(Linux \& Mac) bzw.  \texttt{tomcat\textbackslash bin\textbackslash shutdown.bat}(Windows)
+        \item Anforderungen: /F50/
     \end{itemize}
-
-    \subsection{Punkte eines Spielers zurücksetzen}
-    \begin{itemize}
-        \item Teilnehmende Akteure: \Gls{Administrator}, \Gls{Spieler}
-        \item Eingangsaktionen: \Gls{Spiel-Server} ist aktiv
-        \item Ausgangsaktionen: Die Punkte des \Gls{Spieler}s sind zurückgesetzt
-        \item Ereignisfluss:
-        \begin{itemize}
-            \item \Gls{Administrator} loggt sich in \Gls{Spiel-Server} ein
-            \item \Gls{Administrator} gibt das "Punkte zurücksetzen"-Kommando und die Email des registrierten Spielers ein
-            \item \Gls{Administrator} bestätigt seine Auswahl
-            \item Die Punkte des entsprechenden \Gls{Spieler}s werden zurückgesetzt
-        \end{itemize}
-    \end{itemize}
-
-
-
 
     \subsection{Passwort ändern}
     \begin{itemize}
     \item Teilnehmende Akteure: \Gls{Spieler}, \Gls{Organisator}
-    \item Eingangsaktionen: \Gls{Spiel-Server} ist aktiv
+    \item Eingangsbedingungenn: \Gls{Spiel-Server} ist aktiv, \Gls{Spieler} oder \Gls{Organisator} ist angemeldet
     \item Ereignisfluss:
         \begin{itemize}
-            \item \Gls{Organisator} oder \Gls{Spieler} meldet sich an
-            \item \Gls{Organisator} oder \Gls{Spieler} erreicht seine Übersichtsseite
-            \item \Gls{Organisator} oder \Gls{Spieler} wählt die Profileinstellungen aus
-            \item \Gls{Organisator} oder \Gls{Spieler} klickt aus die \enquote{Passwort ändern}-Schaltfläche
-            \item \Gls{Organisator} oder \Gls{Spieler} gibt sein aktuelle sowie sein neues gewünschtes Passwort ein
+            \item \Gls{Organisator} oder \Gls{Spieler} erreicht über sein Klappmenü seine Einstellungen
+            \item \Gls{Organisator} oder \Gls{Spieler} klickt auf \enquote{Passwort ändern}
+            \item \Gls{Organisator} oder \Gls{Spieler} gibt sein aktuelles sowie sein neues gewünschtes Passwort ein
             \item \Gls{Organisator} oder \Gls{Spieler} bestätigt seine Auswahl
         \end{itemize}
+        \item Anforderungen: /F130/
     \end{itemize}
 
     \subsection{Passwort zurücksetzen}
     \begin{itemize}
         \item Teilnehmende Akteure: \Gls{Spieler}, \Gls{Organisator}
-        \item Eingangsaktionen: \Gls{Spiel-Server} ist aktiv
-        \item Ausgangsaktionen: Temporäres Passwort ändern
+        \item Eingangsbedingungen: \Gls{Spiel-Server} ist aktiv, \Gls{Spieler} oder \Gls{Organisator} ist nicht angemeldet
         \item Ereignisfluss:
         \begin{itemize}
-            \item \Gls{Organisator} oder \Gls{Spieler} öffnet die Produktwebsite und klickt auf \enquote{Passwort zurücksetzen}
-            \item \Gls{Organisator} oder \Gls{Spieler} erhält per Mail ein neues temporäres Passwort
+            \item \Gls{Organisator} oder \Gls{Spieler} klickt in Anmelde-GUI auf \enquote{Passwort zurücksetzen}
+            \item \Gls{Organisator} oder \Gls{Spieler} erhält per E-Mail ein neues temporäres Passwort
             \item \Gls{Organisator} oder \Gls{Spieler} meldet sich mit dem neuen Passwort an
         \end{itemize}
+        \item Anforderungen: /F140/
     \end{itemize}
-       \subsection{Hilfe-Schaltfläche verwenden}
+
+    \subsection{Hilfe-Schaltfläche verwenden}
     \begin{itemize}
         \item Teilnehmende Akteure: \Gls{Spieler}, \Gls{Organisator}
-        \item Eingangsaktionen: \Gls{Spieler} oder \Gls{Organisator} benötigt Hilfe mit dem Produkt
-        \item Ausgangsaktionen: System zeigt dem Akteur die relevante Hilfe Seite
+        \item Eingangsbedingungen: \Gls{Spieler} oder \Gls{Organisator} benötigt Hilfe mit dem Produkt
+        \item Ausgangsaktionen: System zeigt dem Akteur die relevante Hilfe-Seite
         \item Ereignisfluss:
             \begin{itemize}
-                \item \Gls{Spieler} oder \Gls{Organisator} klickt auf die Hilfe-Schaltfläche(oben links)
+                \item \Gls{Spieler} oder \Gls{Organisator} klickt in seinem GUI auf die Hilfe-Schaltfläche(oben rechts)
             \end{itemize}
+        \item Anforderungen: /F760/
     \end{itemize}
 
     %TODO: Ausführung auf verschiedenem Ports
