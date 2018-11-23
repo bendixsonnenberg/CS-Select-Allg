@@ -148,7 +148,7 @@ Das Domänenwissen liegt oft bei den Mitarbeitern bzw. Personen, die sich tägli
             \item Spieler-GUI (Übersichts-GUI, Spiel-GUI) 
             \item Läuft im \Gls{Webbrowser}
         \end{itemize}
-        \item Merkmalsauswahl anhand von Spielen  %Formulierung
+        \item Merkmalsauswahl anhand von \Glspl{Spiel}n  %Formulierung
         \begin{itemize}
             \item Spielerstellung durch \Gls{Organisator}
             \item Teilnahme von \Gls{Spieler}n %Formulierung
@@ -171,13 +171,13 @@ Das Domänenwissen liegt oft bei den Mitarbeitern bzw. Personen, die sich tägli
     \begin{itemize} %TODO: In diesem Absatz, Glossar Links
     	\item Zusätzliche Funktionen für Verwaltung des \Gls{Spiel-Server}s
    	\begin{itemize}
-            \item Spiele aus dem System löschen
+            \item \Glspl{Spiel} aus dem System löschen
             \item Sauberes Beenden des \Gls{Spiel-Server}s
         \end{itemize}
 	\item Erweiterte Nutzerverwaltung 
 	\item Zusätzliche Funktionen für den \Gls{Organisator} in Übersichts-GUI
         \begin{itemize}
-            \item Spiele löschen 
+            \item Beendete Spiele aus Übersicht löschen
             \item Spiele vorzeitig beenden 
         \end{itemize}
 	\item Zusätzliche Funktionen für den \Gls{Organisator} bei Spielerstellung
@@ -189,16 +189,16 @@ Das Domänenwissen liegt oft bei den Mitarbeitern bzw. Personen, die sich tägli
             \item Überspringen-Schaltfläche 
             \item Möglichkeit, Merkmale als unwichtig zu markieren 
         \end{itemize}
-	\item Weitere Spielmodi 
-	\item Weitere Gamification-Elemente %Glossareintrag?
+	\item Weitere \Glspls{Spielmodus}
+	\item Weitere Gamification-Elemente
         \begin{itemize}
             \item Leaderboard %Glossareintrag? 
-            \item Achievements %Hat schon einen
+            \item \Glspl{Achievement}
             \item Daily Challenges %Glossareintrag?
             \item Streaks %Glossareintrag?
         \end{itemize}
         \item Bedienungshilfen 
-        \item Verbesserung der Merkmalsauswahl %Bitte umformulieren: Die Merkmale, die der Spieler bekommt, das ist irgendwie zweideutig
+        \item Verbesserung der Merkmalsbereitstellung für ein \Gls{Spiel}
         \item Internationalisierung 
         \item Unterstützung von mehreren Plattformen
     \end{itemize}
@@ -269,21 +269,22 @@ Das Domänenwissen liegt oft bei den Mitarbeitern bzw. Personen, die sich tägli
     
     \section{Verwaltung des \Gls{Spiel-Server}s}
     \begin{tabularx}{\linewidth}{@{}>{\bfseries}l@{\hspace{.5em}}X@{}} 
-	/F10/ & \Gls{Administrator} konfiguriert eine Config-Datei \\ %Wie schreibt man das am besten
-	/F20/ & Globales Passwort für \Glspl{Organisator} muss setzbar sein \\
+	/F10/ & \Gls{Administrator} konfiguriert eine Config-Datei \\
+	/F20/ & Globales Passwort für \Glspl{Organisator} muss in /F10/ setzbar sein \\
+    /F25/ & \Gls{Ml-Server} muss in /F10/ setzbar sein
     \end{tabularx}
 
     \section{Optional: Einfachere Verwaltung des \Gls{Spiel-Server}s}
     \begin{tabularx}{\linewidth}{@{}>{\bfseries}l@{\hspace{.5em}}X@{}} 
-	/F30/ & Bei Start des Systems gibt es ein Dialog zur Einrichtung \\ %Explizit: Was kann man da machen?
+	/F30/ & Bei Start des Systems gibt es ein Dialog zur einfacheren Einrichtung \\ %Explizit: Was kann man da machen?
 	/F40/ & \Glspl{Spiel} sind aus dem System löschbar \\
-	/F50/ & \Gls{Spiel-Server} vom Terminal aus beenden \\
+	/F50/ & \Gls{Spiel-Server} kann vom Terminal aus beendent werden \\
 	/F60/ & Kontrollierter Neustart: \Gls{Spiel-Server} behält seinen Zustand über Stoppen und Starten hinweg
     \end{tabularx}
     
     \section{Nutzerverwaltung}
     \begin{tabularx}{\linewidth}{@{}>{\bfseries}l@{\hspace{.5em}}X@{}} 
-	/F70/ & Erstregistrierung des \Gls{Organisator}s mit E-Mail und global gesetztem Passwort \\ %Machen wir das so?
+	/F70/ & Erstregistrierung des \Gls{Organisator}s mit E-Mail und dem in /F20/ global gesetztem Passwort \\
 	/F80/ & Anmelden des \Gls{Organisator}s mit E-Mail und Passwort \\
 	/F90/ & Erstregistrierung eines \Gls{Spieler}s mit E-Mail und Passwort, das er in einer Einladungs-E-Mail erhalten hat \\
 	/F100/ & Anmelden eines \Gls{Spieler}s mit E-Mail und Passwort \\
@@ -292,17 +293,17 @@ Das Domänenwissen liegt oft bei den Mitarbeitern bzw. Personen, die sich tägli
 
     \section{Optional: Zusätzliche Funktionen für die Nutzerverwaltung}
     \begin{tabularx}{\linewidth}{@{}>{\bfseries}l@{\hspace{.5em}}X@{}} 
-	/F120/ & Änderung der E-Mail \\
-	/F130/ & Änderung des Passworts \\
-	/F140/ & Zurücksetzen des Passworts ohne Kenntnis des derzeitigen Passworts \\
+	/F120/ & Änderung der E-Mail von Nutzern \\
+	/F130/ & Änderung des Passworts von Nutzern \\
+	/F140/ & Zurücksetzen des Passworts von Nutzern ohne Kenntnis des derzeitigen Passworts \\
     \end{tabularx}
     
     \section{Spielerstellung}
-    \begin{tabularx}{\linewidth}{@{}>{\bfseries}l@{\hspace{.5em}}X@{}} 
-    /F150/ & \Gls{Organisator} kann in Spielerstellungs-GUI \Gls{Spieler} zu einem \Gls{Spiel} einladen, in dem er E-Mail-Adresse angibt \\
+    \begin{tabularx}{\linewidth}{@{}>{\bfseries}l@{\hspace{.5em}}X@{}}
+    /F150/ & \Gls{Organisator} kann in Spielerstellungs-GUI \Gls{Spieler} zu einem \Gls{Spiel} einladen, indem er E-Mail-Adresse des \Gls{Spieler} angibt \\
     /F160/ & Eingeladene \Gls{Spieler} erhalten Einladungs-E-Mail \\
     /F170/ & \Gls{Organisator} muss mindestens einen \Gls{Spielmodus} auswählen \\
-    /F180/ & Falls \Gls{Matrix Select} ausgewählt ist, muss \Gls{Organisator} Matrixgröße angeben \\
+    /F180/ & Falls in /F170/ \Gls{Matrix Select} ausgewählt ist, muss \Gls{Organisator} Matrixgröße angeben \\
     /F190/ & \Gls{Organisator} muss Name des Merkmalsdatensatzes angeben \\
     /F200/ & \Gls{Organisator} muss Adresse einer Datenbank angeben \\ %Kann?
     /F210/ & \Gls{Organisator} muss Spieltitel und Spielbeschreibung angeben \\ %Kann?
@@ -329,15 +330,15 @@ Das Domänenwissen liegt oft bei den Mitarbeitern bzw. Personen, die sich tägli
     /F330/ & \Gls{Spieler} kann Merkmal auswählen \\
     /F340/ & \Gls{Spieler} kann sich zu Merkmal zusätzlich eine Kurzbeschreibung und Grafiken anzeigen lassen \\
     /F350/ & Nach Beenden der Runde sieht der \Gls{Spieler} seine Punktzahl und kann entscheiden, ob er noch eine Runde spielen will \\
-	/F360/ & Ein \Gls{Spiel} terminiert nach Erreichen seiner Endbedingungen /Fxxx/, danach kann keine Runde mehr gespielt werden \\
+	/F360/ & Ein \Gls{Spiel} terminiert nach Erreichen seiner Endbedingungen aus /F220/, danach kann keine Runde mehr gespielt werden \\
     /F370/ & \Gls{Spieler} sieht in seinem GUI aktuelle Runde und Punktestand \\
-	/F380/ & \Gls{Organisator} kann sich über aktuellen Status seines Spiels informieren \\ %Genauer? Gespielte Runden einsehen und so?
-	/F390/ & \Gls{Organisator} kann ein \Gls{Spiel} vorzeitig beenden \\
+	/F380/ & \Gls{Organisator} kann sich über aktuellen Status seines \Gls{Spiel}s informieren \\ %Genauer? Gespielte Runden einsehen und so?
+    /F390/ & \Gls{Organisator} kann ein \Gls{Spiel} vorzeitig beenden \\
     \end{tabularx}
     
     \subsection{\Gls{Binar Select}}
     \begin{tabularx}{\linewidth}{@{}>{\bfseries}l@{\hspace{.5em}}X@{}}
-        /F400/ & Eine Runde Binär Select besteht aus genau fünf Vergleichen \\
+        /F400/ & Eine Runde \Gls{Binar Select} besteht aus genau fünf Vergleichen \\
     	/F410/ & Dem \Gls{Spieler} werden zufällig immer zwei Merkmale angezeigt \\
     	/F420/ & \Gls{Spieler} muss eines davon auswählen \\
     	/F430/ & \Gls{Spieler} muss bestätigen, dafür muss er genau ein Merkmal ausgewählt haben \\
@@ -347,30 +348,30 @@ Das Domänenwissen liegt oft bei den Mitarbeitern bzw. Personen, die sich tägli
     \begin{tabularx}{\linewidth}{@{}>{\bfseries}l@{\hspace{.5em}}X@{}}
         /F440/ & Eine Runde \Gls{Matrix Select} besteht aus genau einer Matrix \\
         /F450/ & Es werden zufällige Merkmale in einer Matrix angezeigt \\
-    	/F460/ & Genau die Anzahl an Merkmalen, die der \Gls{Organisator} bei Spielerstellung ausgewählt hat, werden angezeigt \\
-    	/F470/ & \Gls{Spieler} kann maximal x Merkmale auswählen \\ % Wie viele Merkmale maximal? Gibt es Obergrenze?
-    	/F480/ & \Gls{Spieler} muss bestätigen, dafür muss er genau/maximal x Merkmale ausgewählt haben \\ %Wie viele?
+    	/F460/ & Genau die Anzahl an Merkmalen, die der \Gls{Organisator} in /F180/ ausgewählt hat, werden angezeigt \\
+    	/F470/ & \Gls{Spieler} kann eine Teilmenge an Merkmale auswählen, jedoch mindestens eines \\ % Wie viele Merkmale maximal? Gibt es Obergrenze?
+    	/F480/ & \Gls{Spieler} muss bestätigen, dafür muss er mindestens ein Merkmal ausgewählt haben \\
     \end{tabularx}
 	
 	\section{Optional: Zusätzliche Funktionen im Spielablauf}
-	\begin{tabularx}{\linewidth}{@{}>{\bfseries}l@{\hspace{.5em}}X@{}} % Linebreaks in der Tabelle
+	\begin{tabularx}{\linewidth}{@{}>{\bfseries}l@{\hspace{.5em}}X@{}}
 		/F490/ & \Gls{Spieler} kann Runde überspringen, dann: \\
 		/F500/ & Von der Gesamtpunktzahl des \Gls{Spieler}s werden 100 Punkte abgezogen, die Gesamtpunktzahl wird aber nicht negativ \\ %100? Kann sie negativ werden?
 		/F510/ & \Gls{Spieler} kann ein Merkmal als unwichtig markieren \\
 	\end{tabularx}
 	
-	\section{Optional: Verbesserung der Merkmalsauswahl durch System} 
-	\begin{tabularx}{\linewidth}{@{}>{\bfseries}l@{\hspace{.5em}}X@{}} % Linebreaks in der Tabelle
+	\section{Optional: Verbesserung der Merkmalsbereitstellung durch das System}
+	\begin{tabularx}{\linewidth}{@{}>{\bfseries}l@{\hspace{.5em}}X@{}}
 		/F520/ & Die dem \Gls{Spieler} angezeigten Merkmale werden nicht zufällig ausgewählt \\
 		/F530/ & Selbe Merkmalskombinationen werden nicht mehrfach in einem \Gls{Spiel} angezeigt \\
 	\end{tabularx}
 	    
-    \section{Bewertung der Merkmalsauswahl des Spielers und Ergebnissicherung}
-    \begin{tabularx}{\linewidth}{@{}>{\bfseries}l@{\hspace{.5em}}X@{}} % Linebreaks in der Tabelle
-    /F540/ & Merkmalsauswahl des \Gls{Spieler}s wird per http-Anfrage an ML-Server geschickt \\
+    \section{Bewertung der Merkmalsauswahl des \Gls{Spieler}s und Ergebnissicherung}
+    \begin{tabularx}{\linewidth}{@{}>{\bfseries}l@{\hspace{.5em}}X@{}}
+    /F540/ & Merkmalsauswahl des \Gls{Spieler}s wird per http-Anfrage an \Gls{ML-Server} geschickt \\
     /F550/ & Bei \Gls{Matrix Select} wird die ausgewählte Teilmenge der Vergleiche geschickt \\
     /F560/ & Bei \Gls{Binar Select} wird eine gebündelte Menge der Vergleiche geschickt \\
-    /F570/ & Rückmeldung wird in Rundenpunktzahl /Fxxx/ umgewandelt \\ %Wie? Das wird bei Punktesystem erklärt
+    /F570/ & Rückmeldung des \Gls{ML-Server}s wird in Rundenpunktzahl (s. /F690/) umgewandelt \\ %Wie? Das wird bei Punktesystem erklärt
     /F580/ & Rundenpunktzahl wird zur Gesamtpunktzahl des \Gls{Spieler}s addiert \\
     /F590/ & Rundendaten\footnote{Ausgewählte Merkmale, Spielername, Zeitpunkt, Rundenanzahl, Vorhersagequalität, Punkte} werden in von Organisator ausgewählte Datenbank gespeichert \\ %Datenbank zu Spiel
     \end{tabularx}
@@ -383,7 +384,7 @@ Das Domänenwissen liegt oft bei den Mitarbeitern bzw. Personen, die sich tägli
     /F630/ & \Glspl{Organisator} gelangen nach Betätigung der Spielerstellungs-Schaltfläche zur Spielerstellungs-GUI \\
     /F640/ & Nach Beenden der Spielerstellung kehren \Glspl{Organisator} auf die Organisator-Übersichts-GUI zurück \\
     /F650/ & \Gls{Spieler} gelangen nach Betätigung der \enquote{Weiterspielen}-Schaltfläche zur Spiel-GUI \\
-    /F660/ & Nach Beenden der Runde kehren \Gls{Spieler} entweder auf die Spieler-Übersichts-GUI oder die Spiel-GUI zurück \\
+    /F660/ & Nach Beenden der Runde kehren \Gls{Spieler} entweder auf die Spieler-Übersichts-GUI oder die Spiel-GUI zurück, je nach Auswahl in /F350/ \\
     /F670/ & Nach Abmeldung kehren Nutzer auf die Anmeldungs-GUI zurück \\
     \end{tabularx}
         
@@ -401,15 +402,15 @@ Das Domänenwissen liegt oft bei den Mitarbeitern bzw. Personen, die sich tägli
 	/F700/ & Leaderboard: Auflistung der \Gls{Spieler} mit den meisten Punkten im Spieler-Übersichts-GUI \\
 	/F710/ & Achievements: Errungenschaften für \Gls{Spieler}, die freigeschaltet werden können, nachdem der Spieler bestimmte Ziele oder Aufgaben erledigt \\
 	/F720/ & Auflistung der Achievements aus /F20/ \\ %in der GUI?
-	/F730/ & Daily Challenges: Jeden Tag erhält ein \Gls{Spieler} eine neue Herausforderung, die er abschließen kann \\
-	/F740/ & Streaks: Mehr Punkte für einen \Gls{Spieler}, wenn er zwei (oder mehrere) Spiele in Folge spielt \\
-	/F750/ & Erweitertes Punktesystem: Abschließen von /Fxx/ und /Fxx/ geben zusätzliche Punkte \\
+	/F730/ & Daily Challenges: Jeden Tag erhält ein \Gls{Spieler} eine neue Herausforderung, die er abschließen kann, diese gibt 50 zusätzliche Punkte \\
+	/F740/ & Streaks: Die Punktezahl der jeweiligen Runde für einen \Gls{Spieler} verdoppelt sich, wenn er drei (oder mehrere) Runden in Folge spielt \\
+	/F750/ & Erweitertes Punktesystem: Abschließen von /F710/ gibt je nach Schwierigkeitsgrad der Aufgabe zusätzliche Punkte \\
     \end{tabularx}
     
     \section{Bedienungshilfen}
 	\begin{tabularx}{\linewidth}{@{}>{\bfseries}l@{\hspace{.5em}}X@{}}
-	/F760/ & Hilfe-Schaltfläche im Organisator-GUI \\ 
-	/F770/ & Hilfe Schaltfläche im Spieler-GUI \\ %Die beiden erklären?
+	/F760/ & Hilfe-Schaltfläche in Organisator-GUIs \\
+	/F770/ & Hilfe Schaltfläche in Spieler-GUIs \\
 	/F780/ & Wenn der Nutzer mit dem Mauszeiger auf einer Schaltfläche im GUI verweilt, erscheint ein Tooltip \\ %Glossar
 	\end{tabularx}
 
@@ -422,7 +423,7 @@ Das Domänenwissen liegt oft bei den Mitarbeitern bzw. Personen, die sich tägli
 
     \section{Optional: Internationalisierung}
     \begin{tabularx}{\linewidth}{@{}>{\bfseries}l@{\hspace{.5em}}X@{}}
-	/F800/ & Bereitstellung eines englischen Sprachpakets für die GUIs\\
+	/F800/ & Bereitstellung eines englischen Sprachpakets für die GUIs \\
 	/F810/ & Änderung der Sprache für Nutzer im GUI möglich \\
     \end{tabularx}
 
@@ -430,8 +431,8 @@ Das Domänenwissen liegt oft bei den Mitarbeitern bzw. Personen, die sich tägli
     \begin{tabularx}{\linewidth}{@{}>{\bfseries}l@{\hspace{.5em}}X@{}}
 	/F820/ & Unterstützung von Internet Explorer \\
 	/F830/ & Unterstützung von Mobilgeräten mit Responsive-GUIs \\
-	/F840/ & Lieferung des Servers als Docker-Image \\
-	/F850/ & Der Server kann auf verschiedenen Ports ausgeführt werden \\
+	/F840/ & Lieferung des \Gls{Spiel-Server}s als Docker-Image \\
+	/F850/ & Der \Gls{Spiel-Server} kann auf verschiedenen Ports ausgeführt werden \\
     \end{tabularx}
 
     %Kapitel Sonstiges, wenn noch irgendwas einfällt?
