@@ -668,11 +668,10 @@ Das Domänenwissen liegt oft bei den Mitarbeitern bzw. Personen, die sich tägli
     \subsection{Spieleinstellungen laden}
     \begin{itemize}
         \item Teilnehmende Akteure: \Gls{Organisator}
-        \item Eingangsbedingungen: \Gls{Spiel-Server} ist aktiv, \Gls{Spieleinstellungen} wurden bereits gespeichert
+        \item Eingangsbedingungen: \Gls{Spiel-Server} ist aktiv, \Gls{Spieleinstellungen} wurden bereits gespeichert, \Gls{Organisator} ist angemeldet
         \item Ausgangsaktionen: \Gls{Spiel} starten
         \item Ereignisfluss:
         \begin{itemize}
-            \item \Gls{Organisator} meldet sich an
             \item \Gls{Organisator} erstellt über seine GUI ein neues Spiel
             \item \Gls{Organisator} wählt für dieses \Gls{Spiel} \enquote{Spieleinstellungen laden}
             \item \Gls{Organisator} sucht sich die bereits gespeicherte \Gls{Spieleinstellungen} heraus
@@ -745,7 +744,6 @@ Das Domänenwissen liegt oft bei den Mitarbeitern bzw. Personen, die sich tägli
 			\item \Gls{Spieler} klickt auf Weiterspielen-Schaltfläche
 			\item \Gls{Spieler} erreicht Spiel-GUI
 			\item \Gls{Spieler} klickt Auswahl-Überspringen-Schaltfläche und bestätigt seine Auswahl
-            \item Dem \Gls{Spieler} werden Punkte abgezogen
 		\end{itemize}
         \item Anforderungen: /F490/
 	\end{itemize}
@@ -818,8 +816,7 @@ Das Domänenwissen liegt oft bei den Mitarbeitern bzw. Personen, die sich tägli
     \begin{itemize}
         \item Teilnehmende Akteure: \Gls{Administrator}
         \item Eingangsbedingungen: \Gls{Spiel-Server} ist aktiv
-        \item Ausgangsaktionen: MySQL beenden, falls sonst nichts Weiteres auf der Datenbank läuft
-        \item Ereignisfluss: \Gls{Administrator} führt \texttt{tomcat/bin/shutdown.sh}(Linux \& Mac) bzw. \texttt{tomcat\textbackslash bin\textbackslash shutdown.bat}(Windows)
+        \item Ereignisfluss: \Gls{Administrator} führt \texttt{tomcat/bin/shutdown.sh}(Linux \& Mac) bzw.  \texttt{tomcat\textbackslash bin\textbackslash shutdown.bat}(Windows)
         \item Anforderungen: /F50/
     \end{itemize}
 
