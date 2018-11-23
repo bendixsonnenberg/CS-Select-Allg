@@ -45,13 +45,13 @@ description={Ein Spielmodus ist eine definierte Art und Weise, die Merkmalsauswa
 {
 name=Matrix Select,
 plural=Matrix Select,
-description={Matrix Select ist ein \Gls{Spielmodus}, in dem ein \Gls{Spieler} eine Matrix, bestehend aus einer vom \Gls{Organisator} festgelegten Anzahl an Merkmalen, angezeigt bekommt und davon eine Teilmenge auswählt, die die Merkmale enthält, die für das Machine Learning am wichtigsten sind. Die Größe der Teilmenge wird ebenfalls vom Organisator in den Spieleinstellungen festgelegt. Eine Runde besteht aus genau einer Matrix von Merkmalen.}
+description={Matrix Select ist ein \Gls{Spielmodus}, in dem ein \Gls{Spieler} eine Matrix, bestehend aus einer vom \Gls{Organisator} festgelegten Anzahl an Merkmalen, angezeigt bekommt und davon eine Teilmenge auswählt, die die \Glspl{Merkmal} enthält, die für das Machine Learning am wichtigsten sind. Die Größe der Teilmenge wird ebenfalls vom Organisator in den Spieleinstellungen festgelegt. Eine Runde besteht aus genau einer Matrix von Merkmalen.}
 }
 \newglossaryentry{Binar Select}
 {
 name=Binär Select,
 plural=Binär Select,
-description={Binär Select ist ein \Gls{Spielmodus}, in dem ein \Gls{Spieler} genau zwei Merkmale angezeigt bekommt, diese vergleicht und das Merkmal auswählt, welches für das Machine-Learning-Modell wichtiger ist. Eine Runde besteht aus fünf Vergleichen}
+description={Binär Select ist ein \Gls{Spielmodus}, in dem ein \Gls{Spieler} genau zwei \Glspl{Merkmal} angezeigt bekommt, diese vergleicht und das \Gls{Merkmal} auswählt, welches für das Machine-Learning-Modell wichtiger ist. Eine Runde besteht aus fünf Vergleichen}
 }
 
 \newglossaryentry{Spieler}
@@ -113,7 +113,12 @@ name=Nutzer,
 plural=Nutzer,
 description={Als Nutzer wird ein \Gls{Spieler} oder ein \Gls{Organisator} bezeichnet}
 }
-
+\newglossaryentry{Merkmal}
+{
+name=Merkmal,
+plural=Merkmale,
+description={Eine Wert oder eine messbare Eigenschaft, des beobachteten Sachverhaltes. Zum Beispiel die Außentemperatur bei der Bestimmung der optimalen Menge an Dünger.}
+}
 
 \begin{document}
 
@@ -126,14 +131,14 @@ description={Als Nutzer wird ein \Gls{Spieler} oder ein \Gls{Organisator} bezeic
 
     \chapter{Einleitung}
     Machine-Learning wird in immer mehr Organisationen eingesetzt, um Vorhersagemodelle zu entwickeln.\\\\
-    In vielen Prozessen fallen Daten an, die sich in verschiedene Merkmale bündeln lassen.
-    Jedoch sind diese Merkmale nicht alle von gleichwertiger Relevanz für die aus ihnen resultierenden Eigenschaften des Prozessergebnisses, weshalb eine möglichst effizente Auswahl an Merkmalen getroffen werden muss.
+    In vielen Prozessen fallen Daten an, die sich in verschiedene \Glspl{Merkmal} bündeln lassen.
+    Jedoch sind diese \Glspl{Merkmal} nicht alle von gleichwertiger Relevanz für die aus ihnen resultierenden Eigenschaften des Prozessergebnisses, weshalb eine möglichst effizente Auswahl an Merkmalen getroffen werden muss.
     Dieses Problem wird als Feature Subset Selection (FSS) bezeichnet.
     Es existieren schon Algorithmen, die die Merkmalsauswahl übernehmen können, jedoch sind diese langsam oder zu simpel, als dass sie diese Problemstellung zufriedenstellend lösen können.
-    Die Data-Scientists, die die Machine-Learning Modelle trainieren, haben aber oft nicht ausreichend \Gls{Domanenwissen}, um die für ein aussagekräftiges Vorhersagemodell relevanten Merkmale auszuwählen.
+    Die Data-Scientists, die die Machine-Learning Modelle trainieren, haben aber oft nicht ausreichend \Gls{Domanenwissen}, um die für ein aussagekräftiges Vorhersagemodell relevanten \Glspl{Merkmal} auszuwählen.
     Wir verwenden einen Crowdsourcing-Ansatz, um eine effizientere Lösungsmöglichkeit unter Einbeziehung des \Gls{Domanenwissen}s der Mitarbeiter zu ermöglichen.\\\\
     Deshalb muss die Merkmalsauswahl von den Mitarbeitern mit dem jeweiligen \Gls{Domanenwissen} unterstützt werden.\\
-    Hierfür wird ein \Gls{Spiel} für den Browser entwickelt, in dem Personen mit \Gls{Domanenwissen} Merkmale bewerten können.
+    Hierfür wird ein \Gls{Spiel} für den Browser entwickelt, in dem Personen mit \Gls{Domanenwissen} \Glspl{Merkmal} bewerten können.
     Motiviert werden sie durch diverse Gamification-Elemente, welche den Spielspaß steigern sollen und die Arbeitsbereitschaft erhöhen.
     Dazu erhalten Spieler Punkte basierend auf der Relevanz ihrer Auswahl.\\\\
     Primär geht es darum, Fachkräfte in die Merkmalsauswahl einzubinden, um ein einfaches, aber aussagekräftiges Vorhersagemodell zu erstellen.\\\\
@@ -164,8 +169,8 @@ description={Als Nutzer wird ein \Gls{Spieler} oder ein \Gls{Organisator} bezeic
         \end{itemize}
         \item Zwei \Glspl{Spielmodus}
         \begin{itemize}
-            \item \Gls{Matrix Select}: \Gls{Spieler} erhält mehrere Merkmale und wählt eine Teilmenge davon aus %Später dazu mehr irgendwie dazu?
-            \item \Gls{Binar Select}: \Gls{Spieler} erhält zwei Merkmale und wählt eines davon aus
+            \item \Gls{Matrix Select}: \Gls{Spieler} erhält mehrere \Glspl{Merkmal} und wählt eine Teilmenge davon aus %Später dazu mehr irgendwie dazu?
+            \item \Gls{Binar Select}: \Gls{Spieler} erhält zwei \Glspl{Merkmal} und wählt eines davon aus
         \end{itemize}
         \item Gamification-Elemente
         \begin{itemize}
@@ -194,7 +199,7 @@ description={Als Nutzer wird ein \Gls{Spieler} oder ein \Gls{Organisator} bezeic
         \item Zusätzliche Funktionen für das Spielen 
         \begin{itemize}
             \item Überspringen-Schaltfläche 
-            \item Möglichkeit, Merkmale als unwichtig zu markieren 
+            \item Möglichkeit, \Glspl{Merkmal} als unwichtig zu markieren 
         \end{itemize}
 	\item Weitere \Glspl{Spielmodus}
 	\item Weitere Gamification-Elemente
@@ -334,8 +339,8 @@ description={Als Nutzer wird ein \Gls{Spieler} oder ein \Gls{Organisator} bezeic
     /F300/ & \Gls{Spieler} sieht in Spieler-Übersichts-GUI alle Spiele, bei denen er die Einladung angenommen hat und die aktiv sind \\
     /F310/ & \Gls{Spieler} kann \Gls{Spiel} auswählen und spielen, anschließend: \\
     /F320/ & \Gls{Spieler} spielt Runde des entsprechenden \Gls{Spielmodus}, für alle gilt: \\
-    /F330/ & \Gls{Spieler} kann Merkmal auswählen \\
-    /F340/ & \Gls{Spieler} kann sich zu Merkmal zusätzlich eine Kurzbeschreibung und Grafiken anzeigen lassen \\
+    /F330/ & \Gls{Spieler} kann \Gls{Merkmal} auswählen \\
+    /F340/ & \Gls{Spieler} kann sich zu \Gls{Merkmal} zusätzlich eine Kurzbeschreibung und Grafiken anzeigen lassen \\
     /F350/ & Nach Beenden der Runde sieht der \Gls{Spieler} seine Punktzahl und kann entscheiden, ob er noch eine Runde spielen will \\
 	/F360/ & Ein \Gls{Spiel} terminiert nach Erreichen seiner Endbedingungen aus /F220/, danach kann keine Runde mehr gespielt werden \\
     /F370/ & \Gls{Spieler} sieht in seinem GUI aktuelle Runde und Punktestand \\
@@ -346,25 +351,25 @@ description={Als Nutzer wird ein \Gls{Spieler} oder ein \Gls{Organisator} bezeic
     \subsection{\Gls{Binar Select}}
     \begin{tabularx}{\linewidth}{@{}>{\bfseries}l@{\hspace{.5em}}X@{}}
         /F400/ & Eine Runde \Gls{Binar Select} besteht aus genau fünf Vergleichen \\
-    	/F410/ & Dem \Gls{Spieler} werden zufällig immer zwei Merkmale angezeigt \\
+    	/F410/ & Dem \Gls{Spieler} werden zufällig immer zwei \Glspl{Merkmal} angezeigt \\
     	/F420/ & \Gls{Spieler} muss eines davon auswählen \\
-    	/F430/ & \Gls{Spieler} muss bestätigen, dafür muss er genau ein Merkmal ausgewählt haben \\
+    	/F430/ & \Gls{Spieler} muss bestätigen, dafür muss er genau ein \Gls{Merkmal} ausgewählt haben \\
     \end{tabularx}
 
     \subsection{\Gls{Matrix Select}}
     \begin{tabularx}{\linewidth}{@{}>{\bfseries}l@{\hspace{.5em}}X@{}}
         /F440/ & Eine Runde \Gls{Matrix Select} besteht aus genau einer Matrix \\
-        /F450/ & Es werden zufällige Merkmale in einer Matrix angezeigt \\
+        /F450/ & Es werden zufällige \Glspl{Merkmal} in einer Matrix angezeigt \\
     	/F460/ & Genau die Anzahl an Merkmalen, die der \Gls{Organisator} in /F180/ ausgewählt hat, werden angezeigt \\
-    	/F470/ & \Gls{Spieler} kann eine Teilmenge an Merkmale auswählen, jedoch mindestens eines \\ % Wie viele Merkmale maximal? Gibt es Obergrenze?
-    	/F480/ & \Gls{Spieler} muss bestätigen, dafür muss er mindestens ein Merkmal ausgewählt haben \\
+    	/F470/ & \Gls{Spieler} kann eine Teilmenge an \Glspl{Merkmal} auswählen, jedoch mindestens eines \\ % Wie viele Merkmale maximal? Gibt es Obergrenze?
+    	/F480/ & \Gls{Spieler} muss bestätigen, dafür muss er mindestens ein \Gls{Merkmal} ausgewählt haben \\
     \end{tabularx}
 	
 	\section{Optional: Zusätzliche Funktionen im Spielablauf}
 	\begin{tabularx}{\linewidth}{@{}>{\bfseries}l@{\hspace{.5em}}X@{}}
 		/F490/ & \Gls{Spieler} kann Runde überspringen, dann: \\
 		/F500/ & Von der Gesamtpunktzahl des \Gls{Spieler}s werden 100 Punkte abgezogen, die Gesamtpunktzahl wird aber nicht negativ \\ %100? Kann sie negativ werden?
-		/F510/ & \Gls{Spieler} kann ein Merkmal als unwichtig markieren \\
+		/F510/ & \Gls{Spieler} kann ein \Gls{Merkmal} als unwichtig markieren \\
 	\end{tabularx}
     
     \section{Spielverwaltung}
@@ -375,7 +380,7 @@ description={Als Nutzer wird ein \Gls{Spieler} oder ein \Gls{Organisator} bezeic
 	
 	\section{Optional: Verbesserung der Merkmalsbereitstellung durch das System}
 	\begin{tabularx}{\linewidth}{@{}>{\bfseries}l@{\hspace{.5em}}X@{}}
-		/F520/ & Die dem \Gls{Spieler} angezeigten Merkmale werden nicht zufällig ausgewählt \\
+		/F520/ & Die dem \Gls{Spieler} angezeigten \Glspl{Merkmal} werden nicht zufällig ausgewählt \\
 		/F530/ & Selbe Merkmalskombinationen werden nicht mehrfach in einem \Gls{Spiel} angezeigt \\
 	\end{tabularx}
 	    
@@ -762,8 +767,8 @@ description={Als Nutzer wird ein \Gls{Spieler} oder ein \Gls{Organisator} bezeic
         \item Ausgangsaktion: System gibt Spieler die erreichte Punktzahl an
     	\item Ereignisfluss:
     	\begin{itemize}
-    		\item \Gls{Spieler} klickt auf ein Merkmal und sieht Merkmalsgraphen und Merkmalsbeschreibung
-    		\item \Gls{Spieler} wählt mehrere Merkmale aus
+    		\item \Gls{Spieler} klickt auf ein \Gls{Merkmal} und sieht Merkmalsgraphen und Merkmalsbeschreibung
+    		\item \Gls{Spieler} wählt mehrere \Glspl{Merkmal} aus
     		\item \Gls{Spieler} klickt auf Schaltfläche, um Auswahl zu bestätigen
     	\end{itemize}
         \item Anforderungen: /F400/ - /F430/
@@ -777,8 +782,8 @@ description={Als Nutzer wird ein \Gls{Spieler} oder ein \Gls{Organisator} bezeic
         \item Ausgangsaktion: System gibt \Gls{Spieler} die erreichte Punktzahl an
 		\item Ereignisfluss:
 		\begin{itemize}
-			\item \Gls{Spieler} klickt auf ein Merkmal und sieht Merkmalsgraphen und Merkmalsbeschreibung
-			\item \Gls{Spieler} wählt eines der beiden Merkmale aus
+			\item \Gls{Spieler} klickt auf ein \Gls{Merkmal} und sieht Merkmalsgraphen und Merkmalsbeschreibung
+			\item \Gls{Spieler} wählt eines der beiden \Glspl{Merkmal} aus
 			\item \Gls{Spieler} klickt auf Schaltfläche, um Auswahl zu bestätigen
             \item Wiederhole Ereignisfluss fünf Mal
 		\end{itemize}
