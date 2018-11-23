@@ -284,7 +284,7 @@ Das Domanenwissen liegt oft bei den Mitarbeitern bzw. Personen, die sich täglic
     \begin{tabularx}{\linewidth}{@{}>{\bfseries}l@{\hspace{.5em}}X@{}} 
 	/F70/ & Erstregistrierung des \Gls{Organisator}s mit E-Mail und global gesetztem Passwort \\ %Machen wir das so?
 	/F80/ & Anmelden des \Gls{Organisator}s mit E-Mail und Passwort \\
-	/F90/ & Erstregistrierung eines \Gls{Spieler}s mit E-Mail und Passwort, das er in einer Einladungs-E-Mail erhalten hat \\
+	/F90/ & Erstregistrierung eines \Gls{Spieler}s mit E-Mail und Passwort nach dem Erhalten einer Einladung per E-Mail \\
 	/F100/ & Anmelden eines \Gls{Spieler}s mit E-Mail und Passwort \\
     /F110/ & Abmelden der Nutzer
     \end{tabularx}
@@ -495,19 +495,20 @@ Das Domanenwissen liegt oft bei den Mitarbeitern bzw. Personen, die sich täglic
    \subsection{Spieler registrieren}
     \begin{itemize}
         \item Teilnehmende Akteure: \Gls{Organisator}, \Gls{Spieler}
-        \item Eingangsaktionen: Spiel-Server ist aktiv
+        \item Eingangsbedingungen: Spiel-Server ist aktiv
         \item Ereignisfluss:
         \begin{itemize}
             \item \Gls{Organisator} lädt den \Gls{Spieler} über das Organisator-GUI ein.
             \item Der \Gls{Spieler} klickt auf den Einladungslink in der E-Mail und wird auf die Registrierungsseite weitergeleitet.
             \item Der \Gls{Spieler} gibt einen einzigartigen Nutzernamen, seine E-Mail-Adresse sowie ein persönliches Passwort ein und bestätigt.
         \end{itemize}
+        \item Anforderungen: /F90/
     \end{itemize}
 
     \subsection{Spieler anmelden}
     \begin{itemize}
         \item Teilnehmende Akteure: \Gls{Spieler}
-        \item Eingangsaktionen: Spiel-Server ist aktiv
+        \item Eingangsbedingungen: Spiel-Server ist aktiv, Spieler ist registriert
         \item Ereignisfluss:
         \begin{itemize}
             \item \Gls{Spieler} öffnet die Produktwebsite
@@ -515,12 +516,14 @@ Das Domanenwissen liegt oft bei den Mitarbeitern bzw. Personen, die sich täglic
             \item \Gls{Spieler} gibt E-Mail und Passwort ein
             \item \Gls{Spieler} klickt auf anmelden
         \end{itemize}
+        \item Anforderungen: /F100/
     \end{itemize}
 
+    \begin{comment} %% das ist noch nicht in den anforderungen
     \subsection{Spieler löschen}
     \begin{itemize}
         \item Teilnehmende Akteure: \Gls{Administrator}
-        \item Eingangsaktionen: Spiel-Server ist aktiv
+        \item Eingangsbedingungen: Spiel-Server ist aktiv
         \item Ereignisfluss:
         \begin{itemize}
             \item \Gls{Administrator} loggt sich am Server ein
@@ -528,11 +531,12 @@ Das Domanenwissen liegt oft bei den Mitarbeitern bzw. Personen, die sich täglic
             \item \Gls{Administrator} bestätigt den Vorgang
         \end{itemize}
     \end{itemize}
+    \end{comment}
 
     \subsection{Organisator registrieren}
     \begin{itemize}
         \item Teilnehmende Akteure: \Gls{Organisator}
-        \item Eingangsaktionen: Spiel-Server ist aktiv, Organisator-Registrierungspasswort ist gesetzt
+        \item Eingangsbedingungen: Spiel-Server ist aktiv, Organisator-Registrierungspasswort ist gesetzt
         \item Ereignisfluss:
         \begin{itemize}
             \item \Gls{Organisator} öffnet die Produktwebsite und klickt auf Registrieren
@@ -543,7 +547,7 @@ Das Domanenwissen liegt oft bei den Mitarbeitern bzw. Personen, die sich täglic
     \subsection{Organisator anmelden}
     \begin{itemize}
         \item Teilnehmende Akteure: \Gls{Organisator}
-        \item Eingangsaktionen: Spiel-Server ist aktiv
+        \item Eingangsbedingungen: Spiel-Server ist aktiv
         \item Ereignisfluss:
         \begin{itemize}
             \item \Gls{Organisator} öffnet die Produktwebsite
@@ -556,7 +560,7 @@ Das Domanenwissen liegt oft bei den Mitarbeitern bzw. Personen, die sich täglic
     \subsection{Organisator löschen}
     \begin{itemize}
         \item Teilnehmende Akteure: \Gls{Administrator}
-        \item Eingangsaktionen: Spiel-Server ist aktiv
+        \item Eingangsbedingungen: Spiel-Server ist aktiv
         \item Ereignisfluss:
         \begin{itemize}
             \item \Gls{Administrator} loggt sich am Server ein
@@ -568,7 +572,7 @@ Das Domanenwissen liegt oft bei den Mitarbeitern bzw. Personen, die sich täglic
     \subsection{Spiel erstellen}
     \begin{itemize}
         \item Teilnehmende Akteure: \Gls{Organisator}, \Gls{Spieler}
-        \item Eingangsaktionen: Spiel-Server ist aktiv
+        \item Eingangsbedingungen: Spiel-Server ist aktiv
         \item Ausgangsaktionen: Spiel starten, \Gls{Spieler} werden eingeladen
         \item Ereignisfluss:
         \begin{itemize}
@@ -583,7 +587,7 @@ Das Domanenwissen liegt oft bei den Mitarbeitern bzw. Personen, die sich täglic
     \subsection{Spieler nach Spielbeginn einladen}
     \begin{itemize}
         \item Teilnehmende Akteure: \Gls{Organisator}, \Gls{Spieler}
-        \item Eingangsaktionen: Spiel-Server ist aktiv, Spiel ist gestartet
+        \item Eingangsbedingungen: Spiel-Server ist aktiv, Spiel ist gestartet
         \item Ausgangsaktionen: \Gls{Spieler} werden eingeladen
         \item Ereignisfluss:
         \begin{itemize}
@@ -598,7 +602,7 @@ Das Domanenwissen liegt oft bei den Mitarbeitern bzw. Personen, die sich täglic
     \subsection{Spiel vorzeitig beenden}
     \begin{itemize}
         \item Teilnehmende Akteure: \Gls{Organisator}, \Gls{Spieler}
-        \item Eingangsaktionen: Spiel ist aktiv und gestartet
+        \item Eingangsbedingungen: Spiel ist aktiv und gestartet
         \item Ausgangsaktionen: \Gls{Spieler} können Spiel nicht mehr spielen %werden sie benachrichtigt?
         \item Ereignisfluss:
         \begin{itemize}
@@ -612,7 +616,7 @@ Das Domanenwissen liegt oft bei den Mitarbeitern bzw. Personen, die sich täglic
     \subsection{Spiel löschen}
     \begin{itemize}
         \item Teilnehmende Akteure: \Gls{Organisator}
-        \item Eingangsaktionen: Spiel-Server ist aktiv, es existiert bereits ein Spiel
+        \item Eingangsbedingungen: Spiel-Server ist aktiv, es existiert bereits ein Spiel
         \item Ausgangsaktionen: Spiel löschen
         \item Ereignisfluss:
         \begin{itemize}
@@ -625,7 +629,7 @@ Das Domanenwissen liegt oft bei den Mitarbeitern bzw. Personen, die sich täglic
     \subsection{Spieleinstellungen speichern}
     \begin{itemize}
         \item Teilnehmende Akteure: \Gls{Organisator}
-        \item Eingangsaktionen: Spiel-Server ist aktiv
+        \item Eingangsbedingungen: Spiel-Server ist aktiv
         \item Ausgangsaktionen: \Gls{Spieleinstellungen} wiederverwenden
         \item Ereignisfluss:
         \begin{itemize}
@@ -639,7 +643,7 @@ Das Domanenwissen liegt oft bei den Mitarbeitern bzw. Personen, die sich täglic
     \subsection{Spieleinstellungen laden}
     \begin{itemize}
         \item Teilnehmende Akteure: \Gls{Organisator}
-        \item Eingangsaktionen: Spiel-Server ist aktiv, \Gls{Spieleinstellungen} wurden bereits gespeichert
+        \item Eingangsbedingungen: Spiel-Server ist aktiv, \Gls{Spieleinstellungen} wurden bereits gespeichert
         \item Ausgangsaktionen: Spiel starten
         \item Ereignisfluss:
         \begin{itemize}
@@ -655,14 +659,14 @@ Das Domanenwissen liegt oft bei den Mitarbeitern bzw. Personen, die sich täglic
 
     \begin{itemize}
         \item Teilnehmende Akteure: \Gls{Organisator}
-        \item Eingangsaktionen: \Gls{Organisator} öffnet die Auswertungsseite
+        \item Eingangsbedingungen: \Gls{Organisator} öffnet die Auswertungsseite
         \item Ausgangsaktionen: \Gls{Organisator} erhält die Auswertung
         \item Ereignisfluss -
     \end{itemize}
  \subsection{Spielzustand auslesen}
 	\begin{itemize}
 		\item Teilnehmende Akteure: \Gls{Organisator}
-		\item Eingangsaktionen: Spiel-Server ist aktiv
+		\item Eingangsbedingungen: Spiel-Server ist aktiv
 		\item Ereignisfluss:
 		\begin{itemize}
 			\item \Gls{Organisator} meldet sich an
@@ -685,7 +689,7 @@ Das Domanenwissen liegt oft bei den Mitarbeitern bzw. Personen, die sich täglic
     \subsection{Runde spielen: Matrix Select}
     \begin{itemize}
     	\item Teilnehmende Akteure: \Gls{Spieler}
-    	\item Eingangsaktionen: Spiel-Server ist aktiv, Spieler hat offenes Spiel des \Gls{Spielmodus} Matrix Select
+    	\item Eingangsbedingungen: Spiel-Server ist aktiv, Spieler hat offenes Spiel des \Gls{Spielmodus} Matrix Select
     	\item Ereignisfluss:
     	\begin{itemize}
     		\item \Gls{Spieler} meldet sich an
@@ -701,7 +705,7 @@ Das Domanenwissen liegt oft bei den Mitarbeitern bzw. Personen, die sich täglic
 	\subsection{Runde spielen: Binär Select}
 	\begin{itemize}
 		\item Teilnehmende Akteure: \Gls{Spieler}
-		\item Eingangsaktionen: Spiel-Server ist aktiv, \Gls{Spieler} hat offenes Spiel des \Gls{Spielmodus} Binär Select
+		\item Eingangsbedingungen: Spiel-Server ist aktiv, \Gls{Spieler} hat offenes Spiel des \Gls{Spielmodus} Binär Select
 		\item Ereignisfluss:
 		\begin{itemize}
 			\item \Gls{Spieler} meldet sich an
@@ -717,7 +721,7 @@ Das Domanenwissen liegt oft bei den Mitarbeitern bzw. Personen, die sich täglic
 	\subsection{Auswahl überspringen}
 	\begin{itemize}
 		\item Teilnehmende Akteure: \Gls{Spieler}
-		\item Eingangsaktionen: Spiel-Server ist aktiv, \Gls{Spieler} hat offenes Spiel
+		\item Eingangsbedingungen: Spiel-Server ist aktiv, \Gls{Spieler} hat offenes Spiel
         \item Ausgangsaktionen: Der \Gls{Spieler} kommt in die nächste Runde des aktiven Spiels
 		\item Ereignisfluss:
 		\begin{itemize}
@@ -733,7 +737,7 @@ Das Domanenwissen liegt oft bei den Mitarbeitern bzw. Personen, die sich täglic
     \subsection{Streak erreichen}\footnote{Zur Erklärung von Streak siehe \fref{fig:Streak_State}}
     \begin{itemize}
         \item Teilnehmende Akteure: \Gls{Spieler}
-        \item Eingangsaktionen: \Gls{Spieler} spielt eine Runde
+        \item Eingangsbedingungen: \Gls{Spieler} spielt eine Runde
         \item Ausgangsaktionen: \Gls{Spieler} erhält extra Punkte für seine Runde
         \item Ereignisfluss:
         \begin{itemize}
@@ -748,7 +752,7 @@ Das Domanenwissen liegt oft bei den Mitarbeitern bzw. Personen, die sich täglic
 	    \subsection{Achievements ansehen}
     \begin{itemize}
         \item Teilnehmende Akteure: \Gls{Spieler}
-        \item Eingangsaktionen: Spiel-Server ist aktiv
+        \item Eingangsbedingungen: Spiel-Server ist aktiv
         %\item Ausgangsaktionen: Achievements ansehen
         \item Ereignisfluss:
         \begin{itemize}
@@ -763,7 +767,7 @@ Das Domanenwissen liegt oft bei den Mitarbeitern bzw. Personen, die sich täglic
     \subsection{Leaderboard ansehen}
     \begin{itemize}
         \item Teilnehmende Akteure: \Gls{Spieler}
-        \item Eingangsaktionen: Spiel-Server ist aktiv
+        \item Eingangsbedingungen: Spiel-Server ist aktiv
         %\item Ausgangsaktionen: Leaderboard ansehen
         \item Ereignisfluss:
         \begin{itemize}
@@ -780,7 +784,7 @@ Das Domanenwissen liegt oft bei den Mitarbeitern bzw. Personen, die sich täglic
      \subsection{Sprache ändern}
     \begin{itemize}
     \item Teilnehmende Akteure: \Gls{Spieler}, \Gls{Organisator}
-    \item Eingangsaktionen: Spiel-Server ist aktiv
+    \item Eingangsbedingungen: Spiel-Server ist aktiv
     \item Ereignisfluss:
         \begin{itemize}
             \item \Gls{Organisator} oder \Gls{Spieler} meldet sich an
@@ -792,7 +796,7 @@ Das Domanenwissen liegt oft bei den Mitarbeitern bzw. Personen, die sich täglic
     \subsection{Server installieren}
     \begin{itemize}
         \item Teilnehmende Akteure: \Gls{Administrator} 
-        \item Eingangsaktionen: Computer mit MySQL und Tomcat installiert
+        \item Eingangsbedingungen: Computer mit MySQL und Tomcat installiert
         \item Ausgangsaktionen: Spiel-Server starten
         \item Ereignisfluss: 
             \begin{itemize}
@@ -806,7 +810,7 @@ Das Domanenwissen liegt oft bei den Mitarbeitern bzw. Personen, die sich täglic
     \subsection{Server beenden}
     \begin{itemize}
         \item Teilnehmende Akteure: \Gls{Administrator}
-        \item Eingangsaktionen: Spiel-Server ist aktiv
+        \item Eingangsbedingungen: Spiel-Server ist aktiv
         \item Ausgangsaktionen: MySQL beenden, falls sonst nichts Weiteres auf der Datenbank läuft
         \item Ereignisfluss: \Gls{Administrator} führt \texttt{tomcat/bin/shutdown.sh}(Linux \& Mac) bzw. \texttt{tomcat\textbackslash bin\textbackslash shutdown.bat}(Windows)
     \end{itemize}
@@ -814,7 +818,7 @@ Das Domanenwissen liegt oft bei den Mitarbeitern bzw. Personen, die sich täglic
     \subsection{Punkte eines Spielers zurücksetzen}
     \begin{itemize}
         \item Teilnehmende Akteure: \Gls{Administrator}, \Gls{Spieler}
-        \item Eingangsaktionen: Spiel-Server ist aktiv
+        \item Eingangsbedingungen: Spiel-Server ist aktiv
         \item Ausgangsaktionen: Die Punkte des \Gls{Spieler}s sind zurückgesetzt
         \item Ereignisfluss:
         \begin{itemize}
@@ -831,7 +835,7 @@ Das Domanenwissen liegt oft bei den Mitarbeitern bzw. Personen, die sich täglic
     \subsection{Passwort ändern}
     \begin{itemize}
     \item Teilnehmende Akteure: \Gls{Spieler}, \Gls{Organisator}
-    \item Eingangsaktionen: Spiel-Server ist aktiv
+    \item Eingangsbedingungen: Spiel-Server ist aktiv
     \item Ereignisfluss:
         \begin{itemize}
             \item \Gls{Organisator} oder \Gls{Spieler} meldet sich an
@@ -846,7 +850,7 @@ Das Domanenwissen liegt oft bei den Mitarbeitern bzw. Personen, die sich täglic
     \subsection{Passwort zurücksetzen}
     \begin{itemize}
         \item Teilnehmende Akteure: \Gls{Spieler}, \Gls{Organisator}
-        \item Eingangsaktionen: Spiel-Server ist aktiv
+        \item Eingangsbedingungen: Spiel-Server ist aktiv
         \item Ausgangsaktionen: Temporäres Passwort ändern
         \item Ereignisfluss:
         \begin{itemize}
@@ -858,7 +862,7 @@ Das Domanenwissen liegt oft bei den Mitarbeitern bzw. Personen, die sich täglic
        \subsection{Hilfe-Schaltfläche verwenden}
     \begin{itemize}
         \item Teilnehmende Akteure: \Gls{Spieler}, \Gls{Organisator}
-        \item Eingangsaktionen: \Gls{Spieler} oder \Gls{Organisator} benötigt Hilfe mit dem Produkt
+        \item Eingangsbedingungen: \Gls{Spieler} oder \Gls{Organisator} benötigt Hilfe mit dem Produkt
         \item Ausgangsaktionen: System zeigt dem Akteur die relevante Hilfe Seite
         \item Ereignisfluss:
             \begin{itemize}
