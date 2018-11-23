@@ -276,7 +276,7 @@ description={Alle \Glspl{Spieler} und \Glspl{Organisator}}
     
     \section{Verwaltung des \Gls{Spiel-Server}s}
     \begin{tabularx}{\linewidth}{@{}>{\bfseries}l@{\hspace{.5em}}X@{}} 
-	/F10/ & \Gls{Administrator} konfiguriert eine Config-Datei \\
+	/F10/ & Konfiguration einer Config-Datei, die dem Aufsetzen des \Gls{Spiel-Server}s dient, durch \Gls{Administrator} \\
 	/F20/ & Globales Passwort für \Glspl{Organisator} muss in /F10/ setzbar sein \\
     /F25/ & \Gls{ML-Server} muss in /F10/ setzbar sein
     \end{tabularx}
@@ -488,17 +488,17 @@ description={Alle \Glspl{Spieler} und \Glspl{Organisator}}
     \chapter{Nichtfunktionale Anforderungen}
 
     \begin{tabularx}{\linewidth}{@{}>{\bfseries}l@{\hspace{.5em}}X@{}}
-        /NF10/ & Es müssen mindestens 30 Spieler zur gleichen Zeit spielen können.\\
-        /NF20/ & Die Wartezeiten auf die Reaktion des GUIs dürfen nicht länger als zwei Sekunden betragen. \\
-	/NF30/ & Die Anmeldedauer darf nicht mehr als zwei Sekunden betragen. \\
-        /NF40/ & Ein Spieler soll das Ergebnis seiner gespielten Runde innerhalb von zwei Sekunden erhalten. \\
+        /NF10/ & Es müssen mindestens 30 \Gls{Spieler} zur gleichen Zeit spielen können.\\
+        /NF20/ & Die Wartezeiten auf eine Reaktion des GUIs dürfen nicht länger als zwei Sekunden betragen. \\
+	    /NF30/ & Die Anmeldedauer aus /F80/ und /F100/ darf nicht mehr als zwei Sekunden betragen. \\
+        /NF40/ & Ein \Gls{Spieler} soll das Ergebnis seiner gespielten Runde innerhalb von zwei Sekunden erhalten. \\
         /NF50/ & Das Design soll modern wirken. \\
         /NF60/ & Der \Gls{ML-Server} soll leicht austauschbar sein. \\
-        /NF70/ & Neue Spielmodi sollen leicht hinzugefügt werden können. \\
+        /NF70/ & Neue \Glspl{Spielmodus} sollen leicht hinzugefügt werden können. \\
         /NF80/ & Neue Spieloberflächen sollen leicht erweiterbar sein. \\
         /NF90/ & Neue Sprachen sollen leicht hinzugefügt werden können. \\
         /NF100/ & Browserkompatibilität: Das Produkt enthält nicht mehr als 0,1\% plattformspezifischer Anweisungen. \\
-        /NF110/ & Lizensierung des Produkts mit MIT-Lizenz.
+        /NF110/ & Lizensierung des \Gls{Produkt}s mit MIT-Lizenz.
     \end{tabularx}
 
     \chapter{Testszenarien}
@@ -517,9 +517,9 @@ description={Alle \Glspl{Spieler} und \Glspl{Organisator}}
         \item Eingangsbedingungen: \Gls{Spiel-Server} ist aktiv
         \item Ereignisfluss:
         \begin{itemize}
-            \item \Gls{Organisator} lädt den \Gls{Spieler} über das Organisator-GUI ein.
-            \item Der \Gls{Spieler} klickt auf den Einladungslink in der E-Mail und wird auf die Registrierungsseite weitergeleitet.
-            \item Der \Gls{Spieler} gibt einen einzigartigen Nutzernamen, seine E-Mail-Adresse sowie ein persönliches Passwort ein und bestätigt.
+            \item \Gls{Organisator} lädt den \Gls{Spieler} über das Organisator-GUI ein
+            \item Der \Gls{Spieler} klickt auf den Einladungslink in der E-Mail und wird auf die Registrierungsseite weitergeleitet
+            \item Der \Gls{Spieler} gibt einen einzigartigen Nutzernamen, seine E-Mail-Adresse sowie ein persönliches Passwort ein und bestätigt
         \end{itemize}
         \item Anforderungen: /F90/
     \end{itemize}
@@ -528,14 +528,14 @@ description={Alle \Glspl{Spieler} und \Glspl{Organisator}}
     \begin{itemize}
         \item Teilnehmende Akteure: \Gls{Spieler}
 
-        \item Eingangsbedingungen: \Gls{Spiel-Server} ist aktiv, Spieler ist registriert
+        \item Eingangsbedingungen: \Gls{Spiel-Server} ist aktiv, \Gls{Spieler} ist registriert
 
         \item Ereignisfluss:
         \begin{itemize}
             \item \Gls{Spieler} öffnet die Produktwebsite
             \item \Gls{Spieler} wählt die Rolle "\Gls{Spieler}" in Anmeldungs-GUI aus
             \item \Gls{Spieler} gibt E-Mail und Passwort ein
-            \item \Gls{Spieler} klickt auf anmelden
+            \item \Gls{Spieler} klickt auf \enquote{Anmelden}
         \end{itemize}
         \item Anforderungen: /F100/
     \end{itemize}
@@ -547,7 +547,7 @@ description={Alle \Glspl{Spieler} und \Glspl{Organisator}}
         \item Ereignisfluss:
         \begin{itemize}
             \item \Gls{Spieler} klickt auf Klappmenü
-            \item \Gls{Spieler} klickt auf abmelden
+            \item \Gls{Spieler} klickt auf \enquote{Abmelden}
             \item \Gls{Spieler} bestätigt seine Auswahl
         \end{itemize}
         \item Anforderungen: /F110/
@@ -624,11 +624,10 @@ description={Alle \Glspl{Spieler} und \Glspl{Organisator}}
     \subsection{Spiel erstellen}
     \begin{itemize}
         \item Teilnehmende Akteure: \Gls{Organisator}, \Gls{Spieler}
-        \item Eingangsbedingungen: \Gls{Spiel-Server} ist aktiv
+        \item Eingangsbedingungen: \Gls{Spiel-Server} ist aktiv, \Gls{Organisator} ist angemeldet
         \item Ausgangsaktionen: \Gls{Spiel} starten, \Gls{Spieler} werden eingeladen
         \item Ereignisfluss:
         \begin{itemize}
-            \item \Gls{Organisator} meldet sich an
             \item \Gls{Organisator} klickt auf "Spiel erstellen"-Schaltfläche
             \item \Gls{Organisator} sucht sich über seine GUI die gewünschten \Gls{Spieleinstellungen} aus
             \item \Gls{Organisator} lädt \Gls{Spieler} über Angabe der Email in einem Textfeld ein
@@ -641,11 +640,10 @@ description={Alle \Glspl{Spieler} und \Glspl{Organisator}}
     \subsection{Spieler nach Spielbeginn einladen}
     \begin{itemize}
         \item Teilnehmende Akteure: \Gls{Organisator}, \Gls{Spieler}
-        \item Eingangsbedingungen: \Gls{Spiel-Server} ist aktiv, \Gls{Spiel} ist gestartet
+        \item Eingangsbedingungen: \Gls{Spiel-Server} ist aktiv, \Gls{Spiel} ist gestartet, \Gls{Organisator} ist angemeldet
         \item Ausgangsaktionen: \Gls{Spieler} werden eingeladen
         \item Ereignisfluss:
         \begin{itemize}
-            \item \Gls{Organisator} meldet sich an
             \item \Gls{Organisator} wählt gestartetes \Gls{Spiel} aus der Übersicht
             \item \Gls{Organisator} betätigt "Einladen"-Schaltfläche
             \item \Gls{Organisator} tippt Emails der \Gls{Spieler} in Textfeld ein
@@ -658,11 +656,10 @@ description={Alle \Glspl{Spieler} und \Glspl{Organisator}}
     \subsection{Spiel vorzeitig beenden}
     \begin{itemize}
         \item Teilnehmende Akteure: \Gls{Organisator}, \Gls{Spieler}
-        \item Eingangsbedingungen: \Gls{Spiel} ist aktiv und gestartet
+        \item Eingangsbedingungen: \Gls{Spiel} ist aktiv und gestartet, \Gls{Organisator} ist angemeldet
         \item Ausgangsaktionen: \Gls{Spieler} können \Gls{Spiel} nicht mehr spielen %werden sie benachrichtigt?
         \item Ereignisfluss:
         \begin{itemize}
-            \item \Gls{Organisator} meldet sich an
             \item \Gls{Organisator} wählt gestartetes \Gls{Spiel} aus der Übersicht
             \item \Gls{Organisator} betätigt "Beenden"-Schaltfläche
             \item \Gls{Organisator} bestätigt seine Auswahl
@@ -673,11 +670,10 @@ description={Alle \Glspl{Spieler} und \Glspl{Organisator}}
     \subsection{Spiel löschen}
     \begin{itemize}
         \item Teilnehmende Akteure: \Gls{Organisator}
-        \item Eingangsbedingungen: \Gls{Spiel-Server} ist aktiv, es existiert bereits ein Spiel
+        \item Eingangsbedingungen: \Gls{Spiel-Server} ist aktiv, es existiert bereits ein Spiel, \Gls{Organisator} ist angemeldet
         \item Ausgangsaktionen: \Gls{Spiel} löschen
         \item Ereignisfluss:
         \begin{itemize}
-            \item \Gls{Organisator} meldet sich an
             \item \Gls{Organisator} wählt über seine GUI das zu löschende Spiel
             \item \Gls{Organisator} bestätigt seine Auswahl
         \end{itemize}
@@ -687,11 +683,10 @@ description={Alle \Glspl{Spieler} und \Glspl{Organisator}}
     \subsection{Spieleinstellungen speichern}
     \begin{itemize}
         \item Teilnehmende Akteure: \Gls{Organisator}
-        \item Eingangsbedingungen: \Gls{Spiel-Server} ist aktiv
+        \item Eingangsbedingungen: \Gls{Spiel-Server} ist aktiv, \Gls{Organisator} ist angemeldet
         \item Ausgangsaktionen: \Gls{Spieleinstellungen} wiederverwenden
         \item Ereignisfluss:
         \begin{itemize}
-            \item \Gls{Organisator} meldet sich an
             \item \Gls{Organisator} sucht sich über seine GUI das \Gls{Spiel} aus, von dem er die Einstellungen speichern möchte
             \item \Gls{Organisator} wählt die Option \enquote{Spieleinstellungen speichern}
             \item \Gls{Organisator} bestätigt seine Auswahl und speichert die Einstellungen
@@ -717,10 +712,9 @@ description={Alle \Glspl{Spieler} und \Glspl{Organisator}}
  \subsection{Spielzustand auslesen}
 	\begin{itemize}
 		\item Teilnehmende Akteure: \Gls{Organisator}
-		\item Eingangsbedingungen: \Gls{Spiel-Server} ist aktiv
+		\item Eingangsbedingungen: \Gls{Spiel-Server} ist aktiv, \Gls{Organisator} ist angemeldet
 		\item Ereignisfluss:
 		\begin{itemize}
-			\item \Gls{Organisator} meldet sich an
 			\item \Gls{Organisator} erreicht seine Übersichtsseite
 			\item \Gls{Organisator} sieht den Zustand seiner laufenden Spiele
 		\end{itemize}
@@ -755,7 +749,7 @@ description={Alle \Glspl{Spieler} und \Glspl{Organisator}}
     	\item Teilnehmende Akteure: \Gls{Spieler}
 
     	\item Eingangsbedingungen: \Gls{Spiel-Server} ist aktiv, \Gls{Spieler} hat offenes \Gls{Spiel} des \Gls{Spielmodus} Matrix Select, \Gls{Spieler} ist angemeldet
-        \item Ausgangsaktion: System gibt Spieler die erreichten Punkte an
+        \item Ausgangsaktion: System gibt Spieler die erreichte Punktzahl an
     	\item Ereignisfluss:
     	\begin{itemize}
     		\item \Gls{Spieler} klickt auf ein Merkmal und sieht Merkmalsgraphen und Merkmalsbeschreibung
@@ -770,13 +764,13 @@ description={Alle \Glspl{Spieler} und \Glspl{Organisator}}
 		\item Teilnehmende Akteure: \Gls{Spieler}
 
 		\item Eingangsbedingungen: \Gls{Spiel-Server} ist aktiv, \Gls{Spieler} hat offenes \Gls{Spiel} des \Gls{Spielmodus} Binär Select, \Gls{Spieler} ist angemeldet
-        \item Ausgangsaktion: System gibt Spieler die erreichten Punkte an
+        \item Ausgangsaktion: System gibt \Gls{Spieler} die erreichte Punktzahl an
 		\item Ereignisfluss:
 		\begin{itemize}
 			\item \Gls{Spieler} klickt auf ein Merkmal und sieht Merkmalsgraphen und Merkmalsbeschreibung
 			\item \Gls{Spieler} wählt eines der beiden Merkmale aus
 			\item \Gls{Spieler} klickt auf Schaltfläche, um Auswahl zu bestätigen
-            \item Wiederhole Ereignisfluss 5 mal
+            \item Wiederhole Ereignisfluss fünf Mal
 		\end{itemize}
         \item Anforderungen: /F440/ - /F480/
 	\end{itemize}
@@ -784,12 +778,10 @@ description={Alle \Glspl{Spieler} und \Glspl{Organisator}}
 	\subsection{Auswahl überspringen}
 	\begin{itemize}
 		\item Teilnehmende Akteure: \Gls{Spieler}
-		\item Eingangsbedingungen: \Gls{Spiel-Server} ist aktiv, \Gls{Spieler} hat offenes Spiel
+		\item Eingangsbedingungen: \Gls{Spiel-Server} ist aktiv, \Gls{Spieler} ist angemeldet und hat offenes Spiel
         \item Ausgangsaktionen: Der \Gls{Spieler} kommt in die nächste Runde des aktiven Spiels
 		\item Ereignisfluss:
 		\begin{itemize}
-			\item \Gls{Spieler} meldet sich an
-			\item \Gls{Spieler} erreicht seine Übersichtsseite
 			\item \Gls{Spieler} klickt auf Weiterspielen-Schaltfläche
 			\item \Gls{Spieler} erreicht Spiel-GUI
 			\item \Gls{Spieler} klickt Auswahl-Überspringen-Schaltfläche und bestätigt seine Auswahl
@@ -801,11 +793,11 @@ description={Alle \Glspl{Spieler} und \Glspl{Organisator}}
     \begin{itemize}
         \item Teilnehmende Akteure: \Gls{Spieler}
         \item Eingangsbedingungen: \Gls{Spieler} spielt eine Runde
-        \item Ausgangsaktionen: \Gls{Spieler} erhält extra Punkte für seine Runde
+        \item Ausgangsaktionen: \Gls{Spieler} erhält doppelte Punkte für seine Runde
         \item Ereignisfluss:
         \begin{itemize}
-            \item \Gls{Spieler} spielt n Runden um eine Streak zu erreichen.
-            \item System teilt dem \Gls{Spieler} mit, dass er eine Streak erreicht hat.
+            \item \Gls{Spieler} spielt n Runden am Stück, um eine Streak zu erreichen
+            \item System teilt dem \Gls{Spieler} mit, dass er eine Streak erreicht hat
         \end{itemize}
         \item Anforderungen: /F740/
     \end{itemize}
@@ -865,7 +857,7 @@ description={Alle \Glspl{Spieler} und \Glspl{Organisator}}
     \begin{itemize}
         \item Teilnehmende Akteure: \Gls{Administrator}
         \item Eingangsbedingungen: \Gls{Spiel-Server} ist aktiv
-        \item Ereignisfluss: \Gls{Administrator} führt \texttt{tomcat/bin/shutdown.sh}(Linux \& Mac) bzw.  \texttt{tomcat\textbackslash bin\textbackslash shutdown.bat}(Windows)
+        \item Ereignisfluss: \Gls{Administrator} führt \texttt{tomcat/bin/shutdown.sh} (Linux \& Mac) bzw.  \texttt{tomcat\textbackslash bin\textbackslash shutdown.bat} (Windows)
         \item Anforderungen: /F50/
     \end{itemize}
 
@@ -886,7 +878,7 @@ description={Alle \Glspl{Spieler} und \Glspl{Organisator}}
     \subsection{Passwort zurücksetzen}
     \begin{itemize}
         \item Teilnehmende Akteure: \Gls{Spieler}, \Gls{Organisator}
-        \item Eingangsbedingungen: \Gls{Spiel-Server} ist aktiv, \Gls{Spieler} oder \Gls{Organisator} ist nicht angemeldet
+        \item Eingangsbedingungen: \Gls{Spiel-Server} ist aktiv, \Gls{Spieler} oder \Gls{Organisator} ist in Anmelde-GUI
         \item Ereignisfluss:
         \begin{itemize}
             \item \Gls{Organisator} oder \Gls{Spieler} klickt in Anmelde-GUI auf \enquote{Passwort zurücksetzen}
@@ -915,11 +907,11 @@ description={Alle \Glspl{Spieler} und \Glspl{Organisator}}
     \subsection{Streak}
     \label{fig:Streak_State}
     \includegraphics[width=\textwidth]{uml/export/Streak_Zustand.png}
-    Die Zustände, die eine Streak haben kann. Eine Streak ist immer auf einen Spieler beschränkt.
+    Die Zustände, die eine Streak haben kann. Eine Streak ist immer auf einen \Gls{Spieler} beschränkt.
     Zustandsbeschreibung:
     \begin{itemize}
-    \item begonnen: Eine angefangene Steak, die noch nicht lang genug ist, um für den Spieler eine erhöhte Punktzahl zu erreichen.
-    \item aktiv: Die Streak ist lang genug. In diesem Zustand erhält der Spieler mehr Punkte. (Faktor $\geq$ 1)
+    \item begonnen: Eine angefangene Streak, die noch nicht lang genug ist, um für den \Gls{Spieler} eine erhöhte Punktzahl zu erreichen.
+    \item aktiv: Die Streak ist lang genug. In diesem Zustand erhält der \Gls{Spieler} doppelt so viele Punkte.
     \end{itemize}
     \subsection{Spiel}
     \label{fig:Spiel_State}
@@ -927,19 +919,19 @@ description={Alle \Glspl{Spieler} und \Glspl{Organisator}}
     Die Zustände, die ein \Gls{Spiel} von der Erstellung bis zum Beenden haben kann.
     Zustandsbeschreibung:
     \begin{itemize}
-    \item existiert: Das \Gls{Spiel} existiert, besitzt also einen Datensatz, Endbedingungen und Spielmodus. Es sind aber noch keine Spieler eingeladen, also kann es nicht gespielt werden.
-    \item läuft: Das \Gls{Spiel} kann von Spielern gespielt werden.
-    \item beendet: Das \Gls{Spiel} wurde beendet. Kein Spieler kann mehr eine Runde spielen. Die Ergebnisse können aber noch ausgelesen werden.
+    \item existiert: Das \Gls{Spiel} existiert, besitzt also einen Datensatz, Endbedingungen und Spielmodus. Es sind aber noch keine \Gls{Spieler} eingeladen, also kann es nicht gespielt werden.
+    \item läuft: Das \Gls{Spiel} kann von \Gls{Spieler}n gespielt werden.
+    \item beendet: Das \Gls{Spiel} wurde beendet. Kein \Gls{Spieler} kann mehr eine Runde spielen. Die Ergebnisse können aber noch ausgelesen werden.
     \end{itemize}
     \subsection{Achievements}
     \label{fig:Achievment_State}
     \includegraphics[width=\textwidth]{uml/export/Achievment_State.png}
-    Die Zustände, die ein \Gls{Achievement} von \enquote{Spieler kennt das \Gls{Achievement} nicht} bis zu \enquote{Spieler hat das Achievement erreicht}.
+    Die Zustände, die ein \Gls{Achievement} von \enquote{\Gls{Spieler} kennt das \Gls{Achievement} nicht} bis zu \enquote{\Gls{Spieler} hat das \Gls{Achievement} erreicht}.
     \begin{itemize}
-    \item Nicht sichtbar: Spieler weiß nicht, dass das Achievment existiert.
-    \item Verdeckt: Spieler weiß, dass dieses \Gls{Achievement} existiert, aber weiß nicht, was er tun muss, um es zu erreichen.
-    \item Freigeschaltet: Die Bedingungen für das Erreichen dieses Achievements sind dem Spieler bekannt.
-    \item Erreicht: Der Spieler hat die Bedingungen für das Erreichen dieses Achievements erfüllt.
+    \item Nicht sichtbar: \Gls{Spieler} weiß nicht, dass das \Gls{Achievement} existiert.
+    \item Verdeckt: \Gls{Spieler} weiß, dass dieses \Gls{Achievement} existiert, aber weiß nicht, was er tun muss, um es zu erreichen.
+    \item Freigeschaltet: Die Bedingungen für das Erreichen dieses \Gls{Achievement}s sind dem \Gls{Spieler} bekannt.
+    \item Erreicht: Der \Gls{Spieler} hat die Bedingungen für das Erreichen dieses \Gls{Achievement}s erfüllt.
     \end{itemize}
     
 
