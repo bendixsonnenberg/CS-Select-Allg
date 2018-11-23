@@ -58,7 +58,7 @@ description={Binär Select ist ein \Gls{Spielmodus}, in dem ein \Gls{Spieler} ge
 {
 name=Spieler,
 plural=Spieler,
-description={Ein Nutzer, welcher an einem Spiel teilnimmt. Meist ist dies ein Angestellter des Betriebs}
+description={Eine im System registrierte Person, welche an einem Spiel teilnimmt. Meist ist dies ein Angestellter des Betriebs}
 }
 
 \newglossaryentry{Spieleinstellungen}
@@ -71,7 +71,7 @@ description={Einstellungen für ein \Gls{Spiel} umfassen: die Merkmale, welche a
 {
 name=Organisator,
 plural=Organisatoren,
-description={Ein Organisator ist ein Nutzer, der neue Spiele erstellt und die Ergebnisse von diesen ausliest}
+description={Ein Organisator ist eine im System registrierte Person, die neue Spiele erstellt und die Ergebnisse von diesen ausliest}
 }
 \newglossaryentry{Achievement}
 {
@@ -83,7 +83,7 @@ description={Ein Ziel oder eine Errungenschaft, welche den \Gls{Spieler} motivie
 {
 name=Administrator,
 plural=Administratoren,
-description={Die Person, welche das System installiert und den Nutzern zur Verfügung stellt. Sie verwaltet den \Gls{Spiel-Server}. Jede Person mit Zugang zu dem Computer, auf dem der \Gls{Spiel-Server} läuft hat Administrator-Rechte}
+description={Die Person, welche das System installiert und den \Glspl{Nutzer}n zur Verfügung stellt. Sie verwaltet den \Gls{Spiel-Server}. Jede Person mit Zugang zu dem Computer, auf dem der \Gls{Spiel-Server} läuft hat Administrator-Rechte}
 }
 \newglossaryentry{Spiel-Server}
 {
@@ -106,6 +106,12 @@ description={Ein Server, der nicht Bestandteil des Produkts ist, jedoch benötig
 name=Domänenwissen,
 description={Wissen, das sich direkt auf die mit Hilfe unseres Produkts zu optimierenden Prozesse bezieht.
 Das Domänenwissen liegt oft bei den Mitarbeitern bzw. Personen, die sich täglich mit konkreten Problemen, die eine solche Vorhersage beeinflussen, in auseinandersetzen}
+}
+\newglossaryentry{Nutzer}
+{
+name=Nutzer,
+plural=Nutzer,
+description={Alle \Glspl{Spieler} und \Glspl{Organisator}}
 }
 
 
@@ -141,11 +147,12 @@ Das Domänenwissen liegt oft bei den Mitarbeitern bzw. Personen, die sich tägli
     \section{Musskriterien}
     \begin{itemize} %TODO: In diesem Absatz, Glossar Links
         \item Verwalten des \Gls{Spiel-Server}s durch \Gls{Administrator}
-    	\item Anmeldemechanismus zum Verwalten der Nutzer
+    	\item Anmeldemechanismus zum Verwalten der \Glspl{Nutzer}
 	\item Grafische Benutzeroberflächen für Anwender 
         \begin{itemize}
-            \item Organisator-GUI (Übersichts-GUI, Spielerstellungs-GUI) 
-            \item Spieler-GUI (Übersichts-GUI, Spiel-GUI) 
+            \item Anmeldungs-GUI
+            \item Organisator-GUI (Übersichts-GUI, Spielerstellungs-GUI)
+            \item Spieler-GUI (Übersichts-GUI, Spiel-GUI)
             \item Läuft im \Gls{Webbrowser}
         \end{itemize}
         \item Merkmalsauswahl anhand von \Glspl{Spiel}n  %Formulierung
@@ -174,7 +181,7 @@ Das Domänenwissen liegt oft bei den Mitarbeitern bzw. Personen, die sich tägli
             \item \Glspl{Spiel} aus dem System löschen
             \item Sauberes Beenden des \Gls{Spiel-Server}s
         \end{itemize}
-	\item Erweiterte Nutzerverwaltung 
+	\item Erweiterte Nutzerverwaltung
 	\item Zusätzliche Funktionen für den \Gls{Organisator} in Übersichts-GUI
         \begin{itemize}
             \item Beendete Spiele aus Übersicht löschen
@@ -212,7 +219,7 @@ Das Domänenwissen liegt oft bei den Mitarbeitern bzw. Personen, die sich tägli
 
     \section{Gamification}
     \label{sec:gamification}
-    Gamification bezeichnet die Verwendung spieltypischer Elemente wie beispielsweise Level, Achievements und Leaderboards in Anwendungen, um eine Motivationssteigerung bei den Nutzern zu erreichen.
+    Gamification bezeichnet die Verwendung spieltypischer Elemente wie beispielsweise Level, Achievements und Leaderboards in Anwendungen, um eine Motivationssteigerung bei den \Glspl{Nutzer}n zu erreichen.
     Im \Gls{Produkt} wird eine Mehrzahl an Gamification-Elementen zu eben jenem Zweck genutzt.
     Die verwendeten Gamification-Elemente finden sich in \fref{sec:Gamification-Elemente} sowie \fref{sec:Optionale Gamification-Elemente}.
 
@@ -288,14 +295,14 @@ Das Domänenwissen liegt oft bei den Mitarbeitern bzw. Personen, die sich tägli
 	/F80/ & Anmelden des \Gls{Organisator}s mit E-Mail und Passwort \\
 	/F90/ & Erstregistrierung eines \Gls{Spieler}s mit E-Mail und Passwort nach dem Erhalten einer Einladung per E-Mail \\
 	/F100/ & Anmelden eines \Gls{Spieler}s mit E-Mail und Passwort \\
-    /F110/ & Abmelden der Nutzer
+    /F110/ & Abmelden von \Gls{Organisator} und \Gls{Spieler}
     \end{tabularx}
 
     \section{Optional: Zusätzliche Funktionen für die Nutzerverwaltung}
     \begin{tabularx}{\linewidth}{@{}>{\bfseries}l@{\hspace{.5em}}X@{}} 
-	/F120/ & Änderung der E-Mail von Nutzern \\
-	/F130/ & Änderung des Passworts von Nutzern \\
-	/F140/ & Zurücksetzen des Passworts von Nutzern ohne Kenntnis des derzeitigen Passworts \\
+	/F120/ & Änderung der E-Mail von \Glspl{Nutzer}n \\
+	/F130/ & Änderung des Passworts von \Glspl{Nutzer}n \\
+	/F140/ & Zurücksetzen des Passworts von \Glspl{Nutzer}n ohne Kenntnis des derzeitigen Passworts \\
     \end{tabularx}
     
     \section{Spielerstellung}
@@ -384,14 +391,14 @@ Das Domänenwissen liegt oft bei den Mitarbeitern bzw. Personen, die sich tägli
     
     \section{GUI}
     \begin{tabularx}{\linewidth}{@{}>{\bfseries}l@{\hspace{.5em}}X@{}} % Linebreaks in der Tabelle
-    /F600/ & Nutzer haben Zugriff auf die Anmeldungs-GUI in einem \Gls{Webbrowser} \\
+    /F600/ & \Glspl{Nutzer} haben Zugriff auf die Anmeldungs-GUI in einem \Gls{Webbrowser} \\
     /F610/ & \Glspl{Organisator} erreichen nach erfolgreicher Anmeldung die Organisator-Überschichts-GUI \\
     /F620/ & \Gls{Spieler} erreichen nach erfolgreicher Anmeldung die Spieler-Übersichts-GUI \\
     /F630/ & \Glspl{Organisator} gelangen nach Betätigung der Spielerstellungs-Schaltfläche zur Spielerstellungs-GUI \\
     /F640/ & Nach Beenden der Spielerstellung kehren \Glspl{Organisator} auf die Organisator-Übersichts-GUI zurück \\
     /F650/ & \Gls{Spieler} gelangen nach Betätigung der \enquote{Weiterspielen}-Schaltfläche zur Spiel-GUI \\
     /F660/ & Nach Beenden der Runde kehren \Gls{Spieler} entweder auf die Spieler-Übersichts-GUI oder die Spiel-GUI zurück, je nach Auswahl in /F350/ \\
-    /F670/ & Nach Abmeldung kehren Nutzer auf die Anmeldungs-GUI zurück \\
+    /F670/ & Nach Abmeldung kehren \Glspl{Nutzer} auf die Anmeldungs-GUI zurück \\
     \end{tabularx}
         
     \section{Gamification-Elemente} %link?
@@ -417,7 +424,7 @@ Das Domänenwissen liegt oft bei den Mitarbeitern bzw. Personen, die sich tägli
 	\begin{tabularx}{\linewidth}{@{}>{\bfseries}l@{\hspace{.5em}}X@{}}
 	/F760/ & Hilfe-Schaltfläche in Organisator-GUIs \\
 	/F770/ & Hilfe Schaltfläche in Spieler-GUIs \\
-	/F780/ & Wenn der Nutzer mit dem Mauszeiger auf einer Schaltfläche im GUI verweilt, erscheint ein Tooltip \\ %Glossar
+	/F780/ & Wenn der \Gls{Nutzer} mit dem Mauszeiger auf einer Schaltfläche im GUI verweilt, erscheint ein Tooltip \\ %Glossar
 	\end{tabularx}
 
 
@@ -430,7 +437,7 @@ Das Domänenwissen liegt oft bei den Mitarbeitern bzw. Personen, die sich tägli
     \section{Optional: Internationalisierung}
     \begin{tabularx}{\linewidth}{@{}>{\bfseries}l@{\hspace{.5em}}X@{}}
 	/F800/ & Bereitstellung eines englischen Sprachpakets für die GUIs \\
-	/F810/ & Änderung der Sprache für Nutzer im GUI möglich \\
+	/F810/ & Änderung der Sprache für  \Gls{Nutzer} im GUI möglich \\
     \end{tabularx}
 
     \section{Optional: Unterstützung von mehreren Plattformen}
@@ -448,7 +455,7 @@ Das Domänenwissen liegt oft bei den Mitarbeitern bzw. Personen, die sich tägli
 
     \section{Nutzerdaten}
     \begin{tabularx}{\linewidth}{@{}>{\bfseries}l@{\hspace{.5em}}X@{}}
-        /D10/ & Über Nutzer(\Gls{Spieler}, \Gls{Organisator}) sind folgende Daten zu speichern /ND10/: 
+        /D10/ & Über \Gls{Nutzer} sind folgende Daten zu speichern /ND10/:
         \begin{itemize}
               \item E-Mail-Adresse, Nutzername, Punktestand (nur \Gls{Spieler}), Rolle, Passwort (als Hash)
         \end{itemize} \\
@@ -526,11 +533,24 @@ Das Domänenwissen liegt oft bei den Mitarbeitern bzw. Personen, die sich tägli
         \item Ereignisfluss:
         \begin{itemize}
             \item \Gls{Spieler} öffnet die Produktwebsite
-            \item \Gls{Spieler} wählt die Rolle "\Gls{Spieler}" aus
+            \item \Gls{Spieler} wählt die Rolle "\Gls{Spieler}" in Anmeldungs-GUI aus
             \item \Gls{Spieler} gibt E-Mail und Passwort ein
             \item \Gls{Spieler} klickt auf anmelden
         \end{itemize}
         \item Anforderungen: /F100/
+    \end{itemize}
+
+    \subsection{Spieler abmelden}
+    \begin{itemize}
+        \item Teilnehmende Akteure: \Gls{Spieler}
+        \item Eingangsbedingungen: \Gls{Spiel-Server} ist aktiv, \Gls{Spieler} ist angemeldet
+        \item Ereignisfluss:
+        \begin{itemize}
+            \item \Gls{Spieler} klickt auf Klappmenü
+            \item \Gls{Spieler} klickt auf abmelden
+            \item \Gls{Spieler} bestätigt seine Auswahl
+        \end{itemize}
+        \item Anforderungen: /F110/
     \end{itemize}
 
     \begin{comment} %% das ist noch nicht in den anforderungen
@@ -566,11 +586,24 @@ Das Domänenwissen liegt oft bei den Mitarbeitern bzw. Personen, die sich tägli
         \item Ereignisfluss:
         \begin{itemize}
             \item \Gls{Organisator} öffnet die Produktwebsite
-            \item \Gls{Organisator} wählt die Rolle "\Gls{Organisator}" aus
+            \item \Gls{Organisator} wählt die Rolle "\Gls{Organisator}" in Anmeldungs-GUI aus
             \item \Gls{Organisator} gibt E-Mail und Passwort ein
             \item \Gls{Organisator} klickt auf anmelden
         \end{itemize}
         \item Anforderungen: /F80/
+    \end{itemize}
+
+    \subsection{Organisator abmelden}
+    \begin{itemize}
+        \item Teilnehmende Akteure: \Gls{Organisator}
+        \item Eingangsbedingungen: \Gls{Spiel-Server} ist aktiv, \Gls{Organisator} ist angemeldet
+        \item Ereignisfluss:
+        \begin{itemize}
+            \item \Gls{Organisator} klickt auf Klappmenü
+            \item \Gls{Organisator} klickt auf abmelden
+            \item \Gls{Organisator} bestätigt seine Auswahl
+        \end{itemize}
+        \item Anforderungen: /F110/
     \end{itemize}
 
     \begin{comment} %% steht auch nicht in den anforderungen
@@ -700,13 +733,28 @@ Das Domänenwissen liegt oft bei den Mitarbeitern bzw. Personen, die sich tägli
     \begin{itemize}
     \item \Gls{Spieler}
     \end{itemize}
-    
-   
+
+    \subsection{Einladung zu Spiel annehmen}
+    \begin{itemize}
+        \item Teilnehmende Akteure: \Gls{Spieler}
+
+        \item Eingangsbedingungen: \Gls{Spiel-Server} ist aktiv, Spieler wurde von \Gls{Organisator} zu einem Spiel eingeladen, \Gls{Spieler} ist angemeldet
+        \item Ausgangsaktion: \Gls{Spieler} kann \Gls{Spiel} spielen
+        \item Ereignisfluss:
+        \begin{itemize}
+            \item \Gls{Spieler} klickt auf die "Ja"-Schaltfläche im Benachrichtigungsfeld der Spieler-GUI
+            \item \Gls{Spieler} bestätigt seine Auswahl
+            \item Die Benachrichtigung wird vom \Gls{Spiel-Server} gelöscht
+            \item \Gls{Spieler} kann an \Gls{Spiel} teilnehmen
+        \end{itemize}
+        \item Anforderung: /F290/
+    \end{itemize}
+
     \subsection{Runde spielen: Matrix Select}
     \begin{itemize}
     	\item Teilnehmende Akteure: \Gls{Spieler}
 
-    	\item Eingangsbedingungen: \Gls{Spiel-Server} ist aktiv, Spieler hat offenes \Gls{Spiel} des \Gls{Spielmodus} Matrix Select, \Gls{Spieler} ist angemeldet
+    	\item Eingangsbedingungen: \Gls{Spiel-Server} ist aktiv, \Gls{Spieler} hat offenes \Gls{Spiel} des \Gls{Spielmodus} Matrix Select, \Gls{Spieler} ist angemeldet
         \item Ausgangsaktion: System gibt Spieler die erreichten Punkte an
     	\item Ereignisfluss:
     	\begin{itemize}
