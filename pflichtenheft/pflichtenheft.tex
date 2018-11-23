@@ -732,15 +732,25 @@ description={Als Nutzer wird ein \Gls{Spieler} oder ein \Gls{Organisator} bezeic
     \begin{itemize}
         \item Teilnehmende Akteure: \Gls{Spieler}
 
-        \item Eingangsbedingungen: \Gls{Spiel-Server} ist aktiv, Spieler wurde von \Gls{Organisator} zu einem Spiel eingeladen, \Gls{Spieler} ist angemeldet
+        \item Eingangsbedingungen: \Gls{Spiel-Server} ist aktiv, Spieler wurde von \Gls{Organisator} zu einem Spiel eingeladen
         \item Ausgangsaktion: \Gls{Spieler} kann \Gls{Spiel} spielen
-        \item Ereignisfluss:
+        \item Ereignisfluss:\\
+        Option 1: 
+        Eingangsbedingung: \Gls{Spieler} ist angemeldet
         \begin{itemize}
             \item \Gls{Spieler} klickt auf die "Ja"-Schaltfläche im Benachrichtigungsfeld der Spieler-GUI
             \item \Gls{Spieler} bestätigt seine Auswahl
             \item Die Benachrichtigung wird vom \Gls{Spiel-Server} gelöscht
             \item \Gls{Spieler} kann an \Gls{Spiel} teilnehmen
         \end{itemize}
+        Option 2: 
+        \begin{itemize}
+            \item \Gls{Spieler} erhält E-Mail mit Einladung und Einladungslink
+            \item \Gls{Spieler} klickt auf den Einladungslink
+            \item Die Benachrichtigung wird vom \Gls{Spiel-Server} gelöscht
+            \item \Gls{Spieler} kann an \Gls{Spiel} teilnehmen
+        \end{itemize}
+
         \item Anforderung: /F290/
     \end{itemize}
 
