@@ -546,6 +546,7 @@ Das Domanenwissen liegt oft bei den Mitarbeitern bzw. Personen, die sich täglic
             \item \Gls{Organisator} öffnet die Produktwebsite und klickt auf Registrieren
             \item \Gls{Organisator} gibt einen einzigartigen Nutzernamen, seine E-Mail-Adresse, das Organisator-Registrierungspasswort sowie ein persönliches Passwort ein und bestätigt seine Auswahl
         \end{itemize}
+        \item Anforderungen: /F70/
     \end{itemize}
 
     \subsection{Organisator anmelden}
@@ -559,8 +560,10 @@ Das Domanenwissen liegt oft bei den Mitarbeitern bzw. Personen, die sich täglic
             \item \Gls{Organisator} gibt E-Mail und Passwort ein
             \item \Gls{Organisator} klickt auf anmelden
         \end{itemize}
+        \item Anforderungen: /F80/
     \end{itemize}
 
+    \begin{comment} %% steht auch nicht in den anforderungen
     \subsection{Organisator löschen}
     \begin{itemize}
         \item Teilnehmende Akteure: \Gls{Administrator}
@@ -572,7 +575,7 @@ Das Domanenwissen liegt oft bei den Mitarbeitern bzw. Personen, die sich täglic
             \item \Gls{Administrator} bestätigt den Vorgang
         \end{itemize}
     \end{itemize}
-
+    \end{comment}
     \subsection{Spiel erstellen}
     \begin{itemize}
         \item Teilnehmende Akteure: \Gls{Organisator}, \Gls{Spieler}
@@ -584,15 +587,17 @@ Das Domanenwissen liegt oft bei den Mitarbeitern bzw. Personen, die sich täglic
             \item \Gls{Organisator} klickt auf "Spiel erstellen"-Schaltfläche
             \item \Gls{Organisator} sucht sich über seine GUI die gewünschten \Gls{Spieleinstellungen} aus
             \item \Gls{Organisator} lädt \Gls{Spieler} über Angabe der Email in einem Textfeld ein
+            \item Eingeladene \Gls{Spieler} erhalten Benachrichtigung über Einladung
             \item \Gls{Organisator} bestätigt seine Auswahl und erstellt das Spiel
         \end{itemize}
+        \item Anforderungen: /F150/ - /F260/, /F280/, /F290/
     \end{itemize}
 
     \subsection{Spieler nach Spielbeginn einladen}
     \begin{itemize}
         \item Teilnehmende Akteure: \Gls{Organisator}, \Gls{Spieler}
         \item Eingangsbedingungen: Spiel-Server ist aktiv, Spiel ist gestartet
-        \item Ausgangsaktionen: \Gls{Spieler} werden eingeladen
+        \item Ausgangsaktionen: 
         \item Ereignisfluss:
         \begin{itemize}
             \item \Gls{Organisator} meldet sich an
@@ -600,14 +605,16 @@ Das Domanenwissen liegt oft bei den Mitarbeitern bzw. Personen, die sich täglic
             \item \Gls{Organisator} betätigt "Einladen"-Schaltfläche
             \item \Gls{Organisator} tippt Emails der \Gls{Spieler} in Textfeld ein
             \item \Gls{Organisator} bestätigt seine Auswahl
+            \item \Gls{Spieler} erhält Benachrichtigung über die Einladung
         \end{itemize}
+        \item Anforderungen: /F270/ - /F290/ 
     \end{itemize}
 
     \subsection{Spiel vorzeitig beenden}
     \begin{itemize}
         \item Teilnehmende Akteure: \Gls{Organisator}, \Gls{Spieler}
-        \item Eingangsbedingungen: Spiel ist aktiv und gestartet
-        \item Ausgangsaktionen: \Gls{Spieler} können Spiel nicht mehr spielen %werden sie benachrichtigt?
+        \item Eingangsbedingungen: \Gls{Spiele-Server} ist aktiv und Spiel läuft
+        \item Ausgangsaktionen: \Gls{Spieler} können Spiel nicht mehr spielen 
         \item Ereignisfluss:
         \begin{itemize}
             \item \Gls{Organisator} meldet sich an
@@ -615,19 +622,21 @@ Das Domanenwissen liegt oft bei den Mitarbeitern bzw. Personen, die sich täglic
             \item \Gls{Organisator} betätigt "Beenden"-Schaltfläche
             \item \Gls{Organisator} bestätigt seine Auswahl
         \end{itemize}
+        \item Anforderungen: /F390/
     \end{itemize}
 
     \subsection{Spiel löschen}
     \begin{itemize}
         \item Teilnehmende Akteure: \Gls{Organisator}
-        \item Eingangsbedingungen: Spiel-Server ist aktiv, es existiert bereits ein Spiel
-        \item Ausgangsaktionen: Spiel löschen
+        \item Eingangsbedingungen: Spiel-Server ist aktiv, das Spiel ist beendet
+        \item Ausgangsaktionen: das Spiel wird gelöschen
         \item Ereignisfluss:
         \begin{itemize}
             \item \Gls{Organisator} meldet sich an
             \item \Gls{Organisator} wählt über seine GUI das zu löschende Spiel
             \item \Gls{Organisator} bestätigt seine Auswahl
         \end{itemize}
+        \item Anforderungen: /F515/
     \end{itemize}
 
     \subsection{Spieleinstellungen speichern}
@@ -642,6 +651,7 @@ Das Domanenwissen liegt oft bei den Mitarbeitern bzw. Personen, die sich täglic
             \item \Gls{Organisator} wählt die Option \enquote{Spieleinstellungen speichern}
             \item \Gls{Organisator} bestätigt seine Auswahl und speichert die Einstellungen
         \end{itemize}
+        \item Anforderungen: /F250/
     \end{itemize}
 
     \subsection{Spieleinstellungen laden}
@@ -657,6 +667,7 @@ Das Domanenwissen liegt oft bei den Mitarbeitern bzw. Personen, die sich täglic
             \item \Gls{Organisator} sucht sich die bereits gespeicherte \Gls{Spieleinstellungen} heraus
             \item \Gls{Organisator} bestätigt seine Auswahl
         \end{itemize}
+        \item Anforderungen: /F260/
     \end{itemize}
 
     \subsection{Ergebnisse auslesen}
