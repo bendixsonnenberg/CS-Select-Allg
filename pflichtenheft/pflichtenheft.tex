@@ -103,6 +103,14 @@ description={Ein Server, der nicht Bestandteil des Produktes ist, jedoch benöti
     description={Die Menge an Features, die ein Machine Learning Modell zur Verfügung hat. Zu jedem Feature gehört noch eine Beschreibung und zwei Bilder.}
 }
 
+\newglossaryentry{Domanenwissen}
+{
+name=Domänenwissen,
+description={Wissen das sich direkt auf die mithilfe unseres Produkts zu optimierenden Prozesse bezieht.
+Das Domanenwissen liegt oft bei den Mitarbeitern bzw. Personen, die sich täglich mit konkreten Problemen, die eine solche Vorhersage beeinflussen, in der Produktion auseinandersetzen.}
+}
+
+
 \begin{document}
 
     \title{Pflichtenheft CS:Select}
@@ -113,21 +121,22 @@ description={Ein Server, der nicht Bestandteil des Produktes ist, jedoch benöti
     \tableofcontents
 
     \chapter{Einleitung}
-        In der heutigen Zeit wird Machine Learning in immer mehr Organisationen eingesetzt, um vorhersagende Systeme zu entwickeln.
-        Das Problem dabei ist: Es werden Werte für viele Merkmale aufgenommen, aber die Personen, welche das Netzwerk trainieren, haben meist kaum Wissen über die Zusammenhänge dieser Daten.
-        Das sogenannte Domänenwissen liegt oft bei den Personen, welche den gesamten Tag z.B. an der Produktionslinie verbringen. Einige der Merkmale sind vielleicht offensichtlich nutzlos
-        für das, was mit dem Machine Learning vorhergesagt werden soll. \footnote{Zum Beispiel ist die Außentemperatur nicht sehr aussagekräftig, wenn es um die Geschwindigkeit eines fallenden
-        Balls geht. Aber woher soll das denn der Computer wissen.} Es gibt bereits verschiedene Algorithmen, die dies übernehmen, aber diese sind meist zu langsam oder zu ineffizient.
-        \footnote{\href{https://de.wikipedia.org/wiki/Feature\_Subset\_Selection}{Feature Subset Selection Wikipedia}} 
-        Deshalb soll ein Crowdsourcing-Ansatz verfolgt werden, der mit Hilfe von Gamification\footnote{Das Anwenden von spiele typischen Elementen auf eigentlich nicht Spielumgebungen. Zum Beispiel Workout tracking Apps verwenden dies häufig, um die Nutzer zu mehr Bewegung zu animieren. \href{https://de.wikipedia.org/wiki/Gamification}{Wikipedia}} Elementen die Inhaber des Domänenwissens
-        zum Mithelfen motivieren soll. \\
-        Hierfür soll ein Spiel für den Browser entwickelt werden, welches Gamification verwendet und mit einem Machine Learning Server verbunden ist, um die Ergebnisse zu bewerten und am
-        Ende die aggregierten Spielergebnisse für die Auswertung ausgibt.
-        \\
-        Der Name \texttt{CS:Select} bedeutet: \textbf{C}rowd \textbf{S}ourcing\textbf{:Select}, wobei das Select auf die Merkmalsauswahl (eng. Feature Select) anspielt und CS auf die bekannte
-        Computerspiel Serie Counter-Strike\footnote{\href{https://de.wikipedia.org/wiki/Counter-Strike}{Wikipedia}}.
+    Machine-Learning wird in immer mehr Organisationen eingesetzt, um Vorhersagemodelle zu entwickeln.\\\\
+    In vielen Prozessen fallen Daten an, die sich in verschiedene Merkmale bündeln lassen.
+    Jedoch sind diese Merkmale nicht alle von gleichwertiger Relevanz für die aus ihnen resultierenden Eigenschaften des Prozessergebnisses, weshalb eine möglichst effizente Auswahl an Merkmalen getroffen werden muss.
+    Dieses Problem wird als Feature Subset Selection (FSS) bezeichnet.
+    Es existieren schon Algorithmen, die die Merkmalsauswahl übernehmen können, jedoch sind diese langsam oder zu simpel, als dass sie diese Problemstellung zufriedenstellend lösen können.
+    Die Data-Scientists, die die Machine-Learning Modelle trainieren, haben aber oft nicht ausreichend \Gls{Domanenwissen}, um die für ein aussagekräftiges Vorhersagemodell relevanten Merkmale auszuwählen.
+    Wir verwenden einen Crowdsourcing-Ansatz, um eine effizientere Lösungsmöglichkeit unter Einbeziehung des \Gls{Domanenwissen}s der Mitarbeiter zu ermöglichen.\\\\
+    Deshalb muss die Merkmalsauswahl von den Mitarbeitern mit dem jeweiligen \Gls{Domanenwissen} unterstützt werden.\\
+    Hierfür wird ein Spiel für den Browser entwickelt, in dem Personen mit \Gls{Domanenwissen} Merkmale bewerten können.
+    Motiviert werden sie durch diverse Gamification-Elemente, welche den Spielspaß steigern sollen und die Arbeitsbereitschaft erhöhen.
+    Dazu erhalten Spieler Punkte basierend auf der Relevanz ihrer Auswahl.\\\\
+    Primär geht es darum, Fachkräfte in die Merkmalsauswahl einzubinden, um ein einfaches, aber aussagekräftiges Vorhersagemodell zu erstellen.\\\\
+    Der Name des Produkts \texttt{CS:Select} bedeutet: \textbf{C}rowd \textbf{S}ourcing\textbf{:Select}, wobei \enquote{Select} sich auf die Merkmalsauswahl (engl. Feature Subset Selection) bezieht.
+
     \chapter{Zielbestimmung}
-    Eine Organisation soll durch das \Gls{Produkt} das Domänenwissen ihrer Mitarbeiter dazu nutzen, die Merkmalsauswahl für ein Machine-Learning-Modell zu vereinfachen.
+    Eine Organisation soll durch das \Gls{Produkt} das \Gls{Domanenwissen} ihrer Mitarbeiter dazu nutzen, die Merkmalsauswahl für ein Machine-Learning-Modell zu vereinfachen.
 
 
 
@@ -218,12 +227,13 @@ description={Ein Server, der nicht Bestandteil des Produktes ist, jedoch benöti
     in eine Datenbank ab und kommuniziert mit dem ML-Server. Die Kommunikation zwischen Spiel-Server und ML-Server wird durch HTTP-Anfragen stattfinden.
     \section{Anwendungsbereiche}
     Das \Gls{Produkt} dient der Verbesserung der Merkmalsauswahl bei Machine-Learning Prozessen in wissenschaftlichen
-    Experimenten beziehungsweise privatwirtschaftlichen Unternehmen durch das Domänenwissen der \Gls{Spieler}.
+    Experimenten beziehungsweise privatwirtschaftlichen Unternehmen durch das \Gls{Domanenwissen} der \Gls{Spieler}.
 
     \section{Zielgruppen}
     Die Zielgruppen des \Gls{Produkt}s lassen sich in \Glspl{Organisator} und \Glspl{Spieler} unterscheiden.
-    Der \Gls{Organisator} möchte eine Verbesserung der Machine-Learning Prozesse erreichen, indem er das Domänenwissen der \Gls{Spieler} nutzt.
-    Die \Gls{Spieler} tragen durch Spielen des \Gls{Produkt}s mit ihrem Domänenwissen zur besseren Merkmalsauswahl bei.
+
+    Der \Gls{Organisator} möchte eine Verbesserung der Machine-Learning Prozesse erreichen, indem er das \Gls{Domanenwissen} der \Gls{Spieler} nutzt.
+    Die \Gls{Spieler} tragen durch Spielen des \Gls{Produkt}s mit ihrem \Gls{Domanenwissen} zur besseren Merkmalsauswahl bei.
 
 
     \section{Betriebsbedingungen}
