@@ -120,17 +120,17 @@ Das Domänenwissen liegt oft bei den Mitarbeitern bzw. Personen, die sich tägli
     Machine-Learning wird in immer mehr Organisationen eingesetzt, um Vorhersagemodelle zu entwickeln.\\
     Das Grundprinzip des Machine-Learning vollumfänglich hier zu erklären würde den Rahmen überschreiten, weshalb wir uns auf das Produktrelevante beschränken.\\
     In vielen Prozessen fallen Daten an, die sich in verschiedene Merkmale bündeln lassen.
-    Jedoch sind diese Merkmale nicht alle von gleichwertiger Relevanz für die aus ihnen resultierenden Eigenschaften des Prozessergebnisses, weshalb eine möglichst optimale Auswahl an Merkmalen getroffen werden muss.
+    Jedoch sind diese Merkmale nicht alle von gleichwertiger Relevanz für die aus ihnen resultierenden Eigenschaften des Prozessergebnisses, weshalb eine möglichst effizente Auswahl an Merkmalen getroffen werden muss.
     Dieses Problem wird als Feature Subset Selection (FSS) bezeichnet.
     Es existieren schon Algorithmen, die die Merkmalsauswahl übernehmen können, jedoch sind diese langsam oder zu simpel, als dass sie diese Problemstellung zufriedenstellend lösen können.
-    Somit ist das Potenzial des Machine-Learning noch nicht komplett ausgeschöpft.\\
-    Wir verwenden einen Crowdsourcing-Ansatz, um eine effizientere Lösungsmöglichkeit unter Einbeziehung des \Gls{Domänenwissen}s der Mitarbeiter zu ermöglichen.\\
     Die Data-Scientists, die die Machine-Learning Modelle trainieren, haben aber oft nicht ausreichend \Gls{Domänenwissen}, um die für ein aussagekräftiges Vorhersagemodell relevanten Merkmale auszuwählen.
+    Wir verwenden einen Crowdsourcing-Ansatz, um eine effizientere Lösungsmöglichkeit unter Einbeziehung des \Gls{Domänenwissen}s der Mitarbeiter zu ermöglichen.\\
+    
     Deshalb muss die Merkmalsauswahl von den Mitarbeitern mit dem jeweiligen \Gls{Domänenwissen} unterstützt werden.\\
-    Hierfür wird ein Spiel für den Browser entwickelt, in dem Personen mit unterschiedlichstem Wissen und Sichtweisen Merkmale bewerten können.
+    Hierfür wird ein Spiel für den Browser entwickelt, in dem Personen mit \Gls{Domänenwissen} Merkmale bewerten können.
     Motiviert werden sie durch diverse Gamification-Elemente, welche den Spielspaß steigern sollen und die Arbeitsbereitschaft erhöhen.
     Dazu erhalten Spieler Punkte basierend auf der Relevanz ihrer Auswahl.\\
-    Primär geht es darum, Fachkräfte in den Vorhersageprozess einzubinden, um ein einfaches, aber aussagekräftiges Vorhersagemodell zu erstellen.\\
+    Primär geht es darum, Fachkräfte in die Merkmalsauswahl einzubinden, um ein einfaches, aber aussagekräftiges Vorhersagemodell zu erstellen.\\
     Der Name des Produkts \texttt{CS:Select} bedeutet: \textbf{C}rowd \textbf{S}ourcing\textbf{:Select}, wobei \enquote{Select} sich auf die Merkmalsauswahl (engl. Feature Subset Selection) bezieht.
 
     \chapter{Zielbestimmung}
@@ -164,7 +164,7 @@ Das Domänenwissen liegt oft bei den Mitarbeitern bzw. Personen, die sich tägli
         /KA20/ & Der \Gls{Administrator} kann Spiele aus dem System löschen. \\
         /KA30/ & Der \Gls{Organisator} kann seine Spiele löschen. \\
         /KA40/ & Ein \Gls{Organisator} kann seine \Glspl{Spiel} beenden. \\
-        /KA50/ & Der \Gls{Spiele-Server} kann vom Terminal aus beendet werden. \\
+        /KA50/ & Der \Gls{Spiel-Server} kann vom Terminal aus beendet werden. \\
         /KA60/ & Beim Erstellen eines Spiels kann der \Gls{Organisator} die \Gls{Spieleinstellungen} speichern und laden. \\
         /KA70/ & Das System kann auf verschiedenen Ports ausgeführt werden. \\
         /KA80/ & Beim Start des Systems erscheint ein Dialog zum Einrichten des Systems. \\
@@ -187,7 +187,7 @@ Das Domänenwissen liegt oft bei den Mitarbeitern bzw. Personen, die sich tägli
         /KA250/ & Ein Spieler oder Organisator kann sein Passwort ändern. \\
         /KA260/ & Ein Spieler oder Organisator kann sein Passwort zurücksetzen. \\
         /KA270/ & In jedem Spiel wird eine Kombination an Features nur genau ein mal abgefragt.\\
-        /KA280/ & Der \Gls{Spiele-Server} behält seinen Zustand über das Stoppen und Starten hinweg.\footnote{Das heißt, wenn der Server beendet und danach wieder gestartet wird,
+        /KA280/ & Der \Gls{Spiel-Server} behält seinen Zustand über das Stoppen und Starten hinweg.\footnote{Das heißt, wenn der Server beendet und danach wieder gestartet wird,
  sind Spiele und Nutzer immer noch dieselben. Man kann also ohne Sorge den Server neustarten.} \\
         /KA290/ & Der Server wird als ein Docker Image geliefert.\footnotemark \\
     \end{tabularx}
@@ -203,7 +203,7 @@ Das Domänenwissen liegt oft bei den Mitarbeitern bzw. Personen, die sich tägli
 
     \section{Architektur}
     \includegraphics[width=\textwidth]{uml/export/Architektur.png}
-    Das Organisator und Spieler GUI läuft in einem Webbrowser. Hier interagieren die Spieler und Organisatoren mit dem \Gls{Produkt}. Der \Gls{Spiele-Server} koordiniert den Spielablauf, speichert Ergebnisse
+    Das Organisator und Spieler GUI läuft in einem Webbrowser. Hier interagieren die Spieler und Organisatoren mit dem \Gls{Produkt}. Der \Gls{Spiel-Server} koordiniert den Spielablauf, speichert Ergebnisse
     in eine Datenbank ab und kommuniziert mit dem ML-Server. Die Kommunikation zwischen Spiele-Server und ML-Server wird durch HTTP-Anfragen stattfinden.
     \section{Anwendungsbereiche}
     Das \Gls{Produkt} dient der Verbesserung der Merkmalsauswahl bei Machine-Learning Prozessen in wissenschaftlichen
