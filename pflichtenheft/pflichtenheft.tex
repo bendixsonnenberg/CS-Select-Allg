@@ -771,7 +771,7 @@ description={Ein Wert oder eine messbare Eigenschaft des beobachteten Sachverhal
 
     \subsection{Runde spielen: Matrix Select}
     \begin{itemize}
-    	\item Teilnehmende Akteure: \Gls{Spieler}
+    	\item Teilnehmende Akteure: \Gls{Spieler}, \Gls{ML-Server}
 
     	\item Eingangsbedingungen: \Gls{Spiel-Server} ist aktiv, \Gls{Spieler} hat offenes \Gls{Spiel} des \Gls{Spielmodus} Matrix Select, \Gls{Spieler} ist angemeldet
         \item Ausgangsaktion: \Gls{Spieler} erreicht Spieler-Übersichts-GUI
@@ -780,16 +780,19 @@ description={Ein Wert oder eine messbare Eigenschaft des beobachteten Sachverhal
     		\item \Gls{Spieler} klickt auf ein \Gls{Merkmal} und sieht die Merkmalsgraphen und die Merkmalsbeschreibung
     		\item \Gls{Spieler} wählt mehrere \Glspl{Merkmal} aus
     		\item \Gls{Spieler} klickt auf Schaltfläche, um Auswahl zu bestätigen
+		\item System schickt ausgewählte \Glspl{Merkmal} an \Gls{ML-Server}
+		\item \Gls{ML-Server} bewertet Auswahl und schickt Ergebnis zurück
+		\item System berechnet Punkte
     		\item System gibt dem \Gls{Spieler} die erreichte Punktzahl an
     		\item \Gls{Spieler} entscheidet sich dagegen noch eine Runde zu spielen und betätigt die entsprechende Schaltfläche
     	\end{itemize}
-        \item Anforderungen: \hyperlink{F320}{/F320/}, \hyperlink{F330}{/F330/}, \hyperlink{F350}{/F350/}, \hyperlink{F400}{/F400/} - \hyperlink{F430}{/F430/}, \hyperlink{F660}{/F660/}
+        \item Anforderungen: \hyperlink{F320}{/F320/}, \hyperlink{F330}{/F330/}, \hyperlink{F350}{/F350/}, \hyperlink{F400}{/F400/} - \hyperlink{F430}{/F430/}, \hyperlink{F540}{/F540/} - \hyperlink{F590}{/F590/}, \hyperlink{F660}{/F660/}, \hyperlink{F680}{/F680/}, \hyperlink{F690}{/F690/} 
 
     \end{itemize}
 	
 	\subsection{Runde spielen: Binär Select}
 	\begin{itemize}
-		\item Teilnehmende Akteure: \Gls{Spieler}
+		\item Teilnehmende Akteure: \Gls{Spieler}, \Gls{ML-Server}
 
 		\item Eingangsbedingungen: \Gls{Spiel-Server} ist aktiv, \Gls{Spieler} hat offenes \Gls{Spiel} des \Gls{Spielmodus} Binär Select, \Gls{Spieler} ist angemeldet
         \item Ausgangsaktion: System gibt dem \Gls{Spieler} die erreichte Punktzahl an
@@ -798,20 +801,25 @@ description={Ein Wert oder eine messbare Eigenschaft des beobachteten Sachverhal
 			\item \Gls{Spieler} klickt auf ein \Gls{Merkmal} und sieht die Merkmalsgraphen und die Merkmalsbeschreibung
 			\item \Gls{Spieler} wählt eines der beiden \Glspl{Merkmal} aus
 			\item \Gls{Spieler} klickt auf Schaltfläche um Auswahl zu bestätigen
-            \item Wiederhole Ereignisfluss fünf Mal
+            		\item Wiederhole Ereignisfluss fünf Mal, anschließend:
+	    		\item System schickt alle ausgewählten \Glspl{Merkmal} an \Gls{ML-Server}
+			\item \Gls{ML-Server} bewertet Auswahl und schickt Ergebnis zurück
+			\item System berechnet Punkte
 		\end{itemize}
-        \item Anforderungen:\hyperlink{F320}{/F320/} - \hyperlink{F340}{/F340/}, \hyperlink{F440}{/F440/} - \hyperlink{F480}{/F480/}
+        \item Anforderungen:\hyperlink{F320}{/F320/} - \hyperlink{F340}{/F340/}, \hyperlink{F440}{/F440/} - \hyperlink{F480}{/F480/}, \hyperlink{F540}{/F540/} - \hyperlink{F590}{/F590/}, \hyperlink{F680}{/F680/}, \hyperlink{F690}{/F690/}
 	\end{itemize}
 
 	\subsection{Spielterminierung während Runde}
 	\begin{itemize}
-		\item Teilnehmende Akteure: \Gls{Spieler}
+		\item Teilnehmende Akteure: \Gls{Spieler}, \Gls{ML-Server}
 		\item Eingangsbedingungen: \Gls{Spiel-Server} ist aktiv, \Gls{Spieler} hat offenes \Gls{Spiel}, \Gls{Spieler} ist angemeldet
 		\item Ausgangsaktion: \Gls{Spieler} erreicht die Spieler-Übersichts-GUI
 		\begin{itemize}
 			\item \Gls{Spieler} wählt ein \Glspl{Merkmal} aus
 			\item \Gls{Spiel} erreicht eine Endbedingung
 			\item \Gls{Spieler} bestätigt und beendet seine Runde
+			\item System schickt ausgewähltes \Gls{Merkmal} an \Gls{ML-Server}
+			\item \Gls{ML-Server} bewertet Auswahl und schickt Ergebnis zurück
 			\item Runde wird gespeichert, System gibt dem \Gls{Spieler} die erreichte Punktzahl an
 			\item \Gls{Spieler} kann keine Runde mehr spielen, betätigt Schaltfläche %Was genau?
 		\end{itemize}
@@ -835,7 +843,7 @@ description={Ein Wert oder eine messbare Eigenschaft des beobachteten Sachverhal
 
 	\subsection{Merkmal als unwichtig markieren}
 	\begin{itemize}
-		\item Teilnehmende Akteure: \Gls{Spieler}
+		\item Teilnehmende Akteure: \Gls{Spieler}, \Gls{ML-Server}
 		\item Eingangsbedingungen: \Gls{Spiel-Server} ist aktiv, \Gls{Spieler} ist angemeldet und hat ein Spiel geöffnet
 		\item Ausgangsaktionen: \Gls{Merkmal} wird in Datenbank gespeichert, System gibt dem \Gls{Spieler} die erreichte Punktzahl an
 		\item Ereignisfluss:
@@ -843,6 +851,8 @@ description={Ein Wert oder eine messbare Eigenschaft des beobachteten Sachverhal
 			\item \Gls{Spieler} markiert ein \Gls{Merkmal} als unwichtig
 			\item \Gls{Spieler} wählt dieses \Gls{Merkmal} aus
 			\item \Gls{Spieler} bestätigt seine Auswahl
+			\item System schickt ausgewähltes \Glspl{Merkmal} an \Gls{ML-Server}
+			\item \Gls{ML-Server} bewertet Auswahl und schickt Ergebnis zurück
 		\end{itemize}
 		\item Anforderungen: /F510/
 	\end{itemize}
