@@ -765,14 +765,16 @@ description={Eine Wert oder eine messbare Eigenschaft des beobachteten Sachverha
     	\item Teilnehmende Akteure: \Gls{Spieler}
 
     	\item Eingangsbedingungen: \Gls{Spiel-Server} ist aktiv, \Gls{Spieler} hat offenes \Gls{Spiel} des \Gls{Spielmodus} Matrix Select, \Gls{Spieler} ist angemeldet
-        \item Ausgangsaktion: System gibt Spieler die erreichte Punktzahl an
+        \item Ausgangsaktion: \Gls{Spieler} erreicht Spieler-Übersichts-GUI
     	\item Ereignisfluss:
     	\begin{itemize}
     		\item \Gls{Spieler} klickt auf ein \Gls{Merkmal} und sieht Merkmalsgraphen und Merkmalsbeschreibung
     		\item \Gls{Spieler} wählt mehrere \Glspl{Merkmal} aus
     		\item \Gls{Spieler} klickt auf Schaltfläche, um Auswahl zu bestätigen
+    		\item System gibt \Gls{Spieler} die erreichte Punktzahl an
+    		\item \Gls{Spieler} entscheidet sich dagegen, noch eine Runde zu spielen und betätigt entsprechende Schaltfläche
     	\end{itemize}
-        \item Anforderungen: /F400/ - /F430/
+        \item Anforderungen: /F400/ - /F430/, /F350/
     \end{itemize}
 	
 	\subsection{Runde spielen: Binär Select}
@@ -791,6 +793,20 @@ description={Eine Wert oder eine messbare Eigenschaft des beobachteten Sachverha
         \item Anforderungen: /F440/ - /F480/
 	\end{itemize}
 
+	\subsection{Spielterminierung während Runde}
+	\begin{itemize}
+		\item Teilnehmende Akteure: \Gls{Spieler}
+		\item Eingangsbedingungen: \Gls{Spiel-Server} ist aktiv, \Gls{Spieler} hat offenes \Gls{Spiel}, \Gls{Spieler} ist angemeldet
+		\item Ausgangsaktion: \Gls{Spieler} erreicht Spieler-Übersichts-GUI
+		\begin{itemize}
+			\item \Gls{Spieler} wählt ein \Glspl{Merkmal} aus
+			\item \Gls{Spiel} erreicht eine Endbedingung
+			\item \Gls{Spieler} bestätigt und beendet seine Runde
+			\item Runde wird gespeichert, System gibt \Gls{Spieler} die erreichte Punktzahl an
+			\item \Gls{Spieler} kann keine Runde mehr spielen, betätigt Schaltfläche %Was genau?
+		\end{itemize}
+	\end{itemize}
+
 	\subsection{Auswahl überspringen}
 	\begin{itemize}
 		\item Teilnehmende Akteure: \Gls{Spieler}
@@ -801,8 +817,6 @@ description={Eine Wert oder eine messbare Eigenschaft des beobachteten Sachverha
 					\end{itemize}
 		\item Ereignisfluss:
 		\begin{itemize}
-			\item \Gls{Spieler} klickt auf \enquote{Weiterspielen}-Schaltfläche
-			\item \Gls{Spieler} erreicht Spiel-GUI
 			\item \Gls{Spieler} klickt \enquote{Auswahl Überspringen}-Schaltfläche und bestätigt seine Auswahl
 		\end{itemize}
         \item Anforderungen: /F490/, /F500/
@@ -815,8 +829,6 @@ description={Eine Wert oder eine messbare Eigenschaft des beobachteten Sachverha
 		\item Ausgangsaktionen: \Gls{Merkmal} wird in Datenbank gespeichert, System gibt \Gls{Spieler} die erreichte Punktzahl an
 		\item Ereignisfluss:
 		\begin{itemize}
-			\item \Gls{Spieler} klickt auf \enquote{Weiterspielen}-Schaltfläche
-			\item \Gls{Spieler} erreicht Spiel-GUI
 			\item \Gls{Spieler} markiert ein \Gls{Merkmal} als unwichtig
 			\item \Gls{Spieler} wählt dieses \Gls{Merkmal} aus
 			\item \Gls{Spieler} bestätigt seine Auswahl
