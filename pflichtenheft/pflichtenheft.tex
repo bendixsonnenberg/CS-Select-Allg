@@ -45,13 +45,13 @@ description={Ein Spielmodus ist eine definierte Art und Weise, die Merkmalsauswa
 {
 name=Matrix Select,
 plural=Matrix Select,
-description={Matrix Select ist ein \Gls{Spielmodus}, in dem ein \Gls{Spieler} eine Matrix, bestehend aus einer vom \Gls{Organisator} festgelegten Anzahl an Merkmalen, angezeigt bekommt und davon eine Teilmenge auswählt, die die \Glspl{Merkmal} enthält, die für das Machine-Learning am wichtigsten sind. Eine Runde besteht aus genau einer Matrix von Merkmalen.}
+description={Siehe \fref{sec:Matrix}}
 }
 \newglossaryentry{Binar Select}
 {
 name=Binär Select,
 plural=Binär Select,
-description={Binär Select ist ein \Gls{Spielmodus}, in dem ein \Gls{Spieler} genau zwei \Glspl{Merkmal} angezeigt bekommt, diese vergleicht und das \Gls{Merkmal} auswählt, welches für das Machine-Learning-Modell wichtiger ist. Eine Runde besteht aus fünf Vergleichen}
+description={Siehe \fref{sec:Binar}}
 }
 
 \newglossaryentry{Spieler}
@@ -350,6 +350,7 @@ description={Eine Wert oder eine messbare Eigenschaft des beobachteten Sachverha
     \end{tabularx}
     
     \subsection{Binär Select}
+    \label{sec:Binar}
     \begin{tabularx}{\linewidth}{@{}>{\bfseries}l@{\hspace{.5em}}X@{}}
         \hypertarget{F400}{/F400/} & Eine Runde \Gls{Binar Select} besteht aus genau fünf Vergleichen \\
     	\hypertarget{F410}{/F410/} & Pro Vergleich werden dem \Gls{Spieler} immer zwei verschiedene \Glspl{Merkmal} angezeigt \\
@@ -358,6 +359,7 @@ description={Eine Wert oder eine messbare Eigenschaft des beobachteten Sachverha
     \end{tabularx}
 
     \subsection{Matrix Select}
+    \label{sec:Matrix}
     \begin{tabularx}{\linewidth}{@{}>{\bfseries}l@{\hspace{.5em}}X@{}}
         \hypertarget{F440}{/F440/} & Eine Runde \Gls{Matrix Select} besteht aus genau einer Matrix \\
         \hypertarget{F450}{/F450/} & Es werden zufällige \Glspl{Merkmal} in einer Matrix angezeigt \\
