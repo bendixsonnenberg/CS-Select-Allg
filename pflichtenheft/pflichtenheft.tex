@@ -396,7 +396,8 @@ description={Ein Wert oder eine messbare Eigenschaft des beobachteten Sachverhal
     \hypertarget{F560}{/F560/} & Bei \Gls{Binar Select} wird in \hyperlink{F540}{/F540/} eine gebündelte Menge der Vergleiche geschickt \\
     \hypertarget{F570}{/F570/} & Rückmeldung des \Gls{ML-Server}s wird in eine Rundenpunktzahl (s. \hyperlink{F690}{/F690/)} umgewandelt \\ %Wie? Das wird bei Punktesystem erklärt
     \hypertarget{F580}{/F580/} & Rundenpunktzahl wird zur Gesamtpunktzahl des \Gls{Spieler}s addiert \\
-    \hypertarget{F590}{/F590/} & Rundendaten\footnote{Ausgewählte Merkmale, Spielername, Zeitpunkt, Rundenanzahl, Vorhersagequalität, Punkte} werden in der vom Organisator ausgewählten Datenbank gespeichert \\ %Datenbank zu Spiel
+    \hypertarget{F590}{/F590/} & Rundendaten\footnote{Ausgewählte Merkmale, Spielername, Zeitpunkt, Rundenanzahl, Vorhersagequalität, Punkte} werden in der vom \Gls{Organisator} für das Spiel ausgewählten Datenbank gespeichert \\
+    \hypertarget{F595}{/F595/} & Vom \Gls{Spieler} während einer Runde als unwichtig markierte \Glspl{Merkmal} (s. \hyperlink{F510}{/F510/)} werden bei Bestätigung der Auswahl in der vom \Gls{Organisator} für das Spiel ausgewählten Datenbank gespeichert \\
     \end{tabularx}
     
     \section{GUI}
@@ -688,7 +689,7 @@ description={Ein Wert oder eine messbare Eigenschaft des beobachteten Sachverhal
         \item Ausgangsaktionen: \Gls{Spiel} löschen
         \item Ereignisfluss:
         \begin{itemize}
-            \item \Gls{Organisator} wählt über seine GUI das zu löschende Spiel
+            \item \Gls{Organisator} wählt über seine GUI das zu löschende beendete Spiel
             \item \Gls{Organisator} bestätigt seine Auswahl
         \end{itemize}
         \item Anforderungen: \hyperlink{F517}{/F517/}
@@ -845,16 +846,17 @@ description={Ein Wert oder eine messbare Eigenschaft des beobachteten Sachverhal
 	\begin{itemize}
 		\item Teilnehmende Akteure: \Gls{Spieler}, \Gls{ML-Server}
 		\item Eingangsbedingungen: \Gls{Spiel-Server} ist aktiv, \Gls{Spieler} ist angemeldet und hat ein Spiel geöffnet
-		\item Ausgangsaktionen: \Gls{Merkmal} wird in Datenbank gespeichert, System gibt dem \Gls{Spieler} die erreichte Punktzahl an
+		\item Ausgangsaktionen: System gibt dem \Gls{Spieler} die erreichte Punktzahl an
 		\item Ereignisfluss:
 		\begin{itemize}
 			\item \Gls{Spieler} markiert ein \Gls{Merkmal} als unwichtig
 			\item \Gls{Spieler} wählt dieses \Gls{Merkmal} aus
 			\item \Gls{Spieler} bestätigt seine Auswahl
 			\item System schickt ausgewähltes \Gls{Merkmal} an \Gls{ML-Server}
-			\item \Gls{ML-Server} bewertet Auswahl und schickt Ergebnis zurück
+			\item \Gls{ML-Server} bewertet\footnote{Als unwichtig markierte \Glspl{Merkmal} haben keinen Einfluss auf die Bewertung der Auswahl} Auswahl und schickt Ergebnis zurück
+            \item Markiertes \Gls{Merkmal} wird in der Datenbank gespeichert
 		\end{itemize}
-		\item Anforderungen: /F510/
+		\item Anforderungen: \hyperlink{F510}{/F510/}, \hyperlink{F595}{/F595/}
 	\end{itemize}
      
     \subsection[Streak erreichen]{Streak\footnote{Zur Erklärung von Streak siehe \fref{fig:Streak_State}} erreichen}
@@ -988,7 +990,7 @@ description={Ein Wert oder eine messbare Eigenschaft des beobachteten Sachverhal
 			\item \Gls{Organisator} oder \Gls{Spieler} gibt sein aktuelles Passwort sowie seine neue gewünschte E-Mail-Adresse ein
 			\item \Gls{Organisator} oder \Gls{Spieler} bestätigt seine Auswahl
 		\end{itemize}
-		\item Anforderungen: /F130/
+		\item Anforderungen: \hyperlink{F120}{/F120/}
 	\end{itemize}
 
     \subsection{Passwort zurücksetzen}
