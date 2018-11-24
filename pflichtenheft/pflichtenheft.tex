@@ -774,7 +774,7 @@ description={Eine Wert oder eine messbare Eigenschaft des beobachteten Sachverha
     		\item System gibt \Gls{Spieler} die erreichte Punktzahl an
     		\item \Gls{Spieler} entscheidet sich dagegen, noch eine Runde zu spielen und betätigt entsprechende Schaltfläche
     	\end{itemize}
-        \item Anforderungen: \hyperlink{F400}{/F400/} - \hyperlink{F430}{/F430/}, \hyperlink{F350}{/F350/}
+        \item Anforderungen: \hyperlink{F320}{/F320/}, \hyperlink{F330}{/F330/}, \hyperlink{F350}{/F350/}, \hyperlink{F400}{/F400/} - \hyperlink{F430}{/F430/}
 
     \end{itemize}
 	
@@ -791,7 +791,7 @@ description={Eine Wert oder eine messbare Eigenschaft des beobachteten Sachverha
 			\item \Gls{Spieler} klickt auf Schaltfläche, um Auswahl zu bestätigen
             \item Wiederhole Ereignisfluss fünf Mal
 		\end{itemize}
-        \item Anforderungen: \hyperlink{F440}{/F440/} - \hyperlink{F480}{/F480/}
+        \item Anforderungen:\hyperlink{F320}{/F320/} - \hyperlink{F340}{/F340/}, \hyperlink{F440}{/F440/} - \hyperlink{F480}{/F480/}
 	\end{itemize}
 
 	\subsection{Spielterminierung während Runde}
@@ -806,6 +806,7 @@ description={Eine Wert oder eine messbare Eigenschaft des beobachteten Sachverha
 			\item Runde wird gespeichert, System gibt \Gls{Spieler} die erreichte Punktzahl an
 			\item \Gls{Spieler} kann keine Runde mehr spielen, betätigt Schaltfläche %Was genau?
 		\end{itemize}
+		\item Anforderungen: \hyperlink{F360}{/F360/},
 	\end{itemize}
 
 	\subsection{Auswahl überspringen}
@@ -857,6 +858,21 @@ description={Eine Wert oder eine messbare Eigenschaft des beobachteten Sachverha
     \item \Gls{Spieler}
     \end{itemize}
 
+	\subsection{Runde starten}
+	\begin{itemize}
+		\item Teilnehmende Akteure: \Gls{Spieler}
+		\item Eingangsbedingungen: \Gls{Spiel-Server} ist aktiv, \Gls{Spieler} ist angemeldet, \Gls{Spieler} hat mehrere aktive \Glspl{Spiel}
+		\item Ausgangsaktion: Spieler spielt Runde
+		\item Ereignisfluss:
+		\begin{itemize}
+			\item \Gls{Spieler} erreicht seine Spieler-Übersichts-GUI
+			\item \Gls{Spieler} sieht Auflistung seiner aktiven Spiele sowie aktuelle Runde und Punktestand %Gesamtpunkte oder Punkte im Spiel?
+			\item Eines dieser Spiele terminiert und verschwindet aus Liste
+			\item \Gls{Spieler} wählt weiterhin aktives Spiel aus und betätigt \enquote{Weiterspielen}-Schaltfläche
+		\end{itemize}
+		\item Anforderungen: \hyperlink{F300}{/F300/}, \hyperlink{F310}{/F310/}, \hyperlink{F360}{/F360/},
+	\end{itemize}
+	
     \subsection{Achievements ansehen}
     \begin{itemize}
         \item Teilnehmende Akteure: \Gls{Spieler}
