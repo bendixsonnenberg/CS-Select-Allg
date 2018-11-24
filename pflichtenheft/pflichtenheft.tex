@@ -484,7 +484,7 @@ description={Eine Wert oder eine messbare Eigenschaft des beobachteten Sachverha
         \begin{itemize}
              \item \Gls{Organisator}, \Gls{Spieleinstellungen}, \Gls{Spieler}, zugehöriger Merkmalsdatensatz, Spielablauf, also das Ergebnis einzelner Runden			 % zuständiger ML Server?
 			 \item Für jede Runde: Ausgewählte \Glspl{Merkmal}, Spielername, Zeitpunkt, Rundenanzahl, Vorhersagequalität, Punkte
-		\end{itemize}
+		\end{itemize} \\
 		/KD30/ & Zusätzlich pro Runde: Als unwichtig markierte \Glspl{Merkmal}
     \end{tabularx}
 
@@ -807,6 +807,22 @@ description={Eine Wert oder eine messbare Eigenschaft des beobachteten Sachverha
 		\end{itemize}
         \item Anforderungen: /F490/, /F500/
 	\end{itemize}
+
+	\subsection{Merkmal als unwichtig markieren}
+	\begin{itemize}
+		\item Teilnehmende Akteure: \Gls{Spieler}
+		\item Eingangsbedingungen: \Gls{Spiel-Server} ist aktiv, \Gls{Spieler} ist angemeldet und hat offenes Spiel
+		\item Ausgangsaktionen: \Gls{Merkmal} wird in Datenbank gespeichert, System gibt \Gls{Spieler} die erreichte Punktzahl an
+		\item Ereignisfluss:
+		\begin{itemize}
+			\item \Gls{Spieler} klickt auf \enquote{Weiterspielen}-Schaltfläche
+			\item \Gls{Spieler} erreicht Spiel-GUI
+			\item \Gls{Spieler} markiert ein \Gls{Merkmal} als unwichtig
+			\item \Gls{Spieler} wählt dieses \Gls{Merkmal} aus
+			\item \Gls{Spieler} bestätigt seine Auswahl
+		\end{itemize}
+		\item Anforderungen: /F510/
+	\end{itemize}
      
     \subsection{Streak erreichen}\footnote{Zur Erklärung von Streak siehe \fref{fig:Streak_State}}
     \begin{itemize}
@@ -883,7 +899,7 @@ description={Eine Wert oder eine messbare Eigenschaft des beobachteten Sachverha
     \subsection{Passwort ändern}
     \begin{itemize}
     \item Teilnehmende Akteure: \Gls{Spieler}, \Gls{Organisator}
-    \item Eingangsbedingungenn: \Gls{Spiel-Server} ist aktiv, \Gls{Spieler} oder \Gls{Organisator} ist angemeldet
+    \item Eingangsbedingungen: \Gls{Spiel-Server} ist aktiv, \Gls{Spieler} oder \Gls{Organisator} ist angemeldet
     \item Ereignisfluss:
         \begin{itemize}
             \item \Gls{Organisator} oder \Gls{Spieler} erreicht über sein Klappmenü seine Einstellungen
@@ -893,6 +909,20 @@ description={Eine Wert oder eine messbare Eigenschaft des beobachteten Sachverha
         \end{itemize}
         \item Anforderungen: /F130/
     \end{itemize}
+	
+	\subsection{E-Mail ändern}
+	\begin{itemize}
+		\item Teilnehmende Akteure: \Gls{Spieler}, \Gls{Organisator}
+		\item Eingangsbedingungen: \Gls{Spiel-Server} ist aktiv, \Gls{Spieler} oder \Gls{Organisator} ist angemeldet
+		\item Ereignisfluss:
+		\begin{itemize}
+			\item \Gls{Organisator} oder \Gls{Spieler} erreicht über sein Klappmenü seine Einstellungen
+			\item \Gls{Organisator} oder \Gls{Spieler} klickt auf \enquote{E-Mail ändern}
+			\item \Gls{Organisator} oder \Gls{Spieler} gibt sein aktuelles Passwort sowie seine neue gewünschte E-Mail-Adresse ein
+			\item \Gls{Organisator} oder \Gls{Spieler} bestätigt seine Auswahl
+		\end{itemize}
+		\item Anforderungen: /F130/
+	\end{itemize}
 
     \subsection{Passwort zurücksetzen}
     \begin{itemize}
