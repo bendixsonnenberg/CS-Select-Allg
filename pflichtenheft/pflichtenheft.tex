@@ -199,7 +199,7 @@ description={Eine Wert oder eine messbare Eigenschaft des beobachteten Sachverha
         \end{itemize}
         \item Zusätzliche Funktionen für das Spielen 
         \begin{itemize}
-            \item Überspringen-Schaltfläche 
+            \item \enquote{Überspringen}-Schaltfläche 
             \item Möglichkeit, \Glspl{Merkmal} als unwichtig zu markieren 
         \end{itemize}
 	\item Weitere \Glspl{Spielmodus}
@@ -281,8 +281,8 @@ description={Eine Wert oder eine messbare Eigenschaft des beobachteten Sachverha
     
     \section{Verwaltung des \Gls{Spiel-Server}s}
     \begin{tabularx}{\linewidth}{@{}>{\bfseries}l@{\hspace{.5em}}X@{}} 
-	\hypertarget{F10}{/F10/} & Konfiguration einer Config-Datei, die dem Aufsetzen des \Gls{Spiel-Server}s dient, durch \Gls{Administrator} \\
-	/F20/ & Globales Passwort für \Glspl{Organisator} muss in \hyperlink{F10}{/F10/} setzbar sein \\
+	/F10/ & Konfiguration einer Config-Datei, die dem Aufsetzen des \Gls{Spiel-Server}s dient, durch \Gls{Administrator} \\
+	/F20/ & Globales Passwort für \Glspl{Organisator} muss in /F10/ setzbar sein \\
     /F25/ & \Gls{ML-Server} muss in /F10/ setzbar sein
     \end{tabularx}
 
@@ -540,7 +540,7 @@ description={Eine Wert oder eine messbare Eigenschaft des beobachteten Sachverha
         \item Ereignisfluss:
         \begin{itemize}
             \item \Gls{Spieler} öffnet die Produktwebsite
-            \item \Gls{Spieler} wählt die Rolle "\Gls{Spieler}" in Anmeldungs-GUI aus
+            \item \Gls{Spieler} wählt die Rolle \enquote{\Gls{Spieler}} in Anmeldungs-GUI aus
             \item \Gls{Spieler} gibt E-Mail und Passwort ein
             \item \Gls{Spieler} klickt auf \enquote{Anmelden}
         \end{itemize}
@@ -568,7 +568,7 @@ description={Eine Wert oder eine messbare Eigenschaft des beobachteten Sachverha
         \item Ereignisfluss:
         \begin{itemize}
             \item \Gls{Administrator} loggt sich am Server ein
-            \item \Gls{Administrator} führt das Löschen-Kommando mit dem Nutzernamen des zu löschenden \Gls{Spieler}s aus
+            \item \Gls{Administrator} führt das \enquote{Löschen}-Kommando mit dem Nutzernamen des zu löschenden \Gls{Spieler}s aus
             \item \Gls{Administrator} bestätigt den Vorgang
         \end{itemize}
     \end{itemize}
@@ -593,9 +593,9 @@ description={Eine Wert oder eine messbare Eigenschaft des beobachteten Sachverha
         \item Ereignisfluss:
         \begin{itemize}
             \item \Gls{Organisator} öffnet die Produktwebsite
-            \item \Gls{Organisator} wählt die Rolle "\Gls{Organisator}" in Anmeldungs-GUI aus
+            \item \Gls{Organisator} wählt die Rolle \enquote{\Gls{Organisator}} in Anmeldungs-GUI aus
             \item \Gls{Organisator} gibt E-Mail und Passwort ein
-            \item \Gls{Organisator} klickt auf anmelden
+            \item \Gls{Organisator} klickt auf \enquote{Anmelden}-Schaltfläche
         \end{itemize}
         \item Anforderungen: /F80/
     \end{itemize}
@@ -607,7 +607,7 @@ description={Eine Wert oder eine messbare Eigenschaft des beobachteten Sachverha
         \item Ereignisfluss:
         \begin{itemize}
             \item \Gls{Organisator} klickt auf Klappmenü
-            \item \Gls{Organisator} klickt auf abmelden
+            \item \Gls{Organisator} klickt auf \enquote{Abmelden}-Schaltfläche
             \item \Gls{Organisator} bestätigt seine Auswahl
         \end{itemize}
         \item Anforderungen: /F110/
@@ -620,7 +620,7 @@ description={Eine Wert oder eine messbare Eigenschaft des beobachteten Sachverha
         \item Ereignisfluss:
         \begin{itemize}
             \item \Gls{Administrator} loggt sich am Server ein
-            \item \Gls{Administrator} führt das Löschen-Kommando mit dem Nutzernamen des zu löschenden \Gls{Organisator}s aus
+            \item \Gls{Administrator} führt das \enquote{Löschen}-Kommando mit dem Nutzernamen des zu löschenden \Gls{Organisator}s aus
             \item \Gls{Administrator} bestätigt den Vorgang
         \end{itemize}
         \item \item Anforderungen: /F45/
@@ -633,9 +633,9 @@ description={Eine Wert oder eine messbare Eigenschaft des beobachteten Sachverha
         \item Ausgangsaktionen: \Gls{Spiel} starten, \Gls{Spieler} werden eingeladen
         \item Ereignisfluss:
         \begin{itemize}
-            \item \Gls{Organisator} klickt auf "Spiel erstellen"-Schaltfläche
+            \item \Gls{Organisator} klickt auf \enquote{Spiel erstellen}-Schaltfläche
             \item \Gls{Organisator} sucht sich über seine GUI die gewünschten \Gls{Spieleinstellungen} aus
-            \item \Gls{Organisator} lädt \Gls{Spieler} über Angabe der Email in einem Textfeld ein
+            \item \Gls{Organisator} lädt \Gls{Spieler} über Angabe der E-Mail in einem Textfeld ein
             \item Eingeladene \Gls{Spieler} erhalten Benachrichtigung über Einladung
             \item \Gls{Organisator} bestätigt seine Auswahl und erstellt das Spiel
         \end{itemize}
@@ -650,8 +650,8 @@ description={Eine Wert oder eine messbare Eigenschaft des beobachteten Sachverha
         \item Ereignisfluss:
         \begin{itemize}
             \item \Gls{Organisator} wählt gestartetes \Gls{Spiel} aus der Übersicht
-            \item \Gls{Organisator} betätigt "Einladen"-Schaltfläche
-            \item \Gls{Organisator} tippt Emails der \Gls{Spieler} in Textfeld ein
+            \item \Gls{Organisator} betätigt \enquote{Einladen}-Schaltfläche
+            \item \Gls{Organisator} tippt E-Mails der \Gls{Spieler} in Textfeld ein
             \item \Gls{Organisator} bestätigt seine Auswahl
             \item \Gls{Spieler} erhält Benachrichtigung über die Einladung
         \end{itemize}
@@ -666,7 +666,7 @@ description={Eine Wert oder eine messbare Eigenschaft des beobachteten Sachverha
         \item Ereignisfluss:
         \begin{itemize}
             \item \Gls{Organisator} wählt gestartetes \Gls{Spiel} aus der Übersicht
-            \item \Gls{Organisator} betätigt "Beenden"-Schaltfläche
+            \item \Gls{Organisator} betätigt \enquote{Beenden}-Schaltfläche
             \item \Gls{Organisator} bestätigt seine Auswahl
         \end{itemize}
         \item Anforderungen: /F515/
@@ -743,7 +743,7 @@ description={Eine Wert oder eine messbare Eigenschaft des beobachteten Sachverha
         Option 1: 
         Eingangsbedingung: \Gls{Spieler} ist angemeldet
         \begin{itemize}
-            \item \Gls{Spieler} klickt auf die "Ja"-Schaltfläche im Benachrichtigungsfeld der Spieler-GUI
+            \item \Gls{Spieler} klickt auf die \enquote{Ja}-Schaltfläche im Benachrichtigungsfeld der Spieler-GUI
             \item \Gls{Spieler} bestätigt seine Auswahl
             \item Die Benachrichtigung wird vom \Gls{Spiel-Server} gelöscht
             \item \Gls{Spieler} kann an \Gls{Spiel} teilnehmen
@@ -794,14 +794,16 @@ description={Eine Wert oder eine messbare Eigenschaft des beobachteten Sachverha
 	\begin{itemize}
 		\item Teilnehmende Akteure: \Gls{Spieler}
 		\item Eingangsbedingungen: \Gls{Spiel-Server} ist aktiv, \Gls{Spieler} ist angemeldet und hat offenes Spiel
-        \item Ausgangsaktionen: Der \Gls{Spieler} kommt in die nächste Runde des aktiven Spiels
+        \item Ausgangsaktionen: \begin{itemize}
+					\item Falls Spielmodus \Gls{Matrix Select} oder \Gls{Binar Select} im 5. Vergleich: Spieler verliert 100 Punkte, System gibt \Gls{Spieler} die erreichte Punktzahl an
+					\item Falls Spielmodus \Gls{Binar Select} vor dem 5. Vergleich: Spieler erreicht nächsten Vergleich, Spieler verliert 100 Punkte
 		\item Ereignisfluss:
 		\begin{itemize}
-			\item \Gls{Spieler} klickt auf Weiterspielen-Schaltfläche
+			\item \Gls{Spieler} klickt auf \enquote{Weiterspielen}-Schaltfläche
 			\item \Gls{Spieler} erreicht Spiel-GUI
-			\item \Gls{Spieler} klickt Auswahl-Überspringen-Schaltfläche und bestätigt seine Auswahl
+			\item \Gls{Spieler} klickt \enquote{Auswahl Überspringen}-Schaltfläche und bestätigt seine Auswahl
 		\end{itemize}
-        \item Anforderungen: /F490/
+        \item Anforderungen: /F490/, /F500/
 	\end{itemize}
      
     \subsection{Streak erreichen}\footnote{Zur Erklärung von Streak siehe \fref{fig:Streak_State}}
@@ -896,7 +898,7 @@ description={Eine Wert oder eine messbare Eigenschaft des beobachteten Sachverha
         \item Eingangsbedingungen: \Gls{Spiel-Server} ist aktiv, \Gls{Spieler} oder \Gls{Organisator} ist in Anmelde-GUI
         \item Ereignisfluss:
         \begin{itemize}
-            \item \Gls{Organisator} oder \Gls{Spieler} klickt in Anmelde-GUI auf \enquote{Passwort vergessen?}
+            \item \Gls{Organisator} oder \Gls{Spieler} klickt in Anmeldungs-GUI auf \enquote{Passwort vergessen?}
             \item \Gls{Organisator} oder \Gls{Spieler} erhält per E-Mail ein neues temporäres Passwort
             \item \Gls{Organisator} oder \Gls{Spieler} meldet sich mit dem neuen Passwort an
         \end{itemize}
