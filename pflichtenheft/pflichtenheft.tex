@@ -185,7 +185,7 @@ description={Eine Wert oder eine messbare Eigenschaft des beobachteten Sachverha
     	\item Zusätzliche Funktionen für Verwaltung des \Gls{Spiel-Server}s
    	\begin{itemize}
             \item \Glspl{Spiel} aus dem System löschen
-            \item Sauberes Beenden des \Gls{Spiel-Server}s
+            \item Sicheres Beenden des \Gls{Spiel-Server}s per Terminaleingabe
         \end{itemize}
 	\item Erweiterte Nutzerverwaltung
 	\item Zusätzliche Funktionen für den \Gls{Organisator} in Übersichts-GUI
@@ -297,8 +297,8 @@ description={Eine Wert oder eine messbare Eigenschaft des beobachteten Sachverha
     
     \section{Nutzerverwaltung}
     \begin{tabularx}{\linewidth}{@{}>{\bfseries}l@{\hspace{.5em}}X@{}} 
-	\hypertarget{F70}{/F70/} & Erstregistrierung des \Gls{Organisator}s mit E-Mail und dem in \hyperlink{F20}{/F20/} global gesetztem Passwort \\
-	\hypertarget{F80}{/F80/} & Anmelden des \Gls{Organisator}s mit E-Mail und Passwort \\
+	\hypertarget{F70}{/F70/} & Erstregistrierung des \Gls{Organisator}s mit E-Mail und dem in \hyperlink{F20}{/F20/} global gesetztem Passwort mit Festlegung vom persönlichem Passwort \\
+	\hypertarget{F80}{/F80/} & Anmelden des \Gls{Organisator}s mit E-Mail und persönlichem Passwort \\
 	\hypertarget{F90}{/F90/} & Erstregistrierung eines \Gls{Spieler}s mit E-Mail und Passwort nach dem Erhalten einer Einladung per E-Mail \\
 	\hypertarget{F100}{/F100/} & Anmelden eines \Gls{Spieler}s mit E-Mail und Passwort \\
     \hypertarget{F110}{/F110/} & Abmelden von \Gls{Organisator} und \Gls{Spieler}
@@ -352,7 +352,7 @@ description={Eine Wert oder eine messbare Eigenschaft des beobachteten Sachverha
     \subsection{\Gls{Binar Select}}
     \begin{tabularx}{\linewidth}{@{}>{\bfseries}l@{\hspace{.5em}}X@{}}
         \hypertarget{F400}{/F400/} & Eine Runde \Gls{Binar Select} besteht aus genau fünf Vergleichen \\
-    	\hypertarget{F410}{/F410/} & Pro Vergleich werden dem \Gls{Spieler} zufällig immer zwei \Glspl{Merkmal} angezeigt \\
+    	\hypertarget{F410}{/F410/} & Pro Vergleich werden dem \Gls{Spieler} immer zwei verschiedene \Glspl{Merkmal} angezeigt \\
     	\hypertarget{F420}{/F420/} & \Gls{Spieler} muss eines davon auswählen \\
     	\hypertarget{F430}{/F430/} & \Gls{Spieler} muss bestätigen, dafür muss er genau ein \Gls{Merkmal} ausgewählt haben \\
     \end{tabularx}
@@ -598,7 +598,7 @@ description={Eine Wert oder eine messbare Eigenschaft des beobachteten Sachverha
         \begin{itemize}
             \item \Gls{Organisator} öffnet die Produktwebsite
             \item \Gls{Organisator} wählt die Rolle \enquote{\Gls{Organisator}} in Anmeldungs-GUI aus
-            \item \Gls{Organisator} gibt E-Mail und Passwort ein
+            \item \Gls{Organisator} gibt E-Mail und persönliches Passwort ein
             \item \Gls{Organisator} klickt auf \enquote{Anmelden}-Schaltfläche
         \end{itemize}
         \item Anforderungen: \hyperlink{F80}{/F80/}, \hyperlink{F600}{/F600/},  \hyperlink{F610}{/F610/}
@@ -628,7 +628,7 @@ description={Eine Wert oder eine messbare Eigenschaft des beobachteten Sachverha
             \item \Gls{Administrator} führt das \enquote{Löschen}-Kommando mit dem Nutzernamen des zu löschenden \Gls{Organisator}s aus
             \item \Gls{Administrator} bestätigt den Vorgang
         \end{itemize}
-        \item \item Anforderungen: \hyperlink{F45}{/F45/}
+        \item Anforderungen: \hyperlink{F45}{/F45/}
     \end{itemize}
 
     \subsection{Spiel erstellen}
@@ -750,14 +750,14 @@ description={Eine Wert oder eine messbare Eigenschaft des beobachteten Sachverha
         \begin{itemize}
             \item \Gls{Spieler} klickt auf die \enquote{Ja}-Schaltfläche im Benachrichtigungsfeld der Spieler-GUI
             \item \Gls{Spieler} bestätigt seine Auswahl
-            \item Die Benachrichtigung wird vom \Gls{Spiel-Server} gelöscht
+            \item Die Benachrichtigung wird vom \Gls{Spiel-Server} gelöscht und in der Spieler-GUI nicht mehr angezeigt
             \item \Gls{Spieler} kann an \Gls{Spiel} teilnehmen
         \end{itemize}
         Option 2: 
         \begin{itemize}
             \item \Gls{Spieler} erhält E-Mail mit Einladung und Einladungslink
             \item \Gls{Spieler} klickt auf den Einladungslink
-            \item Die Benachrichtigung wird vom \Gls{Spiel-Server} gelöscht
+            \item Die Benachrichtigung wird vom \Gls{Spiel-Server} gelöscht und in der Spieler-GUI nicht mehr angezeigt
             \item \Gls{Spieler} kann an \Gls{Spiel} teilnehmen
         \end{itemize}
 
@@ -842,7 +842,7 @@ description={Eine Wert oder eine messbare Eigenschaft des beobachteten Sachverha
 		\item Anforderungen: /F510/
 	\end{itemize}
      
-    \subsection{Streak erreichen}\footnote{Zur Erklärung von Streak siehe \fref{fig:Streak_State}}
+    \subsection[Streak erreichen]{Streak\footnote{Zur Erklärung von Streak siehe \fref{fig:Streak_State}} erreichen}
     \begin{itemize}
         \item Teilnehmende Akteure: \Gls{Spieler}
         \item Eingangsbedingungen: \Gls{Spieler} spielt eine Runde
