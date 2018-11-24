@@ -290,6 +290,7 @@ description={Eine Wert oder eine messbare Eigenschaft des beobachteten Sachverha
     \begin{tabularx}{\linewidth}{@{}>{\bfseries}l@{\hspace{.5em}}X@{}} 
 	/F30/ & Bei Start des Systems gibt es ein Dialog zur einfacheren Einrichtung \\ %Explizit: Was kann man da machen?
 	/F40/ & \Glspl{Spiel} sind aus dem System löschbar \\
+    /F45/ & \Glspl{Organisator} sind aus dem System löschbar \\
 	/F50/ & \Gls{Spiel-Server} kann vom Terminal aus beendent werden \\
 	/F60/ & Kontrollierter Neustart: \Gls{Spiel-Server} behält seinen Zustand über Stoppen und Starten hinweg
     \end{tabularx}
@@ -312,7 +313,7 @@ description={Eine Wert oder eine messbare Eigenschaft des beobachteten Sachverha
     
     \section{Spielerstellung}
     \begin{tabularx}{\linewidth}{@{}>{\bfseries}l@{\hspace{.5em}}X@{}}
-    /F150/ & \Gls{Organisator} kann in Spielerstellungs-GUI \Gls{Spieler} zu einem \Gls{Spiel} einladen, indem er E-Mail-Adresse des \Gls{Spieler} angibt \\
+    /F150/ & \Gls{Organisator} kann in Spielerstellungs-GUI \Gls{Spieler} zu einem \Gls{Spiel} einladen, indem er E-Mail-Adresse des \Gls{Spieler}s angibt \\
     /F160/ & Eingeladene \Gls{Spieler} erhalten Einladungs-E-Mail \\
     /F170/ & \Gls{Organisator} muss mindestens einen \Gls{Spielmodus} auswählen \\
     /F180/ & Falls in /F170/ \Gls{Matrix Select} ausgewählt ist, muss \Gls{Organisator} Matrixgröße angeben \\
@@ -327,16 +328,16 @@ description={Eine Wert oder eine messbare Eigenschaft des beobachteten Sachverha
     
     \section{Optional: Zusätzliche Funktionen bei der Spielerstellung}
     \begin{tabularx}{\linewidth}{@{}>{\bfseries}l@{\hspace{.5em}}X@{}}
-    /F250/ & \Gls{Organisator} kann seine \Gls{Spieleinstellungen} speichern \\
-    /F260/ & \Gls{Organisator} kann seine \Gls{Spieleinstellungen} laden \\
+    /F250/ & \Gls{Organisator} kann seine \Gls{Spieleinstellungen} aus /F170/-/F220/ speichern \\
+    /F260/ & \Gls{Organisator} kann seine gespeicherten \Gls{Spieleinstellungen} aus /F250/ laden und für neue Spielerstellung verwenden\\
     /F270/ & \Gls{Organisator} kann weitere \Gls{Spieler} nach Beginn eines \Gls{Spiel}s einladen \\
     /F280/ & \Gls{Spieler} erhalten über Spieler-GUI eine Benachrichtigung, dass sie eingeladen wurden \\ %Per Mail auch?
 	\end{tabularx}
     
     \section{Spielablauf} 
     \begin{tabularx}{\linewidth}{@{}>{\bfseries}l@{\hspace{.5em}}X@{}}
-    /F290/ & \Gls{Spieler} kann Einladungen zu Spielen annehmen und ablehnen \\
-    /F300/ & \Gls{Spieler} sieht in Spieler-Übersichts-GUI alle Spiele, bei denen er die Einladung angenommen hat und die aktiv sind \\
+    /F290/ & \Gls{Spieler} kann Einladungen zu \Glspl{Spiel}n annehmen und ablehnen \\
+    /F300/ & \Gls{Spieler} sieht in Spieler-Übersichts-GUI alle Spiele, bei denen er die Einladung angenommen hat und welche aktiv sind \\
     /F310/ & \Gls{Spieler} kann \Gls{Spiel} auswählen und spielen, anschließend: \\
     /F320/ & \Gls{Spieler} spielt Runde des entsprechenden \Gls{Spielmodus}, für alle gilt: \\
     /F330/ & \Gls{Spieler} kann \Gls{Merkmal} auswählen \\
@@ -345,13 +346,13 @@ description={Eine Wert oder eine messbare Eigenschaft des beobachteten Sachverha
 	/F360/ & Ein \Gls{Spiel} terminiert nach Erreichen seiner Endbedingungen aus /F220/, danach kann keine Runde mehr gespielt werden \\
     /F370/ & \Gls{Spieler} sieht in seinem GUI aktuelle Runde und Punktestand \\
 	/F380/ & \Gls{Organisator} kann sich über aktuellen Status seines \Gls{Spiel}s informieren \\ %Genauer? Gespielte Runden einsehen und so?
-    /F390/ & \Gls{Organisator} kann ein \Gls{Spiel} vorzeitig beenden \\
+    /F390/ & \Gls{Organisator} sieht in /F380/ gespielte Anzahl an bisherigen Runden
     \end{tabularx}
     
     \subsection{\Gls{Binar Select}}
     \begin{tabularx}{\linewidth}{@{}>{\bfseries}l@{\hspace{.5em}}X@{}}
         /F400/ & Eine Runde \Gls{Binar Select} besteht aus genau fünf Vergleichen \\
-    	/F410/ & Dem \Gls{Spieler} werden zufällig immer zwei \Glspl{Merkmal} angezeigt \\
+    	/F410/ & Pro Vergleich werden dem \Gls{Spieler} zufällig immer zwei \Glspl{Merkmal} angezeigt \\
     	/F420/ & \Gls{Spieler} muss eines davon auswählen \\
     	/F430/ & \Gls{Spieler} muss bestätigen, dafür muss er genau ein \Gls{Merkmal} ausgewählt haben \\
     \end{tabularx}
@@ -360,7 +361,7 @@ description={Eine Wert oder eine messbare Eigenschaft des beobachteten Sachverha
     \begin{tabularx}{\linewidth}{@{}>{\bfseries}l@{\hspace{.5em}}X@{}}
         /F440/ & Eine Runde \Gls{Matrix Select} besteht aus genau einer Matrix \\
         /F450/ & Es werden zufällige \Glspl{Merkmal} in einer Matrix angezeigt \\
-    	/F460/ & Genau die Anzahl an Merkmalen, die der \Gls{Organisator} in /F180/ ausgewählt hat, werden angezeigt \\
+    	/F460/ & Genau die Anzahl an \Glspl{Merkmal}n, die der \Gls{Organisator} in /F180/ ausgewählt hat, werden angezeigt \\
     	/F470/ & \Gls{Spieler} kann eine Teilmenge an \Glspl{Merkmal} auswählen, jedoch mindestens eines \\ % Wie viele Merkmale maximal? Gibt es Obergrenze?
     	/F480/ & \Gls{Spieler} muss bestätigen, dafür muss er mindestens ein \Gls{Merkmal} ausgewählt haben \\
     \end{tabularx}
@@ -374,21 +375,22 @@ description={Eine Wert oder eine messbare Eigenschaft des beobachteten Sachverha
     
     \section{Spielverwaltung}
 	\begin{tabularx}{\linewidth}{@{}>{\bfseries}l@{\hspace{.5em}}X@{}} % Linebreaks in der Tabelle
-        /F515/ & \Glspl{Spiel} können gelöscht werden
+        /F515/ & \Gls{Organisator} kann ein \Gls{Spiel} vorzeitig beenden \\
+        /F517/ & \Glspl{Spiel} können durch \Gls{Organisator} gelöscht werden \\
 	\end{tabularx}
 
 	
 	\section{Optional: Verbesserung der Merkmalsbereitstellung durch das System}
 	\begin{tabularx}{\linewidth}{@{}>{\bfseries}l@{\hspace{.5em}}X@{}}
-		/F520/ & Die dem \Gls{Spieler} angezeigten \Glspl{Merkmal} werden nicht zufällig ausgewählt \\
+		/F520/ & Die dem \Gls{Spieler} angezeigten \Glspl{Merkmal} in /F410/ und /F450/ werden nicht zufällig ausgewählt \\
 		/F530/ & Selbe Merkmalskombinationen werden nicht mehrfach in einem \Gls{Spiel} angezeigt \\
 	\end{tabularx}
 	    
     \section{Bewertung der Merkmalsauswahl des \Gls{Spieler}s und Ergebnissicherung}
     \begin{tabularx}{\linewidth}{@{}>{\bfseries}l@{\hspace{.5em}}X@{}}
-    /F540/ & Merkmalsauswahl des \Gls{Spieler}s wird per http-Anfrage an \Gls{ML-Server} geschickt \\
-    /F550/ & Bei \Gls{Matrix Select} wird die ausgewählte Teilmenge der Vergleiche geschickt \\
-    /F560/ & Bei \Gls{Binar Select} wird eine gebündelte Menge der Vergleiche geschickt \\
+    /F540/ & Merkmalsauswahl des \Gls{Spieler}s wird per HTTP-Anfrage an \Gls{ML-Server} geschickt \\
+    /F550/ & Bei \Gls{Matrix Select} wird in /F540/ die ausgewählte Teilmenge der Vergleiche geschickt \\
+    /F560/ & Bei \Gls{Binar Select} wird in /F540/ eine gebündelte Menge der Vergleiche geschickt \\
     /F570/ & Rückmeldung des \Gls{ML-Server}s wird in Rundenpunktzahl (s. /F690/) umgewandelt \\ %Wie? Das wird bei Punktesystem erklärt
     /F580/ & Rundenpunktzahl wird zur Gesamtpunktzahl des \Gls{Spieler}s addiert \\
     /F590/ & Rundendaten\footnote{Ausgewählte Merkmale, Spielername, Zeitpunkt, Rundenanzahl, Vorhersagequalität, Punkte} werden in von Organisator ausgewählte Datenbank gespeichert \\ %Datenbank zu Spiel
@@ -418,8 +420,8 @@ description={Eine Wert oder eine messbare Eigenschaft des beobachteten Sachverha
     \label{sec:Optionale Gamification-Elemente}
     \begin{tabularx}{\linewidth}{@{}>{\bfseries}l@{\hspace{.5em}}X@{}}
 	/F700/ & Leaderboard: Auflistung der \Gls{Spieler} mit den meisten Punkten im Spieler-Übersichts-GUI \\
-	/F710/ & Achievements: Errungenschaften für \Gls{Spieler}, die freigeschaltet werden können, nachdem der Spieler bestimmte Ziele oder Aufgaben erledigt \\
-	/F720/ & Auflistung der Achievements aus /F20/ \\ %in der GUI?
+	/F710/ & \Glspl{Achievement}: Errungenschaften für \Gls{Spieler}, die freigeschaltet werden können, nachdem der \Gls{Spieler} bestimmte Ziele oder Aufgaben erledigt \\
+	/F720/ & Auflistung der \Glspl{Achievement} aus /F20/ in Spieler-GUI \\ %in der GUI?
 	/F730/ & Daily Challenges: Jeden Tag erhält ein \Gls{Spieler} eine neue Herausforderung, die er abschließen kann, diese gibt 50 zusätzliche Punkte \\
 	/F740/ & Streaks: Die Punktezahl der jeweiligen Runde für einen \Gls{Spieler} verdoppelt sich, wenn er drei (oder mehrere) Runden in Folge spielt \\
 	/F750/ & Erweitertes Punktesystem: Abschließen von /F710/ gibt je nach Schwierigkeitsgrad der Aufgabe zusätzliche Punkte \\
@@ -464,7 +466,7 @@ description={Eine Wert oder eine messbare Eigenschaft des beobachteten Sachverha
         \begin{itemize}
               \item E-Mail-Adresse, Nutzername, Punktestand (nur \Gls{Spieler}), Rolle, Passwort (als Hash)
         \end{itemize} \\
-        /KD10/ & Über einen \Gls{Spieler} werden außerdem seine Achievements gespeichert. \\
+        /KD10/ & Über einen \Gls{Spieler} werden außerdem seine \Glspl{Achievement} gespeichert. \\
         /KD20/ & Über einen \Gls{Organisator} werden außerdem seine \Gls{Spieleinstellungen} gespeichert. \\
     \end{tabularx}
 
@@ -472,7 +474,7 @@ description={Eine Wert oder eine messbare Eigenschaft des beobachteten Sachverha
     \begin{tabularx}{\linewidth}{@{}>{\bfseries}l@{\hspace{.5em}}X@{}}
         /D20/ & Für jeden Merkmalsdatensatz ist zu speichern, solange dieser von mindestens einem \Gls{Spiel} benutzt wird: /ND20/:
         \begin{itemize}
-             \item Liste an Merkmalen mit jeweiligen Grafiken und Beschreibung
+             \item Liste an \Glspl{Merkmal}n mit jeweiligen Grafiken und Beschreibung
         \end{itemize}
     \end{tabularx}
 
@@ -480,14 +482,14 @@ description={Eine Wert oder eine messbare Eigenschaft des beobachteten Sachverha
     \begin{tabularx}{\linewidth}{@{}>{\bfseries}l@{\hspace{.5em}}X@{}}
         /D30/ & Für jedes \Gls{Spiel} ist zu speichern /ND30/: 
         \begin{itemize}
-             \item \Gls{Organisator}, \Gls{Spieleinstellungen}, \Gls{Spieler}, zugehöriger Merkmalsdatensatz, Spielablauf, also Ergebnis einzelner Runden			 % zuständiger ML Server?
-			 \item Für jede Runde: Ausgewählte Merkmale, Spielername, Zeitpunkt, Rundenanzahl, Vorhersagequalität, Punkte
+             \item \Gls{Organisator}, \Gls{Spieleinstellungen}, \Gls{Spieler}, zugehöriger Merkmalsdatensatz, Spielablauf, also das Ergebnis einzelner Runden			 % zuständiger ML Server?
+			 \item Für jede Runde: Ausgewählte \Glspl{Merkmal}, Spielername, Zeitpunkt, Rundenanzahl, Vorhersagequalität, Punkte
 		\end{itemize}
     \end{tabularx}
 
     \section{Administrationsdaten}
     \begin{tabularx}{\linewidth}{@{}>{\bfseries}l@{\hspace{.5em}}X@{}}
-        /D40/ & Allgemeines Organisator-Passwort für die Registrierung von neuen Organisatoren /F20/
+        /D40/ & Allgemeines \Gls{Organisator}-Passwort für die Registrierung von neuen \Glspl{Organisator} /F20/
     \end{tabularx}
 
     \chapter{Nichtfunktionale Anforderungen}
@@ -502,7 +504,7 @@ description={Eine Wert oder eine messbare Eigenschaft des beobachteten Sachverha
         /NF70/ & Neue \Glspl{Spielmodus} sollen leicht hinzugefügt werden können. \\
         /NF80/ & Neue Spieloberflächen sollen leicht erweiterbar sein. \\
         /NF90/ & Neue Sprachen sollen leicht hinzugefügt werden können. \\
-        /NF100/ & Browserkompatibilität: Das Produkt enthält nicht mehr als 0,1\% plattformspezifischer Anweisungen. \\
+        /NF100/ & Browserkompatibilität: Das \Gls{Produkt} enthält nicht mehr als 0,1\% plattformspezifischer Anweisungen. \\
         /NF110/ & Lizensierung des \Gls{Produkt}s mit MIT-Lizenz.
     \end{tabularx}
 
@@ -611,21 +613,19 @@ description={Eine Wert oder eine messbare Eigenschaft des beobachteten Sachverha
         \item Anforderungen: /F110/
     \end{itemize}
 
-    \begin{comment} %% steht auch nicht in den anforderungen
     \subsection{Organisator löschen}
     \begin{itemize}
         \item Teilnehmende Akteure: \Gls{Administrator}
-
-        \item Eingangsbedingungen: \Gls{Spiel-Server} ist aktiv
-
+        \item Eingangsbedingungen: \Gls{Spiel-Server} ist aktiv, \Gls{Organisator} existiert
         \item Ereignisfluss:
         \begin{itemize}
             \item \Gls{Administrator} loggt sich am Server ein
             \item \Gls{Administrator} führt das Löschen-Kommando mit dem Nutzernamen des zu löschenden \Gls{Organisator}s aus
             \item \Gls{Administrator} bestätigt den Vorgang
         \end{itemize}
+        \item \item Anforderungen: /F45/
     \end{itemize}
-    \end{comment}
+
     \subsection{Spiel erstellen}
     \begin{itemize}
         \item Teilnehmende Akteure: \Gls{Organisator}, \Gls{Spieler}
@@ -669,7 +669,7 @@ description={Eine Wert oder eine messbare Eigenschaft des beobachteten Sachverha
             \item \Gls{Organisator} betätigt "Beenden"-Schaltfläche
             \item \Gls{Organisator} bestätigt seine Auswahl
         \end{itemize}
-        \item Anforderungen: /F390/
+        \item Anforderungen: /F515/
     \end{itemize}
 
     \subsection{Spiel löschen}
@@ -682,7 +682,7 @@ description={Eine Wert oder eine messbare Eigenschaft des beobachteten Sachverha
             \item \Gls{Organisator} wählt über seine GUI das zu löschende Spiel
             \item \Gls{Organisator} bestätigt seine Auswahl
         \end{itemize}
-        \item Anforderungen: /F515/
+        \item Anforderungen: /F517/
     \end{itemize}
 
     \subsection{Spieleinstellungen speichern}
