@@ -537,6 +537,7 @@ description={Eine Wert oder eine messbare Eigenschaft des beobachteten Sachverha
         \item Teilnehmende Akteure: \Gls{Spieler}
 
         \item Eingangsbedingungen: \Gls{Spiel-Server} ist aktiv, \Gls{Spieler} ist registriert
+        \item Ausgangsaktion: Falls erfolgreich: \Gls{Organisator} erreicht Organisator-Übersichts-GUI, sonst Fehlermeldung % Formulierung
 
         \item Ereignisfluss:
         \begin{itemize}
@@ -545,20 +546,21 @@ description={Eine Wert oder eine messbare Eigenschaft des beobachteten Sachverha
             \item \Gls{Spieler} gibt E-Mail und Passwort ein
             \item \Gls{Spieler} klickt auf \enquote{Anmelden}
         \end{itemize}
-        \item Anforderungen: \hyperlink{F100}{/F100/}
+        \item Anforderungen: \hyperlink{F100}{/F100/}, \hyperlink{F600}{/F600/}, \hyperlink{F620}{/F620/}
     \end{itemize}
 
     \subsection{Spieler abmelden}
     \begin{itemize}
         \item Teilnehmende Akteure: \Gls{Spieler}
         \item Eingangsbedingungen: \Gls{Spiel-Server} ist aktiv, \Gls{Spieler} ist angemeldet
+        \item Ausgangsaktion: \Gls{Spieler} erreicht Anmeldungs-GUI
         \item Ereignisfluss:
         \begin{itemize}
             \item \Gls{Spieler} klickt auf Klappmenü
             \item \Gls{Spieler} klickt auf \enquote{Abmelden}
             \item \Gls{Spieler} bestätigt seine Auswahl
         \end{itemize}
-        \item Anforderungen: \hyperlink{F110}{/F110/}
+        \item Anforderungen: \hyperlink{F110}{/F110/}, \hyperlink{F670}{/F670/}
     \end{itemize}
 
     \begin{comment} %% das ist noch nicht in den anforderungen
@@ -591,6 +593,7 @@ description={Eine Wert oder eine messbare Eigenschaft des beobachteten Sachverha
     \begin{itemize}
         \item Teilnehmende Akteure: \Gls{Organisator}
         \item Eingangsbedingungen: \Gls{Spiel-Server} ist aktiv
+        \item Ausgangsaktion: Falls erfolgreich: \Gls{Organisator} erreicht Organisator-Übersichts-GUI, sonst Fehlermeldung % Formulierung
         \item Ereignisfluss:
         \begin{itemize}
             \item \Gls{Organisator} öffnet die Produktwebsite
@@ -598,20 +601,21 @@ description={Eine Wert oder eine messbare Eigenschaft des beobachteten Sachverha
             \item \Gls{Organisator} gibt E-Mail und Passwort ein
             \item \Gls{Organisator} klickt auf \enquote{Anmelden}-Schaltfläche
         \end{itemize}
-        \item Anforderungen: \hyperlink{F80}{/F80/}
+        \item Anforderungen: \hyperlink{F80}{/F80/}, \hyperlink{F600}{/F600/},  \hyperlink{F610}{/F610/}
     \end{itemize}
 
     \subsection{Organisator abmelden}
     \begin{itemize}
         \item Teilnehmende Akteure: \Gls{Organisator}
         \item Eingangsbedingungen: \Gls{Spiel-Server} ist aktiv, \Gls{Organisator} ist angemeldet
+        \item Ausgangsaktion: \Gls{Organisator} erreicht Anmeldungs-GUI
         \item Ereignisfluss:
         \begin{itemize}
             \item \Gls{Organisator} klickt auf Klappmenü
             \item \Gls{Organisator} klickt auf \enquote{Abmelden}-Schaltfläche
             \item \Gls{Organisator} bestätigt seine Auswahl
         \end{itemize}
-        \item Anforderungen: \hyperlink{F110}{/F110/}
+        \item Anforderungen: \hyperlink{F110}{/F110/}, \hyperlink{F670}{/F670/}
     \end{itemize}
 
     \subsection{Organisator löschen}
@@ -631,7 +635,7 @@ description={Eine Wert oder eine messbare Eigenschaft des beobachteten Sachverha
     \begin{itemize}
         \item Teilnehmende Akteure: \Gls{Organisator}, \Gls{Spieler}
         \item Eingangsbedingungen: \Gls{Spiel-Server} ist aktiv, \Gls{Organisator} ist angemeldet
-        \item Ausgangsaktionen: \Gls{Spiel} starten, \Gls{Spieler} werden eingeladen
+        \item Ausgangsaktionen: \Gls{Spiel} starten, \Gls{Spieler} werden eingeladen, \Gls{Organisator} kehrt auf Übersichts-GUI zurück
         \item Ereignisfluss:
         \begin{itemize}
             \item \Gls{Organisator} klickt auf \enquote{Spiel erstellen}-Schaltfläche
@@ -640,7 +644,7 @@ description={Eine Wert oder eine messbare Eigenschaft des beobachteten Sachverha
             \item Eingeladene \Gls{Spieler} erhalten Benachrichtigung über Einladung
             \item \Gls{Organisator} bestätigt seine Auswahl und erstellt das Spiel
         \end{itemize}
-        \item Anforderungen: \hyperlink{F150}{/F150/} - \hyperlink{F260}{/F260/,} \hyperlink{F280}{/F280/,} \hyperlink{F290}{/F290/}
+        \item Anforderungen: \hyperlink{F150}{/F150/} - \hyperlink{F260}{/F260/,} \hyperlink{F280}{/F280/,} \hyperlink{F290}{/F290/}, \hyperlink{F630}{/F630/}, \hyperlink{F640}{/F640/}
     \end{itemize}
 
     \subsection{Spieler nach Spielbeginn einladen}
@@ -774,7 +778,7 @@ description={Eine Wert oder eine messbare Eigenschaft des beobachteten Sachverha
     		\item System gibt \Gls{Spieler} die erreichte Punktzahl an
     		\item \Gls{Spieler} entscheidet sich dagegen, noch eine Runde zu spielen und betätigt entsprechende Schaltfläche
     	\end{itemize}
-        \item Anforderungen: \hyperlink{F320}{/F320/}, \hyperlink{F330}{/F330/}, \hyperlink{F350}{/F350/}, \hyperlink{F400}{/F400/} - \hyperlink{F430}{/F430/}
+        \item Anforderungen: \hyperlink{F320}{/F320/}, \hyperlink{F330}{/F330/}, \hyperlink{F350}{/F350/}, \hyperlink{F400}{/F400/} - \hyperlink{F430}{/F430/}, \hyperlink{F660}{/F660/}
 
     \end{itemize}
 	
@@ -870,7 +874,7 @@ description={Eine Wert oder eine messbare Eigenschaft des beobachteten Sachverha
 			\item Eines dieser Spiele terminiert und verschwindet aus Liste
 			\item \Gls{Spieler} wählt weiterhin aktives Spiel aus und betätigt \enquote{Weiterspielen}-Schaltfläche
 		\end{itemize}
-		\item Anforderungen: \hyperlink{F300}{/F300/}, \hyperlink{F310}{/F310/}, \hyperlink{F360}{/F360/},
+		\item Anforderungen: \hyperlink{F300}{/F300/}, \hyperlink{F310}{/F310/}, \hyperlink{F360}{/F360/}, \hyperlink{F650}{/F650/}
 	\end{itemize}
 	
     \subsection{Achievements ansehen}
@@ -884,7 +888,7 @@ description={Eine Wert oder eine messbare Eigenschaft des beobachteten Sachverha
             \item \Gls{Spieler} erhält Auflistung der Achievements
             \item \Gls{Spieler} schaut seine Achievements an
         \end{itemize}
-        \item Anforderungen: \hyperlink{F710}{/F710/}
+        \item Anforderungen: \hyperlink{F720}{/F720/}
     \end{itemize}
 
     \subsection{Leaderboard ansehen}
@@ -975,7 +979,7 @@ description={Eine Wert oder eine messbare Eigenschaft des beobachteten Sachverha
             \begin{itemize}
                 \item \Gls{Spieler} oder \Gls{Organisator} klickt in seinem GUI auf die Hilfe-Schaltfläche(oben rechts)
             \end{itemize}
-        \item Anforderungen: \hyperlink{F760}{/F760/}
+        \item Anforderungen: \hyperlink{F760}{/F760/}, \hyperlink{F770}{/F770/}
     \end{itemize}
 
     %TODO: Ausführung auf verschiedenem Ports
