@@ -56,28 +56,6 @@
     <additional_attributes>10.0;40.0;250.0;10.0</additional_attributes>
   </element>
   <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>590</x>
-      <y>120</y>
-      <w>270</w>
-      <h>230</h>
-    </coordinates>
-    <panel_attributes/>
-    <additional_attributes>10.0;10.0;250.0;210.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>220</x>
-      <y>130</y>
-      <w>290</w>
-      <h>380</h>
-    </coordinates>
-    <panel_attributes/>
-    <additional_attributes>270.0;10.0;10.0;360.0</additional_attributes>
-  </element>
-  <element>
     <id>UMLUseCase</id>
     <coordinates>
       <x>400</x>
@@ -186,7 +164,7 @@ laden</panel_attributes>
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>420</x>
+      <x>450</x>
       <y>360</y>
       <w>120</w>
       <h>40</h>
@@ -201,11 +179,11 @@ auslesen</panel_attributes>
     <coordinates>
       <x>220</x>
       <y>370</y>
-      <w>220</w>
+      <w>250</w>
       <h>140</h>
     </coordinates>
     <panel_attributes/>
-    <additional_attributes>10.0;120.0;200.0;10.0</additional_attributes>
+    <additional_attributes>10.0;120.0;230.0;10.0</additional_attributes>
   </element>
   <element>
     <id>UMLUseCase</id>
@@ -369,8 +347,8 @@ Spielbeginn einladen</panel_attributes>
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>350</x>
-      <y>630</y>
+      <x>360</x>
+      <y>600</y>
       <w>120</w>
       <h>40</h>
     </coordinates>
@@ -382,11 +360,11 @@ Spielbeginn einladen</panel_attributes>
     <coordinates>
       <x>220</x>
       <y>480</y>
-      <w>150</w>
-      <h>190</h>
+      <w>160</w>
+      <h>160</h>
     </coordinates>
     <panel_attributes/>
-    <additional_attributes>10.0;10.0;130.0;170.0</additional_attributes>
+    <additional_attributes>10.0;10.0;140.0;140.0</additional_attributes>
   </element>
   <element>
     <id>UMLUseCase</id>
@@ -420,5 +398,52 @@ Spielbeginn einladen</panel_attributes>
     </coordinates>
     <panel_attributes/>
     <additional_attributes>10.0;190.0;260.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLUseCase</id>
+    <coordinates>
+      <x>580</x>
+      <y>630</y>
+      <w>120</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>fontsize=11
+Datensatz 
+senden</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>440</x>
+      <y>580</y>
+      <w>160</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>lt=.&gt;
+&lt;&lt;includes&gt;&gt;</panel_attributes>
+    <additional_attributes>10.0;10.0;140.0;70.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>260</x>
+      <y>630</y>
+      <w>340</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes>10.0;20.0;320.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLActor</id>
+    <coordinates>
+      <x>220</x>
+      <y>610</y>
+      <w>80</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>ML-Server</panel_attributes>
+    <additional_attributes/>
   </element>
 </diagram>

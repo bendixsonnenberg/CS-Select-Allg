@@ -109,12 +109,12 @@ zurücksetzten</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>930</x>
-      <y>570</y>
-      <w>250</w>
-      <h>130</h>
+      <y>560</y>
+      <w>280</w>
+      <h>140</h>
     </coordinates>
     <panel_attributes/>
-    <additional_attributes>10.0;110.0;230.0;10.0</additional_attributes>
+    <additional_attributes>10.0;120.0;260.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
@@ -132,22 +132,22 @@ zurücksetzten</panel_attributes>
     <coordinates>
       <x>930</x>
       <y>410</y>
-      <w>290</w>
+      <w>280</w>
       <h>290</h>
     </coordinates>
     <panel_attributes/>
-    <additional_attributes>10.0;270.0;270.0;10.0</additional_attributes>
+    <additional_attributes>10.0;270.0;260.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
       <x>940</x>
       <y>560</y>
-      <w>240</w>
+      <w>270</w>
       <h>90</h>
     </coordinates>
     <panel_attributes/>
-    <additional_attributes>10.0;70.0;220.0;10.0</additional_attributes>
+    <additional_attributes>10.0;70.0;250.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
@@ -222,10 +222,101 @@ zurücksetzten</panel_attributes>
     <coordinates>
       <x>960</x>
       <y>320</y>
-      <w>240</w>
-      <h>260</h>
+      <w>250</w>
+      <h>270</h>
     </coordinates>
     <panel_attributes/>
-    <additional_attributes>10.0;10.0;220.0;240.0</additional_attributes>
+    <additional_attributes>10.0;10.0;230.0;250.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLUseCase</id>
+    <coordinates>
+      <x>880</x>
+      <y>490</y>
+      <w>120</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>Email ändern</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>990</x>
+      <y>410</y>
+      <w>220</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes>10.0;100.0;200.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>990</x>
+      <y>500</y>
+      <w>220</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes>10.0;10.0;200.0;70.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLUseCase</id>
+    <coordinates>
+      <x>870</x>
+      <y>390</y>
+      <w>120</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>Hilfe
+verwenden</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>980</x>
+      <y>390</y>
+      <w>230</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes>10.0;20.0;210.0;30.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>980</x>
+      <y>400</y>
+      <w>230</w>
+      <h>190</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes>10.0;10.0;210.0;170.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLUseCase</id>
+    <coordinates>
+      <x>740</x>
+      <y>380</y>
+      <w>120</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>fontsize=11
+Konfiguration
+bearbeiten</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>550</x>
+      <y>390</y>
+      <w>210</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes>10.0;40.0;190.0;10.0</additional_attributes>
   </element>
 </diagram>

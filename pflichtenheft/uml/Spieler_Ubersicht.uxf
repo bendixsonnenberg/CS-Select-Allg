@@ -71,4 +71,26 @@ ansehen</panel_attributes>
     <panel_attributes/>
     <additional_attributes>10.0;40.0;210.0;10.0</additional_attributes>
   </element>
+  <element>
+    <id>UMLUseCase</id>
+    <coordinates>
+      <x>520</x>
+      <y>430</y>
+      <w>120</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>Runde starten</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>630</x>
+      <y>340</y>
+      <w>240</w>
+      <h>130</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes>10.0;110.0;220.0;10.0</additional_attributes>
+  </element>
 </diagram>
