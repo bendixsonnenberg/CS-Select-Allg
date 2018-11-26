@@ -13,8 +13,22 @@
   \setbeamertemplate{navigation symbols}{}
   \setbeamertemplate{caption}[numbered]
   % eigenen stuff definieren
+    % auf dieser website stehen weiter elemente von denen die farbe geändert werden kann
+    % http://www.cpt.univ-mrs.fr/~masson/latex/Beamer-appearance-cheat-sheet.pdf
+    % einfach ausprobieren was passt
     \definecolor{Grau}{HTML}{CCCCCC}
+    \definecolor{GrauDark}{HTML}{777777} % auf weißem hintergrund
     \definecolor{Orange}{HTML}{EA5B10}
+    \setbeamercolor{palette primary}{bg=Grau}
+    \setbeamercolor{palette primary}{fg=Orange}
+    \setbeamercolor{normal text}{fg=GrauDark}
+    \setbeamercolor{structure}{fg=Orange} % farbe der items
+    \setbeamertemplate{itemize item}[circle]
+    \setbeamercolor{mini frame}{fg=Orange}  
+    \setbeamercolor{section in head/foot}{bg=Grau}
+    \setbeamercolor{section in head/foot}{fg=Orange}
+    \setbeamercolor{subsection in head/foot}{bg=white}
+    \setbeamercolor{headline}{bg=Grau}
     
 } 
 
