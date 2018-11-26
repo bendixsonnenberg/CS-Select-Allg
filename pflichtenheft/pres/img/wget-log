@@ -1,0 +1,11 @@
+--2018-11-26 21:33:34--  https://i1.wp.com/ollis.blog/wp-content/uploads/2018/01/Docker_Logo.jpg?resize=840%2C560
+Resolving i1.wp.com (i1.wp.com)... 192.0.77.2
+Connecting to i1.wp.com (i1.wp.com)|192.0.77.2|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 35470 (35K) [image/jpeg]
+Saving to: ‘docker.jpg’
+
+docker.jpg                                             0%[                                                                                                                      ]       0  --.-KB/s               docker.jpg                                            82%[===============================================================================================>                      ]  28,46K   103KB/s               docker.jpg                                           100%[=====================================================================================================================>]  34,64K   125KB/s    in 0,3s    
+
+2018-11-26 21:33:36 (125 KB/s) - ‘docker.jpg’ saved [35470/35470]
+
