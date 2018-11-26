@@ -28,12 +28,15 @@
     \setbeamercolor{section in head/foot}{bg=Grau}
     \setbeamercolor{section in head/foot}{fg=Orange}
     \setbeamercolor{subsection in head/foot}{bg=white}
+    \setbeamercolor{subsection in head/foot}{fg=GrauDark}
     \setbeamercolor{headline}{bg=Grau}
+    \setbeamercolor{block body}{bg=white}
     
 } 
 
 \usepackage[utf8x]{inputenc}
 \usepackage{ngerman}
+\usepackage{calc}
 
 \title[Team 2 - Pflichtenheft]{CS:Select Pflichtenheft - Team 2}
 \author{Luca Springer, Alexander Linder, Julian Dinh, Nicholas Bieker,\\ Bendix Sonnenberg}
@@ -47,12 +50,42 @@
 \section{Problemstellung}
 \section{Grobbeschreibung}
 \section{Technische Grundlagen}
+\subsection{Architektur}
 \begin{frame}
-         \includegraphics[width=2cm]{img/MySQL.jpg}
-         \includegraphics[width=2cm]{img/docker.jpg}
-         \includegraphics[width=2cm]{img/java.png}
-         \includegraphics[width=2cm]{img/tomcat.png}
-         \includegraphics[width=2cm]{img/vue.png}
+\center
+\includegraphics[width=(\textwidth) - 2cm]{../uml/export/Architektur.png}
+\end{frame}
+\subsection{Spiel-Server}
+\begin{frame}
+\begin{columns}
+\begin{column}{0.5\textwidth}
+         \begin{block}{CS-Select}
+                \center
+                \includegraphics[width=(\textwidth) / 2]{img/java.png}
+                \includegraphics[width=(\textwidth) / 2]{img/tomcat.png}
+                Tomcat
+            \end{block} 
+\end{column}
+\begin{column}{0.5\textwidth}  %%<--- here
+        \begin{block}{Datenbank}
+                \includegraphics[width=\textwidth]{img/MySQL.jpg}
+    \end{block}
+\end{column}
+\end{columns}
+\end{frame}
+\subsection{GUI}
+\begin{frame}
+        \includegraphics[width=5cm]{img/vue.png}
+        \begin{block}{Interface}
+        Vue.js Framework
+        \end{block}
+\end{frame}
+\subsection{optional}
+\begin{frame}
+         \includegraphics[width=5cm]{img/docker.jpg}
+         \begin{block}{Optional}
+          Produkt als Docker Container liefern.
+        \end{block}
 \end{frame}
 \section{Testfallszenarien}
 \end{document}
