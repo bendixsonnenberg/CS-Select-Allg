@@ -69,25 +69,19 @@
     \end{itemize}
 \end{frame}
 \section{Hauptfeatures}
-\subsection{Architektur}
 \begin{frame}<1>[label=architektur]{Architektur}
-\center
-\includegraphics[width=(\textwidth) - 2cm]{../uml/export/Architektur.png}
+\center \includegraphics[scale=0.4]{img/Architektur.pdf}
 \end{frame}
 
-\subsection{Merkmalsauswahl - Ablauf}
-\begin{frame}
-    \begin{block}{Ablauf der Merkmalsauswahl}
-        \begin{itemize}
-            \item Produkt erhält Merkmalsdatensatz vom ML-Server
-            \item Spiel wird vom Organisator angelegt
-            \item Spieler treffen die Merkmalsauswahl
-            \item Merkmalsauswahl wird in Datenbank gesichert
-        \end{itemize}
-    \end{block}
+\begin{frame}{Ablauf der Merkmalsauswahl}
+    \begin{itemize}
+        \item Produkt erhält Merkmalsdatensatz vom ML-Server
+        \item Spiel wird vom Organisator angelegt
+        \item Spieler treffen die Merkmalsauswahl
+        \item Merkmalsauswahl wird in Datenbank gesichert
+    \end{itemize}
 \end{frame}
-\subsection{Merkmalsauswahl - Spielmodi}
-\begin{frame}
+\begin{frame}{Merkmalsauswahl - Spielmodi}
     \begin{columns}
         \begin{column}{0.5\textwidth}
             \begin{block}{Matrix-Select}
@@ -101,17 +95,14 @@
         \end{column}
     \end{columns}
 \end{frame}
-\subsection{Gamificationelemente}
-\begin{frame}
-    \begin{block}{Geplante Gamification-Elemente}
-        \begin{itemize}
-            \item Punktesystem
-            \item Leaderboard
-            \item Achievements
-            \item Daily Challenges
-            \item Streaks
-        \end{itemize}
-    \end{block}
+\begin{frame}{Geplante Gamification-Elemente}
+    \begin{itemize}
+        \item Punktesystem
+        \item Leaderboard
+        \item Achievements
+        \item Daily Challenges
+        \item Streaks
+    \end{itemize}
 \end{frame}
 \section{Technische Grundlagen}
 \againframe<1>{architektur}
@@ -142,7 +133,7 @@
         \end{block}
 \end{frame}
 \subsection{optional}
-\againframe<2>{architektur}
+\againframe<3>{architektur}
 \begin{frame}{Optional}
          \includegraphics[width=5cm]{img/docker.jpg}
          \begin{block}{Optional}
