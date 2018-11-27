@@ -1,4 +1,4 @@
-\documentclass{beamer}
+\documentclass[xcolor=dvipsnames]{beamer}
 %
 % Choose how your presentation looks.
 %
@@ -9,7 +9,7 @@
 {
   \usetheme{Darmstadt}      % or try Darmstadt, Madrid, Warsaw, ...
   \usecolortheme{wolverine} % or try albatross, beaver, crane, ...
-  \usefonttheme{default}  % or try serif, structurebold, ...
+  \usefonttheme{structurebold}  % or try serif, structurebold, ...
   \setbeamertemplate{navigation symbols}{}
   \setbeamertemplate{caption}[numbered]
   % eigenen stuff definieren
@@ -20,13 +20,13 @@
     \definecolor{GrauDark}{HTML}{777777} % auf weißem hintergrund
     \definecolor{Orange}{HTML}{EA5B10}
     \setbeamercolor{palette primary}{bg=Grau}
-    \setbeamercolor{palette primary}{fg=Orange}
+    \setbeamercolor{palette primary}{fg=BurntOrange}
     \setbeamercolor{normal text}{fg=GrauDark}
-    \setbeamercolor{structure}{fg=Orange} % farbe der items
+    \setbeamercolor{structure}{fg=BurntOrange} % farbe der items
     \setbeamertemplate{itemize item}[circle]
-    \setbeamercolor{mini frame}{fg=Orange}  
+    \setbeamercolor{mini frame}{fg=BurntOrange}
     \setbeamercolor{section in head/foot}{bg=Grau}
-    \setbeamercolor{section in head/foot}{fg=Orange}
+    \setbeamercolor{section in head/foot}{fg=BurntOrange}
     \setbeamercolor{subsection in head/foot}{bg=white}
     \setbeamercolor{subsection in head/foot}{fg=GrauDark}
     \setbeamercolor{headline}{bg=Grau}
@@ -34,9 +34,12 @@
     
 } 
 
-\usepackage[utf8x]{inputenc}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{ae}
 \usepackage{ngerman}
 \usepackage{calc}
+\usepackage{graphicx}
 
 \title[Team 2 - Pflichtenheft]{CS:Select Pflichtenheft - Team 2}
 \author{Luca Springer, Alexander Linder, Julian Dinh, Nicholas Bieker,\\ Bendix Sonnenberg}
@@ -88,4 +91,24 @@
         \end{block}
 \end{frame}
 \section{Testfallszenarien}
+    \subsection{Organisator-Testkette}
+    \begin{frame}
+        \begin{block} {Anmeldung, Spielerstellung}
+            Der Organisator möchte sich auf dem Spiele-Server anmelden und ein neues Spiel erstellen.
+        \end{block}
+        \includegraphics[width=8cm]{../../pictures/Anmeldung.jpg}
+    \end{frame}
+    \begin{frame}
+        \includegraphics[width=\textwidth]{../../pictures/2_Organisator.jpg}
+    \end{frame}
+    \begin{frame}
+         \includegraphics[width=\textwidth]{../../pictures/Spielerstellung.jpg}
+    \end{frame}
+    \begin{frame}
+        \begin{block} {Spieler nachträglich einladen, Spiel beenden}
+            Nun wird der Organisator einen neuen Spieler zum eben erstellten Spiel einladen und ein anderes aktives Spiel beenden.
+        \end{block}
+        \includegraphics[width=8cm]{../../pictures/2_Organisator.jpg}
+    \end{frame}
+    \subsection{Spieler-Testkette}
 \end{document}
