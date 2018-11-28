@@ -84,12 +84,12 @@
 \begin{frame}{Merkmalsauswahl - Spielmodi}
     \begin{columns}
         \begin{column}{0.5\textwidth}
-            \begin{block}{Matrix-Select}
+            \begin{block}{Matrix Select}
                 \includegraphics[width=\textwidth]{img/MatrixSelect_ausschnitt.jpg}
             \end{block}
         \end{column}
         \begin{column}{0.5\textwidth}  %%<--- here
-            \begin{block}{Binär-Select}
+            \begin{block}{Binär Select}
                 \includegraphics[width=\textwidth]{img/BinSelect_ausschnitt.jpg}
             \end{block}
         \end{column}
@@ -106,10 +106,10 @@
 \end{frame}
 \section{Technische Grundlagen}
 \againframe<1>{architektur}
-\begin{frame}{Spiele-Server}
+\begin{frame}{Spiel-Server}
 \begin{columns}
 \begin{column}{0.5\textwidth}
-         \begin{block}{CS-Select}
+         \begin{block}{CS:Select}
                 \center
                 \includegraphics[height=4cm]{img/java.png}\\
                 \includegraphics[width=(\textwidth) / 2]{img/tomcat.png}
@@ -125,6 +125,7 @@
 \end{frame}
 \againframe<2>{architektur}
 \begin{frame}{Grafische Nutzerschnittstelle}
+    \centering
         \includegraphics[width=5cm]{img/vue.png}
         \begin{block}{Interface}
         Vue.js Framework
@@ -132,19 +133,21 @@
 \end{frame}
 \againframe<3>{architektur}
 \begin{frame}{Optional}
+    \centering
          \includegraphics[width=5cm]{img/docker.jpg}
          \begin{block}{Optional}
           Produkt als Docker Container liefern.
         \end{block}
 \end{frame}
 \section{Testfallszenarien}
-    \subsection{Organisator-Testkette}
-    \begin{frame}
+    \begin{frame}{Organisator-Testkette}
         \begin{block} {Anmeldung, Spielerstellung}
             Der Organisator möchte sich auf dem Spiel-Server anmelden und ein neues Spiel erstellen.
         \end{block}
+        \centering
         \includegraphics[width=8cm]{img/Anmeldung.jpg}
     \end{frame}
+    \subsection{Organisator-Testkette}
     \begin{frame}
         \includegraphics[width=\textwidth]{img/OrganisatorPres.jpg}
     \end{frame}
@@ -155,6 +158,7 @@
         \begin{block} {Spieler nachträglich einladen, Spiel beenden}
             Nun wird der Organisator einen neuen Spieler zum eben erstellten Spiel einladen und ein anderes aktives Spiel beenden.
         \end{block}
+        \centering
         \includegraphics[width=8cm]{img/OrganisatorPres2.jpg}
     \end{frame}
 	\subsection{}
@@ -162,6 +166,7 @@
     	\begin{block}{Anmeldung, Matrix Select spielen}
     		Der Spieler möchte sich auf dem Spiel-Server anmelden und eine Runde eines Spiels mit Spielmodus Matrix Select spielen.
     	\end{block}
+        \centering
     	\includegraphics[width=8cm]{../../pictures/Anmeldung.jpg}
     \end{frame}
 	\subsection{Spieler-Testkette} 
@@ -175,6 +180,7 @@
 		\begin{block}{Binär Select spielen, Abmelden}
 		Nun spielt der Spieler eine Runde des Spiels mit Spielmodus Binär Select und meldet sich anschließend ab.
 		\end{block}
+        \centering
 		\includegraphics[width=8cm]{../../pictures/5_Spieler.jpg}
 	\end{frame}
 	\begin{frame}
