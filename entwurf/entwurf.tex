@@ -149,7 +149,69 @@
             \item langCode: der Landescode für die gewünschte Sprache
         \end{itemize}
     \end{itemize}
-    \chapter{Sequenzdiagramme}
+    \subsection{APIFacadeOrganiser}
+    \subsubsection{loginOrganiser}
+    \begin{itemize}
+        \item Beschreibung: meldet einen Organisator an. Damit dies möglich ist, muss der Organisator vorher registriert worden sein.
+        \item Parameter:
+        \begin{itemize}
+            \item email: E-Mail des anzumeldenden Organisators
+            \item password: Das Passwort des anzumeldenden Organisators
+        \end{itemize}
+        \item Rückgabewert: Falls die Email-Passwort Kombinnation valid ist, also ein Organisator mit der E-Mail registriert ist und das Passwort ist richtig, wird der Organisator zurückgegeben. Andernfalls null. 
+    \end{itemize}
+    \subsubsection{createGame}
+    \begin{itemize}
+        \item Beschreibung: erstellt ein Spiel für diesen Organisator.
+        \item Parameter: %% stuff bleibt hier ja noch nicht ganz fest gegeben
+        \begin{itemize}
+            \item :
+        \end{itemize}
+        \item Rückgabewert: Falls das Erstellen erfolgreich war, true zurückgegeben, andernfalls false. 
+    \end{itemize}
+    \subsubsection{invitePlayer}
+    \begin{itemize}
+        \item Beschreibung: Lädt einen Spieler zu einem Spiel des Organisators ein.
+        \item Parameter:
+        \begin{itemize}
+            \item playerEmail: die Email-Adresse des einzuladenden Spielers
+            \item gameId: Das Spiel, zu dem der Spieler eingeladen werden soll. Das Spiel muss ein Spiel des Organisators sein.
+        \end{itemize}
+    \end{itemize}
+    \subsubsection{terminateGame}
+    \begin{itemize}
+        \item Beschreibung: Beendet ein Spiel des Organisators. 
+        \item Parameter:
+        \begin{itemize}
+            \item gameId: Id des zu beendenden Spiels. Das Spiel muss zu dem Organisator gehören.
+        \end{itemize}
+    \end{itemize}
+    \subsubsection{deleteGame}
+    \begin{itemize}
+        \item Beschreibung: Löscht ein Spiel des Organisators aus dem System. 
+        \item Parameter:
+        \begin{itemize}
+            \item gameId: Die Id des zu löschende Spiel
+        \end{itemize}
+    \end{itemize}
+    \subsubsection{logout}
+    \begin{itemize}
+        \item Beschreibung: Meldet einen Organisator ab. Nach dem Aufruf dieser Methode verhält sich dieses Objekt so, als ob niemand angemeldet war.
+    \end{itemize}
+    \subsubsection{getSavedSettings}
+    \begin{itemize}
+        \item Beschreibung: Holt eine Liste aller gespeicherten Einstellungen dieses Organisators.
+        \item Rückgabewert: Eine Liste aller gespeichterten Einstellungen dieses Organisators. 
+    \end{itemize}
+    \subsubsection{savePattern}
+    \begin{itemize}
+        \item Beschreibung: Speichert eine Einstellungskonfiguration für diesen Organisator
+        \item Parameter:
+        \begin{itemize}
+            \item pattern: Das zu speichernde Pattern
+        \end{itemize}
+    \end{itemize}
+   \chapter{Sequenzdiagramme}
 
     \chapter{Datenhaltung}
         \section{Ordnerstruktur}
