@@ -261,8 +261,40 @@
     Mitgelieferte Standardimplementierung der Konfiguration.
 
     \section{MLServer}
+    Paket für die Kommunikation mit dem ML-Server.
+
     \subsection{MLServer}
+    Schnittstelle die von der Implementierung der ML-Server-API abstrahiert.
+
+    \subsubsection{getVersion}
+    \begin{itemize}
+        \item Beschreibung: Gibt die Version des genutzten ML-Servers als String zurück.
+        \item Rückgabewert: String mit der Versionsnummer.
+    \end{itemize}
+
+    \subsubsection{getFeatures}
+    \begin{itemize}
+        \item Beschreibung: Gibt die Features des angegebenen Datensatzes zurück
+        \item Parameter:
+            \begin{itemize}
+                \item dataset: Datensatz dessen Features zurückgegeben werden sollen.
+            \end{itemize}
+        \item Rückgabewert: Collection mit den Features des Datensatzes.
+    \end{itemize}
+
+    \subsubsection{getScore}
+    \begin{itemize}
+        \item Beschreibung: Gibt die Bewertung der gesendeten Features zurück.
+        \item Parameter:
+            \begin{itemize}
+                \item dataset: Datensatz von dem eine Merkmalsauswahl geschickt wird.
+                \item selectedFeatures: Ausgewählte Merkmale.
+            \end{itemize}
+        \item Rückgabewert: double mit Wert im Intervall [0,1] der die Güte der Auswahl beschreibt.
+    \end{itemize}
+
     \subsection{RESTMLServer}
+    Implementiert die Schnittstelle MLServer und stellt die Funktionalität mittels der Standard-Implementierung des ML-Servers per REST-API bereit.
 
    \chapter{Sequenzdiagramme}
 
