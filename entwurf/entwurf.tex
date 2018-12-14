@@ -270,6 +270,51 @@
     \end{itemize}
 
     \subsection{UserAdapter}
+    Schnittstelle die Methoden für alle Nutzer des Produkts bereitstellt.
+    Jeder UserAdapter ist genau einem Nutzer zugeordnet.
+
+    \subsubsection{getID}
+    \begin{itemize}
+        \item Beschreibung: Gibt die ID des Nutzers zurück.
+        \item Rückgabewert: int mit ID des Nutzers.
+    \end{itemize}
+
+    \subsubsection{getEmail}
+    \begin{itemize}
+        \item Beschreibung: Gibt die E-Mail-Addresse des Nutzers zurück.
+        \item Rückgabewert: String mit E-Mail-Addresse des Nutzers.
+    \end{itemize}
+
+    \subsubsection{getUsername}
+    \begin{itemize}
+        \item Beschreibung: Gibt den Nutzernamen des Nutzers zurück.
+        \item Rückgabewert: String mit Nutzernamen des Nutzers.
+    \end{itemize}
+
+    \subsubsection{getPasswordHash}
+    \begin{itemize}
+        \item Beschreibung: Gibt das gehashte Passwort des Nutzers zurück.
+        \item Rückgabewert: Hash des Passworts
+    \end{itemize}
+
+    \subsubsection{setEmail}
+    \begin{itemize}
+        \item Beschreibung: Setzt die E-Mail-Addresse des Nutzers neu.
+        \item Parameter:
+        \begin{itemize}
+            \item email: String der neuen E-Mail-Addresse.
+        \end{itemize}
+    \end{itemize}
+
+    \subsubsection{setPasswordHash}
+    \begin{itemize}
+        \item Beschreibung: Setzt das gehashte Passwort des Nutzers neu.
+        \item Parameter:
+        \begin{itemize}
+            \item hash: Hash des neuen Passworts
+        \end{itemize}
+    \end{itemize}
+
     \subsection{PlayerAdapter}
     \subsection{OrganiserAdapter}
     \subsection{GameAdapter}
