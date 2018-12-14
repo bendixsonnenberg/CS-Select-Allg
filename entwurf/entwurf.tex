@@ -214,6 +214,16 @@
         \end{itemize}
     \end{itemize}
 
+    \begin{comment} Vollständiges Doku-Template
+    \begin{itemize}
+        \item Beschreibung:
+        \item Parameter:
+        \begin{itemize}
+        \end{itemize}
+        \item Rückgabewert:
+    \end{itemize}
+    \end{comment}
+
     \section{Database}
     \subsection{DatabaseAdapter}
     \subsection{UserAdapter}
@@ -228,8 +238,27 @@
     \subsubsection{MysqlGameAdapter}
 
     \section{Configuration}
+    Paket für die Kommunikation mit der Konfigurationsdatei.
+
     \subsection{Configuration}
+    Schnittstelle die von der Config-Implementierung abstrahiert.
+    Kümmert sich um die Kommunikation des Produkts mit der Konfigurationsdatei
+
+    \subsubsection{getOrganiserPassword}
+    \begin{itemize}
+        \item Beschreibung: Gibt das Passwort als String zurück das Organisatoren bei der Erstregistrierung verwenden müssen.
+        \item Rückgabewert: String mit Organisatorpasswort
+    \end{itemize}
+
+    \subsubsection{getMLServerURL}
+    \begin{itemize}
+        \item Beschreibung: Gibt die URL als String zurück, unter der der ML-Server zu finden ist
+        \item Rückgabewert: String mit URL des ML-Servers
+    \end{itemize}
+
     \subsection{DefaultConfiguration}
+    Implementiert die Schnittstelle Configuration und stellt die Funktionalität bereit.
+    Mitgelieferte Standardimplementierung der Konfiguration.
 
     \section{MLServer}
     \subsection{MLServer}
