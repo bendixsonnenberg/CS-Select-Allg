@@ -318,6 +318,112 @@
     \subsection{PlayerAdapter}
     \subsection{OrganiserAdapter}
     \subsection{GameAdapter}
+    Schnittstelle die Methoden für gespeicherte Spiele des Produkts bereitstellt.
+    Jeder GameAdapter ist stets genau einem Spiel zugeordnet.
+
+    \subsubsection{getTitle}
+    \begin{itemize}
+        \item Beschreibung: Gibt den Titel des Spiels zurück.
+        \item Rückgabewert: String mit Titel.
+    \end{itemize}
+
+    \subsubsection{getDescription}
+    \begin{itemize}
+        \item Beschreibung: Gibt die Beschreibung des Spiels zurück.
+        \item Rückgabewert: String mit Beschreibung des Spiels.
+    \end{itemize}
+
+    \subsubsection{getDatabaseName}
+    \begin{itemize}
+        \item Beschreibung: Gibt den Namen der Datenbank zurück in der das Spiel gespeichert ist.
+        \item Rückgabewert: String mit Namen der Datenbank.
+    \end{itemize}
+
+    \subsubsection{getFeatures}
+    \begin{itemize}
+        \item Beschreibung: Gibt die Features des Spiels zurück.
+        \item Rückgabewert: Collection mit den Features des Spiels.
+    \end{itemize}
+
+    \subsubsection{getNumberOfRounds}
+    \begin{itemize}
+        \item Beschreibung: Gibt die Anzahl der zu spielenden Runden zurück.
+        \item Rückgabewert: int mit zu spielenden Runden.
+    \end{itemize}
+
+    \subsubsection{getInvitedPlayers}
+    \begin{itemize}
+        \item Beschreibung: Gibt die eingeladenen Spieler zurück.
+        \item Rückgabewert: Collection mit den eingeladenen Spielern
+    \end{itemize}
+
+    \subsubsection{getPlayingPlayers}
+    \begin{itemize}
+        \item Beschreibung: Gibt die spielenden Spieler zurück.
+        \item Rückgabewert: Collection mit den spielenden Spielern.
+    \end{itemize}
+
+    \subsubsection{getRounds}
+    \begin{itemize}
+        \item Beschreibung: Gibt die gespielten Runden zurück.
+        \item Rückgabewert: Collection der gespielten Runden.
+    \end{itemize}
+
+    \subsubsection{getGamemode}
+    \begin{itemize}
+        \item Beschreibung: Gibt den gewählten Spielmodus zurück.
+        \item Rückgabewert: Gamemode
+    \end{itemize}
+
+    \subsubsection{getTermination}
+    \begin{itemize}
+        \item Beschreibung: Gibt die Art der Spielterminierung zurück.
+        \item Rückgabewert: Termination
+    \end{itemize}
+
+    \subsubsection{isFinished}
+    \begin{itemize}
+        \item Beschreibung: Gibt zurück ob das Spiel beendet wurde oder nicht.
+        \item Rückgabewert: True falls das Spiel beendet wurde, false sonst
+    \end{itemize}
+
+    \subsubsection{addPlayer}
+    \begin{itemize}
+        \item Beschreibung: Fügt einen Spieler zum Spiel hinzu.
+        \item Parameter:
+        \begin{itemize}
+            \item player: Spieler der hinzugefügt werden soll.
+        \end{itemize}
+    \end{itemize}
+
+    \subsubsection{addRound}
+    \begin{itemize}
+        \item Beschreibung: Fügt eine Runde zum Spiel hinzu.
+        \item Parameter:
+        \begin{itemize}
+            \item round: Runde die hinzugefügt werden soll.
+        \end{itemize}
+    \end{itemize}
+
+    \subsubsection{setTermination}
+    \begin{itemize}
+        \item Beschreibung: Setzt die Art der Spielterminierung.
+        \item Parameter:
+        \begin{itemize}
+            \item termination: Termination Objekt das die Art der Spielterminierung festlegt.
+        \end{itemize}
+    \end{itemize}
+
+    \subsubsection{setFeatures}
+    \begin{itemize}
+        \item Beschreibung: Setzt die Features des Spiels.
+        \item Parameter:
+        \begin{itemize}
+            \item features: Collection mit den Features des Spiels.
+        \end{itemize}
+    \end{itemize}
+
+
     \subsection{Mysql}
     \subsubsection{MysqlDatabaseAdapter}
     \subsubsection{MysqlUserAdapter}
