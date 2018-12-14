@@ -225,7 +225,50 @@
     \end{comment}
 
     \section{Database}
+    Paket das die Kommunikation mit der Datenbank übernimmt.
+
     \subsection{DatabaseAdapter}
+    Abstrakte Klasse die als Singleton realisiert ist und von der jeweiligen Datenbankimplementierung abstrahiert.
+
+    \subsubsection{instance}
+    Instanz des Singletons die durch Vererbung spezialisiert wird.
+
+    \subsubsection{getInstance}
+    \begin{itemize}
+        \item Beschreibung: Statische Methode die die Instanz des DatabaseAdapters zurückgibt
+        \item Rückgabewert: Instanz des DatabaseAdapters
+    \end{itemize}
+
+    \subsubsection{getPlayerAdapter}
+    \begin{itemize}
+        \item Beschreibung: Gibt den PlayerAdapter für den Spieler mit der gegebenen ID zurück.
+        \item Parameter:
+        \begin{itemize}
+            \item id: ID des Spielers, dessen PlayerAdapter zurückgegeben werden soll.
+        \end{itemize}
+        \item Rückgabewert: PlayerAdapter des Spielers mit ID id.
+    \end{itemize}
+
+    \subsubsection{getOrganiserAdapter}
+    \begin{itemize}
+        \item Beschreibung: Gibt den OrganiserAdapter für den Organisator mit der gegebenen ID zurück.
+        \item Parameter:
+        \begin{itemize}
+            \item id: ID des Organisators, dessen OrganiserAdapter zurückgegeben werden soll.
+        \end{itemize}
+        \item Rückgabewert: OrganiserAdapter des Organisators mit ID id.
+    \end{itemize}
+
+    \subsubsection{getGameAdapter}
+    \begin{itemize}
+        \item Beschreibung: Gibt den GameAdapter für das Spiel mit der gegebenen ID zurück.
+        \item Parameter:
+        \begin{itemize}
+            \item id: ID des Spiels, dessen GameAdapter zurückgegeben werden soll.
+        \end{itemize}
+        \item Rückgabewert: GameAdapter des Spiels mit ID id.
+    \end{itemize}
+
     \subsection{UserAdapter}
     \subsection{PlayerAdapter}
     \subsection{OrganiserAdapter}
