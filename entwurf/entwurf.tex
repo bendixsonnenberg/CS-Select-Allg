@@ -435,8 +435,16 @@
     Paket für die Kommunikation mit der Konfigurationsdatei.
 
     \subsection{Configuration}
-    Schnittstelle die von der Config-Implementierung abstrahiert.
-    Kümmert sich um die Kommunikation des Produkts mit der Konfigurationsdatei
+    Abstrakte Klasse die von der Config-Implementierung abstrahiert.
+    Kümmert sich um die Kommunikation des Produkts mit der Konfigurationsdatei.
+    Ist als Singleton umgesetzt um zu erzwingen, dass stets nur ein Zugriffspunkt zur Konfiguration besteht.
+
+    \subsubsection{getInstance}
+    \begin{itemize}
+        \item Beschreibung: Statische Methode die die Instanz der Configuration zurückgibt.
+        \item Rückgabewert: Instanz der Configuration.
+    \end{itemize}
+
 
     \subsubsection{getOrganiserPassword}
     \begin{itemize}
@@ -481,14 +489,21 @@
     \end{itemize}
 
     \subsection{DefaultConfiguration}
-    Implementiert die Schnittstelle Configuration und stellt die Funktionalität bereit.
+    Implementiert die abstrakte Klasse Configuration und stellt die Funktionalität bereit.
     Mitgelieferte Standardimplementierung der Konfiguration.
 
     \section{MLServer}
     Paket für die Kommunikation mit dem ML-Server.
 
     \subsection{MLServer}
-    Schnittstelle die von der Implementierung der ML-Server-API abstrahiert.
+    Abstrakte Klasse die von der Implementierung der ML-Server-API abstrahiert.
+    Ist als Singleton umgesetzt um zu erzwingen dass stets nur ein Zugriffspunkt zum ML-Server existiert.
+
+    \subsubsection{getInstance}
+    \begin{itemize}
+        \item Beschreibung: Statische Methode die die Instanz des MLServers zurückgibt.
+        \item Rückgabewert: Instanz des MLServers.
+    \end{itemize}
 
     \subsubsection{getVersion}
     \begin{itemize}
