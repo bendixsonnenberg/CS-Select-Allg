@@ -568,7 +568,7 @@
     Implementiert die abstrakte Klasse MLServer und stellt die Funktionalität mittels der Standard-Implementierung des ML-Servers per REST-API bereit.
     
     
-     \section{Gamification}
+   \section{Gamification}
    %Insert Picture
    Paket für die Gamification-Elemente. Dazu gehören Punkte, Streak, Leaderboard, Achievements und Daily-Challenges.
    
@@ -578,7 +578,7 @@
    
    \subsubsection{Streak}
    \begin{itemize}
-   	  \item Beschreibung:
+   	  \item Beschreibung: Der Konstruktor einer Streak initialisiert den Zähler der Streak auf 0.
    \end{itemize}
    \subsubsection{setZero}
    \begin{itemize}
@@ -609,84 +609,118 @@
    	\item Rückgabewert: Das LeaderBoard-Objekt.
    \end{itemize}
    
+   Das Paket Daylies enthält eine abstrakte Klasse DailyChallenge, von der alle konkreten Daily-Challenges erben.
    
    \subsection{DailyChallenge}
    Die abstrakte Klasse DailyChallenge gibt an, wie Daily-Challenges aufgebaut sind. Lediglich die Methode checkFinished() ist abstrakt und muss von den Unterklassen implementiert werden.
    \subsubsection{checkFinished}
+   \begin{itemize}
      \item Beschreibung: Überprüft, ob die Aufgabe der Daily-Challenge erfüllt ist.
      \item Rückgabewert: True, wenn die Aufgabe erfüllt ist, sonst false.
+    \end{itemize}
    \subsubsection{getCounter}
+   \begin{itemize}
      \item Beschreibung: Gibt den Wert des aktuellen Zählers zurück.
      \item Rückgabewert: Der Werte des aktuellen Zählers.
+    \end{itemize}
    \subsubsection{getName}
+   \begin{itemize}
      \item Beschreibung: Gibt den Namen der Daily-Challenge zurück.
      \item Rückgabewert: Ein String vom Namen der Daily-Challenge.
+    \end{itemize}
    \subsubsection{getDescription}
+   \begin{itemize}
      \item Beschreibung: Gibt die Beschreibung der Daily-Challenge zurück.
      \item Rückgabewert: Ein String von der Beschreibung der Daily-Challenge.
+    \end{itemize}
    \subsubsection{getReward}
+   \begin{itemize}
    \item Beschreibung: Gibt die Beschreibung der Daily-Challenge zurück.
    \item Rückgabewert: Ein String von der Beschreibung der Daily-Challenge.
+   \end{itemize}
    \subsubsection{getCounter}
    
    \subsection{DailyOne}
    Konkrete Implementierung der abstrakten Klasse DailyChallenge.
    \subsubsection{DailyOne}
-   Konstr
+   \begin{itemize}
+   	\item Beschreibung: Der Konstruktor von DailyOne setzt Namen und Beschreibung von DailyOne und..
+   	\item Parameter: Name und Beschreibung 
+   \end{itemize}
    \subsubsection{checkFinished}
    %Konkret
    \subsubsection{getInstance}
+   \begin{itemize}
    \item Beschreibung: Statische Methode. Sorgt dafür, dass nur ein DailyOne-Objekt existiert und gibt dieses zurück.
    \item Rückgabewert: Das DailyOne-Objekt.
+   \end{itemize}
    
    \subsection{DailyTwo}
    Konkrete Implementierung der abstrakten Klasse DailyChallenge.
    \subsubsection{DailyTwo}
-   Konstr
+   \begin{itemize}
+   	\item Beschreibung: Der Konstruktor von DailyTwo setzt Namen und Beschreibung von DailyTwo und..
+   	\item Parameter: Name und Beschreibung 
+   \end{itemize}
    \subsubsection{checkFinished}
    %Konkret
    \subsubsection{getInstance}
-   \item Beschreibung: Statische Methode. Sorgt dafür, dass nur ein LeaderBoard-Objekt existiert und gibt dieses zurück.
+   \begin{itemize}
+   \item Beschreibung: Statische Methode. Sorgt dafür, dass nur ein DailyTwo-Objekt existiert und gibt dieses zurück.
    \item Rückgabewert: Das DailyTwo-Objekt.
+\end{itemize}
    
-   Das Paket Achievements..
+   Das Paket Achievements enthält eine abstrakte Klasse Achievement, von der alle konkreten Achievements erben.
    
    \subsection{Achievement}
    \subsubsection{isFinished}
+   \begin{itemize}
    \item Beschreibung: Überprüft, ob die Aufgabe des Achievements erfüllt ist.
    \item Rückgabewert: True, wenn die Aufgabe erfüllt ist, sonst false.
+\end{itemize}
    \subsubsection{getName}
+   \begin{itemize}
    \item Beschreibung: Gibt den Namen des Achievements zurück.
    \item Rückgabewert: Ein String vom Namen des Achievements.
+\end{itemize}
    \subsubsection{getDescription}
+   \begin{itemize}
    \item Beschreibung: Gibt die Beschreibung des Achievements zurück.
    \item Rückgabewert: Ein String von der Beschreibung des Achievements.
+\end{itemize}
    \subsubsection{getState}
+   %Braucht man das
    \subsubsection{checkProgress}
+   \begin{itemize}
    \item Beschreibung: Überprüft, ob die Aufgabe des Achievements erfüllt ist.
    \item Rückgabewert: True, wenn die Aufgabe erfüllt ist, sonst false.
+\end{itemize}
    
    \subsection{AchievementOne}
    \subsubsection{AchievementOne}
-   Konstr
+   Konstruktor
    \subsubsection{checkProgress}
    %Konkret
    \subsubsection{getInstance}
+   \begin{itemize}
    \item Beschreibung: Statische Methode. Sorgt dafür, dass nur ein AchievementOne-Objekt existiert und gibt dieses zurück.
    \item Rückgabewert: Das AchievementOne-Objekt.
+\end{itemize}
    
    \subsection{AchievementTwo}
    \subsubsection{AchievementTwo}
-   Konstr
+   Konstruktor
    \subsubsection{checkProgress}
    %Konkret
    \subsubsection{getInstance}
+   \begin{itemize}
    \item Beschreibung: Statische Methode. Sorgt dafür, dass nur ein AchievementTwo-Objekt existiert und gibt dieses zurück.
    \item Rückgabewert: Das AchievementTwo-Objekt.
+\end{itemize}
    
       
    \subsection{Gamification}
-   Die Schnittstelle Gamification...
+   Die Schnittstelle Gamification abstrahiert von der konkreten Implementierung von Gamification-Elementen und gibt dabei zu implementierende Methoden vor.
    \subsubsection{calculateScore}
     \begin{itemize}
    	\item Beschreibung: Berechnet aus gegebenem Wert eine entsprechende Punktzahl für den Spieler.
@@ -694,29 +728,41 @@
    	\item Rückgabewert: Die berechnete erreichte Punktzahl des Spielers.
    \end{itemize}
    \subsubsection{getScore}
+   \begin{itemize}
    \item Beschreibung: Gibt die aktuelle Punktzahl des Spielers zurück.
    \item Rückgabewert: Die aktuelle Punktzahl des Spielers.
+\end{itemize}
    \subsubsection{getAchievements}
-   \item Beschreibung: Gibt die aktuelle Punktzahl des Spielers zurück.
-   \item Rückgabewert: Die aktuelle Punktzahl des Spielers.
+   \begin{itemize}
+   \item Beschreibung: Gibt die aktuelle Achievements des Spielers zurück.
+   \item Rückgabewert: Die aktuelle Achievements des Spielers in einer Liste.
+\end{itemize}
    \subsubsection{getStreak}
+   \begin{itemize}
    \item Beschreibung: Gibt die aktuelle Streak des Spielers zurück.
    \item Rückgabewert: Die Streak des Spielers.
+\end{itemize}
    \subsubsection{getDailies}
+   \begin{itemize}
    \item Beschreibung: Gibt die Daily-Challenges des Spielers zurück.
    \item Rückgabewert: Eine Liste der Daily-Challenges des Spielers.
+  \end{itemize}
    \subsubsection{chooseNewDaily}
+   \begin{itemize}
    \item Beschreibung: Wählt eine neue Daily-Challenge für den Spieler aus.
    %Wird das evt. global gemacht?
+  \end{itemize}
    \subsubsection{getLeaderboard}
-   \item Beschreibung: Gibt das aktuelle Leaderboard zurück.
-   \item Rückgabewert: Sortierte Liste aus Spielern, die das Leaderboard darstellen.
-  
+   \begin{itemize}
+     \item Beschreibung: Gibt das aktuelle Leaderboard zurück.
+     \item Rückgabewert: Sortierte Liste aus Spielern, die das Leaderboard darstellen.
+   \end{itemize}
+   
    
    \subsection{PlayerStats}
    Die Klasse PlayerStats implementiert die Schnittstelle Gamification und regelt das Zusammenwirken der Gamification-Elemente und berechnet die Punkte eines Spielers.
-   \subsubsection{Playerstats}
-   Konstr
+   \subsubsection{PlayerStats}
+   Der Konstruktor von PlayerStats initialisiert den Punktestand mit 0 und lädt sich die verfügbaren Achievements und Daily-Challenges.
    \subsubsection{calculateScore}
    \subsubsection{getScore}
    \subsubsection{getAchievements}
@@ -724,6 +770,7 @@
    \subsubsection{getDailies}
    \subsubsection{chooseNewDaily}
    \subsubsection{getLeaderboard}
+   
    
    \section{Game}
    Paket, welches die innere Spielmechanik verwaltet. Dazu gehören die Spiele, Spielmodi, Runden und Merkmale.
