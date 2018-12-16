@@ -724,6 +724,236 @@
    \subsubsection{getDailies}
    \subsubsection{chooseNewDaily}
    \subsubsection{getLeaderboard}
+   
+   \section{Game}
+   Paket, welches die innere Spielmechanik verwaltet. Dazu gehören die Spiele, Spielmodi, Runden und Merkmale.
+   
+   \subsection{Game}
+   Stellt ein Spiel dar
+   \subsubsection{invitePlayer}
+   \begin{itemize}
+           \item Beschreibung: Fügt dem Spiel einen Spieler hinzu, der eingeladen wurde
+           \item Parameter: Player, der eingeladene Spieler
+           \item Rückgabewert: Ob Spieler erfolgreich hinzugefügt wurde oder schon im Spiel vorhanden ist
+   \end{itemize}
+   \subsubsection{addPlayer}
+   \begin{itemize}
+              \item Beschreibung: Gibt einem Spieler die Spielberechtigung, der eine Einladung erhalten und diese angenommen hat
+              \item Parameter: Player, der Spieler, der die Einladung angenommen hat
+              \item Rückgabewert: Ob Spieler erfolgreich hinzugefügt wurde oder entweder schon spielt oder keine Einladung hatte
+   \end{itemize}
+   \subsubsection{playRound}
+   \begin{itemize}
+              \item Beschreibung: Führt das Spielen einer Runde durch einen Spieler durch
+              \item Parameter: Player, der Spieler, der die Runde spielt
+              \item Rückgabewert: Die Punktzahl, die der Spieler für die Runde erhalten hat
+   \end{itemize}
+   \subsubsection{terminateGame}
+   \begin{itemize}
+           \item Beschreibung: Beendet ein Spiel
+           \item Rückgabewert: Ob das Spiel erfolgreich beendet wurde
+   \end{itemize}
+   \subsubsection{getFeatureSet}
+   \begin{itemize}
+           \item Beschreibung: Gibt den zum Spiel gehörigen Merkmalsdatensatz zurück
+           \item Rückgabewert: Der Merkmalsdatensatz
+   \end{itemize}
+   \subsubsection{getTitle}
+   \begin{itemize}
+           \item Beschreibung: Gibt den Spieltitel zurück
+           \item Rückgabewert: Der Spieltitel
+   \end{itemize}
+   \subsubsection{getDescription}
+      \begin{itemize}
+              \item Beschreibung: Gibt die Spielbeschreibung zurück
+              \item Rückgabewert: Die Spielbeschreibung
+      \end{itemize}
+   \subsubsection{getInvitedPlayers}
+      \begin{itemize}
+              \item Beschreibung: Gibt eine Aufzählung aller Spieler zurück, die eingeladen sind, die Einladung aber noch nicht angenommen haben
+              \item Rückgabewert: Die Aufzählung der eingeladenen Spieler
+      \end{itemize}
+   \subsubsection{getPlayingPlayers}
+      \begin{itemize}
+              \item Beschreibung: Gibt eine Aufzählung aller Spieler zurück, die die Einladung angenommen haben und Runden spielen können
+              \item Rückgabewert: Die Aufzählung der spielenden Spieler
+      \end{itemize}
+   \subsubsection{getGamemode}
+      \begin{itemize}
+              \item Beschreibung: Gibt den zum Spiel gehörigen Spielmodus zurück
+              \item Rückgabewert: Der Spielmodus
+      \end{itemize}
+   \subsubsection{getNumberOfRounds}
+      \begin{itemize}
+              \item Beschreibung: Gibt die Anzahl der bereits gespielten Runden insgesamt zurück
+              \item Rückgabewert: Die Anzahl der gespielten Runden
+      \end{itemize}     
+   \subsubsection{getFinished}
+      \begin{itemize}
+              \item Beschreibung: Gibt zurück, ob das Spiel noch aktiv ist
+              \item Rückgabewert: False, falls Spiel beendet wurde, sonst true
+      \end{itemize}
+   \subsubsection{getMlserver}
+      \begin{itemize}
+              \item Beschreibung: Gibt den ML-Server an, der die Merkmale bereitstellt und die Qualitätsberechnung durchführt
+              \item Rückgabewert: Der ML-Server
+      \end{itemize}
+      
+   \subsection{FeatureSet}
+   Stellt einen Merkmalsdatensatz dar, der aus beliebig vielen, aber mindestens einem Merkmal besteht und ohne diese keine Daseinsberechtigung hat
+   \subsubsection{getIdentifier}
+   \begin{itemize}
+      \item Beschreibung: Gibt den eindeutigen Identifikationsschlüssel eines Merkmalsdatensatzes zurück
+      \item Rückgabewert: Der Identifikationsschlüssel
+   \end{itemize}
+   \subsubsection{getFeatures}
+      \begin{itemize}
+         \item Beschreibung: Gibt die zum Merkmalsdatensatz gehörigen Merkmale zurück
+         \item Rückgabewert: Aufzählung der Merkmale
+      \end{itemize}
+   
+   \subsection{Feature}
+   Stellt ein zu einem Merkmalsdatensatz gehöriges Merkmal dar
+   \subsubsection{getName}
+      \begin{itemize}
+          \item Beschreibung: Gibt den Namen des Merkmals zurück
+          \item Rückgabewert: Der Name
+      \end{itemize}
+   \subsubsection{getDescription}
+      \begin{itemize}
+          \item Beschreibung: Gibt die Beschreibung des Merkmals zurück
+          \item Rückgabewert: Die Beschreibung
+      \end{itemize}
+   \subsubsection{getGraph1}
+      \begin{itemize}
+          \item Beschreibung: Gibt den absoluten Graphen des Merkmals zurück
+          \item Rückgabewert: Der absolute Graph
+      \end{itemize}
+   \subsubsection{get}
+      \begin{itemize}
+          \item Beschreibung: Gibt den relativen Graphen des Merkmals zurück
+          \item Rückgabewert: Der relative Graph
+      \end{itemize}
+   
+   \subsection{Termination}
+   Stellt eine Abbruchbedingung, die zu einem Spiel gehört, dar
+   \subsubsection{checkTermination}
+      \begin{itemize}
+          \item Beschreibung: Überprüft, ob die Abbruchbedingung erfüllt ist und beendet gegebenenfalls das Spiel
+          \item Rückgabewert: True, wenn Bedinung erfüllt war, false sonst
+      \end{itemize}
+   
+   \subsection{TerminationComposite}
+   Stellt ein Kompositum aus eindeutigen Abbruchbedingungen dar, um unterschiedliche Abbruchbedingungen für ein Spiel zuzulassen, eine spezielle Abbruchbedingung
+   \subsubsection{checkTermination}
+      \begin{itemize}
+         \item Beschreibung: Implementiert checkTermination von Termination, in dem für jede zugehörige Abbruchbedingung diese Methode ausgeführt wird
+      \end{itemize}
+  \subsubsection{addTermination}
+     \begin{itemize}
+        \item Beschreibung: Fügt eine Abbruchbedingung zum Kompositum hinzu
+        \item Parameter: Termination, die Abbruchbedingung
+     \end{itemize}
+  \subsubsection{deleteTermination}
+     \begin{itemize}
+        \item Beschreibung: Entfernt eine Abbruchbedingung aus dem Kompositum
+        \item Parameter: Termination, die zu entfernende Abbruchbedingung
+     \end{itemize}
+     
+   
+   \subsection{TimeTermination}
+   Sorgt dafür, dass ein Spiel zu einer bestimmten Zeit terminiert
+   \subsubsection{checkTermination}
+      Implementiert die Methode, in dem überprüft wird, ob die Zeit erreicht ist
+     
+   \subsection{NumberOfRoundsTermination}
+   Sorgt dafür, dass ein Spiel nach bestimmter Anzahl an gespielten Runden terminiert
+   \subsubsection{checkTermination}
+      Implementiert die Methode, in dem geprüft wird, ob die Rundenzahl erreicht ist
+   
+   \subsection{Round}
+   Stellt eine konkrete Runde eines bestimmten Spiels dar
+   \subsection{play}
+   \begin{itemize}
+   \item Beschreibung: Führt die Runde aus, stellt Merkmale für die GUI bereit und behandelt die Auswahl durch den Spieler
+   \end{itemize}
+   \subsection{skip}
+      \begin{itemize}
+      \item Beschreibung: Beendet die Runde ohne Auswahl durch den Spieler
+      \end{itemize}
+   \subsection{provideFeatures}
+      \begin{itemize}
+      \item Beschreibung: Wählt Teilmenge der zum Spiel gehörigen Merkmale aus, die dem Spieler angezeigt werden sollen
+      \item Rückgabewert: Die Aufzählung der Merkmale
+      \end{itemize}
+   \subsection{markUseless}
+      \begin{itemize}
+      \item Beschreibung: Fügt eines der Merkmale zu den unwichtigen Merkmalen hinzu
+      \item Parameter: Das unwichtige Merkmal
+      \end{itemize}
+   \subsubsection{getPlayer}
+      \begin{itemize}
+          \item Beschreibung: Gibt den Spieler zurück, der die Runde spielt
+          \item Rückgabewert: Der Spieler
+      \end{itemize}
+   \subsubsection{getShownFeatures}
+      \begin{itemize}
+          \item Beschreibung: Gibt die Merkmale zurück, die dem Spieler angezeigt werden
+          \item Rückgabewert: Die angezeigten Merkmale
+      \end{itemize}
+   \subsubsection{getChosenFeatures}
+      \begin{itemize}
+          \item Beschreibung: Gibt die Merkmale zurück, die vom Spieler ausgewählt wurden
+          \item Rückgabewert: Die ausgewählten Merkmale
+      \end{itemize}
+   \subsubsection{getTime}
+      \begin{itemize}
+          \item Beschreibung: Gibt den Zeitpunkt zurück, an dem die Runde gestartet wurde
+          \item Rückgabewert: Der Startzeitpunkt 
+      \end{itemize}
+   \subsubsection{getQuality}
+      \begin{itemize}
+          \item Beschreibung: Gibt die Bewertung der Merkmalsauswahl durch den ML-Server zurück
+          \item Rückgabewert: Die Bewertung zwischen 0 und 1
+      \end{itemize}
+   \subsubsection{getPoints}
+      \begin{itemize}
+          \item Beschreibung: Gibt die Anzahl an Punkten zurück, die der Spieler durch die Runde dazubekommen hat
+          \item Rückgabewert: Die Anzahl der Punkte der Runde
+      \end{itemize}
+   \subsubsection{getNumber}
+      \begin{itemize}
+          \item Beschreibung: Gibt zurück, die wievielte Runde des Spiels diese Runde war
+          \item Rückgabewert: Die Nummer der Runde
+      \end{itemize}
+   \subsubsection{getUselessFeatures}
+      \begin{itemize}
+          \item Beschreibung: Gibt alle Merkmale zurück, die als unwichtig markiert wurden
+          \item Rückgabewert: Die unwichtigen Merkmale
+      \end{itemize}
+   \subsection{setChosenFeatures}
+      \begin{itemize}
+      \item Beschreibung: Fügt die durch den Spieler ausgewählten Merkmale hinzu.
+      \item Parameter: Die ausgewählten Merkmale
+      \end{itemize}
+   \subsection{BinärSelectRound}
+   
+   \subsection{MatrixSelectRound}
+   
+   
+   \subsection{Gamemode}
+   
+   \subsection{GamemodeComposite}
+   
+   \subsection{BinärSelect}
+   
+   \subsection{MatrixSelect}
+   
+
+   
+   
+   
+	
 
    \chapter{Sequenzdiagramme}
 
