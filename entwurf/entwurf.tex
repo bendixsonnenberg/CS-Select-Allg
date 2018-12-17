@@ -27,6 +27,41 @@
     \chapter{Architekturdiagramm}
 
     \chapter{Klassendiagramme}
+
+    \section{User}
+    \subsection{User}
+    \includegraphics[width=\textwidth]{img/user.png}
+    \subsubsection{User}
+    Stellt einen Nutzer im System dar.
+    \subsubsection{getId}
+    \begin{itemize}
+        \item Beschreibung: Gibt die eindeutige Id zurück, die einem Nutzer zugeordnet ist
+        \item Parameter: int
+        \item Rückgabewert: int
+    \end{itemize}
+    \subsubsection{setId}
+    \begin{itemize}
+        \item Beschreibung: Diese Methode dient dem Zuordnen einer Id zu einem Spieler. Die Methode überprüft, ob die Id gültig ist (also noch nicht existiert)
+        \item Parameter: int
+        \item Rückgabewert: void
+    \end{itemize}
+    \subsubsection{login}
+    \begin{itemize}
+        \item Beschreibung: Mithilfe dieser Methode loggt sich der Nutzer ein
+        \item Parameter: String
+        \item Rückgabewert: boolean
+    \end{itemize}
+    \subsubsection{logout}
+    \subsubsection{changePassword}
+    \subsubsection{changeEmail}
+
+    \subsection{Player}
+    \subsection{Organiser}
+
+    \section{Safety}
+    \subsection{PasswordChecker}
+    \subsection{Encryption}
+
     \section{API}
     \includegraphics[width=\textwidth]{img/api.png}
     \subsection{APIFacadePlayer}
@@ -218,13 +253,12 @@
     \begin{itemize}
         \item Beschreibung:
         \item Parameter:
-        \begin{itemize}
-        \end{itemize}
         \item Rückgabewert:
     \end{itemize}
     \end{comment}
 
     \section{Database}
+    \includegraphics[width=\textwidth]{img/Database.PNG}
     Paket das die Kommunikation mit der Datenbank übernimmt.
 
     \subsection{DatabaseAdapter}
@@ -467,6 +501,7 @@
     Paket für die Kommunikation mit der Konfigurationsdatei.
 
     \subsection{Configuration}
+    \includegraphics[width=\textwidth]{img/Configuration.PNG}
     Abstrakte Klasse die von der Config-Implementierung abstrahiert.
     Kümmert sich um die Kommunikation des Produkts mit der Konfigurationsdatei.
     Ist als Singleton umgesetzt um zu erzwingen, dass stets nur ein Zugriffspunkt zur Konfiguration besteht.
@@ -525,6 +560,7 @@
     Mitgelieferte Standardimplementierung der Konfiguration.
 
     \section{MLServer}
+    \includegraphics[width=\textwidth]{img/MLServer.PNG}
     Paket für die Kommunikation mit dem ML-Server.
 
     \subsection{MLServer}
@@ -569,7 +605,7 @@
     
     
    \section{Gamification}
-   %Insert Picture
+    \includegraphics[width=\textwidth]{img/Gamification.PNG}
    Paket für die Gamification-Elemente. Dazu gehören Punkte, Streak, Leaderboard, Achievements und Daily-Challenges.
    
    
@@ -773,6 +809,8 @@
    
    
    \section{Game}
+    \includegraphics[width=\textwidth]{img/GameTerminationFeature.PNG}
+    \includegraphics[width=\textwidth]{img/RoundAndGameMode.PNG}
    Paket, welches die innere Spielmechanik verwaltet. Dazu gehören die Spiele, Spielmodi, Runden und Merkmale.
    
    \subsection{Game}
