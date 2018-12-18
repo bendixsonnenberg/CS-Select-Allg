@@ -186,6 +186,20 @@
 			\item langCode: der Landescode für die gewünschte Sprache
 		\end{itemize}
 	\end{itemize}
+    \subsubsection{registerPlayer}
+    \begin{itemize}
+        \item Beschreibung: registriert einen neuen Spieler in das System. Bei diesem Aufruf wird eine E-Mail an die angegebene Email gesendet. Das Passwort muss der Spieler sich merken, da es in den loginPlayer Aufruf benötigt wird.
+        \item Parameter:
+        \begin{itemize}
+            \item email: E-Mail Adresse des zu registrierenden Spielers. Der Spieler muss Zugriff auf diese E-Mail Adresse haben.
+            \item password: Das Passwort des neu zu registrierenden Spielers.
+            \item username: Der Nutzername des neu zu registrierenden Spielers.
+        \end{itemize}
+    \end{itemize}
+    \subsubsection{validateEmail}
+    \begin{itemize}
+        \item Beschreibung: Teilt dem System mit, dass die E-Mail Adresse eines Nutzers bestätigt wurde. Optimalerweise durch den Link, welcher in der E-Mail versendet wurde. Kann aber natürlich auf direkt nach dem registerPlayer Aufruf gemacht werden.
+    \end{itemize}
 	\subsection{APIFacadeOrganiser}
 	\subsubsection{loginOrganiser}
 	\begin{itemize}
@@ -248,7 +262,23 @@
 			\item pattern: Das zu speichernde Pattern
 		\end{itemize}
 	\end{itemize}
-	
+	\subsubsection{registerOrganiser}
+    \begin{itemize}
+        \item Beschreibung: registriert einen neuen Spieler in das System. Bei diesem Aufruf wird eine E-Mail an die angegebene Email gesendet. Das Passwort muss der Spieler sich merken, da es in den loginOrganiser Aufruf benötigt wird.
+        \item Parameter:
+        \begin{itemize}
+            \item email: E-Mail Adresse des zu registrierenden Organisators. Der Organisator muss Zugriff auf diese E-Mail Adresse haben.
+            \item password: Das Passwort des neu zu registrierenden Organisators.
+            \item mainPassword: Das Haupt-Passwort, welches in der Konfigurationsdatei steht und benötigt wird um das registrieren als Organisator zu erlauben.
+        \end{itemize}
+    \end{itemize}
+    \subsubsection{validateEmail}
+    \begin{itemize}
+        \item Beschreibung: Teilt dem System mit, dass die E-Mail Adresse eines Nutzers bestätigt wurde. Optimalerweise durch den Link, welcher in der E-Mail versendet wurde. Kann aber natürlich auf direkt nach dem registerOrganiser Aufruf gemacht werden.
+    \end{itemize}
+    \subsection{httpAPI}
+    Implementierung der beiden Fassadenobjecten für http/REST.
+
 	\begin{comment} Vollständiges Doku-Template
 	\begin{itemize}
 	\item Beschreibung:
