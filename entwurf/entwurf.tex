@@ -955,12 +955,12 @@
       \begin{itemize}
          \item Beschreibung: Implementiert checkTermination von Termination, in dem für jede zugehörige Abbruchbedingung diese Methode ausgeführt wird
       \end{itemize}
-  \subsubsection{add}
+    \subsubsection{add}
      \begin{itemize}
         \item Beschreibung: Fügt eine Abbruchbedingung zum Kompositum hinzu
         \item Parameter: Termination, die Abbruchbedingung
      \end{itemize}
-  \subsubsection{delete}
+    \subsubsection{delete}
      \begin{itemize}
         \item Beschreibung: Entfernt eine Abbruchbedingung aus dem Kompositum
         \item Parameter: Termination, die zu entfernende Abbruchbedingung
@@ -1163,12 +1163,28 @@
     \item   Spieler-Übersicht
     \item   Spiel
     \end{itemize}
-   \chapter{Sequenzdiagramme}
+    \chapter{Sequenzdiagramme}
 
     \chapter{Datenhaltung}
-        \section{Ordnerstruktur}
-        \section{Konfiguration}
-        \section{Datenbank}
+
+    \section{Ordnerstruktur}
+
+    \section{Konfiguration}
+    Die Konfigurationsdatei enthält alle Einstellungsmöglichkeiten die das Produkt betreffen in der folgenden Form:
+    \begin{itemize}
+        \item organiserpassword (Das Passwort das ein Organisator bei der Registrierung angeben muss)
+        \item mlserverurl       (Die URL unter der der ML-Server zu erreichen ist)
+        \item homedirectory     (Das Verzeichnis unter dem Daten auf der Festplatte abgelegt werden sollen)
+        \item database          (Kategorie für die Datenbankeinstellungen)
+        \begin{itemize}
+            \item type          (Typ der zu verwendenden Datenbank, Standard mysql)
+            \item hostname      (Hostname unter dem der Datenbankserver erreichbar ist)
+            \item port          (Port des Datenbankservers)
+            \item username      (Nutzername des Datenbankbenutzers)
+            \item password      (Passwort des Datenbankbenutzers)
+        \end{itemize}
+    \end{itemize}
+    \section{Datenbank}
 
 
 
