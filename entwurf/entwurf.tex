@@ -340,12 +340,13 @@
         \end{itemize}
     \end{itemize}
 
-    \subsubsection{setPasswordHash}
+    \subsubsection{setPassword}
     \begin{itemize}
-        \item Beschreibung: Setzt das gehashte Passwort des Nutzers neu.
+        \item Beschreibung: Setzt das gehashte Passwort sowie den Salt des Nutzers neu.
         \item Parameter:
         \begin{itemize}
-            \item hash: Hash des neuen Passworts
+            \item hash: Hash-String des neuen Passworts
+            \item salt: Salt-String des neuen Passworts
         \end{itemize}
     \end{itemize}
 
