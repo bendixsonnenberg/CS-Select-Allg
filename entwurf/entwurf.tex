@@ -1185,6 +1185,70 @@
         \end{itemize}
     \end{itemize}
     \section{Datenbank}
+    In der Datenbank werden sämtliche spielrelevanten Daten gesichert.
+    Die Standardimplementierung verwendet eine Mysql-Datenbank mit folgender geplanter Strukturierung der Daten.
+    das Produkt verwendet eine Datenbank für seine Daten (fortan Hauptdatenbank genannt) sowie für jedes Spiel eine vom Organisator angegebene Datenbank.
+    \subsection{Spielerdaten}
+    Eine Tabelle in der Hauptdatenbank hält die Daten für die Spieler.
+    Die einzelnen Spalten sind dabei die Folgenden:
+    \begin{itemize}
+        \item ID
+        \item Username
+        \item E-Mail-Addresse
+        \item Passwort-Hash
+        \item Passwort-Salt
+        \item Score (Gesamt erreichte Punkte des Spielers)
+        \item Anzahl gespielter Spiele
+    \end{itemize}
+    \subsection{Organisatordaten}
+    Eine weitere Tabelle in der Hauptdatenbank hält die Daten der Organisatoren.
+    Die einzelnen Spalten sind dabei die Folgenden:
+    \begin{itemize}
+        \item ID
+        \item Username
+        \item E-Mail-Addresse
+        \item Passwort-Hash
+        \item Passwort-Salt
+    \end{itemize}
+    Weiterhin wird jedem Organisator der Spieleinstellungen sichert eine weitere Tabelle mit seinen Spieleinstellungen zugeordnet.
+    \begin{itemize}
+        \item Titel des Pattern
+        \item Beschreibung
+        \item Art der Spielterminierung
+        \item Spielmodus
+        \item Eingeladene Spieler
+    \end{itemize}
+    \subsection{Merkmalsdatensätze}
+    Jeder Merkmalsdatensatz erhält eine eigene Tabelle mit folgenden Inhalten:
+    \begin{itemize}
+        \item Dataset-Feature (Interner Name des Features)
+        \item Englischer Name
+        \item Englische Beschreibung
+        \item Deutscher Name
+        \item Deutsche Beschreibung
+    \end{itemize}
+    Die zum Merkmalsdatensatz gehörigen Graphen werden auf der Festplatte in einem Verzeichnis gespeichert.
+    \subsection{Spieldaten}
+    Die grundlegenden Daten zum Spiel werden in einer Tabelle in der Hauptdatenbank verwaltet.
+    \begin{itemize}
+        \item Titel
+        \item Beschreibung
+        \item Datenbankname
+        \item Terminierungsstatus
+        \item Spielmodus
+    \end{itemize}
+    Jedem Spiel wird vom Organisator eine eigene Datenbank zugewiesen.
+    Jedes Spiel besitzt eine Tabelle die die Runden wie folgt hält.
+    \begin{itemize}
+        \item Zeitpunkt zu der die Runde gespielt wurde
+        \item Name des Spielers der die Runde gespielt hat
+        \item Anzahl der Teilrunden
+        \item Vorhersagequalität
+        \item Für die Runde erhaltene Punkte
+        \item Ausgewählte Merkmale
+        \item Optional: Als unwichtig markierte Merkmale
+    \end{itemize}
+    Weiterhin besitzt jedes Spiel je eine Tabelle die die eingeladenen sowie die spielenden Spieler hält.
 
 
 
