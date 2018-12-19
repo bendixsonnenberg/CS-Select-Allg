@@ -332,6 +332,16 @@
 		\end{itemize}
 		\item Rückgabewert: GameAdapter des Spiels mit ID id.
 	\end{itemize}
+
+	\subsubsection{getPlayer}
+	\begin{itemize}
+		\item Beschreibung: Gibt das Player Objekt mit der gegebenen E-Mail-Addresse zurück.
+		\item Parameter:
+		\begin{itemize}
+			\item email: E-Mail-Addresse des Spielers der zurückgegeben werden soll.
+		\end{itemize}
+		\item Rückgabewert: Player mit der gegebenen E-Mail-Addresse
+	\end{itemize}
 	
 	\subsection{UserAdapter}
 	Schnittstelle die Methoden für alle Nutzer des Produkts bereitstellt.
@@ -505,7 +515,11 @@
 			\item features: Collection mit den Features des Spiels.
 		\end{itemize}
 	\end{itemize}
-	
+
+	\subsubsection{setFinished}
+	\begin{itemize}
+		\item Beschreibung: Setzt das Spiel auf beendet.
+	\end{itemize}
 	
 	\subsection{Mysql}
 	Paket mit Mysql basierter Implementierung der Datenbank.
