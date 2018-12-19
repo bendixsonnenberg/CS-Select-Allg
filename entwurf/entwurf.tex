@@ -674,23 +674,40 @@
 	Paket, welches die innere Spielmechanik verwaltet. Dazu gehören die Spiele, Spielmodi, Runden und Merkmale.
 	
 	\subsection{Game}
-	Stellt ein Spiel dar
+	Stellt ein Spiel dar, verwaltet eingeladene und spielende Spieler sowie die zum Spiel zugehörigen Informationen
+	\subsubsection{Game}
+	\begin{itemize}
+	\item Beschreibung: Konstruktor, der ein Game-Objekt erzeugt
+	\item Parameter: 
+	\begin{itemize}
+	\item title: Der Spieltitel
+	\item description: Die Spielbeschreibung
+	\item database: Die Datenbank, in die die Spielinformationen geschrieben werden
+	\item termination: Die Abbruchbedingung des Spiels
+	\item gamemode: Der Spielmodus des Spiels
+	\item featureset: Der Merkmalsdatensatz, aus dem die im Spiel angezeigten Merkmale kommen
+	\item invitedPlayers: Die zum Spiel eingeladenen Spieler
+	\item mlserver: Der ML-Server, von dem der Merkmalsdatensatz kommt und der die Bewertung durchführt
+	\item 
+	\end{itemize}
+	\end{itemize}
+	, die ID wird auf die nächst freie ID gesetzt und der statische Zähler hochgezählt, finished wird auf false gesetzt, numberOfRounds auf 0	
 	\subsubsection{invitePlayer}
 	\begin{itemize}
 		\item Beschreibung: Fügt dem Spiel einen Spieler hinzu, der eingeladen wurde
-		\item Parameter: Player, der eingeladene Spieler
+		\item Parameter: player: der eingeladene Spieler
 		\item Rückgabewert: Ob Spieler erfolgreich hinzugefügt wurde oder schon im Spiel vorhanden ist
 	\end{itemize}
 	\subsubsection{acceptInvite}
 	\begin{itemize}
 		\item Beschreibung: Gibt einem Spieler die Spielberechtigung, der eine Einladung erhalten und diese angenommen hat
-		\item Parameter: int, ID des Spielers, der die Einladung angenommen hat
+		\item Parameter: playerID: ID des Spielers, der die Einladung angenommen hat
 		\item Rückgabewert: Ob Spieler erfolgreich hinzugefügt wurde oder entweder schon spielt oder keine Einladung hatte
 	\end{itemize}
 	\subsubsection{playRound}
 	\begin{itemize}
 		\item Beschreibung: Führt das Spielen einer Runde durch einen Spieler durch
-		\item Parameter: int, ID des Spielers, der die Runde spielt
+		\item Parameter: playerID: ID des Spielers, der die Runde spielt
 		\item Rückgabewert: Die Punktzahl, die der Spieler für die Runde erhalten hat
 	\end{itemize}
 	\subsubsection{terminateGame}
@@ -746,18 +763,28 @@
 	\subsubsection{declineInvite}
 	\begin{itemize}
 		\item Beschreibung: Löscht einen Spieler aus den eingeladenen Spielern, der eine Einladung abgelehnt hat
-		\item Parameter: int, ID des Spielers, der die Einladung abgelehnt hat
+		\item Parameter: playerID: ID des Spielers, der die Einladung abgelehnt hat
 		\item Rückgabewert: False, falls der Spieler gar keine aktive Einladung hatte
 	\end{itemize}
 	\subsubsection{deletePlayer}
 	\begin{itemize}
 		\item Beschreibung: Löscht einen Spieler aus dem Spiel, sowohl falls er nur eingeladen ist als auch falls er schon spielt
-		\item Parameter: int, ID des Spielers, der gelöscht werden soll
+		\item Parameter: playerID: ID des Spielers, der gelöscht werden soll
 		\item Rückgabewert: False, falls der Spieler dem Spiel nicht bekannt ist
+	\end{itemize}
+	\subsubsection{getID}
+	\begin{itemize}
+	\item Beschreibung: Gibt die ID des Spiels zurück
+	\item Rückgabewert: Die ID
 	\end{itemize}
 	
 	\subsection{FeatureSet}
 	Stellt einen Merkmalsdatensatz dar, der aus beliebig vielen, aber mindestens einem Merkmal besteht und ohne diese keine Daseinsberechtigung hat
+	\subsubsection{FeatureSet}
+		\begin{itemize}
+		\item Beschreibung: Konstruktor, der ein FeatureSet-Objekt erzeugt
+		\item Parameter: identifier: Der Identifikationsschlüssel des Merkmalsdatensatzes
+		\end{itemize}
 	\subsubsection{getIdentifier}
 	\begin{itemize}
 		\item Beschreibung: Gibt den eindeutigen Identifikationsschlüssel eines Merkmalsdatensatzes zurück
@@ -771,6 +798,17 @@
 	
 	\subsection{Feature}
 	Stellt ein zu einem Merkmalsdatensatz gehöriges Merkmal dar
+	\subsubsection{Feature}
+		\begin{itemize}
+		\item Beschreibung: Konstruktor, der ein Feature-Objekt erzeugt
+		\item Parameter: 
+		\begin{itemize}
+		\item name: Der Name des Merkmals
+		\item description: Die Beschreibung des Merkmals
+		\item graph1: Der absolute Graph des Merkmals
+		\item graph2: Der relative Graph des Merkmals
+		\end{itemize}	
+		\end{itemize}
 	\subsubsection{getName}
 	\begin{itemize}
 		\item Beschreibung: Gibt den Namen des Merkmals zurück
@@ -786,7 +824,7 @@
 		\item Beschreibung: Gibt den absoluten Graphen des Merkmals zurück
 		\item Rückgabewert: Der absolute Graph
 	\end{itemize}
-	\subsubsection{get}
+	\subsubsection{getGraph2}
 	\begin{itemize}
 		\item Beschreibung: Gibt den relativen Graphen des Merkmals zurück
 		\item Rückgabewert: Der relative Graph
@@ -802,6 +840,10 @@
 	
 	\subsection{TerminationComposite}
 	Stellt ein Kompositum aus eindeutigen Abbruchbedingungen dar, um unterschiedliche Abbruchbedingungen für ein Spiel zuzulassen, eine spezielle Abbruchbedingung
+	\subsubsection{TerminationComposite}
+		\begin{itemize}
+		\item Beschreibung: Konstruktor, der ein TerminationComposite-Objekt erzeugt	
+		\end{itemize}
 	\subsubsection{checkTermination}
 	\begin{itemize}
 		\item Beschreibung: Implementiert checkTermination von Termination, in dem für jede zugehörige Abbruchbedingung diese Methode ausgeführt wird
@@ -809,17 +851,22 @@
 	\subsubsection{add}
 	\begin{itemize}
 		\item Beschreibung: Fügt eine Abbruchbedingung zum Kompositum hinzu
-		\item Parameter: Termination, die Abbruchbedingung
+		\item Parameter: termination: die Abbruchbedingung
 	\end{itemize}
 	\subsubsection{delete}
 	\begin{itemize}
 		\item Beschreibung: Entfernt eine Abbruchbedingung aus dem Kompositum
-		\item Parameter: Termination, die zu entfernende Abbruchbedingung
+		\item Parameter: termination: die zu entfernende Abbruchbedingung
 	\end{itemize}
 	
 	
 	\subsection{TimeTermination}
 	Sorgt dafür, dass ein Spiel zu einer bestimmten Zeit terminiert
+	\subsubsection{TimeTermination}
+		\begin{itemize}
+		\item Beschreibung: Konstruktor, der ein TimeTermination-Objekt erzeugt
+		\item Parameter: time: Die Zeit, zu der das Spiel terminieren soll	
+		\end{itemize}
 	\subsubsection{checkTermination}
 	\begin{itemize}
 		\item Beschreibung: Implementiert die Methode, in dem überprüft wird, ob die Zeit erreicht ist
@@ -827,6 +874,11 @@
 	
 	\subsection{NumberOfRoundsTermination}
 	Sorgt dafür, dass ein Spiel nach bestimmter Anzahl an gespielten Runden terminiert
+	\subsubsection{NumberOfRoundsTermination}
+		\begin{itemize}
+		\item Beschreibung: Konstruktor, der ein NumberOfRoundsTermination-Objekt erzeugt
+		\item Parameter: number: Die Anzahl an Runden, nach der das Spiel terminieren soll	
+		\end{itemize}
 	\subsubsection{checkTermination}
 	\begin{itemize}
 		\item Beschreibung: Implementiert die Methode, in dem geprüft wird, ob die Rundenzahl erreicht ist
@@ -834,6 +886,15 @@
 	
 	\subsection{Round}
 	Stellt eine konkrete Runde eines bestimmten Spiels dar
+	\subsubsection{Round}
+		\begin{itemize}
+		\item Beschreibung: Konstruktor, der ein Round-Objekt erzeugt
+		\item Parameter: 
+		\begin{itemize}
+		\item player: Der Spieler, der die Runde spielt
+		\item number: Die Zahl gibt an, die wievielte Runde des Spiels diese Runde ist
+		\end{itemize}
+		\end{itemize}
 	\subsubsection{play}
 	\begin{itemize}
 		\item Beschreibung: Führt die Runde aus, stellt Merkmale für die GUI bereit und behandelt die Auswahl durch den Spieler
@@ -850,7 +911,7 @@
 	\subsubsection{markUseless}
 	\begin{itemize}
 		\item Beschreibung: Fügt eines der Merkmale zu den unwichtigen Merkmalen hinzu
-		\item Parameter: Das unwichtige Merkmal
+		\item Parameter: feature: Das unwichtige Merkmal
 	\end{itemize}
 	\subsubsection{getPlayer}
 	\begin{itemize}
@@ -895,7 +956,7 @@
 	\subsubsection{setChosenFeatures}
 	\begin{itemize}
 		\item Beschreibung: Fügt die durch den Spieler ausgewählten Merkmale hinzu.
-		\item Parameter: Die ausgewählten Merkmale
+		\item Parameter: features: Die ausgewählten Merkmale
 	\end{itemize}
 	
 	\subsection{StandardRound}
@@ -923,7 +984,16 @@
 	
 	
 	\subsection{BinärSelectRound}
-	Eine Runde des Spielmodus BinärSelect
+	Eine Runde des Spielmodus BinärSelect, eine Spezialisierung einer Standard-Runde mit 5 Vergleichen von je 2 Merkmalen, von denen eins ausgewählt werden muss
+	\subsubsection{BinärSelectRound}
+		\begin{itemize}
+		\item Beschreibung: Konstruktor, der ein BinärSelectRound-Objekt erzeugt
+		\item Parameter:
+		\begin{itemize}
+				\item player: Der Spieler, der die Runde spielt
+				\item number: Die Zahl gibt an, die wievielte Runde des Spiels diese Runde ist
+				\end{itemize}
+		\end{itemize}
 	\subsubsection{play}
 	\begin{itemize}
 		\item Beschreibung: Sorgt für die Ausführung der Runde nach den Regeln des Spielmodus BinärSelect
@@ -934,7 +1004,17 @@
 	\end{itemize}
 	
 	\subsection{MatrixSelectRound}
-	Eine Runde des Spielmodus MatrixSelect
+	Eine Runde des Spielmodus MatrixSelect, eine Spezialisierung einer Standard-Runde mit einem Vergleich
+	\subsubsection{MatrixSelectRound}
+		\begin{itemize}
+		\item Beschreibung: Konstruktor, der ein MatrixSelectRound-Objekt erzeugt
+		\item Parameter: 
+		\begin{itemize}
+				\item player: Der Spieler, der die Runde spielt
+				\item number: Die Zahl gibt an, die wievielte Runde des Spiels diese Runde ist
+				\item numberOfFeatures: Die Anzahl an Merkmalen, die pro Runde angezeigt werden müssen
+				\end{itemize}	
+		\end{itemize}
 	\subsubsection{play}
 	\begin{itemize}
 		\item Beschreibung: Sorgt für die Ausführung der Runde nach den Regeln des Spielmodus MatrixSelect
@@ -945,7 +1025,7 @@
 	\end{itemize}
 	
 	\subsection{Gamemode}
-	Stellt einen Spielmodus dar, fungiert als Fabrik für die Runden
+	Stellt einen Spielmodus dar, fungiert als Fabrik für die Runden, params sind dabei allgemeine Parameter, die ein Spielmodus haben kann, paramSpecifics die Angaben vom Spielmodus, welchen Typ die Parameter haben müssen
 	\subsubsection{createRound}
 	\begin{itemize}
 		\item Beschreibung: Erzeugt eine Runde des Spielmodus
@@ -959,6 +1039,10 @@
 	
 	\subsection{GamemodeComposite}
 	Kompositum aus verschiedenen Spielmodi, um zu ermöglichen, dass mehrere Spielmodi ausgewählt werden können
+	\subsubsection{GamemodeComposite}
+		\begin{itemize}
+		\item Beschreibung: Konstruktor, der ein GamemodeComposite-Objekt erzeugt	
+		\end{itemize}
 	\subsubsection{createRound}
 	\begin{itemize}
 		\item Beschreibung: Erzeugt eine Runde eines zufälligen Spielmodus des Kompositums
@@ -966,16 +1050,20 @@
 	\subsubsection{add}
 	\begin{itemize}
 		\item Beschreibung: Fügt einen Spielmodus zum Kompositum hinzu
-		\item Parameter: Gamemode, der Spielmodus
+		\item Parameter: gamemode: der Spielmodus
 	\end{itemize}
 	\subsubsection{delete}
 	\begin{itemize}
 		\item Beschreibung: Entfernt einen Spielmodus aus dem Kompositum
-		\item Parameter: Gamemode, der zu entfernende Spielmodus
+		\item Parameter: gamemode: der zu entfernende Spielmodus
 	\end{itemize}
 	
 	\subsection{BinärSelect}
 	Stellt den Spielmodus BinärSelect dar
+	\subsubsection{BinärSelect}
+		\begin{itemize}
+		\item Beschreibung: Konstruktor, der ein BinärSelect-Objekt erzeugt 	
+		\end{itemize}
 	\subsubsection{createRound}
 	\begin{itemize}
 		\item Beschreibung: Erzeugt eine Runde des Spielmodus BinärSelect
@@ -983,6 +1071,11 @@
 	
 	\subsection{MatrixSelect}
 	Stellt den Spielmodus MatrixSelect dar
+	\subsubsection{MatrixSelect}
+		\begin{itemize}
+		\item Beschreibung: Konstruktor, der ein MatrixSelect-Objekt erzeugt	
+		\item Parameter: params: Der allgemeine Parameter aus der Erzeugung
+		\end{itemize}
 	\subsubsection{convertParams}
 	\begin{itemize}
 		\item Beschreibung: Wandelt die allgemeinen Parameter in den tatsächlichen Integer-Parameter um
