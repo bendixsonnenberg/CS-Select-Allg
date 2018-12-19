@@ -14,7 +14,7 @@
 
 \makeglossaries
 
-\setcounter{secnumdepth}{3}
+\setcounter{secnumdepth}{4}
 
 
 % Document
@@ -536,6 +536,16 @@
 	
 	\subsubsection{MysqlDatabaseAdapter}
 	Mysql Implementierung der DatabaseAdapter Klasse.
+
+	\paragraph{executeMysqlQuery}
+	\begin{itemize}
+		\item Beschreibung: Führt den gegebenen Mysql Query auf der Datenbank mit dem gegebenen Namen aus.
+		\item Parameter:
+		\begin{itemize}
+			\item databaseName: Name der zu nutzenden Datenbank
+			\item query: Auszuführender Mysql-Query
+		\end{itemize}
+	\end{itemize}
 	
 	\subsubsection{MysqlUserAdapter}
 	Mysql Implementierung der UserAdapter Schnittstelle.
