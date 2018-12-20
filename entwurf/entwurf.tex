@@ -86,15 +86,22 @@ plural=Merkmale,
 description={Ein Wert oder eine messbare Eigenschaft des beobachteten Sachverhaltes}
 }
 
-
-% Document
-% zu jedem umgesetzten Punkt des Pflichtenhefts Bezug herstellen
-
 \begin{document}
+
+	\title{Entwurfsdokument CS:Select}
+	\author{Luca Springer, Alexander Linder, Julian Dinh, Nicholas Bieker,\\ Bendix Sonnenberg}
+	\maketitle
 	
 	\tableofcontents
+
+
 	\chapter{Einleitung}
+
+
 	\chapter{Architekturdiagramm}
+
+
+	\chapter{Änderungen zum Pflichtenheft}
 	
 	\chapter{Klassendiagramme}
 	
@@ -349,14 +356,6 @@ description={Ein Wert oder eine messbare Eigenschaft des beobachteten Sachverhal
     \subsection{httpAPI}
     Implementierung der beiden Fassadenobjecten für http/REST.
 
-	\begin{comment} Vollständiges Doku-Template
-	\begin{itemize}
-	\item Beschreibung:
-	\item Parameter:
-	\item Rückgabewert:
-	\end{itemize}
-	\end{comment}
-	
 	\section{Database}
 	\includegraphics[width=\textwidth]{img/Database.PNG}
 	Paket das die Kommunikation mit der Datenbank übernimmt.
@@ -921,7 +920,8 @@ description={Ein Wert oder eine messbare Eigenschaft des beobachteten Sachverhal
 	\subsubsection{addFeature}
 	\begin{itemize}
 	\item Beschreibung: Fügt ein Merkmal zum Merkmalsdatensatz hinzu
-	\item Parameter: feature: Das Merkmal, das hinzugefügt werden soll	
+	\item Parameter: feature: Das Merkmal, das hinzugefügt werden soll
+	\end{itemize}
 	\subsection{Feature}
 	Stellt ein zu einem Merkmalsdatensatz gehöriges Merkmal dar
 	\subsubsection{Feature}
@@ -1227,17 +1227,7 @@ description={Ein Wert oder eine messbare Eigenschaft des beobachteten Sachverhal
 		\item Beschreibung: Erzeugt eine Runde des Spielmodus MatrixSelect, setzt die Anzahl an Merkmalen pro Runde und die Anzahl an minimal und maximal auszuwählenden Merkmalen so wie die Attribute des Spielmodus belegt sind
 	\end{itemize}
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
 	\section{Gamification}
 	\includegraphics[width=\textwidth]{img/Gamification.PNG} \\
 	
@@ -1267,23 +1257,22 @@ description={Ein Wert oder eine messbare Eigenschaft des beobachteten Sachverhal
 	
 	
 	\subsection{Leaderboard}
-	Stellt ein Leaderboard dar. Es enthält eine Liste von Spielern.
+	Stellt ein Leaderboard dar. Es enthält eine Liste von Spielern. Hierfür wird das Singleton-Entwurfsmuster verwendet, damit nur Ein Leaderboard-Objekt existert.
 	
 	\subsubsection{getPlayers}
 	\begin{itemize}
-		\item Beschreibung: Gibt eine Liste von allen registrierten Spielern zurück.
-		\item Rückgabewert: Liste von Spielern.
+		\item Beschreibung: Gibt eine Liste von allen registrierten Spielern zurück. Diese ist nach den Gesamtpunktzahlen der Spieler sortiert.
+		\item Rückgabewert: Sortierte Liste von Spielern.
 	\end{itemize}
 	\subsubsection{getInstance}
 	\begin{itemize}
-		\item Beschreibung: Statische Methode. Sorgt dafür, dass nur ein LeaderBoard-Objekt existiert und gibt dieses zurück.
-		\item Rückgabewert: Das LeaderBoard-Objekt.
+		\item Beschreibung: Statische Methode. Sorgt dafür, dass nur ein Leaderboard-Objekt existiert und gibt dieses zurück.
+		\item Rückgabewert: Das Leaderboard-Objekt.
 	\end{itemize}
-	
-	Das Paket Dailies enthält eine abstrakte Klasse DailyChallenge, von der alle konkreten Daily-Challenges erben.
+
 	
 	\subsection{DailyChallenge}
-	Die abstrakte Klasse DailyChallenge gibt an, wie Daily-Challenges aufgebaut sind. Lediglich die Methode checkFinished() ist abstrakt und muss von den Unterklassen implementiert werden.
+	Die abstrakte Klasse DailyChallenge gibt an, wie konkrete Daily-Challenges aufgebaut sind. Lediglich die Methode checkFinished() ist abstrakt und muss von den Unterklassen implementiert werden.
 	\subsubsection{getName}
 	\begin{itemize}
 		\item Beschreibung: Gibt den Namen der Daily-Challenge zurück.
