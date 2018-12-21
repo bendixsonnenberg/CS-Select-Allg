@@ -361,6 +361,7 @@
 		\item Beschreibung: Fügt einen neuen Spieler zur Datenbank hinzu und gibt ihn zurück.
 		\item Parameter:
 		\begin{itemize}
+			\item username: Nutzername des zu speichernden Spielers.
 			\item email: E-Mail-Addresse des zu speichernden Spielers.
 			\item password: Passwort des zu speichernden Spielers.
 		\end{itemize}
@@ -372,6 +373,7 @@
 		\item Beschreibung: Fügt einen neuen Organisator zur Datenbank hinzu und gibt ihn zurück.
 		\item Parameter:
 		\begin{itemize}
+			\item username: Nutzername des zu speichernden Spielers
 			\item email: E-Mail-Addresse des zu speichernden Organisators.
 			\item password: Passwort des zu speichernden Organisators.
 		\end{itemize}
@@ -442,6 +444,26 @@
 	\begin{itemize}
 		\item Beschreibung: Gibt die gespeicherten PlayerStats eines Spielers zurück.
 		\item Rückgabewert: PlayerStats Objekt des Spielers.
+	\end{itemize}
+
+	\subsubsection{getDaily}
+	\begin{itemize}
+		\item Beschreibung: Gibt die aktuelle Daily Challenge des Spielers zurück.
+		\item Rückgabewert: Aktuelles DailyChallenge Objekt.
+	\end{itemize}
+
+	\subsubsection{setDaily}
+	\begin{itemize}
+		\item Beschreibung: Setzt die Daily-Challenge des Spielers neu.
+		\item Parameter:
+		\begin{itemize}
+			\item daily: Zu setzende Daily-Challenge
+		\end{itemize}
+	\end{itemize}
+	\subsubsection{getGames}
+	\begin{itemize}
+		\item Beschreibung: Gibt alle Spiele zu denen der Spieler zugeordnet ist zurück.
+		\item Rückgabewert: Collection aller Spiele denen ein Spieler zugeordnet ist.
 	\end{itemize}
 
 	\subsection{OrganiserAdapter}
@@ -529,7 +551,8 @@
 		\item Beschreibung: Fügt einen Spieler zum Spiel hinzu.
 		\item Parameter:
 		\begin{itemize}
-			\item player: Spieler der hinzugefügt werden soll.
+			\item email: E-Mail des Spielers der hinzugefügt werden soll.
+			Hier ist die E-Mail statt einem Player Objekt erforderlich da Spieler auch zu Spielen eingeladen werden können wenn sie noch nicht im System registriert sind.
 		\end{itemize}
 	\end{itemize}
 
