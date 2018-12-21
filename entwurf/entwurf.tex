@@ -1250,6 +1250,11 @@
 	Stellt ein Leaderboard dar. Es enthält eine Liste von Spielern. \\
 	Hierfür wird das Singleton-Entwurfsmuster verwendet, damit nur ein Leaderboard-Objekt existert.
 
+
+	\subsubsection{Leaderboard}
+	\begin{itemize}
+		\item Beschreibung: Konstruktor, to be added.
+	\end{itemize}
 	\subsubsection{getPlayers}
 	\begin{itemize}
 		\item Beschreibung: Gibt eine Liste von allen registrierten Spielern zurück. Diese ist nach den Gesamtpunktzahlen der Spieler sortiert.
@@ -1374,13 +1379,13 @@
 	\subsubsection{checkProgress}
 	Hier Verweis?
 
-	\subsection{AchievementReachScoreHundred}
+	\subsection{AchievementReachTotalScoreHundred}
 	Dieses konkrete Achievement erhält ein Spieler, wenn er eine Gesamtpunktzahl von mindestens 100 Punkten erreicht. \\
 	Hierfür wird das Singleton-Entwurfsmuster verwendet, damit nur ein Leaderboard-Objekt existert.
 
-	\subsubsection{AchievementReachScoreHundred}
+	\subsubsection{AchievementReachTotalScoreHundred}
 	\begin{itemize}
-		\item Beschreibung: Der Konstruktor von AchievementReachScoreHundred setzt Namen und Beschreibung von AchievementReachScoreHundred.
+		\item Beschreibung: Der Konstruktor von AchievementReachTotalScoreHundred setzt Namen und Beschreibung von AchievementReachScoreHundred.
 	\end{itemize}
 	\subsubsection{checkProgress}
 	Hier Verweis?
@@ -1390,13 +1395,13 @@
 		\item Rückgabewert: Das AchievementReachScoreHundred-Objekt.
 	\end{itemize}
 
-	\subsection{AchievementReachScoreThousand}
+	\subsection{AchievementReachTotalScoreThousand}
 	Dieses konkrete Achievement erhält ein Spieler, wenn er eine Gesamtpunktzahl von mindestens 1000 Punkten erreicht. \\
 	Hierfür wird das Singleton-Entwurfsmuster verwendet, damit nur ein Leaderboard-Objekt existert.
 
-	\subsubsection{AchievementReachScoreThousand}
+	\subsubsection{AchievementReachTotalScoreThousand}
 	\begin{itemize}
-		\item Beschreibung: Der Konstruktor von AchievementReachScoreThousand setzt Namen und Beschreibung von AchievementReachScoreThousand.
+		\item Beschreibung: Der Konstruktor von AchievementReachTotalScoreThousand setzt Namen und Beschreibung von AchievementReachScoreThousand.
 	\end{itemize}
 	\subsubsection{checkProgress}
 	Hier Verweis?
@@ -1405,6 +1410,12 @@
 		\item Beschreibung: Statische Methode. Sorgt dafür, dass nur ein AchievementTwo-Objekt existiert und gibt dieses zurück.
 		\item Rückgabewert: Das AchievementReachScoreThousand-Objekt.
 	\end{itemize}
+
+	\vspace{8pt}
+
+	Diese vier Achievement-Typen und zwei konkreten Achievements sind bereits dem Entwurfsdiagramm zu entnehmen. Weitere Achievement-Typen und konkrete Achievements werden analog hinzugeüft. Für eine Liste der vollständigen Achievements siehe \dots \\
+
+	\vspace{8pt}
 
 
 	\subsection{Gamification}
@@ -1472,6 +1483,11 @@
 		\item Beschreibung: Gibt die Anzahl der gespielten Runden eines Spielers zurück.
 		\item Rückgabewert: Die Anzahl der gespielten Runden.
 	\end{itemize}
+	\subsection{getHighestStreak}
+	\begin{itemize}
+		\item Beschreibung: Gibt den Wert der höchsten Streak eines Spielers zurück.
+		\item Rückgabewert: Den Wert der höchsten Streak.
+	\end{itemize}
 
 
 
@@ -1495,25 +1511,80 @@
 	\section{Gamification}
 
 	\subsection{Achievements ansehen}
+	Das folgende Sequenzdiagramm korrespondiert zu Testszenario 8.3.2. aus dem Pflichtenheft. \\
+	%Beschreibung?
 	%.svg
 
 	\subsection{Leaderboard ansehen}
+	Das folgende Sequenzdiagramm korrespondiert zu Testszenario 8.3.3. aus dem Pflichtenheft. \\
+	%Beschreibung?
+	%.svg
+
 	\subsection{Streak erreichen}
+	Das folgende Sequenzdiagramm korrespondiert zu Testszenario 8.3.3. aus dem Pflichtenheft. \\
+	Es handelt sich hierbei um einen Ausschnitt von Sequenzdiagramm %
+	%Beschreibung?
+	%.svg
 
 
 	\chapter{Gamification}
 	Im Produkt wird eine Reihe von Gamification-Elementen umgesetzt.
 	Eine Art dieser Elemente sind Achievements und Daily Challenges.
-	Im Nachfolgenden werden die implementierten Achievements und Daily Challenges aufgeführt.
+	Im Nachfolgenden werden die implementierten Achievements und Daily-Challenges aufgeführt.
 
 	\section{Achievements}
+
+	\subsection{AchievementPlayRounds}
+	Diese Achievements werden erreicht, wenn der Spiele eine bestimmte Anzahl an Runden gespielt hat. \\
 	\begin{itemize}
-		\item
+		\item AchievementPlayOneRound
+		\item AchievementPlayFiveRound
+		\item AchievementPlayTenRound
+		\item AchievementPlayFourtyTwoRound
+		\item AchievementPlayHundredRound
 	\end{itemize}
 
-	\section{Daily Challenges}
+	\subsection{AchievementGetStreak}
+	Diese Achievements werden erreicht, sobald der Spieler eine Streak in Höhe vom gegebenen Wert erreicht. \\
 	\begin{itemize}
-		\item
+		\item AchievementGetStreakTwo
+		\item AchievementGetStreakFive
+	\end{itemize}
+
+	\subsection{AchievementCompleteDaily}
+	Diese Achievements werden erreicht, wenn der Spiele eine bestimmte Anzahl an Daily-Challenges abschließt. \\
+	\begin{itemize}
+		\item AchievementCompleteOneDaily
+		\item AchievementCompleteThreeDaily
+		\item AchievementCompleteSevenDaily
+	\end{itemize}
+
+	\subsection{AchievementReachTotalScore}
+	Diese Achievements werden erreicht, sobald die Gesamtpunktzahl einen bestimmten Wert erreicht. \\
+	\begin{itemize}
+		\item AchievementReachTotalScoreHundred
+		\item AchievementReachTotalScoreFiveHundred
+		\item AchievementReachTotalScoreThousand
+		\item AchievementReachTotalScoreTwoThousand
+		\item AchievementReachTotalScoreFiveThousand
+	\end{itemize}
+
+	\subsection{AchievementReachRoundScore}
+	Diese Achievements werden erreicht, wenn der Spieler eine bestimmte Anzahl an Punkten nach einer einzelnen Runde erreicht. Zusätzliche Punkte (z.B. durch) laufende Streaks werden hierbei nicht beachtet. \\
+	\begin{itemize}
+		\item AchievementReachRoundScore50
+		\item AchievementReachRoundScore70
+		\item AchievementReachRoundScore90
+	\end{itemize}
+
+
+	\section{Daily Challenges}
+	Die folgenden Daily-Challenges.. \\
+	\begin{itemize}
+		\item DailyPlayThreeRounds
+		\item DailyGetStreakThree
+		\item DailyReachScore100
+		\item To be added \dots
 	\end{itemize}
 
 	
