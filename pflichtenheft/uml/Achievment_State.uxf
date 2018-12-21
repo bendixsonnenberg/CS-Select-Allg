@@ -1,9 +1,10 @@
-<?xml version="1.0" encoding="UTF-8"?><diagram program="umlet" version="13.3">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.3.0">
   <zoom_level>10</zoom_level>
   <element>
     <id>UMLState</id>
     <coordinates>
-      <x>340</x>
+      <x>260</x>
       <y>180</y>
       <w>130</w>
       <h>40</h>
@@ -14,7 +15,7 @@
   <element>
     <id>UMLState</id>
     <coordinates>
-      <x>560</x>
+      <x>480</x>
       <y>180</y>
       <w>90</w>
       <h>40</h>
@@ -25,7 +26,7 @@
   <element>
     <id>UMLState</id>
     <coordinates>
-      <x>560</x>
+      <x>470</x>
       <y>330</y>
       <w>110</w>
       <h>40</h>
@@ -36,7 +37,7 @@
   <element>
     <id>UMLState</id>
     <coordinates>
-      <x>360</x>
+      <x>260</x>
       <y>330</y>
       <w>90</w>
       <h>40</h>
@@ -47,7 +48,7 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>460</x>
+      <x>380</x>
       <y>180</y>
       <w>120</w>
       <h>50</h>
@@ -60,9 +61,9 @@ machen</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>590</x>
+      <x>510</x>
       <y>210</y>
-      <w>100</w>
+      <w>90</w>
       <h>140</h>
     </coordinates>
     <panel_attributes>lt=-&gt;
@@ -73,14 +74,14 @@ machen</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>440</x>
+      <x>340</x>
       <y>330</y>
-      <w>140</w>
+      <w>150</w>
       <h>50</h>
     </coordinates>
     <panel_attributes>lt=-&gt;
 Bedingung
 erreichen</panel_attributes>
-    <additional_attributes>120.0;20.0;10.0;20.0</additional_attributes>
+    <additional_attributes>130.0;20.0;10.0;20.0</additional_attributes>
   </element>
 </diagram>
