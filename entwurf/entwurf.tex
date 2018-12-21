@@ -1459,13 +1459,15 @@ description={Ein Wert oder eine messbare Eigenschaft des beobachteten Sachverhal
 	
 	\section{Ordnerstruktur}
     \subsection{WAR-Datei}
-        In der WAR-Datei\footnote{Für eine genauere Beschreibung wird auf die \href{https://tomcat.apache.org/tomcat-7.0-doc/appdev/deployment.html\#Standard\_Directory\_Layout}{Tomcat-Dokumentation} verwiesen.}, die in den \$CATALINA\_HOME Ordner von Tomcat gelegt wird, müssen folgende Ordner und Dateien existieren: 
+	In der WAR-Datei\footnote{Für eine genauere Beschreibung wird auf die \href{https://tomcat.apache.org/tomcat-7.0-doc/appdev/deployment.html\#Standard\_Directory\_Layout}{Tomcat-Dokumentation} verwiesen.}, die in den \$CATALINA\_HOME Ordner von Tomcat gelegt wird, müssen folgende Ordner und Dateien existieren:
     \begin{itemize}
         \item \texttt{*html, *jsp, etc.} Dies sind die statischen Datein, die direkt vom Browser später aufrufbar sein müssen. Sie können auch in untergeordneten Ordnern liegen.
         \item \texttt{/WEB-INF/web.xml} Dies ist die Web Application Deployment Descriptor Datei für die Anwendung. In dieser werden die Routen für Anfragen an den Server festgelegt.
         \item \texttt{/WEB-INF/classes/} Hier liegen die Klassen des Produktes mit ihrer Paketstruktur.
         \item \texttt{/WEB-INF/lib/} Hier liegen alle 3rd-Party Bibliotheken etc. 
     \end{itemize}
+	Weiterhin existiert ein Verzeichnis \texttt{/CSSELECT/} in welchem das Produkt Daten sichert.
+	Im Verzeichnis \texttt{/CSSELECT/games/} erhält jedes Spiel einen Ordner seiner ID indem die Bilddateien der Graphen des Merkmalsdatensatzes gespeichert werden.
 	
 	\section{Konfiguration}
 	Die Konfigurationsdatei enthält alle Einstellungsmöglichkeiten die das Produkt betreffen in der folgenden Form:
