@@ -1193,7 +1193,8 @@
 	\section{Gamification}
 	\includegraphics[width=\textwidth]{img/Gamification.PNG} \\
 
-	Paket für die Gamification-Elemente. Zu den Gamification-Elementen gehören Punkte, Streak, Leaderboard, Achievements und Daily-Challenges.
+	Paket für die Gamification-Elemente.
+	Zu den Gamification-Elementen gehören Punkte, Streak, Leaderboard, Achievements und Daily-Challenges.
 
 
 	\subsection{Streak}
@@ -1219,7 +1220,9 @@
 
 
 	\subsection{Leaderboard}
-	Stellt ein Leaderboard dar. Es enthält eine Liste von Spielern. Hierfür wird das Singleton-Entwurfsmuster verwendet, damit nur Ein Leaderboard-Objekt existert.
+	Stellt ein Leaderboard dar.
+	Es enthält eine Liste von Spielern.
+	Hierfür wird das Singleton-Entwurfsmuster verwendet, damit nur Ein Leaderboard-Objekt existert.
 
 	\subsubsection{getPlayers}
 	\begin{itemize}
@@ -1291,6 +1294,7 @@
 
 	Das Paket Achievements enthält eine abstrakte Klasse Achievement, von der alle konkreten Achievements erben. \\
 	Für ein Achievement gibt es im Gegensatz zu Anforderung /F750/ aus dem Pflichtenheft \textbf{keine} Punkte als Belohnung für das Abschließen.
+	Achievements werden beim Abfragen stets neu überprüft, daher werden sie nicht in der Datenbank gespeichert.
 
 	\subsection{Achievement}
 	%\subsubsection{isFinished}
