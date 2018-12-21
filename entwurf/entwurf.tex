@@ -1470,7 +1470,8 @@ description={Ein Wert oder eine messbare Eigenschaft des beobachteten Sachverhal
 	Im Verzeichnis \texttt{/CSSELECT/games/} erhält jedes Spiel einen Ordner seiner ID indem die Bilddateien der Graphen des Merkmalsdatensatzes gespeichert werden.
 	
 	\section{Konfiguration}
-	Die Konfigurationsdatei enthält alle Einstellungsmöglichkeiten die das Produkt betreffen in der folgenden Form:
+	Die Konfigurationsdatei enthält alle Einstellungsmöglichkeiten die das Produkt betreffen in der folgenden Form als Key-Value-Paare:
+	Die Konfigurationsdatei muss zu Anwendungsstart im Verzeichnis \texttt{/} liegen. % TODO Pfad eintragen
 	\begin{itemize}
 		\item organiserpassword (Das Passwort das ein Organisator bei der Registrierung angeben muss)
 		\item mlserverurl       (Die URL unter der der ML-Server zu erreichen ist)
@@ -1486,8 +1487,8 @@ description={Ein Wert oder eine messbare Eigenschaft des beobachteten Sachverhal
 	\end{itemize}
 	\section{Datenbank}
 	In der Datenbank werden sämtliche spielrelevanten Daten gesichert.
-	Die Standardimplementierung verwendet eine Mysql-Datenbank mit folgender geplanter Strukturierung der Daten.
-	das Produkt verwendet eine Datenbank für seine Daten (fortan Hauptdatenbank genannt) sowie für jedes Spiel eine vom Organisator angegebene Datenbank.
+	Die Standardimplementierung verwendet eine Mysql-Datenbank mit folgender geplanter Strukturierung der Daten:
+	Das Produkt verwendet eine Datenbank für seine Daten (fortan Hauptdatenbank genannt) sowie für jedes Spiel eine vom Organisator angegebene Datenbank.
 	\subsection{Spielerdaten}
 	Eine Tabelle in der Hauptdatenbank hält die Daten für die Spieler.
 	Die einzelnen Spalten sind dabei die Folgenden:
@@ -1510,27 +1511,34 @@ description={Ein Wert oder eine messbare Eigenschaft des beobachteten Sachverhal
 		\item Passwort-Hash
 		\item Passwort-Salt
 	\end{itemize}
-	Weiterhin wird jedem Organisator der Spieleinstellungen sichert eine weitere Tabelle mit seinen Spieleinstellungen zugeordnet.
+	Weiterhin gibt es eine weitere Tabelle mit den gesicherten Spieleinstellungen.
 	\begin{itemize}
-		\item Titel des Pattern
+		\item Titel der Voreinstellung
+		\item Organisator-ID dem die Voreinstellung gehört
 		\item Beschreibung
 		\item Art der Spielterminierung
 		\item Spielmodus
+		\item Name der zu nutzenden Datenbank
 		\item Eingeladene Spieler
 	\end{itemize}
 	\subsection{Merkmalsdatensätze}
 	Jeder Merkmalsdatensatz erhält eine eigene Tabelle mit folgenden Inhalten:
 	\begin{itemize}
+		\item ID
 		\item Dataset-Feature (Interner Name des Features)
 		\item Englischer Name
 		\item Englische Beschreibung
 		\item Deutscher Name
 		\item Deutsche Beschreibung
+		\item Anteil fehlender Werte
+		\item Beispielwerte
+		\item Sechs Statistiken für numerische Merkmale
 	\end{itemize}
 	Die zum Merkmalsdatensatz gehörigen Graphen werden auf der Festplatte in einem Verzeichnis gespeichert.
 	\subsection{Spieldaten}
 	Die grundlegenden Daten zum Spiel werden in einer Tabelle in der Hauptdatenbank verwaltet.
 	\begin{itemize}
+		\item ID
 		\item Titel
 		\item Beschreibung
 		\item Datenbankname
@@ -1539,19 +1547,8 @@ description={Ein Wert oder eine messbare Eigenschaft des beobachteten Sachverhal
 	\end{itemize}
 	Jedem Spiel wird vom Organisator eine eigene Datenbank zugewiesen.
 	Löscht ein Organisator ein Spiel wird lediglich dessen Eintrag in voriger Tabelle gelöscht.
-	Die spieleigene Datenbank bleibt unverändert.
-	Jedes Spiel besitzt eine Tabelle die die Runden wie folgt hält.
-	\begin{itemize}
-		\item Zeitpunkt zu der die Runde gespielt wurde
-		\item Name des Spielers der die Runde gespielt hat
-		\item Anzahl der Teilrunden
-		\item Vorhersagequalität
-		\item Für die Runde erhaltene Punkte
-		\item Ausgewählte Merkmale
-		\item Optional: Als unwichtig markierte Merkmale
-	\end{itemize}
-	Weiterhin besitzt jedes Spiel je eine Tabelle, die die eingeladenen sowie die spielenden Spieler hält.
-	
+	Die spieleigene Datenbank bleibt hierbei unverändert.
+	Die spieleigene Datenbank sichert die restlichen Daten der Game-Klasse, die nicht von obiger Tabelle erfasst werden.
 	
 	
 \end{document}
