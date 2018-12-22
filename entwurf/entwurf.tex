@@ -494,6 +494,12 @@
 		\item Rückgabewert: Collection aller gespeicherten Spieler.
 	\end{itemize}
 
+    \subsubsection{getNextGameID}
+    \begin{itemize}
+        \item Beschreibung: Gibt die ID zurück die das nächste zu speichernde Spiel erhalten muss.
+        \item Rückgabewert: ID des nächsten zu speichernden Spiels.
+    \end{itemize}
+
 	\subsubsection{registerPlayer}
 	\begin{itemize}
 		\item Beschreibung: Fügt einen neuen Spieler zur Datenbank hinzu und gibt ihn zurück.
@@ -726,6 +732,51 @@
 		\item Beschreibung: Setzt das Spiel auf beendet.
 	\end{itemize}
 
+	\subsubsection{setTitle}
+	\begin{itemize}
+        \item Beschreibung: Setzt den Titel des Spiels.
+        \item Parameter:
+        \begin{itemize}
+            \item title: Zu setzender Titel des Spiels.
+        \end{itemize}
+	\end{itemize}
+
+	\subsubsection{setDescription}
+    \begin{itemize}
+        \item Beschreibung: Setzt den Titel des Spiels.
+        \item Parameter:
+        \begin{itemize}
+            \item title: Zu setzender Titel des Spiels.
+        \end{itemize}
+    \end{itemize}
+
+    \subsubsection{setDatabase}
+    \begin{itemize}
+        \item Beschreibung: Setzt die Beschreibung des Spiels.
+        \item Parameter:
+        \begin{itemize}
+            \item title: Zu setzende Beschreibung des Spiels.
+        \end{itemize}
+    \end{itemize}
+
+	\subsubsection{setGamemode}
+    \begin{itemize}
+        \item Beschreibung: Setzt den Spielmodus des Spiels.
+        \item Parameter:
+        \begin{itemize}
+            \item title: Zu setzender Spielmodus.
+        \end{itemize}
+    \end{itemize}
+
+	\subsubsection{addPlayers}
+    \begin{itemize}
+        \item Beschreibung: Fügt die gegebenen Spieler zu den eingeladenen Spielern hinzu.
+        \item Parameter:
+        \begin{itemize}
+            \item players: Hinzuzufügende Spieler.
+        \end{itemize}
+    \end{itemize}
+
 	\subsection{Mysql}
 	Paket mit Mysql basierter Implementierung der Datenbank.
 	Mitgelieferte Standard-Implementierung des Produkts.
@@ -846,7 +897,7 @@
 		\begin{itemize}
 			\item dataset: Datensatz dessen Features zurückgegeben werden sollen.
 		\end{itemize}
-		\item Rückgabewert: Collection mit den Features des Datensatzes.
+		\item Rückgabewert: FeatureSet des Datensatzes.
 	\end{itemize}
 
 	\subsubsection{getScore}
@@ -1734,7 +1785,9 @@
         \item \texttt{/WEB-INF/classes/} Hier liegen die Klassen des Produktes mit ihrer Paketstruktur.
         \item \texttt{/WEB-INF/lib/} Hier liegen alle 3rd-Party Bibliotheken etc. 
     \end{itemize}
+	\subsection{Stammverzeichnis}
 	Weiterhin existiert ein Verzeichnis \texttt{/CSSELECT/} in welchem das Produkt Daten sichert.
+	Der Ort des Stammverzeichnisses wird in der Konfigurationsdatei angegeben.
 	Im Verzeichnis \texttt{/CSSELECT/games/} erhält jedes Spiel einen Ordner seiner ID indem die Bilddateien der Graphen des Merkmalsdatensatzes gespeichert werden.
 	
 	\section{Konfiguration}
