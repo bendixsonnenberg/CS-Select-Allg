@@ -1688,10 +1688,9 @@
 
 	\chapter{Zustandsdiagramme}
 	%Die aus dem Pflichtenheft hier mit Beschreibung (über-)nehmen?
-	\begin{comment} Das mit SVG funktioniert noch nicht, svg als pdf
 	\section{Streak}
-	%\label{fig:Streak_State}
-	\includegraphics[width=\textwidth]{img/Streak_Zustand.svg}
+	\label{fig:Streak_State}
+	\includegraphics[width=\textwidth]{img/Streak_Zustand.pdf}
 	Die Zustände, die eine Streak haben kann.
 	Eine Streak ist immer auf einen Spieler beschränkt.
 	Zustandsbeschreibung:
@@ -1700,8 +1699,8 @@
 		\item aktiv: Die Streak ist lang genug. In diesem Zustand erhält der Spieler doppelt so viele Punkte.
 	\end{itemize}
 	\section{Spiel}
-	%\label{fig:Spiel_State}
-	\includegraphics[width=\textwidth]{img/Spiel_Zustand.svg}
+	\label{fig:Spiel_State}
+	\includegraphics[width=\textwidth]{img/Spiel_Zustand.pdf}
 	Die Zustände, die ein Spiel von der Erstellung bis zum Beenden haben kann.
 	Zustandsbeschreibung:
 	\begin{itemize}
@@ -1710,8 +1709,8 @@
 		\item beendet: Das Spiel wurde beendet. Kein Spieler kann mehr spielen. Die Ergebnisse können jedoch noch ausgelesen werden.
 	\end{itemize}
 	\section{Achievements}
-	%\label{fig:Achievment_State}
-	\includegraphics[width=\textwidth]{img/Achievment_State.svg}
+	\label{fig:Achievement_State}
+	\includegraphics[width=\textwidth]{img/Achievement_State.pdf}
 	Die Zustände, die ein Achievement von \enquote{Spieler kennt das Achievement nicht}, bis zu \enquote{Spieler hat das Achievement erreicht}, durchlaufen kann.
 	\begin{itemize}
 		\item Nicht sichtbar: Spieler weiß nicht, dass das Achievement existiert.
@@ -1719,7 +1718,6 @@
 		\item Freigeschaltet: Die Bedingungen für das Erreichen dieses Achievements sind dem Spieler bekannt.
 		\item Erreicht: Der Spieler hat die Bedingungen für das Erreichen dieses Achievements erfüllt.
 	\end{itemize}
-    \end{comment}
 
 	\chapter{Gamification}
 	Im Produkt wird eine Reihe von Gamification-Elementen umgesetzt.
