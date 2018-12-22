@@ -768,14 +768,23 @@
         \end{itemize}
     \end{itemize}
 
-	\subsubsection{addPlayers}
+	\subsubsection{addInvitedPlayers}
     \begin{itemize}
         \item Beschreibung: Fügt die gegebenen Spieler zu den eingeladenen Spielern hinzu.
         \item Parameter:
         \begin{itemize}
-            \item players: Hinzuzufügende Spieler.
+			\item mails: E-Mail-Adressen der Spieler.
         \end{itemize}
     \end{itemize}
+
+	\subsubsection{addAcceptingPlayers}
+	\begin{itemize}
+		\item Beschreibung: Fügt die gegebenen Spieler zu den spielenden Spielern hinzu und entfernt sie gegebenenfalls aus den Eingeladenen.
+		\item Parameter:
+		\begin{itemize}
+			\item mails: E-Mail-Adressen der Spieler.
+		\end{itemize}
+	\end{itemize}
 
 	\subsection{Mysql}
 	Paket mit Mysql basierter Implementierung der Datenbank.
