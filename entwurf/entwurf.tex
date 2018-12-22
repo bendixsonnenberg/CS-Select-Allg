@@ -46,38 +46,173 @@
 	\chapter{Klassendiagramme}
 
 	\section{User}
-	\subsection{User}
 	\includegraphics[width=\textwidth]{img/user.png}
-	\subsubsection{User}
-	Stellt einen Nutzer im System dar.
-	\subsubsection{getId}
-	\begin{itemize}
-		\item Beschreibung: Gibt die eindeutige Id zurück, die einem Nutzer zugeordnet ist
-		\item Parameter: int
-		\item Rückgabewert: int
-	\end{itemize}
-	\subsubsection{setId}
-	\begin{itemize}
-		\item Beschreibung: Diese Methode dient dem Zuordnen einer Id zu einem Spieler. Die Methode überprüft, ob die Id gültig ist (also noch nicht existiert)
-		\item Parameter: int
-		\item Rückgabewert: void
-	\end{itemize}
-	\subsubsection{login}
-	\begin{itemize}
-		\item Beschreibung: Mithilfe dieser Methode loggt sich der Nutzer ein
-		\item Parameter: String
-		\item Rückgabewert: boolean
-	\end{itemize}
-	\subsubsection{logout}
-	\subsubsection{changePassword}
-	\subsubsection{changeEmail}
+	\subsection{User}
+	Stellt einen Nutzer im System dar. Es können mehrere Nutzer-Objekte mit gleicher ID im System zur gleichen Zeit existieren, da der gesamte Datenverkehr über die ständig aktuelle Datenbank verläuft.
+		\subsubsection{User}
+		\subsubsection{getId}
+		\begin{itemize}
+			\item Beschreibung: Gibt die eindeutige ID zurück, die einem Nutzer in der Datenbank zugeordnet ist
+			\item Parameter: int
+			\item Rückgabewert: int
+		\end{itemize}
+		\subsubsection{setId}
+		\begin{itemize}
+			\item Beschreibung: Diese Methode dient dem Zuordnen einer ID zu einem Spieler. Die Methode überprüft, ob die ID gültig ist (also noch nicht existiert)
+			\item Parameter: int
+			\item Rückgabewert: void
+		\end{itemize}
+		\subsubsection{login}
+		\begin{itemize}
+			\item Beschreibung: Mithilfe dieser Methode loggt sich der Nutzer ein. Sie gibt ein Nutzerobjekt zurück, wenn das Passwort richtig ist
+			\item Parameter: String
+			\item Rückgabewert: Nutzer
+		\end{itemize}
+		\subsubsection{logout}
+		\begin{itemize}
+			\item Beschreibung: Diese Methode dient dem Ausloggen des Nutzers. Der dem Nutzer zugehörige Datenbankadapter wird entkoppelt
+			\item Parameter: -
+			\item Rückgabewert: void
+		\end{itemize}
+		\subsubsection{changePassword}
+		\begin{itemize}
+			\item Beschreibung: Mit dieser Methode ändert der Nutzer sein Passwort. Über die Kommunikation per Datenbankadapter wird mit der internen Datenbank kommuniziert
+			\item Parameter: String
+			\item Rückgabewert: void
+		\end{itemize}
+		\subsubsection{changeEmail}
+		\begin{itemize}
+			\item Beschreibung: Ermöglicht die Änderung der Email eines Nutzers. Erneut wird die Kommunikation per Datenbankadapter erfolgen
+			\item Parameter: String
+			\item Rückgabewert: void
+		\end{itemize}
 
 	\subsection{Player}
-	\subsection{Organiser}
+	Player stellt den Spieler im System dar. Diese Klasse erbt von der Nutzer-Klasse
+		\subsubsection{Player}
+		\begin{itemize}
+			\item Beschreibung: Konstruktor für interne Prozesse, wenn nur die Email bekannt ist
+			\item Parameter: String(Email repräsentierend)
+			\item Rückgabewert: Player-Objekt
+		\end{itemize}
+		\subsubsection{Player}
+		\begin{itemize}
+			\item Beschreibung: Konstruktor für Login
+			\item Parameter:
+				\begin{itemize}
+					\item String (Email repräsentierend)
+					\item String (Passwort repräsentierend)
+				\end{itemize)
+			\item Rückgabewert: Player-Objekt
+		\end{itemize}
+		\subsubsection{Player}
+		\begin{itemize}
+			\item Beschreibung: Konstruktor für Registrierung
+			\item Parameter:
+				\begin{itemize}
+					\item String (Nutzername repräsentierend)
+					\item String (Email repräsentierend)
+					\item String (Passwort repräsentierend)
+				\end{itemize)
+			\item Rückgabewert: Player-Objekt
+		\end{itemize}
+		\subsubsection{registerPlayer}
+		\begin{itemize}
+			\item Beschreibung: Subroutine zur indirekten Kommunikation mit der Datenbank. Dort wird der neue Spieler eingetragen (registriert)
+			\item Parameter:
+				\begin{itemize}
+					\item String (Nutzername repräsentierend)
+					\item String (Email repräsentierend)
+					\item String (Passwort repräsentierend)
+				\end{itemize}
+			\item Rückgabewert: void
+		\end{itemize}
+		\subsubsection{startRound}
+		\begin{itemize}
+			\item Beschreibung: Methode, um eine neue Runde eines Spiels aufzurufen. Daraufhin wird eine Menge an Merkmalen zurückgeliefert
+			\item Parameter: int (Game-ID\footnote{In der Spieler-Klasse werden nur Spiele abgespeichert, denen der Spieler beigetreten ist} repräsentierend)
+			\item Rückgabewert: Collection<Feature>
+		\end{itemize}
+		\subsubsection{acceptInvite}
+		\begin{itemize}
+			\item Beschreibung: Ermöglicht Annahme einer Einladung zu einem Spiel
+			\item Parameter: int (Game-ID repräsentierend)
+			\item Rückgabewert: boolean
+		\end{itemize}
+		\subsubsection{declineInvite}
+		\begin{itemize}
+			\item Beschreibung:
+			\item Parameter:
+			\item Rückgabewert:
+		\end{itemize}
+		\subsubsection{getStats}
+		\begin{itemize}
+			\item Beschreibung:
+			\item Parameter:
+			\item Rückgabewert:
+		\end{itemize}
+		\subsubsection{chooseFeatures}
+		\begin{itemize}
+			\item Beschreibung:
+			\item Parameter:
+			\item Rückgabewert:
+		\end{itemize}
+		\subsubsection{getLeaderBoard}
+		\begin{itemize}
+			\item Beschreibung:
+			\item Parameter:
+			\item Rückgabewert:
+		\end{itemize}
+		\subsubsection{addGame}
+		\begin{itemize}
+			\item Beschreibung:
+			\item Parameter:
+			\item Rückgabewert:
+		\end{itemize}
 
-	\section{Safety}
-	\subsection{PasswordChecker}
-	\subsection{Encryption}
+	\subsection{Organiser}
+		\subsubsection{Organiser}
+		\begin{itemize}
+			\item Beschreibung:
+			\item Parameter:
+			\item Rückgabewert:
+		\end{itemize}
+		\subsubsection{Organiser}
+		\begin{itemize}
+			\item Beschreibung:
+			\item Parameter:
+			\item Rückgabewert:
+		\end{itemize}
+		\subsubsection{createGame}
+		\begin{itemize}
+			\item Beschreibung:
+			\item Parameter:
+			\item Rückgabewert:
+		\end{itemize}
+		\subsubsection{terminateGame}
+		\begin{itemize}
+			\item Beschreibung:
+			\item Parameter:
+			\item Rückgabewert:
+		\end{itemize}
+		\subsubsection{deleteGame}
+		\begin{itemize}
+			\item Beschreibung:
+			\item Parameter:
+			\item Rückgabewert:
+		\end{itemize}
+		\subsubsection{invitePlayer}
+		\begin{itemize}
+			\item Beschreibung:
+			\item Parameter:
+			\item Rückgabewert:
+		\end{itemize}
+		\subsubsection{deletePlayer}
+		\begin{itemize}
+			\item Beschreibung:
+			\item Parameter:
+			\item Rückgabewert:
+		\end{itemize}
 
 	\section{API}
 	\includegraphics[width=\textwidth]{img/api.png}
