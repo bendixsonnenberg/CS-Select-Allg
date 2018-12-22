@@ -488,6 +488,17 @@
 		\item Rückgabewert: Player mit der gegebenen E-Mail-Addresse
 	\end{itemize}
 
+
+	\subsubsection{getOrganiser}
+	\begin{itemize}
+		\item Beschreibung: Gibt das Organiser Objekt mit der gegebenen E-Mail-Addresse zurück.
+		\item Parameter:
+		\begin{itemize}
+			\item email: E-Mail-Addresse des Organisers der zurückgegeben werden soll.
+		\end{itemize}
+		\item Rückgabewert: Organiser mit der gegebenen E-Mail-Addresse
+	\end{itemize}
+
 	\subsubsection{getPlayers}
 	\begin{itemize}
 		\item Beschreibung: Gibt alle gespeicherten Spieler zurück.
@@ -520,6 +531,7 @@
 			\item username: Nutzername des zu speichernden Spielers
 			\item email: E-Mail-Addresse des zu speichernden Organisators.
 			\item password: Passwort des zu speichernden Organisators.
+			\item givenOrganiserPassword: Vom Organisator eingegebenes Organisator-Passwort, wird auf Korrektheit überprüft.
 		\end{itemize}
 		\item Rückgabewert: Angelegter Organisator.
 	\end{itemize}
