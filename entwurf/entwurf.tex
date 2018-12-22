@@ -102,7 +102,7 @@
 				\begin{itemize}
 					\item String (Email repräsentierend)
 					\item String (Passwort repräsentierend)
-				\end{itemize)
+				\end{itemize}
 			\item Rückgabewert: Player-Objekt
 		\end{itemize}
 		\subsubsection{Player}
@@ -113,7 +113,7 @@
 					\item String (Nutzername repräsentierend)
 					\item String (Email repräsentierend)
 					\item String (Passwort repräsentierend)
-				\end{itemize)
+				\end{itemize}
 			\item Rückgabewert: Player-Objekt
 		\end{itemize}
 		\subsubsection{registerPlayer}
@@ -883,7 +883,8 @@
 	Stellt ein Spiel dar, verwaltet eingeladene und spielende Spieler sowie die zum Spiel zugehörigen Informationen
 	\subsubsection{Game}
 	\begin{itemize}
-	\item Beschreibung: Konstruktor, der ein Game-Objekt erzeugt, die ID wird auf die nächst freie ID gesetzt und der statische Zähler hochgezählt, finished wird auf false gesetzt, numberOfRounds auf 0
+	\item Beschreibung: Konstruktor, der ein Game-Objekt erzeugt, die Attribute außer ID, numberOfRounds und finished werden über die setter initialisiert
+	\item Parameter: id: Die eindeutige Spiel-ID
 	\end{itemize}
 
 	\subsubsection{getTitle}
@@ -913,8 +914,8 @@
 		\end{itemize}
 	\subsubsection{getInvitedPlayers}
 		\begin{itemize}
-			\item Beschreibung: Gibt eine Aufzählung aller Spieler zurück, die eingeladen sind, die Einladung aber noch nicht angenommen haben
-			\item Rückgabewert: Die Aufzählung der eingeladenen Spieler
+			\item Beschreibung: Gibt eine Aufzählung aller E-Mail-Adressen der Spieler zurück, die eingeladen sind, die Einladung aber noch nicht angenommen haben
+			\item Rückgabewert: Die Aufzählung der E-Mail-Adressen der eingeladenen Spieler
 		\end{itemize}
 	\subsubsection{getPlayingPlayers}
 		\begin{itemize}
@@ -971,42 +972,42 @@
 		\item Beschreibung: Setzt die Abbruchbedingung, die bestimmt, wann das Spiel terminiert
 		\item Parameter: termination: Die Abbruchbedingung des Spiels
 		\end{itemize}
+	\subsubsection{setFeatureSet}
+				\begin{itemize}
+				\item Beschreibung: Speichert den angegebenen Merkmalsdatensatz als den zum Spiel gehörigen
+				\item Parameter: featureset: Der Merkmalsdatensatz, aus dem die im Spiel angezeigten Merkmale kommen
+				\end{itemize}
 	\subsubsection{setGamemode}
 		\begin{itemize}
 		\item Beschreibung: Setzt den Spielmodus des Spiels auf den angegebenen Spielmodus
 		\item Parameter: gamemode: Der Spielmodus des Spiels
-		\end{itemize}
-	\subsubsection{setFeatureSet}
-		\begin{itemize}
-		\item Beschreibung: Speichert den angegebenen Merkmalsdatensatz als den zum Spiel gehörigen
-		\item Parameter: featureset: Der Merkmalsdatensatz, aus dem die im Spiel angezeigten Merkmale kommen
-		\end{itemize}
+		\end{itemize}	
 	\subsubsection{setMlserver}
 		\begin{itemize}
 		\item Beschreibung: Speichert den angegebenen ML-Server als den zum Spiel gehörigen
 		\item Parameter: mlserver: Der ML-Server, von dem der Merkmalsdatensatz kommt und der die Bewertung durchführt
 		\end{itemize}
-	\subsubsection{invitePlayer}
+	\subsubsection{invitePlayers}
 		\begin{itemize}
 			\item Beschreibung: Fügt dem Spiel Spieler hinzu, die eingeladen wurden
-			\item Parameter: players: Die eingeladenen Spieler
+			\item Parameter: playerEmails: Die E-Mail-Adressen der eingeladenen Spieler
 			\item Rückgabewert: Ob Spieler erfolgreich hinzugefügt wurden oder schon im Spiel vorhanden sind
 		\end{itemize}
 	\subsubsection{acceptInvite}
 		\begin{itemize}
 			\item Beschreibung: Gibt einem Spieler die Spielberechtigung, der eine Einladung erhalten und diese angenommen hat
-			\item Parameter: playerID: ID des Spielers, der die Einladung angenommen hat
+			\item Parameter: player: Der Spieler, der die Einladung angenommen hat
 			\item Rückgabewert: Ob Spieler erfolgreich hinzugefügt wurde oder entweder schon spielt oder keine Einladung hatte
 		\end{itemize}
 	\subsubsection{declineInvite}
 		\begin{itemize}
-			\item Beschreibung: Löscht einen Spieler aus den eingeladenen Spielern, der eine Einladung abgelehnt hat
-			\item Parameter: playerID: ID des Spielers, der die Einladung abgelehnt hat
+			\item Beschreibung: Löscht die E-Mail-Adresse eines Spielers aus der Aufzählung der eingeladenen Spieler, der eine Einladung abgelehnt hat
+			\item Parameter: playerEmail: E-Mail-Adresse des Spielers, der die Einladung abgelehnt hat
 			\item Rückgabewert: False, falls der Spieler gar keine aktive Einladung hatte
 		\end{itemize}
 	\subsubsection{deletePlayer}
 		\begin{itemize}
-			\item Beschreibung: Löscht einen Spieler aus dem Spiel, sowohl falls er nur eingeladen ist als auch falls er schon spielt
+			\item Beschreibung: Entzieht einem Spieler die Spielberechtigung und löscht diesen aus dem Spiel
 			\item Parameter: playerID: ID des Spielers, der gelöscht werden soll
 			\item Rückgabewert: False, falls der Spieler dem Spiel nicht bekannt ist
 		\end{itemize}
@@ -1023,12 +1024,12 @@
 		\end{itemize}
 	\subsubsection{addFinishedRound}
 	\begin{itemize}
-	\item Beschreibung: Fügt eine Runde zu den abgeschlossenen Runden hinzu
+	\item Beschreibung: Fügt eine Runde zu den abgeschlossenen Runden hinzu, sorgt dafür, dass diese in der angegebenen Datenbank gespeichert wird
 	\item Parameter: round: Die abgeschlossene Runde
 	\end{itemize}
 
 	\subsection{FeatureSet}
-	Stellt einen Merkmalsdatensatz dar, der aus beliebig vielen, aber mindestens einem Merkmal besteht und ohne diese keine Daseinsberechtigung hat
+	Stellt einen Merkmalsdatensatz dar, der aus beliebig vielen Merkmalen besteht und den Namen des Datensatzes auf dem ML-Server als eindeutigen Identifikationsschlüssel hat
 	\subsubsection{FeatureSet}
 		\begin{itemize}
 		\item Beschreibung: Konstruktor, der ein FeatureSet-Objekt erzeugt
@@ -1138,14 +1139,14 @@
 	\end{itemize}
 
 	\subsection{Round}
-	Stellt eine konkrete Runde eines bestimmten Spiels dar
+	Stellt eine eine Verallgemeinerung einer konkreten Runde eines bestimmten Spiels dar, verwaltet die zugehörigen Informationen, abstrakt
 	\subsubsection{Round}
 		\begin{itemize}
 		\item Beschreibung: Konstruktor, der ein Round-Objekt erzeugt
 		\item Parameter:
 		\begin{itemize}
 		\item player: Der Spieler, der die Runde spielt
-		\item number: Die Zahl gibt an, die wievielte Runde des Spiels diese Runde ist
+		\item numberOfRound: Die Zahl gibt an, die wievielte Runde des Spiels diese Runde ist
 		\end{itemize}
 		\end{itemize}
 	\subsubsection{getShownFeatures}
@@ -1190,112 +1191,69 @@
 		\end{itemize}
 	\subsubsection{start}
 		\begin{itemize}
-			\item Beschreibung: Abstrakt, startet Runde aus, stellt Merkmale für die GUI bereit und gibt diese zurück
+			\item Beschreibung: Startet Runde, stellt Merkmale für die GUI bereit und gibt diese zurück
 			\item Rückgabewert: Alle Merkmale, die dem Spieler insgesamt in dieser Runde angezeigt werden sollen
 		\end{itemize}
 	\subsubsection{skip}
 		\begin{itemize}
-			\item Beschreibung: Abstrakt, beendet die aktuelle Merkmalsauswahl ohne Auswahl durch den Spieler
+			\item Beschreibung: Beendet die Runde ohne Merkmalsauswahl durch den Spieler und fügt die Runde als abgeschlossene Runde beim Spiel hinzu
+			\item Parameter: uselessFeatures: Die vom Spieler als unnötig ausgewählten Merkmale
 		\end{itemize}
-	\subsubsection{manageFeatureSelection}
+	\subsubsection{selectFeatures}
 	\begin{itemize}
 	\item Beschreibung: Nimmt die Auswahl des Spielers entgegen, lässt die Qualität durch den ML-Server und die Punktzahl durch das zum Spieler gehörigen Gamification-Objekt berechnen und sorgt dafür, dass die Runde in die Datenbank und das Spiel geschrieben wird, gibt die Punktzahl zurück
-	\item Parameter: selectedFeatures: Die vom Spieler ausgewählten Merkmale
-	\item Rückgabewert: Die mit der Merkmalsauswahl erreichte Punkzahl der Runde
-	\end{itemize}
-	\subsubsection{hashCode}
+	\item Parameter:
 	\begin{itemize}
-	\item Beschreibung: Abstrakt, berechnet für das Rundenobjekt einen eindeutigen Hashcode
-	\item Rückgabewert: Der Hashcode als integer
+	 \item selectedFeatures: Die vom Spieler ausgewählten Merkmale
+	 \item uselessFeatures: Die vom Spieler als unnötig ausgewählten Merkmale
+	 \end{itemize}
+	\item Rückgabewert: Die mit der Merkmalsauswahl erreichte Punkzahl der Runde
 	\end{itemize}
 	\subsubsection{provideFeatures}
 				\begin{itemize}
 					\item Beschreibung: Abstrakt, wählt Merkmale aus dem zum Spiel gehörigen Merkmalen aus, die dem Spieler angezeigt werden sollen
 					\item Rückgabewert: Die Aufzählung der Merkmale
 				\end{itemize}
-	\subsubsection{markUseless}
-		\begin{itemize}
-			\item Beschreibung: Fügt Merkmale zu den unwichtigen Merkmalen hinzu
-			\item Parameter: features: Die unwichtigen Merkmale
-		\end{itemize}
 
 	\subsection{StandardRound}
 	Fasst alle Runden zusammen, die sich nur anhand der Zahl ihrer Vergleiche, der angezeigten Merkmale oder der auszuwählenden Merkmale unterscheiden
-	\subsubsection{getNumberOfComparisons}
+	\subsubsection{StandardRound}
 	\begin{itemize}
-		\item Beschreibung: Gibt die Anzahl an Vergleichen pro Runde zurück
-		\item Rückgabewert: Anzahl an Vergleichen
+	\item Beschreibung: Konstruktor, der ein StandardRound-Objekt erzeugt
+	\item Parameter: 
+	\begin{itemize}
+	\item player: Der Spieler, der die Runde spielt
+	\item numberOfRound: Die Zahl gibt an, die wievielte Runde des Spiels diese Runde ist
+	\item numberOfSelections: Die Anzahl an verschiedenen Merkmalsauswahlen pro Runde
+	\item featuresPerSelection: Die Anzahl an Merkmalen, die pro Auswahl angezeigt werden sollen
+	\item minSelect: Die Anzahl an Merkmalen, die pro Auswahl mindestens ausgewählt werden muss
+	\item maxSelect: Die Anzahl an Merkmalen, die pro Auswahl maximal ausgewählt werden muss
 	\end{itemize}
-	\subsubsection{getFeaturesPerComparison}
+	\end{itemize}
+	\subsubsection{getNumberOfSelections}
 	\begin{itemize}
-		\item Beschreibung: Gibt die Anzahl an Merkmalen zurück, die pro Vergleich angezeigt werden
-		\item Rückgabewert: Anzahl an Merkmalen pro Vergleich
+		\item Beschreibung: Gibt die Anzahl an Auswahlen pro Runde zurück
+		\item Rückgabewert: Anzahl an Auswahlen
+	\end{itemize}
+	\subsubsection{getFeaturesPerSelection}
+	\begin{itemize}
+		\item Beschreibung: Gibt die Anzahl an Merkmalen zurück, die pro Auswahl angezeigt werden
+		\item Rückgabewert: Anzahl an Merkmalen pro Auswahl
 	\end{itemize}
 	\subsubsection{getMinSelect}
 	\begin{itemize}
-		\item Beschreibung: Gibt die Anzahl an Merkmalen zurück, die pro Vergleich minimal ausgewählt werden müssen
+		\item Beschreibung: Gibt die Anzahl an Merkmalen zurück, die pro Auswahl minimal ausgewählt werden müssen
 		\item Rückgabewert: Die Anzahl an Merkmalen
 	\end{itemize}
 	\subsubsection{getMaxSelect}
 	\begin{itemize}
-		\item Beschreibung: Gibt die Anzahl an Merkmalen zurück, die pro Vergleich maximal ausgewählt werden müssen
+		\item Beschreibung: Gibt die Anzahl an Merkmalen zurück, die pro Auswahl maximal ausgewählt werden müssen
 		\item Rückgabewert: Die Anzahl an Merkmalen
 	\end{itemize}
 	\subsubsection{provideFeatures}
 	\begin{itemize}
 	\item Beschreibung: Wählt pro Vergleich die angegebene Anzahl an Merkmalen aus und gibt diese alle in einer Liste hintereinander zurück
 	\end{itemize}
-
-	\subsection{BinärSelectRound}
-	Eine Runde des Spielmodus BinärSelect, eine Spezialisierung einer Standard-Runde mit 5 Vergleichen von je 2 Merkmalen, von denen eins ausgewählt werden muss
-	\subsubsection{BinärSelectRound}
-		\begin{itemize}
-		\item Beschreibung: Konstruktor, der ein BinärSelectRound-Objekt erzeugt
-		\item Parameter:
-		\begin{itemize}
-				\item player: Der Spieler, der die Runde spielt
-				\item number: Die Zahl gibt an, die wievielte Runde des Spiels diese Runde ist
-				\end{itemize}
-		\end{itemize}
-	\subsubsection{start}
-	\begin{itemize}
-		\item Beschreibung: Sorgt für das Starten der Runde nach den Regeln des Spielmodus BinärSelect
-	\end{itemize}
-	\subsubsection{skip}
-	\begin{itemize}
-		\item Beschreibung: Sorgt für das Überspringen eines Vergleiches nach den Regeln des Spielmodus BinärSelect
-	\end{itemize}
-	\subsubsection{hashCode}
-	\begin{itemize}
-	\item Beschreibung: Berechnet den Hashcode und gibt ihn als Integer zurück
-	\end{itemize}
-
-	\subsection{MatrixSelectRound}
-	Eine Runde des Spielmodus MatrixSelect, eine Spezialisierung einer Standard-Runde mit einem Vergleich
-	\subsubsection{MatrixSelectRound}
-		\begin{itemize}
-		\item Beschreibung: Konstruktor, der ein MatrixSelectRound-Objekt erzeugt
-		\item Parameter:
-		\begin{itemize}
-				\item numberOfFeatures: Die Anzahl an Merkmalen, die pro Runde angezeigt werden müssen
-				\item minSelect: Die Anzahl an Merkmalen, die pro Runde mindestens ausgewählt werden müssen
-				\item maxSelect: Die Anzahl an Merkmalen, die pro Runde maximal ausgewählt werden müssen
-				\item player: Der Spieler, der die Runde spielt
-				\item number: Die Zahl gibt an, die wievielte Runde des Spiels diese Runde ist
-				\end{itemize}
-		\end{itemize}
-	\subsubsection{start}
-	\begin{itemize}
-		\item Beschreibung: Sorgt für das Starten der Runde nach den Regeln des Spielmodus MatrixSelect
-	\end{itemize}
-	\subsubsection{skip}
-	\begin{itemize}
-		\item Beschreibung: Sorgt für das Überspringen eines Vergleiches nach den Regeln des Spielmodus MatrixSelect
-	\end{itemize}
-	\subsubsection{hashCode}
-		\begin{itemize}
-		\item Beschreibung: Berechnet den Hashcode und gibt ihn als Integer zurück
-		\end{itemize}
 
 	\subsection{Gamemode}
 	Stellt einen Spielmodus dar, fungiert als Fabrik für die Runden
@@ -1327,18 +1285,18 @@
 	\end{itemize}
 
 	\subsection{BinärSelect}
-	Stellt den Spielmodus BinärSelect dar
+	Stellt den Spielmodus BinärSelect dar, dessen Runden standardmäßig aufgebaut sind, also werden StandardRounds erzeugt
 	\subsubsection{BinärSelect}
 		\begin{itemize}
 		\item Beschreibung: Konstruktor, der ein BinärSelect-Objekt erzeugt
 		\end{itemize}
 	\subsubsection{createRound}
 	\begin{itemize}
-		\item Beschreibung: Erzeugt eine Runde des Spielmodus BinärSelect
+		\item Beschreibung: Erzeugt eine Runde des Spielmodus BinärSelect, also eine StandardRound mit 5 Vergleichen und 2 Merkmalen pro Vergleich, von denen genau eines ausgewählt werden muss
 	\end{itemize}
 
 	\subsection{MatrixSelect}
-	Stellt den Spielmodus MatrixSelect dar
+	Stellt den Spielmodus MatrixSelect dar, dessen Runden standardmäßig aufgebaut sind, also werden StandardRounds erzeugt
 	\subsubsection{MatrixSelect}
 		\begin{itemize}
 		\item Beschreibung: Konstruktor, der ein MatrixSelect-Objekt erzeugt
@@ -1351,7 +1309,7 @@
 		\end{itemize}
 	\subsubsection{createRound}
 	\begin{itemize}
-		\item Beschreibung: Erzeugt eine Runde des Spielmodus MatrixSelect, setzt die Anzahl an Merkmalen pro Runde und die Anzahl an minimal und maximal auszuwählenden Merkmalen so wie die Attribute des Spielmodus belegt sind
+		\item Beschreibung: Erzeugt eine Runde des Spielmodus MatrixSelect, also eine StandardRound, setzt die Anzahl an Merkmalen pro Runde und die Anzahl an minimal und maximal auszuwählenden Merkmalen so wie die Attribute des Spielmodus belegt sind sowie die Anzahl an Merkmalsauswahlen auf 1
 	\end{itemize}
 
 
