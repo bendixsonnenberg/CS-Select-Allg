@@ -494,6 +494,12 @@
 		\item Rückgabewert: Collection aller gespeicherten Spieler.
 	\end{itemize}
 
+    \subsubsection{getNextGameID}
+    \begin{itemize}
+        \item Beschreibung: Gibt die ID zurück die das nächste zu speichernde Spiel erhalten muss.
+        \item Rückgabewert: ID des nächsten zu speichernden Spiels.
+    \end{itemize}
+
 	\subsubsection{registerPlayer}
 	\begin{itemize}
 		\item Beschreibung: Fügt einen neuen Spieler zur Datenbank hinzu und gibt ihn zurück.
@@ -725,6 +731,51 @@
 	\begin{itemize}
 		\item Beschreibung: Setzt das Spiel auf beendet.
 	\end{itemize}
+
+	\subsubsection{setTitle}
+	\begin{itemize}
+        \item Beschreibung: Setzt den Titel des Spiels.
+        \item Parameter:
+        \begin{itemize}
+            \item title: Zu setzender Titel des Spiels.
+        \end{itemize}
+	\end{itemize}
+
+	\subsubsection{setDescription}
+    \begin{itemize}
+        \item Beschreibung: Setzt den Titel des Spiels.
+        \item Parameter:
+        \begin{itemize}
+            \item title: Zu setzender Titel des Spiels.
+        \end{itemize}
+    \end{itemize}
+
+    \subsubsection{setDatabase}
+    \begin{itemize}
+        \item Beschreibung: Setzt die Beschreibung des Spiels.
+        \item Parameter:
+        \begin{itemize}
+            \item title: Zu setzende Beschreibung des Spiels.
+        \end{itemize}
+    \end{itemize}
+
+	\subsubsection{setGamemode}
+    \begin{itemize}
+        \item Beschreibung: Setzt den Spielmodus des Spiels.
+        \item Parameter:
+        \begin{itemize}
+            \item title: Zu setzender Spielmodus.
+        \end{itemize}
+    \end{itemize}
+
+	\subsubsection{addPlayers}
+    \begin{itemize}
+        \item Beschreibung: Fügt die gegebenen Spieler zu den eingeladenen Spielern hinzu.
+        \item Parameter:
+        \begin{itemize}
+            \item players: Hinzuzufügende Spieler.
+        \end{itemize}
+    \end{itemize}
 
 	\subsection{Mysql}
 	Paket mit Mysql basierter Implementierung der Datenbank.
