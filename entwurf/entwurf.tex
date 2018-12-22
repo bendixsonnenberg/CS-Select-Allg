@@ -41,6 +41,7 @@
 		\item Achievements werden im Gegensatz zu Anforderung /F750/ \emph{nicht} bepunktet. Achievements sollen lediglich visuelle Belohnungen darstellen, die sich der Spieler jederzeit anschauen kann.
         \item Das Überspringen einer Runde aus /F500/ hat \emph{keine} Minuspunkte zur Folge, um Demotivation durch Punktabzug eines Spielers zu verhindern.
         \item Die Punkteberechnung aus /F690/ für die erreichte Punktzahl des Spielers nach einer Runde wird geringfügig abgeändert. Da es sehr leicht ist (durch Zufall) einen Wert von ungefähr 0,5 als Rückgabe vom Machine-Learning-Server zu erreichen, werden die Punkte kleiner als 0,5 nur mit 50 multipliziert.
+		\item Im Zustandsdiagramm Streak aus VERWEIS wird eine Streak auch beendet, wenn der Spieler eine Runde eines anderen Spiels spielt. Dies ist nicht der Fall. Eine Streak wird auch spielübergreifend erhalten bleiben, denn es geht darum, dass man mehrere Runde am Stück spielt, egal von welchem Spiel. Das aktualisierte Zustandsdiagramm ist in \hyperlink{StreakState}{Abschnitt 7.1} zu finden.
     \end{enumerate}
 	
 	\chapter{Klassendiagramme}
@@ -1701,23 +1702,25 @@
 	%.svg
 
 	\subsection{Leaderboard ansehen}
-	Das folgende Sequenzdiagramm korrespondiert zu Testszenario 8.3.3. aus dem Pflichtenheft. \\
+	Das folgende Sequenzdiagramm korrespondiert zu Testszenario 8.3.3. aus dem Pflichtenheft. In diesem Fall schaut sich der Spieler das Leaderboard der letzten Woche an.\\
 	%Beschreibung?
 	%.svg
 
 	\subsection{Streak erreichen}
 	Das folgende Sequenzdiagramm korrespondiert zu Testszenario 8.2.7. aus dem Pflichtenheft. \\
-	Es handelt sich hierbei um einen Ausschnitt von Sequenzdiagramm %
+	Es handelt sich hierbei um einen Ausschnitt von Sequenzdiagramm LINK HIER. Es sind die relevanten Aufrufe zu sehen, welche die Streak eines Spielers erhöhen und ihm, wenn die Streak hoch genug, doppelte Punkte geben. \\
 	%Beschreibung?
 	%.svg
 
 	\subsection{Daily-Challenge abschließen}
+	Es handelt sich hierbei um einen Ausschnitt von Sequenzdiagramm LINK HIER. Es sind die relevanten Aufruge zu sehen, welche überprüfen, ob eine Daily-Challenge abgeschlossen wurde. \\
 
 
 
 	\chapter{Zustandsdiagramme}
 	%Die aus dem Pflichtenheft hier mit Beschreibung (über-)nehmen?
 	\section{Streak}
+	\hypertarget{StreakState}{}
 	\label{fig:Streak_State}
 	\includegraphics[width=\textwidth]{img/Streak_Zustand.pdf}
 	Die Zustände, die eine Streak haben kann.
@@ -1771,6 +1774,7 @@
 	\begin{itemize}
 		\item AchievementGetStreakTwo
 		\item AchievementGetStreakFive
+		\item AchievementGetStreakTen
 	\end{itemize}
 
 	\subsection{AchievementCompleteDaily}
@@ -1785,6 +1789,7 @@
 	Diese Achievements werden erreicht, sobald die Gesamtpunktzahl einen bestimmten Wert erreicht. \\
 	\begin{itemize}
 		\item AchievementReachTotalScoreHundred
+		\item AchievementReachTotalScoreTwoHundredFifty
 		\item AchievementReachTotalScoreFiveHundred
 		\item AchievementReachTotalScoreThousand
 		\item AchievementReachTotalScoreTwoThousand
@@ -1794,15 +1799,16 @@
 	\subsection{AchievementReachRoundScore}
 	Diese Achievements werden erreicht, wenn der Spieler eine bestimmte Anzahl an Punkten nach einer einzelnen Runde erreicht. Zusätzliche Punkte (z.B. durch) laufende Streaks werden hierbei nicht beachtet. \\
 	\begin{itemize}
-		\item AchievementReachRoundScore50
+		\item AchievementReachRoundScore60
 		\item AchievementReachRoundScore70
+		\item AchievementReachRoundScore80
 		\item AchievementReachRoundScore90
 	\end{itemize}
 
 
 	\section{Daily-Challenges}
 	\hypertarget{Daily}{}
-	Die folgenden Daily-Challenges.. \\
+	Die folgenden Daily-Challenges werden abgeschlossen, wenn der Spieler die Aufgabe an einem Tag erfüllt. \\
 	\begin{itemize}
 		\item DailyPlayThreeRounds
 		\item DailyGetStreakThree
