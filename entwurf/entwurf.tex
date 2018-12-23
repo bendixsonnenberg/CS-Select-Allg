@@ -162,39 +162,55 @@
 	\subsection{Organiser}
 		\subsubsection{Organiser}
 		\begin{itemize}
-			\item Beschreibung:
-			\item Parameter:
-			\item Rückgabewert:
+			\item Beschreibung: Konstruktor für Organisator-Objekt mit im System eindeutiger ID
+			\item Parameter: int
+			\item Rückgabewert: Organiser-Objekt
 		\end{itemize}
-		\subsubsection{Organiser}
-		\begin{itemize}
-			\item Beschreibung:
-			\item Parameter:
-			\item Rückgabewert:
-		\end{itemize}
+	\subsubsection{savePattern}
+	\begin{itemize}
+		\item Beschreibung: Speichert die aktuellen Optionen bei der Spielerstellung
+		\item Parameter: String
+		\item Rückgabewert: void
+	\end{itemize}
+	\subsubsection{getPatterns}
+	\begin{itemize}
+		\item Beschreibung: Liefert alle Patterns zurück, die der Organisator gespeichert hat
+		\item Parameter: -
+		\item Rückgabewert: Collection<Pattern>
+	\end{itemize}
+	\subsubsection{loadPattern}
+	\begin{itemize}
+		\item Beschreibung: Lädt die in der angegebenen Pattern gespeicherten Spielerstellungsoptionen
+		\item Parameter: Pattern
+		\item Rückgabewert: void
+	\end{itemize}
 		\subsubsection{createGame}
 		\begin{itemize}
-			\item Beschreibung:
-			\item Parameter:
-			\item Rückgabewert:
+			\item Beschreibung: Methode, um ein Spiel zu erstellen
+			\item Parameter: -
+			\item Rückgabewert: void
 		\end{itemize}
+	\subsubsection{invitePlayer}
+	\begin{itemize}
+		\item Beschreibung: Methode, die einen Spieler zu einem Spiel einlädt
+		\item Parameter:
+		\begin{itemize}
+			\item String
+			\item String
+		\end{itemize}
+		\item Rückgabewert: void
+	\end{itemize}
 		\subsubsection{terminateGame}
 		\begin{itemize}
-			\item Beschreibung:
-			\item Parameter:
-			\item Rückgabewert:
+			\item Beschreibung: Aktives Spiel beenden
+			\item Parameter: int
+			\item Rückgabewert: void
 		\end{itemize}
 		\subsubsection{deleteGame}
 		\begin{itemize}
-			\item Beschreibung:
-			\item Parameter:
-			\item Rückgabewert:
-		\end{itemize}
-		\subsubsection{invitePlayer}
-		\begin{itemize}
-			\item Beschreibung:
-			\item Parameter:
-			\item Rückgabewert:
+			\item Beschreibung: Terminiertes Spiel aus der internen Datenbank und somit aus der Übersicht löschen
+			\item Parameter: int
+			\item Rückgabewert: void
 		\end{itemize}
 
 	\section{API}
