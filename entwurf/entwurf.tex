@@ -57,7 +57,7 @@
 	\includegraphics[width=\textwidth]{img/package/user.pdf}
 	Dieses Paket beinhaltet die Klassen, die im Model-Segment des Programms eine Art Knotenpunkt darstellen. Hat ein Nutzer eine Session, existiert
 	eine Fassade, die mit einem Nutzer-Objekt gebunden ist. Nutzer-Objekte werden auch beim Registrieren in der Datenbank erstellt und beim Login
-	in das System. Die meisten weiteren Vorgänge im Model werden von Klassen im User-Paket veranlasst (auch durch einfache Weiterleitung der Parameter)
+	in das System. Die meisten weiteren Vorgänge im Model werden von Klassen im User-Paket veranlasst (auch durch einfache Weiterleitung der Parameter).
 	\subsection{User}
 	Stellt einen Nutzer im System dar. Es können mehrere Nutzer-Objekte mit gleicher ID im System zur gleichen Zeit existieren, da der gesamte Datenverkehr über die ständig aktuelle Datenbank verläuft.
 	\subsubsection{User}
@@ -218,10 +218,10 @@
 
 	\section{API}
 	\includegraphics[width=\textwidth]{img/package/api.pdf}
-	Das API-Paket hat die Aufgabe des Controllers und sorgt dafür, dass die Nutzereingaben ans System übergeben werden, außerdem wird hier die Darstellung der Nutzer-GUIs angeregt, die clientseitig passiert
+	Das API-Paket hat die Aufgabe des Controllers und sorgt dafür, dass die Nutzereingaben ans System übergeben werden. Außerdem wird hier die Darstellung der Nutzer-GUIs angeregt, die clientseitig passiert.
 	
 	\subsection{APIFacadeUser}
-	Abstrakte Verallgemeinerung der Spieler- und Organisatorfassade, um Funktionalität auszulagern
+	Abstrakte Verallgemeinerung der Spieler- und Organisatorfassade, um Funktionalität auszulagern.
 	\subsubsection{login}
 		\begin{itemize}
 			\item Beschreibung: Versucht einen Nutzer mit E-Mail und Passwort anzumelden. Bei Erfolg wird diese Fassade mit dem Nutzer assoziiert.
