@@ -218,23 +218,70 @@
 
 	\section{API}
 	\includegraphics[width=\textwidth]{img/api.png}
-	% TODO Hier auch eine Paketbeschreibung \\
+	Das API-Paket hat die Aufgabe des Controllers und sorgt dafür, dass die Nutzereingaben ans System übergeben werden, außerdem wird hier die Darstellung der Nutzer-GUIs angeregt, die clientseitig passiert
+	
+	\subsection{APIFacadeUser}
+	Abstrakte Verallgemeinerung der Spieler- und Organisatorfassade, um Funktionalität auszulagern
+	\subsubsection{login}
+		\begin{itemize}
+			\item Beschreibung: Versucht einen Nutzer mit E-Mail und Passwort anzumelden. Bei Erfolg wird diese Fassade mit dem Nutzer assoziiert.
+			\item Parameter:
+			\begin{itemize}
+				\item email: Die E-Mail Adresse, mit der eine Anmeldung versucht wird
+				\item password: Das Passwort, mit dem eine Anmeldung versucht wird
+			\end{itemize}
+			\item Rückgabewert: Falls die E-Mail-Passwort-Kombination einen validen Nutzer beschreibt, wird dieser zurückgegeben. Andernfalls wird null zurückgegeben.
+		\end{itemize}
+		\subsubsection{logout}
+		\begin{itemize}
+			\item Beschreibung: Meldet den angemeldeten Nutzer ab. Nach dem Aufruf dieser Methode verhält sich dieses Objekt wieder so, als ob nie ein Nutzer angemeldet wurde
+		\end{itemize}
+		\subsubsection{changeEmail}
+			\begin{itemize}
+				\item Beschreibung: Ändert die E-Mail-Adresse mit der sich ein Nutzer anmeldet. Die Änderung tritt erst in Effekt, wenn die neue E-Mail-Adresse bestätigt wurde.
+				\item Parameter:
+				\begin{itemize}
+					\item email: Die neue E-Mail-Adresse, welche in Zukunft für diesen Nutzer verwendet werden soll.
+				\end{itemize}
+				\item Rückgabewert: true, falls die Bestätigungsmail veschickt wurde, false andernfalls
+			\end{itemize}
+			\subsubsection{changePassword}
+			\begin{itemize}
+				\item Beschreibung: Ändert das Passwort, mit dem sich der Nutzer anmeldet. Die Änderung tritt sofort in Effekt.
+				\item Parameter:
+				\begin{itemize}
+					\item pass: Das neue Passwort
+				\end{itemize}
+				\item Rückgabewert: true falls die Änderung erfolgreich war, false andernfalls
+			\end{itemize}
+		\subsubsection{setLanguage}
+			\begin{itemize}
+				\item Beschreibung: Setzt die Sprache für den Nutzer
+				\item Parameter:
+				\begin{itemize}
+					\item langCode: der Landescode für die gewünschte Sprache
+				\end{itemize}
+			\end{itemize}
+		\subsubsection{recoverPassword}
+		\begin{itemize}
+		\item Beschreibung: Setzt Passwort auf zufälligen String und sendet dieses an den Nutzer
+		\end{itemize}
+		\subsubsection{validateEmail}
+		    \begin{itemize}
+		        \item Beschreibung: Teilt dem System mit, dass die E-Mail Adresse eines Nutzers bestätigt wurde. Optimalerweise durch den Link, welcher in der E-Mail versendet wurde. Kann aber natürlich auf direkt nach dem register-Aufruf gemacht werden.
+		    \end{itemize}
+	\subsubsection{register}
+	\begin{itemize}
+	\item Beschreibung: Registriert einen Nutzer mit den dafür nötigen Parametern, abstrakt
+	\end{itemize}
+	\subsubsection{getUser}
+	\begin{itemize}
+	\item Beschreibung: Gibt den zur Fassade gehörigen Nutzer zurück
+	\end{itemize}
+	
 	\subsection{APIFacadePlayer}
 	Eine APIFacadePlayer ist das Objekt, über welches sämtliche Interaktion mit dem System von den Spielern aus passiert. Nach dem Konstruktor \textbf{muss} zuerst loginPlayer aufgerufen werden, bis es erfolgreich zurückkehrt. Ansonsten haben alle anderen Methoden kein definiertes Verhalten und werden im Allgemeinem nichts Nützliches zurückgeben. Eine APIFacadePlayer ist immer mit einem Spieler assoziiert, falls dieser korrekt angemeldet wurde. Alle Methoden beziehen sich dann auf den angemeldeten Spieler.
-	\subsubsection{loginPlayer}
-	\begin{itemize}
-		\item Beschreibung: Versucht einen Spieler mit email und password anzumelden. Bei Erfolg wird diese Fassade mit dem Spieler assoziiert.
-		\item Parameters:
-		\begin{itemize}
-			\item email: Die E-Mail Adresse, mit der eine Anmeldung versucht wird
-			\item password: Das Passwort, mit dem eine Anmeldung versucht wird
-		\end{itemize}
-		\item Rückgabewert: Falls die E-Mail-Passwort-Kombination einen validen Spieler beschreibt, wird dieser zurückgegeben. Andernfalls wird null zurückgegeben.
-	\end{itemize}
-	\subsubsection{logout}
-	\begin{itemize}
-		\item Beschreibung: Meldet den angemeldeten Spieler ab. Nach dem Aufruf dieser Methode verhält sich dieses Objekt wieder so, als ob nie ein Spieler angemeldet wurde
-	\end{itemize}
+	
 	\subsubsection{getAchievements}
 	\begin{itemize}
 		\item Beschreibung: Holt die Liste aller Achievements, mit der Information, ob der Spieler diese bereits erreicht hat oder nicht.
@@ -255,23 +302,33 @@
 		\item Beschreibung: Gibt das aktuelle Streak-Objekt für diesen Spieler zurück
 		\item Rückgabewert: Das aktuelle Streak-Objekt für diesen Spieler
 	\end{itemize}
-	\subsubsection{getPoints}
+	\subsubsection{getScore}
 	\begin{itemize}
 		\item Beschreibung: Gibt die Punkte des Spielers zurück
 		\item Rückgabewert: Aktuelle Punktzahl des Spielers
 	\end{itemize}
-	\subsubsection{getRound}
+	\subsubsection{startRound}
 	\begin{itemize}
-		\item Beschreibung: Fordert die nächste Runde für ein Spiel an und gibt diese zurück
-		\item Parameter:
+		\item Beschreibung: Fordert die nächste Runde für ein Spiel an und gibt die anzuzeigenden Merkmale zurück
+		\item Parameter: 
 		\begin{itemize}
 			\item gameId: Eindeutige Id des Spieles für das die Runde angefordert wird
 		\end{itemize}
-		\item Rückgabewert: Wenn der Spieler eine Runde in dem angegebenem Spiel spielen darf, dann wird das Runden-Objekt zurückgegen. Andernfalls wird null zurückgegeben
+		\item Rückgabewert: Die anzuzeigenden Merkmale
 	\end{itemize}
-	\subsubsection{playRound}
+	\subsubsection{selectFeatures}
 	\begin{itemize}
-		\item Beschreibung: Spielt eine Runde in der aktuellen Runde
+		\item Beschreibung: Sorgt dafür, dass die vom Spieler ausgewählten Merkmale ins System gegeben werden
+		\item Parameter: 
+		\begin{itemize}
+		\item selectedFeatures: Die vom Spieler ausgewählten Merkmale
+		\item uselessFeatures: Die vom Spieler als unnötig markierten Merkmale
+		\end{itemize}
+	\end{itemize}
+	\subsubsection{skipRound}
+	\begin{itemize}
+	\item Beschreibung: Sorgt dafür, dass der Spieler die aktuelle Runde ohne Merkmalsauswahl beendet
+	\item Parameter: uselessFeatures: Die als unnötig markierten Merkmale
 	\end{itemize}
 	\subsubsection{getGames}
 	\begin{itemize}
@@ -287,29 +344,12 @@
 		\end{itemize}
 		\item Rückgabewert: Falls gameId valid ist, also Spiel existiert und Spieler darf auf das Spiel zugreifen, dann wird das Spiel zurückgegen, ansonsten null.
 	\end{itemize}
-	\subsubsection{getPlayer}
+	\subsubsection{getUser}
 	\begin{itemize}
 		\item Beschreibung: Gibt den angemeldeten Spieler zurück. Also der Spieler, welcher durch loginPlayer angemeldet wurde.
 		\item Rückgabewert: Der angemeldete Spieler, falls keiner angemeldet ist wird null zurückgegeben.
 	\end{itemize}
-	\subsubsection{changeEmail}
-	\begin{itemize}
-		\item Beschreibung: Ändert die E-Mail-Adresse mit der sich ein Spieler anmeldet. Die Änderung tritt erst in Effekt, wenn die neue E-Mail-Adresse bestätigt wurde.
-		\item Parameter:
-		\begin{itemize}
-			\item email: Die neue E-Mail-Adresse, welche in Zukunft für diesen Spieler verwendet werden soll.
-		\end{itemize}
-		\item Rückgabewert: true, falls die Bestätigungsmail veschickt wurde, false andernfalls
-	\end{itemize}
-	\subsubsection{changePassword}
-	\begin{itemize}
-		\item Beschreibung: Ändert das Passwort, mit dem sich der Spieler anmeldet. Die Änderung tritt sofort in Effekt.
-		\item Parameter:
-		\begin{itemize}
-			\item pass: Das neue Passwort
-		\end{itemize}
-		\item Rückgabewert: true falls die Änderung erfolgreich war, false andernfalls
-	\end{itemize}
+	
 	\subsubsection{getNotifications}
 	\begin{itemize}
 		\item Beschreibung: Holt alle Notifications, die für diesen Spieler anliegen
@@ -333,6 +373,20 @@
 		\end{itemize}
 		\item Rückgabewert: true, wenn die Einladung abgelehnt wurde, false, falls der Spieler keine Einladung zu diesem Spiel hatte, das Spiel nicht existiert oder bereits beendet ist.
 	\end{itemize}
+
+	
+    \subsubsection{register}
+    \begin{itemize}
+        \item Beschreibung: registriert einen neuen Spieler in das System. Bei diesem Aufruf wird eine E-Mail an die angegebene Email gesendet. Das Passwort muss der Spieler sich merken, da es in den loginPlayer Aufruf benötigt wird.
+        \item Parameter:
+        \begin{itemize}
+            \item email: E-Mail Adresse des zu registrierenden Spielers. Der Spieler muss Zugriff auf diese E-Mail Adresse haben.
+            \item password: Das Passwort des neu zu registrierenden Spielers.
+            \item username: Der Nutzername des neu zu registrierenden Spielers.
+        \end{itemize}
+    \end{itemize}
+    
+
 	\subsubsection{setLanguage}
 	\begin{itemize}
 		\item Beschreibung: Setzt die Sprache für den Spieler
@@ -355,24 +409,45 @@
 	\begin{itemize}
 		\item Beschreibung: Teilt dem System mit, dass die E-Mail Adresse eines Nutzers bestätigt wurde. Optimalerweise durch den Link, welcher in der E-Mail versendet wurde. Kann aber natürlich auf direkt nach dem registerPlayer Aufruf gemacht werden.
 	\end{itemize}
+>>>>>>> 96169738453343e5f4aa7cd0a6ca0f077466b185
 	\subsection{APIFacadeOrganiser}
-	\subsubsection{loginOrganiser}
+	\subsubsection{getUser}
+		\begin{itemize}
+			\item Beschreibung: Gibt den angemeldeten Organisator zurück. Also der Organisator, welcher durch login angemeldet wurde.
+			\item Rückgabewert: Der angemeldete Organisator, falls keiner angemeldet ist wird null zurückgegeben.
+		\end{itemize}
+	\subsubsection{register}
 	\begin{itemize}
-		\item Beschreibung: meldet einen Organisator an. Damit dies möglich ist, muss der Organisator vorher registriert worden sein.
+		\item Beschreibung: Registriert einen Organisator
 		\item Parameter:
 		\begin{itemize}
-			\item email: E-Mail des anzumeldenden Organisators
-			\item password: Das Passwort des anzumeldenden Organisators
+		\item email: Die E-Mail-Adresse des Organisators
+		\item password: Das eigene Passwort des Organisators
+		\item mainPassword: Das globale Passwort
 		\end{itemize}
-		\item Rückgabewert: Falls die Email-Passwort Kombinnation valid ist, also ein Organisator mit der E-Mail registriert ist und das Passwort ist richtig, wird der Organisator zurückgegeben. Andernfalls null.
+		\end{itemize}
+	\subsubsection{getActiveGames}
+	\begin{itemize}
+	\item Beschreibung: Gibt die aktiven Spiele des Organisators zurück7
+	\item Rückgabewert: Die aktiven Spiele
 	\end{itemize}
+	\subsubsection{getTerminatedGames}
+	\begin{itemize}
+		\item Beschreibung: Gibt die beendeten Spiele des Organisators zurück
+		\item Rückgabewert: Die beendeten Spiele
+		\end{itemize}
+	\subsubsection{setGameOption}
+	\begin{itemize}
+		\item Beschreibung: Setzt eine einzelne Spieloption
+		\item Parameter:
+		\begin{itemize}
+		\item option: Welche Option gesetzt werden soll
+		\item data: Das Datum, welches gesetzt werden soll
+		\end{itemize}
+		\end{itemize}
 	\subsubsection{createGame}
 	\begin{itemize}
 		\item Beschreibung: erstellt ein Spiel für diesen Organisator.
-		\item Parameter: %% stuff bleibt hier ja noch nicht ganz fest gegeben
-		\begin{itemize}
-			\item :
-		\end{itemize}
 		\item Rückgabewert: Falls das Erstellen erfolgreich war, true zurückgegeben, andernfalls false.
 	\end{itemize}
 	\subsubsection{invitePlayer}
@@ -400,10 +475,6 @@
 			\item gameId: Die Id des zu löschenden Spiel
 		\end{itemize}
 	\end{itemize}
-	\subsubsection{logout}
-	\begin{itemize}
-		\item Beschreibung: Meldet einen Organisator ab. Nach dem Aufruf dieser Methode verhält sich dieses Objekt so, als ob niemand angemeldet war.
-	\end{itemize}
 	\subsubsection{getSavedSettings}
 	\begin{itemize}
 		\item Beschreibung: Holt eine Liste aller gespeicherten Einstellungen dieses Organisators.
@@ -417,6 +488,17 @@
 			\item pattern: Das zu speichernde Pattern
 		\end{itemize}
 	\end{itemize}
+
+	\subsubsection{loadPattern}
+	\begin{itemize}
+	\item Lädt die angegebenen Einstellung in die GameCreation
+	\item Parameter: pattern: Die Spieleinstellungen
+	\end{itemize}
+	
+   
+    \subsection{httpAPI}
+    Implementierung der beiden Fassadenobjekten für http/REST.
+
 	\subsubsection{registerOrganiser}
 	\begin{itemize}
 		\item Beschreibung: registriert einen neuen Spieler in das System. Bei diesem Aufruf wird eine E-Mail an die angegebene Email gesendet. Das Passwort muss der Spieler sich merken, da es in den loginOrganiser Aufruf benötigt wird.
