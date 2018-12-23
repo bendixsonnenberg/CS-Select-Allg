@@ -1052,6 +1052,123 @@
 	\subsection{RESTMLServer}
 	Implementiert die abstrakte Klasse MLServer und stellt die Funktionalität mittels der Standard-Implementierung des ML-Servers per REST-API bereit.
 
+	\section{Gamecreation}
+	Paket, welches der Spielerstellung dient. Hier spielen die Entwurfsmuster Memento(Memento: Pattern) und Builder(GameCreator) eine Rolle
+	%TODO: Hier Bild von gamecreation
+	\subsection{GameCreator}
+	Klasse, der die Spielerstellung verwaltet
+	\subsubsection{getGameOptions}
+	\begin{itemize}
+		\item Beschreibung: Übergabe der Optionen für mögliche Änderungen der künftigen Spielparameter
+		\item Parameter: -
+		\item Rückgabewert: GameOptions Objekt
+	\end{itemize}
+	\subsubsection{loadPattern}
+	\begin{itemize}
+		\item Beschreibung: Setzt das GameOption Objekt, das in der Pattern gespeichert ist, al
+		\item Parameter: Pattern-Objekt
+		\item Rückgabewert: void
+	\end{itemize}
+	\subsubsection{makePattern}
+	\begin{itemize}
+		\item Beschreibung: Erzeugt aus den angegebenen Spielerstellungsparametern ein Pattern-Objekt, das in der Datenbank abgespeichert wird
+		\item Parameter: String
+		\item Rückgabewert: Pattern-Objekt
+	\end{itemize}
+	\subsubsection{abort}
+	\begin{itemize}
+		\item Beschreibung: Methode zum Abbrechen der Spielerstellung
+		\item Parameter: -
+		\item Rückgabewert: void
+	\end{itemize}
+	\subsubsection{doCreate}
+	\begin{itemize}
+		\item Beschreibung: Erstellt ein Spiel-Objekt mit gesetzten Spieleinstellungen
+		\item Parameter: -
+		\item Rückgabewert: GameOptions Objekt
+	\end{itemize}
+
+	\subsection{GameOptions}
+	Klasse, die die Spielerstellungsparameter speichert
+	\subsection{getGamemode}
+	\begin{itemize}
+		\item Beschreibung: Gibt den gewählten Spielmodus zurück
+		\item Parameter: -
+		\item Rückgabewert: Gamemode-Objekt
+	\end{itemize}
+	\subsection{getInvitedPlayers}
+	\begin{itemize}
+		\item Beschreibung: Gibt alle Mails zurück, die zum Spiel eingeladen werden sollen
+		\item Parameter: -
+		\item Rückgabewert: Liste an allen eingeladenen Spieler-Mails
+	\end{itemize}
+	\subsection{getTitle}
+	\begin{itemize}
+		\item Beschreibung: Gibt den gewählten Titel des Spiels zurück
+		\item Parameter: -
+		\item Rückgabewert: String (Titel)
+	\end{itemize}
+	\subsection{getDescription}
+	\begin{itemize}
+		\item Beschreibung: Gibt die gewählte Beschreibung zurück
+		\item Parameter: -
+		\item Rückgabewert: String (Bescheibung)
+	\end{itemize}
+	\subsection{getNameFeatureDatabase}
+	\begin{itemize}
+		\item Beschreibung:
+		\item Parameter:
+		\item Rückgabewert:
+	\end{itemize}
+	\subsection{}
+	\begin{itemize}
+		\item Beschreibung:
+		\item Parameter:
+		\item Rückgabewert:
+	\end{itemize}
+	\subsection{}
+	\begin{itemize}
+		\item Beschreibung:
+		\item Parameter:
+		\item Rückgabewert:
+	\end{itemize}
+	\subsection{}
+	\begin{itemize}
+		\item Beschreibung:
+		\item Parameter:
+		\item Rückgabewert:
+	\end{itemize}
+	\subsection{}
+	\begin{itemize}
+		\item Beschreibung:
+		\item Parameter:
+		\item Rückgabewert:
+	\end{itemize}
+	\subsection{}
+	\begin{itemize}
+		\item Beschreibung:
+		\item Parameter:
+		\item Rückgabewert:
+	\end{itemize}
+	\subsection{}
+	\begin{itemize}
+		\item Beschreibung:
+		\item Parameter:
+		\item Rückgabewert:
+	\end{itemize}
+	\subsection{}
+	\begin{itemize}
+		\item Beschreibung:
+		\item Parameter:
+		\item Rückgabewert:
+	\end{itemize}
+	\subsection{}
+	\begin{itemize}
+		\item Beschreibung:
+		\item Parameter:
+		\item Rückgabewert:
+	\end{itemize}
+	\subsection{Pattern}
 
 	\section{Game}
 	\includegraphics[width=\textwidth]{img/GameTerminationFeature.PNG}
