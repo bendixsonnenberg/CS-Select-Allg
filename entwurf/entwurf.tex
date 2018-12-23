@@ -791,7 +791,7 @@
         \end{itemize}
     \end{itemize}
 
-	\subsubsection{addAcceptingPlayers}
+	\subsubsection{addPlayingPlayers}
 	\begin{itemize}
 		\item Beschreibung: Fügt die gegebenen Spieler zu den spielenden Spielern hinzu und entfernt sie gegebenenfalls aus den Eingeladenen.
 		\item Parameter:
@@ -806,6 +806,20 @@
 
 	\subsubsection{MysqlDatabaseAdapter}
 	Mysql Implementierung der DatabaseAdapter Klasse.
+
+	\paragraph{PRODUCT_DATABASE_NAME}
+	Konstante die den Namen der Hauptdatenbank des Produkts enthält.
+	Standardmäßig ist dieser Name CS_SELECT.
+
+	\paragraph{executeMysqlQuery}
+	\begin{itemize}
+		\item Beschreibung: Führt den gegebenen Mysql Query auf der Hauptdatenbank des Produkts aus.
+		\item Parameter:
+		\begin{itemize}
+			\item query: Auszuführender Mysql-Query
+		\end{itemize}
+		\item Rückgabewert: ResultSet mit den geladenen Daten, soll nichts zurückgegeben werden Null.
+	\end{itemize}
 
 	\paragraph{executeMysqlQuery}
 	\begin{itemize}
