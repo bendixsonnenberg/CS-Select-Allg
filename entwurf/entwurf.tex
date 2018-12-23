@@ -679,6 +679,35 @@
 		\item Rückgabewert: Collection der gespeicherten Patterns des Organisators.
 	\end{itemize}
 
+	\subsubsection{addPatterns}
+	\begin{itemize}
+		\item Beschreibung: Speichert eine Spielvoreinstellung für den Organisator ab.
+		\item Parameter:
+		\begin{itemize}
+			\item pattern: Zu speichernde Spielvoreinstellung.
+		\end{itemize}
+	\end{itemize}
+
+	\subsubsection{getActiveGames}
+	\begin{itemize}
+		\item Beschreibung: Gibt die aktiven Spiele des gegebenen Organisators zurück.
+		\item Parameter:
+		\begin{itemize}
+			\item organiser: Organisator dessen Spiele zurückgegeben werden sollen.
+		\end{itemize}
+		\item Rückgabewert: Collection der aktiven Spiele.
+	\end{itemize}
+
+	\subsubsection{getTerminatedGames}
+	\begin{itemize}
+		\item Beschreibung: Gibt die terminierten Spiele des gegebenen Organisators zurück.
+		\item Parameter:
+		\begin{itemize}
+			\item organiser: Organisator dessen Spiele zurückgegeben werden sollen.
+		\end{itemize}
+		\item Rückgabewert: Collection der terminierten Spiele.
+	\end{itemize}
+
 	\subsection{GameAdapter}
 	Schnittstelle die Methoden für gespeicherte Spiele des Produkts bereitstellt.
 	Jeder GameAdapter ist stets genau einem Spiel zugeordnet.
