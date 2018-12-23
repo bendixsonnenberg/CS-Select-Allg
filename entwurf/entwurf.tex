@@ -25,6 +25,13 @@
 
 
 	\chapter{Einleitung}
+	Diese Dokumentation zum Entwurf unseres Produktes CS:Select beschäftigt sich hauptsächlich mit dem objektorientiert aufgebauten Spiel-Server des Produktes. Das Front-End wird clientseitig aufgebaut und nicht ausschließlich nach objektorientierten Gesichtspunkten modelliert, deshalb werden wir uns damit hauptsächlich in der Implementierungsphase befassen.
+	\newline
+	\newline
+	Der Spiel-Server selbst ist nach Model-View-Controller-Architektur aufgebaut, dabei sorgt das API-Paket für die Interaktion mit dem Nutzer, damit die Daten aus dem System bei diesem im Browser angezeigt werden. Die Fassaden übernehmen die Aufgabe des Controllers, sie sorgen dafür, dass die durch die Nutzereingaben nötigen Prozesse angestoßen werden und die Daten übermittelt werden. Das Model ist aufgeteilt in verschiedene Pakete, das User-Paket, welches die unterschiedlichen Nutzer modelliert, das Game-Paket, welches die Spielmechanik übernimmt sowie das Database-Paket, welches die Kommunikation mit der internen und der vom Organisator bereitgestellten Datenbank durchführt. Außerdem gibt es noch das ML-Server-Paket, dieses übernimmt die Anfragen an den Machine-Learning-Server des Organisators und das Gamification-Paket, was für die Punktevergabe und weitere Mechanismen zuständig ist, welche den Spielspaß der Spieler steigern sollen.
+	\newline
+	\newline
+	Dieser Aufbau des Produkts ermöglicht unserer Meinung nach die ideale Umsetzung der im Pflichtenheft definierten Anforderungen, um die Merkmalsauswahl durch die den Kontext kennenden Fachkräfte zu ermöglichen und dabei mit Gamification-Elementen die Motivation der dauerhaften Nutzung unseres Produkts anzuregen.
 
 
 	\chapter{Architektur}
@@ -46,32 +53,33 @@
 	
 	\chapter{Klassendiagramme}
 
-	\section{User}
+	\section{User-Paket}
 	\includegraphics[width=\textwidth]{img/user.png}
-	% TODO Hier was zum ganzen User-Package sagen (Paketbeschreibung)\\
+	Dieses Paket beinhaltet die Klassen, die im Model-Segment des Programms eine Art Knotenpunkt darstellen. Hat ein Nutzer eine Session, existiert
+	eine Fassade, die mit einem Nutzer-Objekt gebunden ist. Nutzer-Objekte werden auch beim Registrieren in der Datenbank erstellt und beim Login
+	in das System. Die meisten weiteren Vorgänge im Model werden von Klassen im User-Paket veranlasst (auch durch einfache Weiterleitung der Parameter)
 	\subsection{User}
 	Stellt einen Nutzer im System dar. Es können mehrere Nutzer-Objekte mit gleicher ID im System zur gleichen Zeit existieren, da der gesamte Datenverkehr über die ständig aktuelle Datenbank verläuft.
 		\subsubsection{User}
+	\begin{itemize}
+		\item Beschreibung: Konstruktor, der einen User mit ID erzeugt
+		\item Parameter: int
+		\item Rückgabewert: User-Objekt
+	\end{itemize}
 		\subsubsection{getId}
 		\begin{itemize}
 			\item Beschreibung: Gibt die eindeutige ID zurück, die einem Nutzer in der Datenbank zugeordnet ist
 			\item Rückgabewert: int
 		\end{itemize}
-		\subsubsection{setId}
-		\begin{itemize}
-			\item Beschreibung: Diese Methode dient dem Zuordnen einer ID zu einem Spieler. Die Methode überprüft, ob die ID gültig ist (also noch nicht existiert)
-			\item Parameter: int
-			\item Rückgabewert: void
-		\end{itemize}
 		\subsubsection{login}
 		\begin{itemize}
-			\item Beschreibung: Mithilfe dieser Methode loggt sich der Nutzer ein. Sie gibt ein Nutzerobjekt zurück, wenn das Passwort richtig ist
+			\item Beschreibung: Mithilfe dieser Methode loggt sich der Nutzer ein. Sie gibt einen Boolean zurück, wenn das Passwort mit dem (verschlüsselten) Password in der Datenbank übereinstimmt
 			\item Parameter: String
-			\item Rückgabewert: Nutzer
+			\item Rückgabewert: boolean
 		\end{itemize}
 		\subsubsection{logout}
 		\begin{itemize}
-			\item Beschreibung: Diese Methode dient dem Ausloggen des Nutzers. Der dem Nutzer zugehörige Datenbankadapter wird entkoppelt
+			\item Beschreibung: Diese Methode dient dem Ausloggen des Nutzers. Der dem Nutzer zugehörige Datenbankadapter wird entkoppelt, Nutzer-Objekt wird später von Garbage-Collector gelöscht
 			\item Parameter: -
 			\item Rückgabewert: void
 		\end{itemize}
@@ -87,126 +95,125 @@
 			\item Parameter: String
 			\item Rückgabewert: void
 		\end{itemize}
+	\subsubsection{setLanguage}
+	\begin{itemize}
+		\item Beschreibung: Ändert die gewünschte Sprache des Spielers, Spachcode wird in der Datenbank vermerkt
+		\item Parameter: String
+		\item Rückgabewert: void
+	\end{itemize}
 
 	\subsection{Player}
 	Player stellt den Spieler im System dar. Diese Klasse erbt von der Nutzer-Klasse
 		\subsubsection{Player}
 		\begin{itemize}
-			\item Beschreibung: Konstruktor für interne Prozesse, wenn nur die Email bekannt ist
-			\item Parameter: String(Email repräsentierend)
+			\item Beschreibung: Konstruktor für Player-Objekte mit (garantiert eindeutiger) Nutzer-ID
+			\item Parameter: int
 			\item Rückgabewert: Player-Objekt
 		\end{itemize}
-		\subsubsection{Player}
-		\begin{itemize}
-			\item Beschreibung: Konstruktor für Login
-			\item Parameter:
-				\begin{itemize}
-					\item String (Email repräsentierend)
-					\item String (Passwort repräsentierend)
-				\end{itemize}
-			\item Rückgabewert: Player-Objekt
-		\end{itemize}
-		\subsubsection{Player}
-		\begin{itemize}
-			\item Beschreibung: Konstruktor für Registrierung
-			\item Parameter:
-				\begin{itemize}
-					\item String (Nutzername repräsentierend)
-					\item String (Email repräsentierend)
-					\item String (Passwort repräsentierend)
-				\end{itemize}
-			\item Rückgabewert: Player-Objekt
-		\end{itemize}
-		\subsubsection{registerPlayer}
-		\begin{itemize}
-			\item Beschreibung: Subroutine zur indirekten Kommunikation mit der Datenbank. Dort wird der neue Spieler eingetragen (registriert). Diese Funktion wird aus modularisierenden Gründen nicht im Kontruktor ausgeführt.
-			\item Parameter:
-				\begin{itemize}
-					\item String (Nutzername repräsentierend)
-					\item String (Email repräsentierend)
-					\item String (Passwort repräsentierend)
-				\end{itemize}
-			\item Rückgabewert: void
-		\end{itemize}
+	\subsubsection{acceptInvite}
+	\begin{itemize}
+		\item Beschreibung: Ermöglicht Annahme einer Einladung zu einem Spiel mit (eindeutiger) Spiel-ID
+		\item Parameter: int
+		\item Rückgabewert: void
+	\end{itemize}
+	\subsubsection{declineInvite}
+	\begin{itemize}
+		\item Beschreibung: Spieler lehnt Einladung zu einem Spiel mit eindeutiger Spiel-ID ab
+		\item Parameter: int
+		\item Rückgabewert:
+	\end{itemize}
 		\subsubsection{startRound}
 		\begin{itemize}
 			\item Beschreibung: Methode, um eine neue Runde eines Spiels aufzurufen. Daraufhin wird eine Menge an Merkmalen zurückgeliefert
 			\item Parameter: int (Game-ID\footnote{In der Spieler-Klasse werden nur Spiele abgespeichert, denen der Spieler beigetreten ist.} repräsentierend)
 			\item Rückgabewert: Collection<Feature>
 		\end{itemize}
-		\subsubsection{acceptInvite}
+	\subsubsection{setActiveRound}
+	\begin{itemize}
+		\item Beschreibung: Setzt Runde, die der Spieler gerade spielt bzw angezeigt bekommt
+		\item Parameter: Round
+		\item Rückgabewert: void
+	\end{itemize}
+	\subsubsection{selectFeatures}
+	\begin{itemize}
+		\item Beschreibung: Nimmt die vom Nutzer ausgewählten Merkmale und als unnötig markierten Merkmale entgegen und leitet diese an die aktive Runde weiter, gibt die von dieser berechnete Punktzahl zurück an die Fassade.
+		\item Parameter:
 		\begin{itemize}
-			\item Beschreibung: Ermöglicht Annahme einer Einladung zu einem Spiel
-			\item Parameter: int (Game-ID repräsentierend)
-			\item Rückgabewert: boolean
+			\item selectedFeatures: Die vom Spieler ausgewählten Merkmale
+			\item uselessFeatures: Die vom Spieler als unnötig markierten Merkmale
 		\end{itemize}
-		\subsubsection{declineInvite}
-		\begin{itemize}
-			\item Beschreibung:
-			\item Parameter:
-			\item Rückgabewert:
-		\end{itemize}
-		\subsubsection{getStats}
-		\begin{itemize}
-			\item Beschreibung:
-			\item Parameter:
-			\item Rückgabewert:
-		\end{itemize}
-		\subsubsection{chooseFeatures}
-		\begin{itemize}
-			\item Beschreibung:
-			\item Parameter:
-			\item Rückgabewert:
-		\end{itemize}
+	\end{itemize}
+	\subsubsection{skipRound}
+	\begin{itemize}
+		\item Beschreibung: %TODO: Beschreibung
+		\item Parameter: -
+		\item Rückgabewert: Gamification-Interface
+	\end{itemize}
+	\subsubsection{getStats}
+	\begin{itemize}
+		\item Beschreibung: Gibt ein Interface zurück, durch das man auf die Statistiken des Spielers zugreifen kann
+		\item Parameter: -
+		\item Rückgabewert: Gamification-Interface
+	\end{itemize}
 		\subsubsection{getLeaderBoard}
 		\begin{itemize}
-			\item Beschreibung:
-			\item Parameter:
-			\item Rückgabewert:
-		\end{itemize}
-		\subsubsection{addGame}
-		\begin{itemize}
-			\item Beschreibung:
-			\item Parameter:
-			\item Rückgabewert:
+			\item Beschreibung: Gibt eine geordnete Liste an Spielern zurück (Standardmäßige Sortierung : Punkte in einer Woche)
+			\item Parameter: -
+			\item Rückgabewert: Liste an Spielern
 		\end{itemize}
 
 	\subsection{Organiser}
 		\subsubsection{Organiser}
 		\begin{itemize}
-			\item Beschreibung:
-			\item Parameter:
-			\item Rückgabewert:
+			\item Beschreibung: Konstruktor für Organisator-Objekt mit im System eindeutiger ID
+			\item Parameter: int
+			\item Rückgabewert: Organiser-Objekt
 		\end{itemize}
-		\subsubsection{Organiser}
-		\begin{itemize}
-			\item Beschreibung:
-			\item Parameter:
-			\item Rückgabewert:
-		\end{itemize}
+	\subsubsection{savePattern}
+	\begin{itemize}
+		\item Beschreibung: Speichert die aktuellen Optionen bei der Spielerstellung
+		\item Parameter: String
+		\item Rückgabewert: void
+	\end{itemize}
+	\subsubsection{getPatterns}
+	\begin{itemize}
+		\item Beschreibung: Liefert alle Patterns zurück, die der Organisator gespeichert hat
+		\item Parameter: -
+		\item Rückgabewert: Collection<Pattern>
+	\end{itemize}
+	\subsubsection{loadPattern}
+	\begin{itemize}
+		\item Beschreibung: Lädt die in der angegebenen Pattern gespeicherten Spielerstellungsoptionen
+		\item Parameter: Pattern
+		\item Rückgabewert: void
+	\end{itemize}
 		\subsubsection{createGame}
 		\begin{itemize}
-			\item Beschreibung:
-			\item Parameter:
-			\item Rückgabewert:
+			\item Beschreibung: Methode, um ein Spiel zu erstellen
+			\item Parameter: -
+			\item Rückgabewert: void
 		\end{itemize}
+	\subsubsection{invitePlayer}
+	\begin{itemize}
+		\item Beschreibung: Methode, die einen Spieler zu einem Spiel einlädt
+		\item Parameter:
+		\begin{itemize}
+			\item String
+			\item String
+		\end{itemize}
+		\item Rückgabewert: void
+	\end{itemize}
 		\subsubsection{terminateGame}
 		\begin{itemize}
-			\item Beschreibung:
-			\item Parameter:
-			\item Rückgabewert:
+			\item Beschreibung: Aktives Spiel beenden
+			\item Parameter: int
+			\item Rückgabewert: void
 		\end{itemize}
 		\subsubsection{deleteGame}
 		\begin{itemize}
-			\item Beschreibung:
-			\item Parameter:
-			\item Rückgabewert:
-		\end{itemize}
-		\subsubsection{invitePlayer}
-		\begin{itemize}
-			\item Beschreibung:
-			\item Parameter:
-			\item Rückgabewert:
+			\item Beschreibung: Terminiertes Spiel aus der internen Datenbank und somit aus der Übersicht löschen
+			\item Parameter: int
+			\item Rückgabewert: void
 		\end{itemize}
 
 	\section{API}
@@ -285,7 +292,7 @@
 		\item Beschreibung: Gibt den angemeldeten Spieler zurück. Also der Spieler, welcher durch loginPlayer angemeldet wurde.
 		\item Rückgabewert: Der angemeldete Spieler, falls keiner angemeldet ist wird null zurückgegeben.
 	\end{itemize}
-	\subsubsection{updateEmail}
+	\subsubsection{changeEmail}
 	\begin{itemize}
 		\item Beschreibung: Ändert die E-Mail-Adresse mit der sich ein Spieler anmeldet. Die Änderung tritt erst in Effekt, wenn die neue E-Mail-Adresse bestätigt wurde.
 		\item Parameter:
@@ -294,7 +301,7 @@
 		\end{itemize}
 		\item Rückgabewert: true, falls die Bestätigungsmail veschickt wurde, false andernfalls
 	\end{itemize}
-	\subsubsection{updatePassword}
+	\subsubsection{changePassword}
 	\begin{itemize}
 		\item Beschreibung: Ändert das Passwort, mit dem sich der Spieler anmeldet. Die Änderung tritt sofort in Effekt.
 		\item Parameter:
@@ -507,26 +514,6 @@
         \item Rückgabewert: ID des nächsten zu speichernden Spiels.
     \end{itemize}
 
-	\subsubsection{getActiveGames}
-	\begin{itemize}
-		\item Beschreibung: Gibt die aktiven Spiele des gegebenen Organisators zurück.
-		\item Parameter:
-		\begin{itemize}
-			\item organiser: Organisator dessen Spiele zurückgegeben werden sollen.
-		\end{itemize}
-		\item Rückgabewert: Collection der aktiven Spiele.
-	\end{itemize}
-
-	\subsubsection{getTerminatedGames}
-	\begin{itemize}
-		\item Beschreibung: Gibt die terminierten Spiele des gegebenen Organisators zurück.
-		\item Parameter:
-		\begin{itemize}
-			\item organiser: Organisator dessen Spiele zurückgegeben werden sollen.
-		\end{itemize}
-		\item Rückgabewert: Collection der terminierten Spiele.
-	\end{itemize}
-
 	\subsubsection{registerPlayer}
 	\begin{itemize}
 		\item Beschreibung: Fügt einen neuen Spieler zur Datenbank hinzu und gibt ihn zurück.
@@ -644,20 +631,6 @@
 		\item Rückgabewert: PlayerStats Objekt des Spielers.
 	\end{itemize}
 
-	\subsubsection{getDaily}
-	\begin{itemize}
-		\item Beschreibung: Gibt die aktuelle Daily Challenge des Spielers zurück.
-		\item Rückgabewert: Aktuelles DailyChallenge Objekt.
-	\end{itemize}
-
-	\subsubsection{setDaily}
-	\begin{itemize}
-		\item Beschreibung: Setzt die Daily-Challenge des Spielers neu.
-		\item Parameter:
-		\begin{itemize}
-			\item daily: Zu setzende Daily-Challenge
-		\end{itemize}
-	\end{itemize}
 	\subsubsection{getGames}
 	\begin{itemize}
 		\item Beschreibung: Gibt alle Spiele zu denen der Spieler zugeordnet ist zurück.
@@ -777,16 +750,6 @@
 	\begin{itemize}
 		\item Beschreibung: Gibt zurück ob das Spiel beendet wurde oder nicht.
 		\item Rückgabewert: True falls das Spiel beendet wurde, false sonst
-	\end{itemize}
-
-	\subsubsection{addPlayer}
-	\begin{itemize}
-		\item Beschreibung: Fügt einen Spieler zum Spiel hinzu.
-		\item Parameter:
-		\begin{itemize}
-			\item email: E-Mail des Spielers der hinzugefügt werden soll.
-			Hier ist die E-Mail statt einem Player Objekt erforderlich da Spieler auch zu Spielen eingeladen werden können wenn sie noch nicht im System registriert sind.
-		\end{itemize}
 	\end{itemize}
 
 	\subsubsection{addRound}
@@ -1046,6 +1009,123 @@
 	\subsection{RESTMLServer}
 	Implementiert die abstrakte Klasse MLServer und stellt die Funktionalität mittels der Standard-Implementierung des ML-Servers per REST-API bereit.
 
+	\section{Gamecreation}
+	Paket, welches der Spielerstellung dient. Hier spielen die Entwurfsmuster Memento(Memento: Pattern) und Builder(GameCreator) eine Rolle
+	%TODO: Hier Bild von gamecreation
+	\subsection{GameCreator}
+	Klasse, der die Spielerstellung verwaltet
+	\subsubsection{getGameOptions}
+	\begin{itemize}
+		\item Beschreibung: Übergabe der Optionen für mögliche Änderungen der künftigen Spielparameter
+		\item Parameter: -
+		\item Rückgabewert: GameOptions Objekt
+	\end{itemize}
+	\subsubsection{loadPattern}
+	\begin{itemize}
+		\item Beschreibung: Setzt das GameOption Objekt, das in der Pattern gespeichert ist, al
+		\item Parameter: Pattern-Objekt
+		\item Rückgabewert: void
+	\end{itemize}
+	\subsubsection{makePattern}
+	\begin{itemize}
+		\item Beschreibung: Erzeugt aus den angegebenen Spielerstellungsparametern ein Pattern-Objekt, das in der Datenbank abgespeichert wird
+		\item Parameter: String
+		\item Rückgabewert: Pattern-Objekt
+	\end{itemize}
+	\subsubsection{abort}
+	\begin{itemize}
+		\item Beschreibung: Methode zum Abbrechen der Spielerstellung
+		\item Parameter: -
+		\item Rückgabewert: void
+	\end{itemize}
+	\subsubsection{doCreate}
+	\begin{itemize}
+		\item Beschreibung: Erstellt ein Spiel-Objekt mit gesetzten Spieleinstellungen
+		\item Parameter: -
+		\item Rückgabewert: GameOptions Objekt
+	\end{itemize}
+
+	\subsection{GameOptions}
+	Klasse, die die Spielerstellungsparameter speichert
+	\subsection{getGamemode}
+	\begin{itemize}
+		\item Beschreibung: Gibt den gewählten Spielmodus zurück
+		\item Parameter: -
+		\item Rückgabewert: Gamemode-Objekt
+	\end{itemize}
+	\subsection{getInvitedPlayers}
+	\begin{itemize}
+		\item Beschreibung: Gibt alle Mails zurück, die zum Spiel eingeladen werden sollen
+		\item Parameter: -
+		\item Rückgabewert: Liste an allen eingeladenen Spieler-Mails
+	\end{itemize}
+	\subsection{getTitle}
+	\begin{itemize}
+		\item Beschreibung: Gibt den gewählten Titel des Spiels zurück
+		\item Parameter: -
+		\item Rückgabewert: String (Titel)
+	\end{itemize}
+	\subsection{getDescription}
+	\begin{itemize}
+		\item Beschreibung: Gibt die gewählte Beschreibung zurück
+		\item Parameter: -
+		\item Rückgabewert: String (Bescheibung)
+	\end{itemize}
+	\subsection{getNameFeatureDatabase}
+	\begin{itemize}
+		\item Beschreibung:
+		\item Parameter:
+		\item Rückgabewert:
+	\end{itemize}
+	\subsection{}
+	\begin{itemize}
+		\item Beschreibung:
+		\item Parameter:
+		\item Rückgabewert:
+	\end{itemize}
+	\subsection{}
+	\begin{itemize}
+		\item Beschreibung:
+		\item Parameter:
+		\item Rückgabewert:
+	\end{itemize}
+	\subsection{}
+	\begin{itemize}
+		\item Beschreibung:
+		\item Parameter:
+		\item Rückgabewert:
+	\end{itemize}
+	\subsection{}
+	\begin{itemize}
+		\item Beschreibung:
+		\item Parameter:
+		\item Rückgabewert:
+	\end{itemize}
+	\subsection{}
+	\begin{itemize}
+		\item Beschreibung:
+		\item Parameter:
+		\item Rückgabewert:
+	\end{itemize}
+	\subsection{}
+	\begin{itemize}
+		\item Beschreibung:
+		\item Parameter:
+		\item Rückgabewert:
+	\end{itemize}
+	\subsection{}
+	\begin{itemize}
+		\item Beschreibung:
+		\item Parameter:
+		\item Rückgabewert:
+	\end{itemize}
+	\subsection{}
+	\begin{itemize}
+		\item Beschreibung:
+		\item Parameter:
+		\item Rückgabewert:
+	\end{itemize}
+	\subsection{Pattern}
 
 	\section{Game}
 	\includegraphics[width=\textwidth]{img/GameTerminationFeature.PNG}
@@ -1480,6 +1560,11 @@
 	\subsubsection{createRound}
 	\begin{itemize}
 		\item Beschreibung: Erzeugt eine Runde des Spielmodus
+		\item Parameter:
+		\begin{itemize}
+		\item player: Der Spieler, der die Runde spielt
+		\item number: Die wievielte Runde des Spiels diese Runde ist
+		\end{itemize}
 		\item Rückgabewert: Die erzeugte Runde
 	\end{itemize}
 
