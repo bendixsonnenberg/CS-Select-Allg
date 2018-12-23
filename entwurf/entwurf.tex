@@ -513,6 +513,26 @@
         \item Rückgabewert: ID des nächsten zu speichernden Spiels.
     \end{itemize}
 
+	\subsubsection{getActiveGames}
+	\begin{itemize}
+		\item Beschreibung: Gibt die aktiven Spiele des gegebenen Organisators zurück.
+		\item Parameter:
+		\begin{itemize}
+			\item organiser: Organisator dessen Spiele zurückgegeben werden sollen.
+		\end{itemize}
+		\item Rückgabewert: Collection der aktiven Spiele.
+	\end{itemize}
+
+	\subsubsection{getTerminatedGames}
+	\begin{itemize}
+		\item Beschreibung: Gibt die terminierten Spiele des gegebenen Organisators zurück.
+		\item Parameter:
+		\begin{itemize}
+			\item organiser: Organisator dessen Spiele zurückgegeben werden sollen.
+		\end{itemize}
+		\item Rückgabewert: Collection der terminierten Spiele.
+	\end{itemize}
+
 	\subsubsection{registerPlayer}
 	\begin{itemize}
 		\item Beschreibung: Fügt einen neuen Spieler zur Datenbank hinzu und gibt ihn zurück.
@@ -536,6 +556,16 @@
 			\item givenOrganiserPassword: Vom Organisator eingegebenes Organisator-Passwort, wird auf Korrektheit überprüft.
 		\end{itemize}
 		\item Rückgabewert: Angelegter Organisator.
+	\end{itemize}
+
+	\subsubsection{registerGame}
+	\begin{itemize}
+		\item Beschreibung: Fügt ein neues Spiel das dem gegebenen Organisator gehört zur Datenbank hinzu.
+		\item Parameter:
+		\begin{itemize}
+			\item organiser: Organisator dem das Spiel gehört.
+			\item game: Spiel das gespeichert werden soll.
+		\end{itemize}
 	\end{itemize}
 
 	\subsubsection{removeGame}
@@ -713,6 +743,12 @@
 		\item Rückgabewert: Termination
 	\end{itemize}
 
+	\subsubsection{getOrganiser}
+	\begin{itemize}
+		\item Beschreibung: Gibt den Organisator zurück dem das Spiel gehört.
+		\item Rückgabewert: Organiser
+	\end{itemize}
+
 	\subsubsection{isFinished}
 	\begin{itemize}
 		\item Beschreibung: Gibt zurück ob das Spiel beendet wurde oder nicht.
@@ -796,6 +832,16 @@
             \item title: Zu setzender Spielmodus.
         \end{itemize}
     \end{itemize}
+
+	\subsubsection{setOrganiser}
+	\begin{itemize}
+		\item Beschreibung: Setzt den Organisator dem das Spiel gehört.
+		Da Organisatoren nicht nachträglich verändert werden sollen ist die Methode protected, um den Zugriff auf das Datenbank Paket zu beschränken.
+		\item Parameter:
+		\begin{itemize}
+			\item title: Zu setzender Organisator.
+		\end{itemize}
+	\end{itemize}
 
 	\subsubsection{addInvitedPlayers}
     \begin{itemize}
