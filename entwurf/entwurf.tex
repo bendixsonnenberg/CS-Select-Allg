@@ -212,7 +212,7 @@
 	\includegraphics[width=\textwidth]{img/api.png}
 	% TODO Hier auch eine Paketbeschreibung \\
 	\subsection{APIFacadePlayer}
-	Eine APIFacadePlayer ist das Objekt, über welches sämtliche Interaktion mit dem System von den Spielern aus passiert. Nach dem Konstruktor \textbf{muss} zuerst loginPlayer aufgerufen werden, bis es erfolgreich zurückkehrt. Ansonsten haben alle anderen Methoden kein definiertes Verhalten und werden im Allgemeinem nichts nützliches zurückgeben. Eine APIFacadePlayer ist immer mit einem Spieler assoziiert, falls dieser korrekt angemeldet wurde. Alle Methoden beziehen sich dann auf den angemeldeten Spieler.
+	Eine APIFacadePlayer ist das Objekt, über welches sämtliche Interaktion mit dem System von den Spielern aus passiert. Nach dem Konstruktor \textbf{muss} zuerst loginPlayer aufgerufen werden, bis es erfolgreich zurückkehrt. Ansonsten haben alle anderen Methoden kein definiertes Verhalten und werden im Allgemeinem nichts Nützliches zurückgeben. Eine APIFacadePlayer ist immer mit einem Spieler assoziiert, falls dieser korrekt angemeldet wurde. Alle Methoden beziehen sich dann auf den angemeldeten Spieler.
 	\subsubsection{loginPlayer}
 	\begin{itemize}
 		\item Beschreibung: Versucht einen Spieler mit email und password anzumelden. Bei Erfolg wird diese Fassade mit dem Spieler assoziiert.
@@ -227,20 +227,20 @@
 	\begin{itemize}
 		\item Beschreibung: Meldet den angemeldeten Spieler ab. Nach dem Aufruf dieser Methode verhält sich dieses Objekt wieder so, als ob nie ein Spieler angemeldet wurde
 	\end{itemize}
-	\subsubsection{getAchievments}
+	\subsubsection{getAchievements}
 	\begin{itemize}
-		\item Beschreibung: Holt die Liste aller Achievments, mit der Information ob der Spieler diese bereits erreicht hat oder nicht.
-		\item Rückgabewert: Liste an Achievments.
+		\item Beschreibung: Holt die Liste aller Achievements, mit der Information, ob der Spieler diese bereits erreicht hat oder nicht.
+		\item Rückgabewert: Liste an Achievements.
 	\end{itemize}
 	\subsubsection{getLeaderboard}
 	\begin{itemize}
 		\item Beschreibung: Gibt das aktuelle Leaderboard in der geordneten Reihenfolge zurück
 		\item Rückgabewert: Eine Liste an Spielern, geordnet nach ihrer Leaderboard-Ordunung.
 	\end{itemize}
-	\subsubsection{getDailies}
+	\subsubsection{getDaily}
 	\begin{itemize}
-		\item Beschreibung: Gibt die Daily-Challenges für diesen Spieler zurück, mit der Information, ob diese bereits erfüllt sind.
-		\item Rückgabewert: Eine Liste an Daily-Challenges für diesen Spieler mit Information, ob diese erfüllt sind.
+		\item Beschreibung: Gibt die Daily-Challenge für diesen Spieler zurück.
+		\item Rückgabewert: Die aktuelle Daily-Challenge.
 	\end{itemize}
 	\subsubsection{getStreak}
 	\begin{itemize}
@@ -1055,7 +1055,7 @@
 	Stellt ein Spiel dar, verwaltet eingeladene und spielende Spieler sowie die zum Spiel zugehörigen Informationen
 	\subsubsection{Game}
 	\begin{itemize}
-	\item Beschreibung: Konstruktor, der ein Game-Objekt erzeugt, die Attribute außer ID, numberOfRounds und finished werden über die setter initialisiert
+	\item Beschreibung: Konstruktor, der ein Game-Objekt erzeugt, die Attribute außer ID, numberOfRounds und finished werden über die Setter initialisiert
 	\item Parameter: id: Die eindeutige Spiel-ID
 	\end{itemize}
 
@@ -1308,7 +1308,7 @@
 	\subsubsection{checkTermination}
 	\begin{itemize}
 		\item Beschreibung: Überprüft, ob die Abbruchbedingung erfüllt ist und beendet gegebenenfalls das Spiel
-		\item Rückgabewert: True, wenn Bedinung erfüllt war, false sonst
+		\item Rückgabewert: True, wenn Bedingung erfüllt war, false sonst
 	\end{itemize}
 
 	\subsection{TerminationComposite}
@@ -1358,7 +1358,7 @@
 	\end{itemize}
 
 	\subsection{Round}
-	Stellt eine eine Verallgemeinerung einer konkreten Runde eines bestimmten Spiels dar, verwaltet die zugehörigen Informationen, abstrakt
+	Stellt eine Verallgemeinerung einer konkreten Runde eines bestimmten Spiels dar, verwaltet die zugehörigen Informationen, abstrakt
 	\subsubsection{Round}
 		\begin{itemize}
 		\item Beschreibung: Konstruktor, der ein Round-Objekt erzeugt
@@ -1426,7 +1426,7 @@
 	 \item selectedFeatures: Die vom Spieler ausgewählten Merkmale
 	 \item uselessFeatures: Die vom Spieler als unnötig ausgewählten Merkmale
 	 \end{itemize}
-	\item Rückgabewert: Die mit der Merkmalsauswahl erreichte Punkzahl der Runde
+	\item Rückgabewert: Die mit der Merkmalsauswahl erreichte Punktzahl der Runde
 	\end{itemize}
 	\subsubsection{provideFeatures}
 				\begin{itemize}
@@ -1589,6 +1589,7 @@
 	\subsubsection{sort}
 	\begin{itemize}
 		\item Beschreibung: Sortiert die Liste des Leaderboards nach bestimmten Kriterien.
+		\item Parameter: Die zu sortierende Liste von Spielern.
 	\end{itemize}
 
 	\subsection{SortScoreAllTime}
@@ -1596,6 +1597,7 @@
 	\subsubsection{sort}
 	\begin{itemize}
 		\item Beschreibung: Sortiert die Liste des Leaderboards nach den Gesamtpunktzahlen der Spieler.
+		\item Parameter: Die zu sortierende Liste von Spielern.
 	\end{itemize}
 
 	\subsection{SortScoreLastWeek}
