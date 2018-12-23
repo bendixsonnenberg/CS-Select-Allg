@@ -513,26 +513,6 @@
         \item Rückgabewert: ID des nächsten zu speichernden Spiels.
     \end{itemize}
 
-	\subsubsection{getActiveGames}
-	\begin{itemize}
-		\item Beschreibung: Gibt die aktiven Spiele des gegebenen Organisators zurück.
-		\item Parameter:
-		\begin{itemize}
-			\item organiser: Organisator dessen Spiele zurückgegeben werden sollen.
-		\end{itemize}
-		\item Rückgabewert: Collection der aktiven Spiele.
-	\end{itemize}
-
-	\subsubsection{getTerminatedGames}
-	\begin{itemize}
-		\item Beschreibung: Gibt die terminierten Spiele des gegebenen Organisators zurück.
-		\item Parameter:
-		\begin{itemize}
-			\item organiser: Organisator dessen Spiele zurückgegeben werden sollen.
-		\end{itemize}
-		\item Rückgabewert: Collection der terminierten Spiele.
-	\end{itemize}
-
 	\subsubsection{registerPlayer}
 	\begin{itemize}
 		\item Beschreibung: Fügt einen neuen Spieler zur Datenbank hinzu und gibt ihn zurück.
@@ -650,20 +630,6 @@
 		\item Rückgabewert: PlayerStats Objekt des Spielers.
 	\end{itemize}
 
-	\subsubsection{getDaily}
-	\begin{itemize}
-		\item Beschreibung: Gibt die aktuelle Daily Challenge des Spielers zurück.
-		\item Rückgabewert: Aktuelles DailyChallenge Objekt.
-	\end{itemize}
-
-	\subsubsection{setDaily}
-	\begin{itemize}
-		\item Beschreibung: Setzt die Daily-Challenge des Spielers neu.
-		\item Parameter:
-		\begin{itemize}
-			\item daily: Zu setzende Daily-Challenge
-		\end{itemize}
-	\end{itemize}
 	\subsubsection{getGames}
 	\begin{itemize}
 		\item Beschreibung: Gibt alle Spiele zu denen der Spieler zugeordnet ist zurück.
@@ -783,16 +749,6 @@
 	\begin{itemize}
 		\item Beschreibung: Gibt zurück ob das Spiel beendet wurde oder nicht.
 		\item Rückgabewert: True falls das Spiel beendet wurde, false sonst
-	\end{itemize}
-
-	\subsubsection{addPlayer}
-	\begin{itemize}
-		\item Beschreibung: Fügt einen Spieler zum Spiel hinzu.
-		\item Parameter:
-		\begin{itemize}
-			\item email: E-Mail des Spielers der hinzugefügt werden soll.
-			Hier ist die E-Mail statt einem Player Objekt erforderlich da Spieler auch zu Spielen eingeladen werden können wenn sie noch nicht im System registriert sind.
-		\end{itemize}
 	\end{itemize}
 
 	\subsubsection{addRound}
@@ -1603,6 +1559,11 @@
 	\subsubsection{createRound}
 	\begin{itemize}
 		\item Beschreibung: Erzeugt eine Runde des Spielmodus
+		\item Parameter:
+		\begin{itemize}
+		\item player: Der Spieler, der die Runde spielt
+		\item number: Die wievielte Runde des Spiels diese Runde ist
+		\end{itemize}
 		\item Rückgabewert: Die erzeugte Runde
 	\end{itemize}
 
