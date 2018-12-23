@@ -25,13 +25,13 @@
 
 
 	\chapter{Einleitung}
-	Diese Dokumentation zum Entwurf unseres Produktes CS:Select beschäftigt sich hauptsächlich mit dem objektorientiert aufgebauten Spiel-Server des Produktes. Das Front-End wird clientseitig aufgebaut und nicht ausschließlich nach objektorientierten Gesichtspunkten modelliert, deshalb werden wir uns damit hauptsächlich in der Implementierungsphase befassen.
+	Diese Dokumentation zum Entwurf unseres Produktss CS:Select beschäftigt sich hauptsächlich mit dem objektorientierten aufgebauten Spiel-Server des Produkts. Das Front-End wird clientseitig aufgebaut und nicht ausschließlich nach objektorientierten Gesichtspunkten modelliert, deshalb werden wir uns damit hauptsächlich in der Implementierungsphase befassen.
 	\newline
 	\newline
 	Der Spiel-Server selbst ist nach Model-View-Controller-Architektur aufgebaut, dabei sorgt das API-Paket für die Interaktion mit dem Nutzer, damit die Daten aus dem System bei diesem im Browser angezeigt werden. Die Fassaden übernehmen die Aufgabe des Controllers, sie sorgen dafür, dass die durch die Nutzereingaben nötigen Prozesse angestoßen werden und die Daten übermittelt werden. Das Model ist aufgeteilt in verschiedene Pakete, das User-Paket, welches die unterschiedlichen Nutzer modelliert, das Game-Paket, welches die Spielmechanik übernimmt sowie das Database-Paket, welches die Kommunikation mit der internen und der vom Organisator bereitgestellten Datenbank durchführt. Außerdem gibt es noch das ML-Server-Paket, dieses übernimmt die Anfragen an den Machine-Learning-Server des Organisators und das Gamification-Paket, was für die Punktevergabe und weitere Mechanismen zuständig ist, welche den Spielspaß der Spieler steigern sollen.
 	\newline
 	\newline
-	Dieser Aufbau des Produkts ermöglicht unserer Meinung nach die ideale Umsetzung der im Pflichtenheft definierten Anforderungen, um die Merkmalsauswahl durch die den Kontext kennenden Fachkräfte zu ermöglichen und dabei mit Gamification-Elementen die Motivation der dauerhaften Nutzung unseres Produkts anzuregen.
+	Dieser Aufbau des Produkts ermöglicht unserer Meinung nach die ideale Umsetzung der im Pflichtenheft definierten Anforderungen, um die Merkmalsauswahl durch Fachkräfte zu ermöglichen und dabei mit Gamification-Elementen die Motivation der dauerhaften Nutzung unseres Produkts anzuregen.
 
 
 	\chapter{Architektur}
