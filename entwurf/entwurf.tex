@@ -9,7 +9,6 @@
 \usepackage{graphicx}
 \usepackage{csquotes}
 \usepackage{verbatim}
-\usepackage{svg}
 \usepackage[nonumberlist, toc, section]{glossaries}
 \usepackage[german]{fancyref}
 
@@ -40,7 +39,6 @@
 	\begin{enumerate}
 		\item Achievements werden im Gegensatz zu Anforderung /F750/ \emph{nicht} bepunktet. Achievements sollen lediglich visuelle Belohnungen darstellen, die sich der Spieler jederzeit anschauen kann.
         \item Das Überspringen einer Runde aus /F500/ hat \emph{keine} Minuspunkte zur Folge, um Demotivation durch Punktabzug eines Spielers zu verhindern.
-        \item Die Punkteberechnung aus /F690/ für die erreichte Punktzahl des Spielers nach einer Runde wird geringfügig abgeändert. Da es sehr leicht ist (durch Zufall) einen Wert von ungefähr 0,5 als Rückgabe vom Machine-Learning-Server zu erreichen, werden die Punkte kleiner als 0,5 nur mit 50 multipliziert.
 		\item Im Zustandsdiagramm Streak aus VERWEIS wird eine Streak auch beendet, wenn der Spieler eine Runde eines anderen Spiels spielt. Dies ist nicht der Fall. Eine Streak wird auch spielübergreifend erhalten bleiben, denn es geht darum, dass man mehrere Runde am Stück spielt, egal von welchem Spiel. Das aktualisierte Zustandsdiagramm ist in \hyperlink{StreakState}{Abschnitt 7.1} zu finden.
 		\item Im Gegensatz zu /F470/ wird vom Organisator bei der Spielerstellung festgelegt wieviele Merkmale minimal und maximal ausgewählt werden dürfen.
     \end{enumerate}
@@ -1526,20 +1524,45 @@
 	Stellt ein Leaderboard dar. Es enthält eine Liste von Spielern. \\
 	Hierfür wird das Singleton-Entwurfsmuster verwendet, damit nur ein Leaderboard-Objekt existert.
 
-
 	\subsubsection{Leaderboard}
 	\begin{itemize}
-		\item Beschreibung: Konstruktor, to be added.
+		\item Beschreibung: Privater Konstruktor, der noch nichts initialisiert.
 	\end{itemize}
 	\subsubsection{getPlayers}
 	\begin{itemize}
-		\item Beschreibung: Gibt eine Liste von allen registrierten Spielern zurück. Diese ist nach den Gesamtpunktzahlen der Spieler sortiert.
+		\item Beschreibung: Gibt eine Liste von allen registrierten Spielern zurück. Diese ist nach der ausgewählten Sortierung der Spieler sortiert.
 		\item Rückgabewert: Sortierte Liste von Spielern.
 	\end{itemize}
 	\subsubsection{getInstance}
 	\begin{itemize}
 		\item Beschreibung: Statische Methode. Sorgt dafür, dass nur ein Leaderboard-Objekt existiert und gibt dieses zurück.
 		\item Rückgabewert: Das Leaderboard-Objekt.
+	\end{itemize}
+	\subsubsection{setSortingStrategy}
+	\begin{itemize}
+		\item Beschreibung: Setzt die Strategie, nach der die Liste an Spielern sortiert werden soll.
+		\item Parameter: Die gewünschte Sortierungsstrategie.
+	\end{itemize}
+
+	\subsection{LeaderboardSortingStrategy}
+	Eine abstrakte Klasse für die verschiedenen Sortierungen des Leaderboards. Jede Unterklasse muss die Methode sort implementieren.
+	\subsubsection{sort}
+	\begin{itemize}
+		\item Beschreibung: Sortiert die Liste des Leaderboards nach bestimmten Kriterien.
+	\end{itemize}
+
+	\subsection{SortScoreAllTime}
+	Erbt von der Klasse LeaderboardSortingStrategy. Bietet eine Sortierung an, die nach Gesamtpunktzahlen der Spieler über den gesamten Zeitraum sortiert.
+	\subsubsection{sort}
+	\begin{itemize}
+		\item Beschreibung: Sortiert die Liste des Leaderboards nach den Gesamtpunktzahlen der Spieler.
+	\end{itemize}
+
+	\subsection{SortScoreLastWeek}
+	Erbt von der Klasse LeaderboardSortingStrategy. Bietet eine Sortierung an, die nach Gesamtpunktzahlen der Spieler, welche in der letzetn Woche erreicht wurden, sortiert.
+	\subsubsection{sort}
+	\begin{itemize}
+		\item Beschreibung: Sortiert die Liste des Leaderboards nach den erreichten Punkten der letzten sieben Tage der Spieler.
 	\end{itemize}
 
 
@@ -1573,13 +1596,8 @@
 	\end{itemize}
 	\subsubsection{getReward}
 	\begin{itemize}
-		\item Beschreibung: Gibt eine Punktzhal, die als Belohnung fungiert, für das Abschließen einer Daily-Challenge zurück.
+		\item Beschreibung: Gibt eine Punktzahl, die als Belohnung für das Abschließen einer Daily-Challenge fungiert, zurück.
 		\item Rückgabewert: Eine Punktzahl, die die Belohnung darstellt.
-	\end{itemize}
-	\subsubsection{getCounter}
-	\begin{itemize}
-		\item Beschreibung: Gibt den Wert des aktuellen Zählers zurück.
-		\item Rückgabewert: Der Wert des aktuellen Zählers.
 	\end{itemize}
 	\subsubsection{resetDaily}
 	\begin{itemize}
@@ -1596,28 +1614,67 @@
 	Konkrete Implementierung der abstrakten Klasse DailyChallenge, in der der Spieler drei Runden an einem Tag spielen muss, um sie abzuschließen.
 	\subsubsection{DailyPlayThreeRounds}
 	\begin{itemize}
-		\item Beschreibung: Der Konstruktor von DailyOne setzt Namen und Beschreibung von DailyOne sowie die Belohnung. Der Zähler und der Runden-Zähler werden auf 0 gesetzt und finished auf false.
+		\item Beschreibung: Der Konstruktor von DailyPlayThreeRounds setzt Namen und Beschreibung von DailyPlayThreeRounds sowie die Belohnung. Der Runden-Zähler werden auf 0 gesetzt und finished auf false.
 	\end{itemize}
 	\subsubsection{checkFinished}
-	Hier ein Verweis? \\
+	\begin{itemize}
+		\item Beschreibung: Überprüft, ob der Spieler schon drei Runden an diesem Tag gespielt hat.
+		\item Parameter: Das zugehörige PlayerStats-Objekt eines Spielers.
+		\item Rückgabewert: True, wenn der Spieler schon drei Runden an diesem Tag gespielt hat. False, falls er die Aufgabe der Daily-Challenge schon erreicht hat oder sie noch nicht erfüllt hat.
+	\end{itemize}
+	\subsubsection{resetDaily}
+	\begin{itemize}
+		\item Beschreibung: Setzt den Runden-Zähler auf 0 und das Attribut completed auf false.
+	\end{itemize}
+	\subsubsection{getRoundsPlayed}
+	\begin{itemize}
+		\item Beschreibung: Gibt den Runden-Zähler der Daily-Challenge zurück.
+		\item Rückgabewert: Die Anzahl der am heutigen Tag gespielten Runden.
+	\end{itemize}
 
 	\subsection{DailyGetStreakThree}
 	Konkrete Implementierung der abstrakten Klasse DailyChallenge, in der der Spieler eine 3er-Streak, also drei Runden hintereinander gespielt haben muss, um sie abzuschließen.
 	\subsubsection{DailyGetStreakOfThree}
 	\begin{itemize}
-		\item Beschreibung: Der Konstruktor von DailyGetStreakThree setzt Namen und Beschreibung von DailyTwo sowie die Belohnung. Der Zähler und der Streak-Zähler werden auf 0 gesetzt und finished auf false.
+		\item Beschreibung: Der Konstruktor von DailyGetStreakThree setzt Namen und Beschreibung von DailyGetStreakThree sowie die Belohnung. Der Streak-Zähler werden auf 0 gesetzt und finished auf false.
 	\end{itemize}
 	\subsubsection{checkFinished}
-	Hier ein Verweis? \\
-
-	\subsection{DailyReachScoreHundred}
-	Konkrete Implementierung der abstrakten Klasse DailyChallenge, in der der Spieler 100 Punkte an einem Tag erreichen muss.
-	\subsubsection{DailyReachScoreOfHundred}
 	\begin{itemize}
-		\item Beschreibung: Der Konstruktor von DailyReachScoreHundred setzt Namen und Beschreibung von DailyOne sowie die Belohnung. Der Zähler und der Punkte-Zähler werden auf 0 gesetzt und finished auf false.
+		\item Beschreibung: Überprüft, ob der Spieler schon eine Streak in Höhe von drei an diesem Tag erreicht hat.
+		\item Parameter: Das zugehörige PlayerStats-Objekt eines Spielers.
+		\item Rückgabewert: True, wenn der Spieler schon eine Streak in Höhe con drei an diesem Tag erreicht hat. False, falls er die Aufgabe der Daily-Challenge schon erreicht hat oder sie noch nicht erfüllt hat.
+	\end{itemize}
+	\subsubsection{resetDaily}
+	\begin{itemize}
+		\item Beschreibung: Setzt den Streak-Zähler auf 0 und das Attribut completed auf false.
+	\end{itemize}
+	\subsubsection{getStreak}
+	\begin{itemize}
+		\item Beschreibung: Gibt den Streak-Zähler der Daily-Challenge zurück.
+		\item Rückgabewert: Die Höhe der momentanen Streak vom heutigen Tag.
+	\end{itemize}
+
+	\subsection{DailyReachScoreHundredFifty}
+	Konkrete Implementierung der abstrakten Klasse DailyChallenge, in der der Spieler 150 Punkte an einem Tag erreichen muss.
+	\subsubsection{DailyReachScoreHundredFifty}
+	\begin{itemize}
+		\item Beschreibung: Der Konstruktor von DailyReachScoreHundred setzt Namen und Beschreibung von DailyReachScoreHundred sowie die Belohnung. Der Punkte-Zähler werden auf 0 gesetzt und finished auf false.
 	\end{itemize}
 	\subsubsection{checkFinished}
-	Hier ein Verweis? \\
+	\begin{itemize}
+		\item Beschreibung: Überprüft, ob der Spieler schon 150 Punkte an diesem Tag erreicht hat.
+		\item Parameter: Das zugehörige PlayerStats-Objekt eines Spielers.
+		\item Rückgabewert: True, wenn der Spieler schon 150 Punkte an diesem Tag erreicht hat. False, falls er die Aufgabe der Daily-Challenge schon erreicht hat oder sie noch nicht erfüllt hat.
+	\end{itemize}
+	\subsubsection{resetDaily}
+	\begin{itemize}
+		\item Beschreibung: Setzt den Punkte-Zähler auf 0 und das Attribut completed auf false.
+	\end{itemize}
+	\subsubsection{getScore}
+	\begin{itemize}
+		\item Beschreibung: Gibt den Punkte-Zähler der Daily-Challenge zurück.
+		\item Rückgabewert: Die Höhe der momentanen erreichten Punkte am heutigen Tag.
+	\end{itemize}
 
 	\vspace{8pt}
 
@@ -1645,39 +1702,45 @@
 		\item Rückgabewert: Der entsprechende Zustand des Achievements.
 	\end{itemize}
 
+	\subsection{AchievementType}
+	Ein Enum, welches die verschiedenen Zustände eines Achievements darstellt.
+
+	\begin{itemize}
+		\item INVISIBLE: Das Achievement soll noch nicht sichtbar sein.
+		\item CONCEALED: Das Achievement ist sichtbar, aber es noch nicht erkenntlich, was getan werden muss, um es abzuschließen.
+		\item SHOWN: Das Achievement ist angezeigt und man kennt die Abschlussbedingungen.
+		\item FINISHED: Das Achievement ist beendet, das heißt, dass die Aufgabe des Achievements abgeschlossen wurde.
+	\end{itemize}
+
 	\subsection{AchievementPlayRounds}
 	Eine abstrakte Klasse für Achievements von der Art, dass ein Spieler eine bestimmte Anzahl an Runden spielen muss, um es zu erreichen. Die Unterklassen müssen die abstrakte Methode checkProgress entsprechend implementieren.
-	\subsubsection{checkProgress}
-	Hier Verweis?
 
 	\subsection{AchievementGetStreak}
 	Eine abstrakte Klasse für Achievements von der Art, dass ein Spieler eine bestimmte Streak erhalten muss, um es zu erreichen. Die Unterklassen müssen die abstrakte Methode checkProgress entsprechend implementieren.
-	\subsubsection{checkProgress}
-	Hier Verweis?
 
 	\subsection{AchievementCompleteDaily}
 	Eine abstrakte Klasse für Achievements von der Art, dass ein Spieler eine bestimmte Anzahl an Daily-Challenges abschließen muss, um es zu erreichen. Die Unterklassen müssen die abstrakte Methode checkProgress entsprechend implementieren.
-	\subsubsection{checkProgress}
-	Hier Verweis?
 
 	\subsection{AchievementReachScore}
 	Eine abstrakte Klasse für Achievements von der Art, dass ein Spieler eine bestimmte Punktzahl an Punkten erspielen muss, um es zu erreichen. Die Unterklassen müssen die abstrakte Methode checkProgress entsprechend implementieren.
-	\subsubsection{checkProgress}
-	Hier Verweis?
 
 	\subsection{AchievementReachTotalScoreHundred}
-	Dieses konkrete Achievement erhält ein Spieler, wenn er eine Gesamtpunktzahl von mindestens 100 Punkten erreicht. Hierfür wird das Singleton-Entwurfsmuster verwendet, damit nur ein Leaderboard-Objekt existert.
+	Dieses konkrete Achievement erhält ein Spieler, wenn er eine Gesamtpunktzahl von mindestens 100 Punkten erreicht. Hierfür wird das Singleton-Entwurfsmuster verwendet, damit nur ein AchievementReachTotalScoreHundred-Objekt existert.
 
 	\subsubsection{AchievementReachTotalScoreHundred}
 	\begin{itemize}
-		\item Beschreibung: Der Konstruktor von AchievementReachTotalScoreHundred setzt Namen und Beschreibung von AchievementReachScoreHundred.
+		\item Beschreibung: Der Konstruktor von AchievementReachTotalScoreHundred setzt Namen und Beschreibung von AchievementReachTotalScoreHundred.
 	\end{itemize}
 	\subsubsection{checkProgress}
-	Hier Verweis?
+	\begin{itemize}
+		\item Beschreibung: Überprüft, wie weit die Aufgabe des Achievements erfüllt ist und setzt dementsprechend den Zustand des Achievements.
+		\item Parameter: Das zugehörige PlayerStats-Objekt eines Spielers.
+		\item Rückgabewert: Das Achievement hat immer den Zustand SHOWN, es sei denn es wurde erfüllt, dann hat es den Zustand FINISHED.
+	\end{itemize}
 	\subsubsection{getInstance}
 	\begin{itemize}
-		\item Beschreibung: Statische Methode. Sorgt dafür, dass nur ein AchievementTwo-Objekt existiert und gibt dieses zurück.
-		\item Rückgabewert: Das AchievementReachScoreHundred-Objekt.
+		\item Beschreibung: Statische Methode. Sorgt dafür, dass nur ein AchievementReachTotalScoreHundred-Objekt existiert und gibt dieses zurück.
+		\item Rückgabewert: Das AchievementReachTotalScoreHundred-Objekt.
 	\end{itemize}
 
 	\subsection{AchievementReachTotalScoreThousand}
@@ -1685,14 +1748,18 @@
 
 	\subsubsection{AchievementReachTotalScoreThousand}
 	\begin{itemize}
-		\item Beschreibung: Der Konstruktor von AchievementReachTotalScoreThousand setzt Namen und Beschreibung von AchievementReachScoreThousand.
+		\item Beschreibung: Der Konstruktor von AchievementReachTotalScoreThousand setzt Namen und Beschreibung von AchievementReachTotalScoreThousand.
 	\end{itemize}
 	\subsubsection{checkProgress}
-	Hier Verweis?
+	\begin{itemize}
+		\item Beschreibung: Überprüft, wie weit die Aufgabe des Achievements erfüllt ist und setzt dementsprechend den Zustand des Achievements.
+		\item Parameter: Das zugehörige PlayerStats-Objekt eines Spielers.
+		\item Rückgabewert: Das Achievement hat zunächst den Zustand CONCEALED, wenn der Spieler 500 Punkte erreicht wechselt es in den Zustand SHOWN und wenn der Spieler mindestens 1000 Punkte hat ist es im Zustand FINISHED.
+	\end{itemize}
 	\subsubsection{getInstance}
 	\begin{itemize}
-		\item Beschreibung: Statische Methode. Sorgt dafür, dass nur ein AchievementTwo-Objekt existiert und gibt dieses zurück.
-		\item Rückgabewert: Das AchievementReachScoreThousand-Objekt.
+		\item Beschreibung: Statische Methode. Sorgt dafür, dass nur ein AchievementReachTotalScoreThousand-Objekt existiert und gibt dieses zurück.
+		\item Rückgabewert: Das AchievementReachTotalScoreThousand-Objekt.
 	\end{itemize}
 
 	\vspace{8pt}
@@ -1730,20 +1797,10 @@
 		\item Beschreibung: Gibt die aktuelle Streak des Spielers zurück.
 		\item Rückgabewert: Das Streak-Objekt des Spielers.
 	\end{itemize}
-	%\subsubsection{getDailies}
-	%\begin{itemize}
-	%	\item Beschreibung: Gibt die Daily-Challenges des Spielers zurück.
-	%	\item Rückgabewert: Eine Liste der Daily-Challenges des Spielers.
-	%\end{itemize}
 	\subsubsection{getDaily}
 	\begin{itemize}
 		\item Beschreibung: Gibt die aktive Daily-Challenge des Spielers zurück.
 		\item Rückgabewert: Das aktive Daily-Challenge-Objekt.
-	\end{itemize}
-	\subsubsection{getNextDaily}
-	\begin{itemize}
-		\item Beschreibung: Berechnet die nächste Daily-Challange, falls die aktive Daily-Challenge noch vom Vortag ist.
-		\item Rückgabewert: Das neue Daily-Challenge-Objekt oder das bereits aktive Daily-Challenge-Objekt, falls die Daily noch für den Tag gültig ist.
 	\end{itemize}
 
 
@@ -1753,14 +1810,6 @@
 
 	\subsubsection{PlayerStats}
 	Der Konstruktor von PlayerStats initialisiert die einzelnen Zähler mit dem Wert 0 und lädt sich die verfügbaren Achievements und Daily-Challenges.
-	\subsubsection{calculateScore}
-	\subsubsection{skipRound}
-	\subsubsection{getScore}
-	\subsubsection{getAchievements}
-	\subsubsection{getStreak}
-	\subsubsection{getDaily}
-	Bei dem Kram Verweise?
-	\subsubsection{getNextDaily}
 	\subsection{getRoundsPlayed}
 	\begin{itemize}
 		\item Beschreibung: Gibt die Anzahl der gespielten Runden eines Spielers zurück.
@@ -1768,13 +1817,18 @@
 	\end{itemize}
 	\subsection{getDailiesCompleted}
 	\begin{itemize}
-		\item Beschreibung: Gibt die Anzahl der gespielten Runden eines Spielers zurück.
-		\item Rückgabewert: Die Anzahl der gespielten Runden.
+		\item Beschreibung: Gibt die Anzahl der abgeschlossenen Daily-Challenges eines Spielers zurück.
+		\item Rückgabewert: Die Anzahl der abgeschlossenen Daily-Challenges.
 	\end{itemize}
 	\subsection{getMaxRoundScore}
 	\begin{itemize}
-		\item Beschreibung: Gibt die Anzahl der gespielten Runden eines Spielers zurück.
-		\item Rückgabewert: Die Anzahl der gespielten Runden.
+		\item Beschreibung: Gibt die höchste erzielte Punktzahl nach einer einzelnen Runde zurück (ohne Miteinbeziehung von Streaks).
+		\item Rückgabewert: Die höchste erzielte Punktzahl nach einer einzelnen Runde.
+	\end{itemize}
+	\subsection{getLastScore}
+	\begin{itemize}
+		\item Beschreibung: Gibt die Punktzahl zurück, die in der letzten Runde erzielt wurde (ohne Miteinbeziehung von Streaks).
+		\item Rückgabewert: Die Punktzahl der letzen Runde.
 	\end{itemize}
 	\subsection{getHighestStreak}
 	\begin{itemize}
@@ -1805,27 +1859,23 @@
 
 	\subsection{Achievements ansehen}
 	Das folgende Sequenzdiagramm korrespondiert zu Testszenario 8.3.2. aus dem Pflichtenheft. \\
-	%Beschreibung?
 	%.svg
 
 	\subsection{Leaderboard ansehen}
-	Das folgende Sequenzdiagramm korrespondiert zu Testszenario 8.3.3. aus dem Pflichtenheft. In diesem Fall schaut sich der Spieler das Leaderboard der letzten Woche an.\\
-	%Beschreibung?
+	Das folgende Sequenzdiagramm korrespondiert zu Testszenario 8.3.3. aus dem Pflichtenheft. \\
 	%.svg
 
 	\subsection{Streak erreichen}
 	Das folgende Sequenzdiagramm korrespondiert zu Testszenario 8.2.7. aus dem Pflichtenheft. \\
-	Es handelt sich hierbei um einen Ausschnitt von Sequenzdiagramm LINK HIER. Es sind die relevanten Aufrufe zu sehen, welche die Streak eines Spielers erhöhen und ihm, wenn die Streak hoch genug, doppelte Punkte geben. \\
-	%Beschreibung?
+	Es handelt sich hierbei um einen Ausschnitt von Sequenzdiagramm \enquote{Runde spielen, Merkmal als unwichtig markieren}. Es sind die relevanten Aufrufe zu sehen, welche die Streak eines Spielers erhöhen und ihm, wenn die Streak hoch genug, doppelte Punkte geben. \\
 	%.svg
 
 	\subsection{Daily-Challenge abschließen}
-	Es handelt sich hierbei um einen Ausschnitt von Sequenzdiagramm LINK HIER. Es sind die relevanten Aufruge zu sehen, welche überprüfen, ob eine Daily-Challenge abgeschlossen wurde. \\
+	Es handelt sich hierbei um einen Ausschnitt von Sequenzdiagramm \enquote{Runde spielen, Merkmal als unwichtig markieren}. Es sind die relevanten Aufrufe zu sehen, welche überprüfen, ob eine Daily-Challenge abgeschlossen wurde. \\
 
 
 
 	\chapter{Zustandsdiagramme}
-	%Die aus dem Pflichtenheft hier mit Beschreibung (über-)nehmen?
 	\section{Streak}
 	\hypertarget{StreakState}{}
 	\label{fig:Streak_State}
@@ -1885,7 +1935,7 @@
 	\end{itemize}
 
 	\subsection{AchievementCompleteDaily}
-	Diese Achievements werden erreicht, wenn der Spiele eine bestimmte Anzahl an Daily-Challenges abschließt. \\
+	Diese Achievements werden erreicht, wenn der Spieler eine bestimmte Anzahl an Daily-Challenges abschließt. \\
 	\begin{itemize}
 		\item AchievementCompleteOneDaily
 		\item AchievementCompleteThreeDaily
@@ -1919,8 +1969,8 @@
 	\begin{itemize}
 		\item DailyPlayThreeRounds
 		\item DailyGetStreakThree
-		\item DailyReachScoreHundred
-		\item To be added \dots
+		\item DailyReachScoreHundredFifty
+		\item DailyReachRoundScoreEighty
 	\end{itemize}
 
 	
@@ -2026,7 +2076,6 @@
 
 	\chapter{Anhang}
 	\section{Komplettes Klassendiagramm}
-	%Komplettes Klassendiagramm als .svg (steht in Tipps)
-
+	%TODO: Komplettes Klassendiagramm als .svg (steht in Tipps)
 
 \end{document}
