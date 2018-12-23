@@ -45,32 +45,33 @@
 	
 	\chapter{Klassendiagramme}
 
-	\section{User}
+	\section{User-Paket}
 	\includegraphics[width=\textwidth]{img/user.png}
-	% TODO Hier was zum ganzen User-Package sagen (Paketbeschreibung)\\
+	Dieses Paket beinhaltet die Klassen, die im Model-Segment des Programms eine Art Knotenpunkt darstellen. Hat ein Nutzer eine Session, existiert
+	eine Fassade, die mit einem Nutzer-Objekt gebunden ist. Nutzer-Objekte werden auch beim Registrieren in der Datenbank erstellt und beim Login
+	in das System. Die meisten weiteren Vorgänge im Model werden von Klassen im User-Paket veranlasst (auch durch einfache Weiterleitung der Parameter)
 	\subsection{User}
 	Stellt einen Nutzer im System dar. Es können mehrere Nutzer-Objekte mit gleicher ID im System zur gleichen Zeit existieren, da der gesamte Datenverkehr über die ständig aktuelle Datenbank verläuft.
 		\subsubsection{User}
+	\begin{itemize}
+		\item Beschreibung: Konstruktor, der einen User mit ID erzeugt
+		\item Parameter: int
+		\item Rückgabewert: User-Objekt
+	\end{itemize}
 		\subsubsection{getId}
 		\begin{itemize}
 			\item Beschreibung: Gibt die eindeutige ID zurück, die einem Nutzer in der Datenbank zugeordnet ist
 			\item Rückgabewert: int
 		\end{itemize}
-		\subsubsection{setId}
-		\begin{itemize}
-			\item Beschreibung: Diese Methode dient dem Zuordnen einer ID zu einem Spieler. Die Methode überprüft, ob die ID gültig ist (also noch nicht existiert)
-			\item Parameter: int
-			\item Rückgabewert: void
-		\end{itemize}
 		\subsubsection{login}
 		\begin{itemize}
-			\item Beschreibung: Mithilfe dieser Methode loggt sich der Nutzer ein. Sie gibt ein Nutzerobjekt zurück, wenn das Passwort richtig ist
+			\item Beschreibung: Mithilfe dieser Methode loggt sich der Nutzer ein. Sie gibt einen Boolean zurück, wenn das Passwort mit dem (verschlüsselten) Password in der Datenbank übereinstimmt
 			\item Parameter: String
-			\item Rückgabewert: Nutzer
+			\item Rückgabewert: boolean
 		\end{itemize}
 		\subsubsection{logout}
 		\begin{itemize}
-			\item Beschreibung: Diese Methode dient dem Ausloggen des Nutzers. Der dem Nutzer zugehörige Datenbankadapter wird entkoppelt
+			\item Beschreibung: Diese Methode dient dem Ausloggen des Nutzers. Der dem Nutzer zugehörige Datenbankadapter wird entkoppelt, Nutzer-Objekt wird später von Garbage-Collector gelöscht
 			\item Parameter: -
 			\item Rückgabewert: void
 		\end{itemize}
@@ -86,46 +87,20 @@
 			\item Parameter: String
 			\item Rückgabewert: void
 		\end{itemize}
+	\subsubsection{setLanguage}
+	\begin{itemize}
+		\item Beschreibung: Ändert die gewünschte Sprache des Spielers, Spachcode wird in der Datenbank vermerkt
+		\item Parameter: String
+		\item Rückgabewert: void
+	\end{itemize}
 
 	\subsection{Player}
 	Player stellt den Spieler im System dar. Diese Klasse erbt von der Nutzer-Klasse
 		\subsubsection{Player}
 		\begin{itemize}
-			\item Beschreibung: Konstruktor für interne Prozesse, wenn nur die Email bekannt ist
-			\item Parameter: String(Email repräsentierend)
+			\item Beschreibung: Konstruktor für Player-Objekte mit (garantiert eindeutiger) Nutzer-ID
+			\item Parameter: int
 			\item Rückgabewert: Player-Objekt
-		\end{itemize}
-		\subsubsection{Player}
-		\begin{itemize}
-			\item Beschreibung: Konstruktor für Login
-			\item Parameter:
-				\begin{itemize}
-					\item String (Email repräsentierend)
-					\item String (Passwort repräsentierend)
-				\end{itemize}
-			\item Rückgabewert: Player-Objekt
-		\end{itemize}
-		\subsubsection{Player}
-		\begin{itemize}
-			\item Beschreibung: Konstruktor für Registrierung
-			\item Parameter:
-				\begin{itemize}
-					\item String (Nutzername repräsentierend)
-					\item String (Email repräsentierend)
-					\item String (Passwort repräsentierend)
-				\end{itemize}
-			\item Rückgabewert: Player-Objekt
-		\end{itemize}
-		\subsubsection{registerPlayer}
-		\begin{itemize}
-			\item Beschreibung: Subroutine zur indirekten Kommunikation mit der Datenbank. Dort wird der neue Spieler eingetragen (registriert). Diese Funktion wird aus modularisierenden Gründen nicht im Kontruktor ausgeführt.
-			\item Parameter:
-				\begin{itemize}
-					\item String (Nutzername repräsentierend)
-					\item String (Email repräsentierend)
-					\item String (Passwort repräsentierend)
-				\end{itemize}
-			\item Rückgabewert: void
 		\end{itemize}
 		\subsubsection{startRound}
 		\begin{itemize}
@@ -135,39 +110,37 @@
 		\end{itemize}
 		\subsubsection{acceptInvite}
 		\begin{itemize}
-			\item Beschreibung: Ermöglicht Annahme einer Einladung zu einem Spiel
-			\item Parameter: int (Game-ID repräsentierend)
-			\item Rückgabewert: boolean
+			\item Beschreibung: Ermöglicht Annahme einer Einladung zu einem Spiel mit (eindeutiger) Spiel-ID
+			\item Parameter: int
+			\item Rückgabewert: void
 		\end{itemize}
 		\subsubsection{declineInvite}
 		\begin{itemize}
-			\item Beschreibung:
-			\item Parameter:
+			\item Beschreibung: Spieler lehnt Einladung zu einem Spiel mit eindeutiger Spiel-ID ab
+			\item Parameter: int
 			\item Rückgabewert:
 		\end{itemize}
 		\subsubsection{getStats}
 		\begin{itemize}
-			\item Beschreibung:
-			\item Parameter:
-			\item Rückgabewert:
+			\item Beschreibung: %TODO: Beschreibung
+			\item Parameter: -
+			\item Rückgabewert: Gamification-Interface
 		\end{itemize}
-		\subsubsection{chooseFeatures}
+		\subsubsection{selectFeatures}
 		\begin{itemize}
-			\item Beschreibung:
+			\item Beschreibung: %TODO: Beschreibung
 			\item Parameter:
-			\item Rückgabewert:
+			\begin{itemize}
+				\item Collection<Feature>
+				\item Collection<Feature>
+			\end{itemize}
+			\item Rückgabewert: void
 		\end{itemize}
 		\subsubsection{getLeaderBoard}
 		\begin{itemize}
-			\item Beschreibung:
-			\item Parameter:
-			\item Rückgabewert:
-		\end{itemize}
-		\subsubsection{addGame}
-		\begin{itemize}
-			\item Beschreibung:
-			\item Parameter:
-			\item Rückgabewert:
+			\item Beschreibung: Gibt eine geordnete Liste an Spielern zurück
+			\item Parameter: -
+			\item Rückgabewert: List<Player>
 		\end{itemize}
 
 	\subsection{Organiser}
