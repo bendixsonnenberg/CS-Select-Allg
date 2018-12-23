@@ -2037,6 +2037,7 @@
 		\item AchievementGetStreakTen
 	\end{itemize}
 
+	\newpage
 	\subsection{AchievementCompleteDaily}
 	Diese Achievements werden erreicht, wenn der Spieler eine bestimmte Anzahl an Daily-Challenges abschließt. \\
 	\begin{itemize}
@@ -2084,35 +2085,36 @@
     \subsection{WAR-Datei}
 	In der WAR-Datei\footnote{Für eine genauere Beschreibung wird auf die \href{https://tomcat.apache.org/tomcat-7.0-doc/appdev/deployment.html\#Standard\_Directory\_Layout}{Tomcat-Dokumentation} verwiesen.}, die in den \$CATALINA\_HOME Ordner von Tomcat gelegt wird, müssen folgende Ordner und Dateien existieren:
     \begin{itemize}
-        \item \texttt{*html, *jsp, etc.} Dies sind die statischen Dateien, die direkt vom Browser später aufrufbar sein müssen. Sie können auch in untergeordneten Ordnern liegen.
-        \item \texttt{/WEB-INF/web.xml} Dies ist die Web Application Deployment Descriptor Datei für die Anwendung. In dieser werden die Routen für Anfragen an den Server festgelegt.
-        \item \texttt{/WEB-INF/classes/} Hier liegen die Klassen des Produktes mit ihrer Paketstruktur.
-        \item \texttt{/WEB-INF/lib/} Hier liegen alle 3rd-Party Bibliotheken etc. 
+        \item \texttt{*html, *jsp, etc.} \\Dies sind die statischen Dateien, die später direkt vom Browser aufrufbar sein müssen. Sie können auch in untergeordneten Ordnern liegen.
+        \item \texttt{/WEB-INF/web.xml} \\Dies ist die Web Application Deployment Descriptor Datei für die Anwendung. In dieser werden die Routen für Anfragen an den Server festgelegt.
+        \item \texttt{/WEB-INF/classes/} \\Hier liegen die Klassen des Produkts mit ihrer Paketstruktur.
+        \item \texttt{/WEB-INF/lib/} \\Hier liegen alle 3rd-Party Bibliotheken.
     \end{itemize}
 	\subsection{Stammverzeichnis}
-	Weiterhin existiert ein Verzeichnis \texttt{/CSSELECT/} in welchem das Produkt Daten sichert.
+	Weiterhin existiert ein Verzeichnis \texttt{/CSSELECT/}, in welchem das Produkt Daten sichert.
 	Der Ort des Stammverzeichnisses wird in der Konfigurationsdatei angegeben.
-	Im Verzeichnis \texttt{/CSSELECT/games/} erhält jedes Spiel einen Ordner seiner ID indem die Bilddateien der Graphen des Merkmalsdatensatzes gespeichert werden.
+	Im Verzeichnis \texttt{/CSSELECT/games/} erhält jedes Spiel einen Ordner seiner ID, in dem die Bilddateien der Graphen des Merkmalsdatensatzes gespeichert werden.
 	
 	\section{Konfiguration}
-	Die Konfigurationsdatei enthält alle Einstellungsmöglichkeiten die das Produkt betreffen in der folgenden Form als Key-Value-Paare:
+	Die Konfigurationsdatei enthält alle Einstellungsmöglichkeiten, die das Produkt betreffen in Form von Key-Value-Paaren:
 	Die Konfigurationsdatei muss zu Anwendungsstart im Verzeichnis \texttt{/} liegen. % TODO Pfad eintragen
 	\begin{itemize}
-		\item organiserpassword (Das Passwort das ein Organisator bei der Registrierung angeben muss)
-		\item mlserverurl       (Die URL unter der der ML-Server zu erreichen ist)
-		\item homedirectory     (Das Verzeichnis unter dem Daten auf der Festplatte abgelegt werden sollen)
-		\item database          (Kategorie für die Datenbankeinstellungen)
+		\item organiserpassword \\Das Passwort, das ein Organisator bei der Registrierung angeben muss.
+		\item mlserverurl       \\Die URL, unter der der ML-Server zu erreichen ist.
+		\item homedirectory     \\Das Verzeichnis, unter dem Daten auf der Festplatte abgelegt werden sollen.
+		\item database          \\Kategorie für die Datenbankeinstellungen.
 		\begin{itemize}
-			\item type          (Typ der zu verwendenden Datenbank, Standard mysql)
-			\item hostname      (Hostname unter dem der Datenbankserver erreichbar ist)
-			\item port          (Port des Datenbankservers)
-			\item username      (Nutzername des Datenbankbenutzers)
-			\item password      (Passwort des Datenbankbenutzers)
+			\item type          \\Typ der zu verwendenden Datenbank, Standard ist MySQL.
+			\item hostname      \\Hostname unter dem der Datenbankserver erreichbar ist.
+			\item port          \\Port des Datenbankservers.
+			\item username      \\Nutzername des Datenbankbenutzers.
+			\item password      \\Passwort des Datenbankbenutzers.
 		\end{itemize}
 	\end{itemize}
+
 	\section{Datenbank}
 	In der Datenbank werden sämtliche spielrelevanten Daten gesichert.
-	Die Standardimplementierung verwendet eine Mysql-Datenbank mit folgender geplanter Strukturierung der Daten:
+	Die Standardimplementierung verwendet eine MySQL-Datenbank mit folgender geplanter Strukturierung der Daten:
 	Das Produkt verwendet eine Datenbank für seine Daten (fortan Hauptdatenbank genannt) sowie für jedes Spiel eine vom Organisator angegebene Datenbank.
 	\subsection{Spielerdaten}
 	Eine Tabelle in der Hauptdatenbank hält die Daten für die Spieler.
@@ -2139,7 +2141,7 @@
 	Weiterhin gibt es eine weitere Tabelle mit den gesicherten Spieleinstellungen.
 	\begin{itemize}
 		\item Titel der Voreinstellung
-		\item Organisator-ID dem die Voreinstellung gehört
+		\item Organisator-ID, dem die Voreinstellung gehört
 		\item Beschreibung
 		\item Art der Spielterminierung
 		\item Spielmodus
@@ -2159,7 +2161,7 @@
 		\item Beispielwerte
 		\item Sechs Statistiken für numerische Merkmale
 	\end{itemize}
-	Die zum Merkmalsdatensatz gehörigen Graphen werden auf der Festplatte in einem Verzeichnis gespeichert.
+	Die zum Merkmalsdatensatz zugehörigen Graphen werden auf der Festplatte in einem Verzeichnis gespeichert.
 	\subsection{Spieldaten}
 	Die grundlegenden Daten zum Spiel werden in einer Tabelle in der Hauptdatenbank verwaltet.
 	\begin{itemize}
@@ -2172,7 +2174,7 @@
 		\item Spielmodus
 	\end{itemize}
 	Jedem Spiel wird vom Organisator eine eigene Datenbank zugewiesen.
-	Löscht ein Organisator ein Spiel wird lediglich dessen Eintrag in voriger Tabelle gelöscht.
+	Löscht ein Organisator ein Spiel, so wird lediglich dessen Eintrag in voriger Tabelle gelöscht.
 	Die spieleigene Datenbank bleibt hierbei unverändert.
 	Die spieleigene Datenbank sichert die restlichen Daten der Game-Klasse, die nicht von obiger Tabelle erfasst werden.
 
