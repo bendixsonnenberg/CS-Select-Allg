@@ -48,7 +48,7 @@
 
 	\section{User}
 	\includegraphics[width=\textwidth]{img/user.png}
-	Hier was zum ganzen User-Package sagen (Paketbeschreibung)\\
+	% TODO Hier was zum ganzen User-Package sagen (Paketbeschreibung)\\
 	\subsection{User}
 	Stellt einen Nutzer im System dar. Es können mehrere Nutzer-Objekte mit gleicher ID im System zur gleichen Zeit existieren, da der gesamte Datenverkehr über die ständig aktuelle Datenbank verläuft.
 		\subsubsection{User}
@@ -217,7 +217,7 @@
 
 	\section{API}
 	\includegraphics[width=\textwidth]{img/api.png}
-	Hier auch eine Paketbeschreibung \\
+	% TODO Hier auch eine Paketbeschreibung \\
 	\subsection{APIFacadePlayer}
 	Eine APIFacadePlayer ist das Objekt, über welches sämtliche Interaktion mit dem System von den Spielern aus passiert. Nach dem Konstruktor \textbf{muss} zuerst loginPlayer aufgerufen werden, bis es erfolgreich zurückkehrt. Ansonsten haben alle anderen Methoden kein definiertes Verhalten und werden im Allgemeinem nichts nützliches zurückgeben. Eine APIFacadePlayer ist immer mit einem Spieler assoziiert, falls dieser korrekt angemeldet wurde. Alle Methoden beziehen sich dann auf den angemeldeten Spieler.
 	\subsubsection{loginPlayer}
@@ -822,9 +822,9 @@
 	\subsubsection{MysqlDatabaseAdapter}
 	Mysql Implementierung der DatabaseAdapter Klasse.
 
-	\paragraph{PRODUCT_DATABASE_NAME}
+	\paragraph{PRODUCT\_DATABASE\_NAME}
 	Konstante die den Namen der Hauptdatenbank des Produkts enthält.
-	Standardmäßig ist dieser Name CS_SELECT.
+	Standardmäßig ist dieser Name CS\_SELECT.
 
 	\paragraph{executeMysqlQuery}
 	\begin{itemize}
@@ -1854,7 +1854,7 @@
     \subsection{WAR-Datei}
 	In der WAR-Datei\footnote{Für eine genauere Beschreibung wird auf die \href{https://tomcat.apache.org/tomcat-7.0-doc/appdev/deployment.html\#Standard\_Directory\_Layout}{Tomcat-Dokumentation} verwiesen.}, die in den \$CATALINA\_HOME Ordner von Tomcat gelegt wird, müssen folgende Ordner und Dateien existieren:
     \begin{itemize}
-        \item \texttt{*html, *jsp, etc.} Dies sind die statischen Datein, die direkt vom Browser später aufrufbar sein müssen. Sie können auch in untergeordneten Ordnern liegen.
+        \item \texttt{*html, *jsp, etc.} Dies sind die statischen Dateien, die direkt vom Browser später aufrufbar sein müssen. Sie können auch in untergeordneten Ordnern liegen.
         \item \texttt{/WEB-INF/web.xml} Dies ist die Web Application Deployment Descriptor Datei für die Anwendung. In dieser werden die Routen für Anfragen an den Server festgelegt.
         \item \texttt{/WEB-INF/classes/} Hier liegen die Klassen des Produktes mit ihrer Paketstruktur.
         \item \texttt{/WEB-INF/lib/} Hier liegen alle 3rd-Party Bibliotheken etc. 
