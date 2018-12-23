@@ -20,7 +20,7 @@
 	\title{Entwurfsdokument CS:Select}
 	\author{Luca Springer, Alexander Linder, Julian Dinh, Nicholas Bieker,\\ Bendix Sonnenberg}
 	\maketitle
-	
+
 	\tableofcontents
 
 
@@ -36,21 +36,21 @@
 
 	\chapter{Architektur}
 	\includegraphics[width=\textwidth]{img/Architektur.pdf}
-    Das Produkt wurde nach dem Model-View-Controller-Prinzip entworfen.
+	Das Produkt wurde nach dem Model-View-Controller-Prinzip entworfen.
 	Die Organisator sowie die Spieler-GUI laufen in einem Webbrowser auf dem PC des Nutzers und stellen die View dar.
 	Hier interagieren die Spieler und Organisatoren mit dem Produkt.
 	Der Spiel-Server koordiniert den Spielablauf, speichert Ergebnisse in der Datenbank ab und kommuniziert mit dem ML-Server.
-    In diesem Teil des Produkts finden sich Model und Controller gebündelt.
+	In diesem Teil des Produkts finden sich Model und Controller gebündelt.
 
 	\chapter{Änderungen zum Pflichtenheft}
 	Im Folgenden werden sämtliche Abweichungen vom Pflichtenheft, die im Entwurf aufgetreten sind, aufgelistet und erläutert.
 	\begin{enumerate}
 		\item Achievements werden im Gegensatz zu Anforderung /F750/ \emph{nicht} bepunktet. \\Achievements sollen lediglich visuelle Belohnungen darstellen, die sich der Spieler jederzeit anschauen kann.
-        \item Das Überspringen einer Runde aus /F500/ hat \emph{keine} Minuspunkte zur Folge, um Demotivation durch Punktabzug eines Spielers zu vermeiden.
+		\item Das Überspringen einer Runde aus /F500/ hat \emph{keine} Minuspunkte zur Folge, um Demotivation durch Punktabzug eines Spielers zu vermeiden.
 		\item Im Zustandsdiagramm Streak aus Abschnitt 9.1.1 des Pflichtenhefts wird eine \\Streak auch beendet, wenn der Spieler eine Runde eines anderen Spiels spielt. Dies ist nicht der Fall. Eine Streak wird auch spielübergreifend erhalten bleiben, denn es geht darum, dass man mehrere Runde am Stück spielt, egal von welchem Spiel. Das aktualisierte Zustandsdiagramm ist in \hyperlink{StreakState}{Abschnitt 7.1} zu finden.
 		\item Im Gegensatz zu /F470/ wird vom Organisator bei der Spielerstellung festgelegt, wie viele Merkmale minimal und maximal von einem Spieler ausgewählt werden dürfen.
-    \end{enumerate}
-	
+	\end{enumerate}
+
 	\chapter{Klassendiagramme}
 
 	\section{User-Paket}
@@ -60,41 +60,41 @@
 	in das System. Die meisten weiteren Vorgänge im Model werden von Klassen im User-Paket veranlasst (auch durch einfache Weiterleitung der Parameter)
 	\subsection{User}
 	Stellt einen Nutzer im System dar. Es können mehrere Nutzer-Objekte mit gleicher ID im System zur gleichen Zeit existieren, da der gesamte Datenverkehr über die ständig aktuelle Datenbank verläuft.
-		\subsubsection{User}
+	\subsubsection{User}
 	\begin{itemize}
 		\item Beschreibung: Konstruktor, der einen User mit ID erzeugt
 		\item Parameter: int
 		\item Rückgabewert: User-Objekt
 	\end{itemize}
-		\subsubsection{getId}
-		\begin{itemize}
-			\item Beschreibung: Gibt die eindeutige ID zurück, die einem Nutzer in der Datenbank zugeordnet ist
-			\item Rückgabewert: int
-		\end{itemize}
-		\subsubsection{login}
-		\begin{itemize}
-			\item Beschreibung: Mithilfe dieser Methode loggt sich der Nutzer ein. Sie gibt einen Boolean zurück, wenn das Passwort mit dem (verschlüsselten) Password in der Datenbank übereinstimmt
-			\item Parameter: String
-			\item Rückgabewert: boolean
-		\end{itemize}
-		\subsubsection{logout}
-		\begin{itemize}
-			\item Beschreibung: Diese Methode dient dem Ausloggen des Nutzers. Der dem Nutzer zugehörige Datenbankadapter wird entkoppelt, Nutzer-Objekt wird später von Garbage-Collector gelöscht
-			\item Parameter: -
-			\item Rückgabewert: void
-		\end{itemize}
-		\subsubsection{changePassword}
-		\begin{itemize}
-			\item Beschreibung: Mit dieser Methode ändert der Nutzer sein Passwort. Über die Kommunikation per Datenbankadapter wird mit der internen Datenbank kommuniziert
-			\item Parameter: String
-			\item Rückgabewert: void
-		\end{itemize}
-		\subsubsection{changeEmail}
-		\begin{itemize}
-			\item Beschreibung: Ermöglicht die Änderung der Email eines Nutzers. Erneut wird die Kommunikation per Datenbankadapter erfolgen
-			\item Parameter: String
-			\item Rückgabewert: void
-		\end{itemize}
+	\subsubsection{getId}
+	\begin{itemize}
+		\item Beschreibung: Gibt die eindeutige ID zurück, die einem Nutzer in der Datenbank zugeordnet ist
+		\item Rückgabewert: int
+	\end{itemize}
+	\subsubsection{login}
+	\begin{itemize}
+		\item Beschreibung: Mithilfe dieser Methode loggt sich der Nutzer ein. Sie gibt einen Boolean zurück, wenn das Passwort mit dem (verschlüsselten) Password in der Datenbank übereinstimmt
+		\item Parameter: String
+		\item Rückgabewert: boolean
+	\end{itemize}
+	\subsubsection{logout}
+	\begin{itemize}
+		\item Beschreibung: Diese Methode dient dem Ausloggen des Nutzers. Der dem Nutzer zugehörige Datenbankadapter wird entkoppelt, Nutzer-Objekt wird später von Garbage-Collector gelöscht
+		\item Parameter: -
+		\item Rückgabewert: void
+	\end{itemize}
+	\subsubsection{changePassword}
+	\begin{itemize}
+		\item Beschreibung: Mit dieser Methode ändert der Nutzer sein Passwort. Über die Kommunikation per Datenbankadapter wird mit der internen Datenbank kommuniziert
+		\item Parameter: String
+		\item Rückgabewert: void
+	\end{itemize}
+	\subsubsection{changeEmail}
+	\begin{itemize}
+		\item Beschreibung: Ermöglicht die Änderung der Email eines Nutzers. Erneut wird die Kommunikation per Datenbankadapter erfolgen
+		\item Parameter: String
+		\item Rückgabewert: void
+	\end{itemize}
 	\subsubsection{setLanguage}
 	\begin{itemize}
 		\item Beschreibung: Ändert die gewünschte Sprache des Spielers, Spachcode wird in der Datenbank vermerkt
@@ -104,12 +104,12 @@
 
 	\subsection{Player}
 	Player stellt den Spieler im System dar. Diese Klasse erbt von der Nutzer-Klasse
-		\subsubsection{Player}
-		\begin{itemize}
-			\item Beschreibung: Konstruktor für Player-Objekte mit (garantiert eindeutiger) Nutzer-ID
-			\item Parameter: int
-			\item Rückgabewert: Player-Objekt
-		\end{itemize}
+	\subsubsection{Player}
+	\begin{itemize}
+		\item Beschreibung: Konstruktor für Player-Objekte mit (garantiert eindeutiger) Nutzer-ID
+		\item Parameter: int
+		\item Rückgabewert: Player-Objekt
+	\end{itemize}
 	\subsubsection{acceptInvite}
 	\begin{itemize}
 		\item Beschreibung: Ermöglicht Annahme einer Einladung zu einem Spiel mit (eindeutiger) Spiel-ID
@@ -122,12 +122,12 @@
 		\item Parameter: int
 		\item Rückgabewert:
 	\end{itemize}
-		\subsubsection{startRound}
-		\begin{itemize}
-			\item Beschreibung: Methode, um eine neue Runde eines Spiels aufzurufen. Daraufhin wird eine Menge an Merkmalen zurückgeliefert
-			\item Parameter: int (Game-ID\footnote{In der Spieler-Klasse werden nur Spiele abgespeichert, denen der Spieler beigetreten ist.} repräsentierend)
-			\item Rückgabewert: Collection<Feature>
-		\end{itemize}
+	\subsubsection{startRound}
+	\begin{itemize}
+		\item Beschreibung: Methode, um eine neue Runde eines Spiels aufzurufen. Daraufhin wird eine Menge an Merkmalen zurückgeliefert
+		\item Parameter: int (Game-ID\footnote{In der Spieler-Klasse werden nur Spiele abgespeichert, denen der Spieler beigetreten ist.} repräsentierend)
+		\item Rückgabewert: Collection<Feature>
+	\end{itemize}
 	\subsubsection{setActiveRound}
 	\begin{itemize}
 		\item Beschreibung: Setzt Runde, die der Spieler gerade spielt bzw angezeigt bekommt
@@ -155,20 +155,20 @@
 		\item Parameter: -
 		\item Rückgabewert: Gamification-Interface
 	\end{itemize}
-		\subsubsection{getLeaderBoard}
-		\begin{itemize}
-			\item Beschreibung: Gibt eine geordnete Liste an Spielern zurück (Standardmäßige Sortierung : Punkte in einer Woche)
-			\item Parameter: -
-			\item Rückgabewert: Liste an Spielern
-		\end{itemize}
+	\subsubsection{getLeaderBoard}
+	\begin{itemize}
+		\item Beschreibung: Gibt eine geordnete Liste an Spielern zurück (Standardmäßige Sortierung : Punkte in einer Woche)
+		\item Parameter: -
+		\item Rückgabewert: Liste an Spielern
+	\end{itemize}
 
 	\subsection{Organiser}
-		\subsubsection{Organiser}
-		\begin{itemize}
-			\item Beschreibung: Konstruktor für Organisator-Objekt mit im System eindeutiger ID
-			\item Parameter: int
-			\item Rückgabewert: Organiser-Objekt
-		\end{itemize}
+	\subsubsection{Organiser}
+	\begin{itemize}
+		\item Beschreibung: Konstruktor für Organisator-Objekt mit im System eindeutiger ID
+		\item Parameter: int
+		\item Rückgabewert: Organiser-Objekt
+	\end{itemize}
 	\subsubsection{savePattern}
 	\begin{itemize}
 		\item Beschreibung: Speichert die aktuellen Optionen bei der Spielerstellung
@@ -187,12 +187,12 @@
 		\item Parameter: Pattern
 		\item Rückgabewert: void
 	\end{itemize}
-		\subsubsection{createGame}
-		\begin{itemize}
-			\item Beschreibung: Methode, um ein Spiel zu erstellen
-			\item Parameter: -
-			\item Rückgabewert: void
-		\end{itemize}
+	\subsubsection{createGame}
+	\begin{itemize}
+		\item Beschreibung: Methode, um ein Spiel zu erstellen
+		\item Parameter: -
+		\item Rückgabewert: void
+	\end{itemize}
 	\subsubsection{invitePlayer}
 	\begin{itemize}
 		\item Beschreibung: Methode, die einen Spieler zu einem Spiel einlädt
@@ -203,18 +203,18 @@
 		\end{itemize}
 		\item Rückgabewert: void
 	\end{itemize}
-		\subsubsection{terminateGame}
-		\begin{itemize}
-			\item Beschreibung: Aktives Spiel beenden
-			\item Parameter: int
-			\item Rückgabewert: void
-		\end{itemize}
-		\subsubsection{deleteGame}
-		\begin{itemize}
-			\item Beschreibung: Terminiertes Spiel aus der internen Datenbank und somit aus der Übersicht löschen
-			\item Parameter: int
-			\item Rückgabewert: void
-		\end{itemize}
+	\subsubsection{terminateGame}
+	\begin{itemize}
+		\item Beschreibung: Aktives Spiel beenden
+		\item Parameter: int
+		\item Rückgabewert: void
+	\end{itemize}
+	\subsubsection{deleteGame}
+	\begin{itemize}
+		\item Beschreibung: Terminiertes Spiel aus der internen Datenbank und somit aus der Übersicht löschen
+		\item Parameter: int
+		\item Rückgabewert: void
+	\end{itemize}
 
 	\section{API}
 	\includegraphics[width=\textwidth]{img/api.png}
@@ -341,20 +341,20 @@
 			\item langCode: der Landescode für die gewünschte Sprache
 		\end{itemize}
 	\end{itemize}
-    \subsubsection{registerPlayer}
-    \begin{itemize}
-        \item Beschreibung: registriert einen neuen Spieler in das System. Bei diesem Aufruf wird eine E-Mail an die angegebene Email gesendet. Das Passwort muss der Spieler sich merken, da es in den loginPlayer Aufruf benötigt wird.
-        \item Parameter:
-        \begin{itemize}
-            \item email: E-Mail Adresse des zu registrierenden Spielers. Der Spieler muss Zugriff auf diese E-Mail Adresse haben.
-            \item password: Das Passwort des neu zu registrierenden Spielers.
-            \item username: Der Nutzername des neu zu registrierenden Spielers.
-        \end{itemize}
-    \end{itemize}
-    \subsubsection{validateEmail}
-    \begin{itemize}
-        \item Beschreibung: Teilt dem System mit, dass die E-Mail Adresse eines Nutzers bestätigt wurde. Optimalerweise durch den Link, welcher in der E-Mail versendet wurde. Kann aber natürlich auf direkt nach dem registerPlayer Aufruf gemacht werden.
-    \end{itemize}
+	\subsubsection{registerPlayer}
+	\begin{itemize}
+		\item Beschreibung: registriert einen neuen Spieler in das System. Bei diesem Aufruf wird eine E-Mail an die angegebene Email gesendet. Das Passwort muss der Spieler sich merken, da es in den loginPlayer Aufruf benötigt wird.
+		\item Parameter:
+		\begin{itemize}
+			\item email: E-Mail Adresse des zu registrierenden Spielers. Der Spieler muss Zugriff auf diese E-Mail Adresse haben.
+			\item password: Das Passwort des neu zu registrierenden Spielers.
+			\item username: Der Nutzername des neu zu registrierenden Spielers.
+		\end{itemize}
+	\end{itemize}
+	\subsubsection{validateEmail}
+	\begin{itemize}
+		\item Beschreibung: Teilt dem System mit, dass die E-Mail Adresse eines Nutzers bestätigt wurde. Optimalerweise durch den Link, welcher in der E-Mail versendet wurde. Kann aber natürlich auf direkt nach dem registerPlayer Aufruf gemacht werden.
+	\end{itemize}
 	\subsection{APIFacadeOrganiser}
 	\subsubsection{loginOrganiser}
 	\begin{itemize}
@@ -418,21 +418,21 @@
 		\end{itemize}
 	\end{itemize}
 	\subsubsection{registerOrganiser}
-    \begin{itemize}
-        \item Beschreibung: registriert einen neuen Spieler in das System. Bei diesem Aufruf wird eine E-Mail an die angegebene Email gesendet. Das Passwort muss der Spieler sich merken, da es in den loginOrganiser Aufruf benötigt wird.
-        \item Parameter:
-        \begin{itemize}
-            \item email: E-Mail Adresse des zu registrierenden Organisators. Der Organisator muss Zugriff auf diese E-Mail Adresse haben.
-            \item password: Das Passwort des neu zu registrierenden Organisators.
-            \item mainPassword: Das Haupt-Passwort, welches in der Konfigurationsdatei steht und benötigt wird um das registrieren als Organisator zu erlauben.
-        \end{itemize}
-    \end{itemize}
-    \subsubsection{validateEmail}
-    \begin{itemize}
-        \item Beschreibung: Teilt dem System mit, dass die E-Mail Adresse eines Nutzers bestätigt wurde. Optimalerweise durch den Link, welcher in der E-Mail versendet wurde. Kann aber natürlich auf direkt nach dem registerOrganiser Aufruf gemacht werden.
-    \end{itemize}
-    \subsection{httpAPI}
-    Implementierung der beiden Fassadenobjecten für http/REST.
+	\begin{itemize}
+		\item Beschreibung: registriert einen neuen Spieler in das System. Bei diesem Aufruf wird eine E-Mail an die angegebene Email gesendet. Das Passwort muss der Spieler sich merken, da es in den loginOrganiser Aufruf benötigt wird.
+		\item Parameter:
+		\begin{itemize}
+			\item email: E-Mail Adresse des zu registrierenden Organisators. Der Organisator muss Zugriff auf diese E-Mail Adresse haben.
+			\item password: Das Passwort des neu zu registrierenden Organisators.
+			\item mainPassword: Das Haupt-Passwort, welches in der Konfigurationsdatei steht und benötigt wird um das registrieren als Organisator zu erlauben.
+		\end{itemize}
+	\end{itemize}
+	\subsubsection{validateEmail}
+	\begin{itemize}
+		\item Beschreibung: Teilt dem System mit, dass die E-Mail Adresse eines Nutzers bestätigt wurde. Optimalerweise durch den Link, welcher in der E-Mail versendet wurde. Kann aber natürlich auf direkt nach dem registerOrganiser Aufruf gemacht werden.
+	\end{itemize}
+	\subsection{httpAPI}
+	Implementierung der beiden Fassadenobjecten für http/REST.
 
 	\section{Database}
 	\includegraphics[width=\textwidth]{img/Database.PNG}
@@ -508,11 +508,11 @@
 		\item Rückgabewert: Collection aller gespeicherten Spieler.
 	\end{itemize}
 
-    \subsubsection{getNextGameID}
-    \begin{itemize}
-        \item Beschreibung: Gibt die ID zurück die das nächste zu speichernde Spiel erhalten muss.
-        \item Rückgabewert: ID des nächsten zu speichernden Spiels.
-    \end{itemize}
+	\subsubsection{getNextGameID}
+	\begin{itemize}
+		\item Beschreibung: Gibt die ID zurück die das nächste zu speichernde Spiel erhalten muss.
+		\item Rückgabewert: ID des nächsten zu speichernden Spiels.
+	\end{itemize}
 
 	\subsubsection{registerPlayer}
 	\begin{itemize}
@@ -619,11 +619,11 @@
 	Schnittstelle die UserAdapter erweitert.
 	Jeder PlayerAdapter ist stets genau einem Spieler zugeordnet.
 
-    \subsubsection{getUsername}
-    \begin{itemize}
-        \item Beschreibung: Gibt den Nutzernamen des Nutzers zurück.
-        \item Rückgabewert: String mit Nutzernamen des Nutzers.
-    \end{itemize}
+	\subsubsection{getUsername}
+	\begin{itemize}
+		\item Beschreibung: Gibt den Nutzernamen des Nutzers zurück.
+		\item Rückgabewert: String mit Nutzernamen des Nutzers.
+	\end{itemize}
 
 	\subsubsection{getPlayerStats}
 	\begin{itemize}
@@ -786,39 +786,39 @@
 
 	\subsubsection{setTitle}
 	\begin{itemize}
-        \item Beschreibung: Setzt den Titel des Spiels.
-        \item Parameter:
-        \begin{itemize}
-            \item title: Zu setzender Titel des Spiels.
-        \end{itemize}
+		\item Beschreibung: Setzt den Titel des Spiels.
+		\item Parameter:
+		\begin{itemize}
+			\item title: Zu setzender Titel des Spiels.
+		\end{itemize}
 	\end{itemize}
 
 	\subsubsection{setDescription}
-    \begin{itemize}
-        \item Beschreibung: Setzt den Titel des Spiels.
-        \item Parameter:
-        \begin{itemize}
-            \item title: Zu setzender Titel des Spiels.
-        \end{itemize}
-    \end{itemize}
+	\begin{itemize}
+		\item Beschreibung: Setzt den Titel des Spiels.
+		\item Parameter:
+		\begin{itemize}
+			\item title: Zu setzender Titel des Spiels.
+		\end{itemize}
+	\end{itemize}
 
-    \subsubsection{setDatabase}
-    \begin{itemize}
-        \item Beschreibung: Setzt die Beschreibung des Spiels.
-        \item Parameter:
-        \begin{itemize}
-            \item title: Zu setzende Beschreibung des Spiels.
-        \end{itemize}
-    \end{itemize}
+	\subsubsection{setDatabase}
+	\begin{itemize}
+		\item Beschreibung: Setzt die Beschreibung des Spiels.
+		\item Parameter:
+		\begin{itemize}
+			\item title: Zu setzende Beschreibung des Spiels.
+		\end{itemize}
+	\end{itemize}
 
 	\subsubsection{setGamemode}
-    \begin{itemize}
-        \item Beschreibung: Setzt den Spielmodus des Spiels.
-        \item Parameter:
-        \begin{itemize}
-            \item title: Zu setzender Spielmodus.
-        \end{itemize}
-    \end{itemize}
+	\begin{itemize}
+		\item Beschreibung: Setzt den Spielmodus des Spiels.
+		\item Parameter:
+		\begin{itemize}
+			\item title: Zu setzender Spielmodus.
+		\end{itemize}
+	\end{itemize}
 
 	\subsubsection{setOrganiser}
 	\begin{itemize}
@@ -831,13 +831,13 @@
 	\end{itemize}
 
 	\subsubsection{addInvitedPlayers}
-    \begin{itemize}
-        \item Beschreibung: Fügt die gegebenen Spieler zu den eingeladenen Spielern hinzu.
-        \item Parameter:
-        \begin{itemize}
+	\begin{itemize}
+		\item Beschreibung: Fügt die gegebenen Spieler zu den eingeladenen Spielern hinzu.
+		\item Parameter:
+		\begin{itemize}
 			\item mails: E-Mail-Adressen der Spieler.
-        \end{itemize}
-    \end{itemize}
+		\end{itemize}
+	\end{itemize}
 
 	\subsubsection{addPlayingPlayers}
 	\begin{itemize}
@@ -847,14 +847,14 @@
 			\item mails: E-Mail-Adressen der Spieler.
 		\end{itemize}
 	\end{itemize}
-	
+
 	\subsubsection{removeInvitedPlayers}
 	\begin{itemize}
-	\item Beschreibung: Entfernt die angegebenen Spieler aus den eingeladenen Spielern
-			\item Parameter:
-			\begin{itemize}
-				\item mails: E-Mail-Adressen der Spieler.
-			\end{itemize}
+		\item Beschreibung: Entfernt die angegebenen Spieler aus den eingeladenen Spielern
+		\item Parameter:
+		\begin{itemize}
+			\item mails: E-Mail-Adressen der Spieler.
+		\end{itemize}
 	\end{itemize}
 
 	\subsection{Mysql}
@@ -886,7 +886,7 @@
 			\item databaseName: Name der zu nutzenden Datenbank
 			\item query: Auszuführender Mysql-Query
 		\end{itemize}
-        \item Rückgabewert: ResultSet mit den geladenen Daten, soll nichts zurückgegeben werden Null.
+		\item Rückgabewert: ResultSet mit den geladenen Daten, soll nichts zurückgegeben werden Null.
 	\end{itemize}
 
 	\subsubsection{MysqlUserAdapter}
@@ -1136,8 +1136,8 @@
 	Stellt ein Spiel dar, verwaltet eingeladene und spielende Spieler sowie die zum Spiel zugehörigen Informationen
 	\subsubsection{Game}
 	\begin{itemize}
-	\item Beschreibung: Konstruktor, der ein Game-Objekt erzeugt, die Attribute außer ID, numberOfRounds und finished werden über die Setter initialisiert
-	\item Parameter: id: Die eindeutige Spiel-ID
+		\item Beschreibung: Konstruktor, der ein Game-Objekt erzeugt, die Attribute außer ID, numberOfRounds und finished werden über die Setter initialisiert
+		\item Parameter: id: Die eindeutige Spiel-ID
 	\end{itemize}
 
 	\subsubsection{getTitle}
@@ -1151,45 +1151,45 @@
 		\item Rückgabewert: Die Spielbeschreibung
 	\end{itemize}
 	\subsubsection{getFinished}
-			\begin{itemize}
-				\item Beschreibung: Gibt zurück, ob das Spiel noch aktiv ist
-				\item Rückgabewert: False, falls Spiel beendet wurde, sonst true
-			\end{itemize}
+	\begin{itemize}
+		\item Beschreibung: Gibt zurück, ob das Spiel noch aktiv ist
+		\item Rückgabewert: False, falls Spiel beendet wurde, sonst true
+	\end{itemize}
 	\subsubsection{getNumberOfRounds}
-		\begin{itemize}
-			\item Beschreibung: Gibt die Anzahl der bereits gespielten Runden insgesamt zurück
-			\item Rückgabewert: Die Anzahl der gespielten Runden
-		\end{itemize}
+	\begin{itemize}
+		\item Beschreibung: Gibt die Anzahl der bereits gespielten Runden insgesamt zurück
+		\item Rückgabewert: Die Anzahl der gespielten Runden
+	\end{itemize}
 	\subsubsection{getID}
-		\begin{itemize}
+	\begin{itemize}
 		\item Beschreibung: Gibt die ID des Spiels zurück
 		\item Rückgabewert: Die ID
-		\end{itemize}
+	\end{itemize}
 	\subsubsection{getInvitedPlayers}
-		\begin{itemize}
-			\item Beschreibung: Gibt eine Aufzählung aller E-Mail-Adressen der Spieler zurück, die eingeladen sind, die Einladung aber noch nicht angenommen haben
-			\item Rückgabewert: Die Aufzählung der E-Mail-Adressen der eingeladenen Spieler
-		\end{itemize}
+	\begin{itemize}
+		\item Beschreibung: Gibt eine Aufzählung aller E-Mail-Adressen der Spieler zurück, die eingeladen sind, die Einladung aber noch nicht angenommen haben
+		\item Rückgabewert: Die Aufzählung der E-Mail-Adressen der eingeladenen Spieler
+	\end{itemize}
 	\subsubsection{getAddressOrganiserDatabase}
-			\begin{itemize}
-			\item Beschreibung: Gibt die Adresse der zum Spiel gehörigen Datenbank zurück
-			\item Rückgabewert: Die Adresse der zum Spiel gehörigen Datenbank
-			\end{itemize}
+	\begin{itemize}
+		\item Beschreibung: Gibt die Adresse der zum Spiel gehörigen Datenbank zurück
+		\item Rückgabewert: Die Adresse der zum Spiel gehörigen Datenbank
+	\end{itemize}
 	\subsubsection{getPlayingPlayers}
-		\begin{itemize}
-			\item Beschreibung: Gibt eine Aufzählung aller Spieler zurück, die die Einladung angenommen haben und Runden spielen können
-			\item Rückgabewert: Die Aufzählung der spielenden Spieler
-		\end{itemize}
+	\begin{itemize}
+		\item Beschreibung: Gibt eine Aufzählung aller Spieler zurück, die die Einladung angenommen haben und Runden spielen können
+		\item Rückgabewert: Die Aufzählung der spielenden Spieler
+	\end{itemize}
 	\subsubsection{getTermination}
 	\begin{itemize}
 		\item Beschreibung: Gibt die zum Spiel gehörige Abbruchbedingung zurück
 		\item Rückgabewert: Die zum Spiel gehörige Abbruchbedingung
-		\end{itemize}
+	\end{itemize}
 	\subsubsection{getFeatureSet}
-		\begin{itemize}
-			\item Beschreibung: Gibt den zum Spiel gehörigen Merkmalsdatensatz zurück
-			\item Rückgabewert: Der Merkmalsdatensatz
-		\end{itemize}
+	\begin{itemize}
+		\item Beschreibung: Gibt den zum Spiel gehörigen Merkmalsdatensatz zurück
+		\item Rückgabewert: Der Merkmalsdatensatz
+	\end{itemize}
 	\subsubsection{getGamemode}
 	\begin{itemize}
 		\item Beschreibung: Gibt den zum Spiel gehörigen Spielmodus zurück
@@ -1204,88 +1204,88 @@
 	\begin{itemize}
 		\item Beschreibung: Gibt die bisher abgeschlossenen, zum Spiel gehörigen Runden zurück
 		\item Rückgabewert: Die abgeschlossenen Runden
-		\end{itemize}
+	\end{itemize}
 	\subsubsection{setTitle}
-		\begin{itemize}
+	\begin{itemize}
 		\item Beschreibung: Setzt den Spieltitel auf den angegebenen Wert
 		\item Parameter: title: Der Spieltitel
-		\end{itemize}
+	\end{itemize}
 	\subsubsection{setDescription}
-		\begin{itemize}
+	\begin{itemize}
 		\item Beschreibung: Setzt die Spielbeschreibung auf den angegebenen Wert
 		\item Parameter: description: Die Spielbeschreibung
-		\end{itemize}
+	\end{itemize}
 	\subsubsection{setAddressOrganiserDatabase}
-		\begin{itemize}
+	\begin{itemize}
 		\item Beschreibung: Speichert die Adresse der vom Organisator angegebene Datenbank als die zum Spiel gehörige, auf der die Spielinformationen gespeichert werden
 		\item Parameter: addressOrganiserDatabase: Die Adresse der Datenbank, in die die Spielinformationen geschrieben werden
-		\end{itemize}
+	\end{itemize}
 	\subsubsection{setTermination}
-		\begin{itemize}
+	\begin{itemize}
 		\item Beschreibung: Setzt die Abbruchbedingung, die bestimmt, wann das Spiel terminiert
 		\item Parameter: termination: Die Abbruchbedingung des Spiels
-		\end{itemize}
+	\end{itemize}
 	\subsubsection{setFeatureSet}
-				\begin{itemize}
-				\item Beschreibung: Speichert den angegebenen Merkmalsdatensatz als den zum Spiel gehörigen
-				\item Parameter: featureset: Der Merkmalsdatensatz, aus dem die im Spiel angezeigten Merkmale kommen
-				\end{itemize}
+	\begin{itemize}
+		\item Beschreibung: Speichert den angegebenen Merkmalsdatensatz als den zum Spiel gehörigen
+		\item Parameter: featureset: Der Merkmalsdatensatz, aus dem die im Spiel angezeigten Merkmale kommen
+	\end{itemize}
 	\subsubsection{setGamemode}
-		\begin{itemize}
+	\begin{itemize}
 		\item Beschreibung: Setzt den Spielmodus des Spiels auf den angegebenen Spielmodus
 		\item Parameter: gamemode: Der Spielmodus des Spiels
-		\end{itemize}	
+	\end{itemize}
 	\subsubsection{setMlserver}
-		\begin{itemize}
+	\begin{itemize}
 		\item Beschreibung: Speichert den angegebenen ML-Server als den zum Spiel gehörigen
 		\item Parameter: mlserver: Der ML-Server, von dem der Merkmalsdatensatz kommt und der die Bewertung durchführt
-		\end{itemize}
+	\end{itemize}
 	\subsubsection{invitePlayers}
-		\begin{itemize}
-			\item Beschreibung: Fügt dem Spiel Spieler hinzu, die eingeladen wurden
-			\item Parameter: playerEmails: Die E-Mail-Adressen der eingeladenen Spieler
-			\item Rückgabewert: Ob Spieler erfolgreich hinzugefügt wurden oder schon im Spiel vorhanden sind
-		\end{itemize}
+	\begin{itemize}
+		\item Beschreibung: Fügt dem Spiel Spieler hinzu, die eingeladen wurden
+		\item Parameter: playerEmails: Die E-Mail-Adressen der eingeladenen Spieler
+		\item Rückgabewert: Ob Spieler erfolgreich hinzugefügt wurden oder schon im Spiel vorhanden sind
+	\end{itemize}
 	\subsubsection{acceptInvite}
+	\begin{itemize}
+		\item Beschreibung: Gibt einem Spieler die Spielberechtigung, der eine Einladung erhalten und diese angenommen hat
+		\item Parameter:
 		\begin{itemize}
-			\item Beschreibung: Gibt einem Spieler die Spielberechtigung, der eine Einladung erhalten und diese angenommen hat
-			\item Parameter:
-			\begin{itemize}
 			\item player: Der Spieler, der die Einladung angenommen hat
 			\item email: Die E-Mail-Adresse des Spielers
-			\end{itemize}
-			\item Rückgabewert: Ob Spieler erfolgreich hinzugefügt wurde oder entweder schon spielt oder keine Einladung hatte
 		\end{itemize}
+		\item Rückgabewert: Ob Spieler erfolgreich hinzugefügt wurde oder entweder schon spielt oder keine Einladung hatte
+	\end{itemize}
 	\subsubsection{declineInvite}
-		\begin{itemize}
-			\item Beschreibung: Löscht die E-Mail-Adresse eines Spielers aus der Aufzählung der eingeladenen Spieler, der eine Einladung abgelehnt hat
-			\item Parameter: playerEmail: E-Mail-Adresse des Spielers, der die Einladung abgelehnt hat
-			\item Rückgabewert: False, falls der Spieler gar keine aktive Einladung hatte
-		\end{itemize}
+	\begin{itemize}
+		\item Beschreibung: Löscht die E-Mail-Adresse eines Spielers aus der Aufzählung der eingeladenen Spieler, der eine Einladung abgelehnt hat
+		\item Parameter: playerEmail: E-Mail-Adresse des Spielers, der die Einladung abgelehnt hat
+		\item Rückgabewert: False, falls der Spieler gar keine aktive Einladung hatte
+	\end{itemize}
 	\subsubsection{startRound}
-		\begin{itemize}
-			\item Beschreibung: Startet das Spielen einer Runde durch einen Spieler, erzeugt dafür ein Rundenobjekt, auf dem es die start-Methode aufruft und die anzuzeigenden Merkmale zurückbekommt und selbst zurückgibt
-			\item Parameter: playerID: ID des Spielers, der die Runde spielt
-			\item Rückgabewert: Die Merkmale, die dem Spieler insgesamt anzuzeigen sind
-		\end{itemize}
+	\begin{itemize}
+		\item Beschreibung: Startet das Spielen einer Runde durch einen Spieler, erzeugt dafür ein Rundenobjekt, auf dem es die start-Methode aufruft und die anzuzeigenden Merkmale zurückbekommt und selbst zurückgibt
+		\item Parameter: playerID: ID des Spielers, der die Runde spielt
+		\item Rückgabewert: Die Merkmale, die dem Spieler insgesamt anzuzeigen sind
+	\end{itemize}
 	\subsubsection{terminateGame}
-		\begin{itemize}
-			\item Beschreibung: Beendet ein Spiel
-			\item Rückgabewert: Ob das Spiel erfolgreich beendet wurde
-		\end{itemize}
+	\begin{itemize}
+		\item Beschreibung: Beendet ein Spiel
+		\item Rückgabewert: Ob das Spiel erfolgreich beendet wurde
+	\end{itemize}
 	\subsubsection{addFinishedRound}
 	\begin{itemize}
-	\item Beschreibung: Fügt eine Runde zu den abgeschlossenen Runden hinzu, sorgt dafür, dass diese in der angegebenen Datenbank gespeichert wird
-	\item Parameter: round: Die abgeschlossene Runde
+		\item Beschreibung: Fügt eine Runde zu den abgeschlossenen Runden hinzu, sorgt dafür, dass diese in der angegebenen Datenbank gespeichert wird
+		\item Parameter: round: Die abgeschlossene Runde
 	\end{itemize}
 
 	\subsection{FeatureSet}
 	Stellt einen Merkmalsdatensatz dar, der aus beliebig vielen Merkmalen besteht und den Namen des Datensatzes auf dem ML-Server als eindeutigen Identifikationsschlüssel hat
 	\subsubsection{FeatureSet}
-		\begin{itemize}
+	\begin{itemize}
 		\item Beschreibung: Konstruktor, der ein FeatureSet-Objekt erzeugt
 		\item Parameter: identifier: Der Identifikationsschlüssel des Merkmalsdatensatzes
-		\end{itemize}
+	\end{itemize}
 	\subsubsection{getIdentifier}
 	\begin{itemize}
 		\item Beschreibung: Gibt den eindeutigen Identifikationsschlüssel eines Merkmalsdatensatzes zurück
@@ -1298,51 +1298,51 @@
 	\end{itemize}
 	\subsubsection{addFeature}
 	\begin{itemize}
-	\item Beschreibung: Fügt ein Merkmal zum Merkmalsdatensatz hinzu
-	\item Parameter: feature: Das Merkmal, das hinzugefügt werden soll
+		\item Beschreibung: Fügt ein Merkmal zum Merkmalsdatensatz hinzu
+		\item Parameter: feature: Das Merkmal, das hinzugefügt werden soll
 	\end{itemize}
-	
+
 	\subsection{Feature}
 	Stellt ein zu einem Merkmalsdatensatz gehöriges Merkmal dar
 	\subsubsection{Feature}
-		\begin{itemize}
+	\begin{itemize}
 		\item Beschreibung: Konstruktor, der ein Feature-Objekt erzeugt
 		\item Parameter:
 		\begin{itemize}
-		\item id: Die ID des Merkmals
-		\item internalName: Der vom ML-Server angegebene interne Name des Merkmals
+			\item id: Die ID des Merkmals
+			\item internalName: Der vom ML-Server angegebene interne Name des Merkmals
 		\end{itemize}
-		\end{itemize}
+	\end{itemize}
 	\subsubsection{getID}
-			\begin{itemize}
-				\item Beschreibung: Gibt die ID des Spiels zurück
-				\item Rückgabewert: Die ID
-			\end{itemize}
+	\begin{itemize}
+		\item Beschreibung: Gibt die ID des Spiels zurück
+		\item Rückgabewert: Die ID
+	\end{itemize}
 	\subsubsection{getInternalName}
-		\begin{itemize}
-			\item Beschreibung: Gibt den internen Namen des Merkmals zurück
-			\item Rückgabewert: Der interne Name
-		\end{itemize}
+	\begin{itemize}
+		\item Beschreibung: Gibt den internen Namen des Merkmals zurück
+		\item Rückgabewert: Der interne Name
+	\end{itemize}
 	\subsubsection{getGermanName}
 	\begin{itemize}
 		\item Beschreibung: Gibt den Namen des Merkmals auf Deutsch zurück
 		\item Rückgabewert: Der deutsche Name
 	\end{itemize}
 	\subsubsection{getEnglishName}
-		\begin{itemize}
-			\item Beschreibung: Gibt den Namen des Merkmals auf Englisch zurück
-			\item Rückgabewert: Der englische Name
-		\end{itemize}
+	\begin{itemize}
+		\item Beschreibung: Gibt den Namen des Merkmals auf Englisch zurück
+		\item Rückgabewert: Der englische Name
+	\end{itemize}
 	\subsubsection{getGermanDescription}
 	\begin{itemize}
 		\item Beschreibung: Gibt die Beschreibung des Merkmals auf Deutsch zurück
 		\item Rückgabewert: Die deutsche Beschreibung
 	\end{itemize}
 	\subsubsection{getEnglishDescription}
-		\begin{itemize}
-			\item Beschreibung: Gibt die Beschreibung des Merkmals auf Englisch zurück
-			\item Rückgabewert: Die englische Beschreibung
-		\end{itemize}
+	\begin{itemize}
+		\item Beschreibung: Gibt die Beschreibung des Merkmals auf Englisch zurück
+		\item Rückgabewert: Die englische Beschreibung
+	\end{itemize}
 	\subsubsection{getTotalGraph}
 	\begin{itemize}
 		\item Beschreibung: Gibt den Graphen des Merkmals zurück, der die Daten insgesamt anzeigt
@@ -1355,34 +1355,34 @@
 	\end{itemize}
 	\subsubsection{setGermanName}
 	\begin{itemize}
-	\item Beschreibung: Setzt den deutschen Namen auf den angegebenen String
-	\item Parameter: Der deutsche Name
+		\item Beschreibung: Setzt den deutschen Namen auf den angegebenen String
+		\item Parameter: Der deutsche Name
 	\end{itemize}
 	\subsubsection{setEnglishName}
-		\begin{itemize}
+	\begin{itemize}
 		\item Beschreibung: Setzt den englischen Namen auf den angegebenen String
 		\item Parameter: Der englische Name
-		\end{itemize}
+	\end{itemize}
 	\subsubsection{setGermanDescription}
-		\begin{itemize}
+	\begin{itemize}
 		\item Beschreibung: Setzt die deutsche Beschreibung auf den angegebenen String
 		\item Parameter: Die deutsche Beschreibung
-		\end{itemize}
+	\end{itemize}
 	\subsubsection{setEnglishDescription}
-		\begin{itemize}
+	\begin{itemize}
 		\item Beschreibung: Setzt die englische Beschreibung auf den angegebenen String
 		\item Parameter: Die englische Beschreibung
-		\end{itemize}
+	\end{itemize}
 	\subsubsection{setTotalGraph}
-		\begin{itemize}
+	\begin{itemize}
 		\item Beschreibung: Speichert den gesamten Graphen
 		\item Parameter: Der Gesamtgraph
-		\end{itemize}
+	\end{itemize}
 	\subsubsection{setClassGraph}
-		\begin{itemize}
+	\begin{itemize}
 		\item Beschreibung: Speichert den Klassengraphen
 		\item Parameter: Der Klassengraph
-		\end{itemize}
+	\end{itemize}
 
 	\subsection{Termination}
 	Stellt eine Abbruchbedingung, die zu einem Spiel gehört, dar
@@ -1395,9 +1395,9 @@
 	\subsection{TerminationComposite}
 	Stellt ein Kompositum aus eindeutigen Abbruchbedingungen dar, um unterschiedliche Abbruchbedingungen für ein Spiel zuzulassen, eine spezielle Abbruchbedingung
 	\subsubsection{TerminationComposite}
-		\begin{itemize}
+	\begin{itemize}
 		\item Beschreibung: Konstruktor, der ein TerminationComposite-Objekt erzeugt
-		\end{itemize}
+	\end{itemize}
 	\subsubsection{checkTermination}
 	\begin{itemize}
 		\item Beschreibung: Implementiert checkTermination von Termination, in dem für jede zugehörige Abbruchbedingung diese Methode ausgeführt wird
@@ -1417,10 +1417,10 @@
 	\subsection{TimeTermination}
 	Sorgt dafür, dass ein Spiel zu einer bestimmten Zeit terminiert
 	\subsubsection{TimeTermination}
-		\begin{itemize}
+	\begin{itemize}
 		\item Beschreibung: Konstruktor, der ein TimeTermination-Objekt erzeugt
 		\item Parameter: time: Die Zeit, zu der das Spiel terminieren soll
-		\end{itemize}
+	\end{itemize}
 	\subsubsection{checkTermination}
 	\begin{itemize}
 		\item Beschreibung: Implementiert die Methode, in dem überprüft wird, ob die Zeit erreicht ist
@@ -1429,10 +1429,10 @@
 	\subsection{NumberOfRoundsTermination}
 	Sorgt dafür, dass ein Spiel nach bestimmter Anzahl an gespielten Runden terminiert
 	\subsubsection{NumberOfRoundsTermination}
-		\begin{itemize}
+	\begin{itemize}
 		\item Beschreibung: Konstruktor, der ein NumberOfRoundsTermination-Objekt erzeugt
 		\item Parameter: number: Die Anzahl an Runden, nach der das Spiel terminieren soll
-		\end{itemize}
+	\end{itemize}
 	\subsubsection{checkTermination}
 	\begin{itemize}
 		\item Beschreibung: Implementiert die Methode, in dem geprüft wird, ob die Rundenzahl erreicht ist
@@ -1441,14 +1441,14 @@
 	\subsection{Round}
 	Stellt eine Verallgemeinerung einer konkreten Runde eines bestimmten Spiels dar, verwaltet die zugehörigen Informationen, abstrakt
 	\subsubsection{Round}
-		\begin{itemize}
+	\begin{itemize}
 		\item Beschreibung: Konstruktor, der ein Round-Objekt erzeugt
 		\item Parameter:
 		\begin{itemize}
-		\item player: Der Spieler, der die Runde spielt
-		\item numberOfRound: Die Zahl gibt an, die wievielte Runde des Spiels diese Runde ist
+			\item player: Der Spieler, der die Runde spielt
+			\item numberOfRound: Die Zahl gibt an, die wievielte Runde des Spiels diese Runde ist
 		\end{itemize}
-		\end{itemize}
+	\end{itemize}
 	\subsubsection{getShownFeatures}
 	\begin{itemize}
 		\item Beschreibung: Gibt die Merkmale zurück, die dem Spieler angezeigt werden
@@ -1485,50 +1485,50 @@
 		\item Rückgabewert: Die unwichtigen Merkmale
 	\end{itemize}
 	\subsubsection{getPlayer}
-		\begin{itemize}
-			\item Beschreibung: Gibt den Spieler zurück, der die Runde spielt
-			\item Rückgabewert: Der Spieler
-		\end{itemize}
+	\begin{itemize}
+		\item Beschreibung: Gibt den Spieler zurück, der die Runde spielt
+		\item Rückgabewert: Der Spieler
+	\end{itemize}
 	\subsubsection{start}
-		\begin{itemize}
-			\item Beschreibung: Startet Runde, stellt Merkmale für die GUI bereit und gibt diese zurück
-			\item Rückgabewert: Alle Merkmale, die dem Spieler insgesamt in dieser Runde angezeigt werden sollen
-		\end{itemize}
+	\begin{itemize}
+		\item Beschreibung: Startet Runde, stellt Merkmale für die GUI bereit und gibt diese zurück
+		\item Rückgabewert: Alle Merkmale, die dem Spieler insgesamt in dieser Runde angezeigt werden sollen
+	\end{itemize}
 	\subsubsection{skip}
-		\begin{itemize}
-			\item Beschreibung: Beendet die Runde ohne Merkmalsauswahl durch den Spieler und fügt die Runde als abgeschlossene Runde beim Spiel hinzu
-			\item Parameter: uselessFeatures: Die vom Spieler als unnötig ausgewählten Merkmale
-		\end{itemize}
+	\begin{itemize}
+		\item Beschreibung: Beendet die Runde ohne Merkmalsauswahl durch den Spieler und fügt die Runde als abgeschlossene Runde beim Spiel hinzu
+		\item Parameter: uselessFeatures: Die vom Spieler als unnötig ausgewählten Merkmale
+	\end{itemize}
 	\subsubsection{selectFeatures}
 	\begin{itemize}
-	\item Beschreibung: Nimmt die Auswahl des Spielers entgegen, lässt die Qualität durch den ML-Server und die Punktzahl durch das zum Spieler gehörigen Gamification-Objekt berechnen und sorgt dafür, dass die Runde in die Datenbank und das Spiel geschrieben wird, gibt die Punktzahl zurück
-	\item Parameter:
-	\begin{itemize}
-	 \item selectedFeatures: Die vom Spieler ausgewählten Merkmale
-	 \item uselessFeatures: Die vom Spieler als unnötig ausgewählten Merkmale
-	 \end{itemize}
-	\item Rückgabewert: Die mit der Merkmalsauswahl erreichte Punktzahl der Runde
+		\item Beschreibung: Nimmt die Auswahl des Spielers entgegen, lässt die Qualität durch den ML-Server und die Punktzahl durch das zum Spieler gehörigen Gamification-Objekt berechnen und sorgt dafür, dass die Runde in die Datenbank und das Spiel geschrieben wird, gibt die Punktzahl zurück
+		\item Parameter:
+		\begin{itemize}
+			\item selectedFeatures: Die vom Spieler ausgewählten Merkmale
+			\item uselessFeatures: Die vom Spieler als unnötig ausgewählten Merkmale
+		\end{itemize}
+		\item Rückgabewert: Die mit der Merkmalsauswahl erreichte Punktzahl der Runde
 	\end{itemize}
 	\subsubsection{provideFeatures}
-				\begin{itemize}
-					\item Beschreibung: Abstrakt, wählt Merkmale aus dem zum Spiel gehörigen Merkmalen aus, die dem Spieler angezeigt werden sollen
-					\item Rückgabewert: Die Aufzählung der Merkmale
-				\end{itemize}
+	\begin{itemize}
+		\item Beschreibung: Abstrakt, wählt Merkmale aus dem zum Spiel gehörigen Merkmalen aus, die dem Spieler angezeigt werden sollen
+		\item Rückgabewert: Die Aufzählung der Merkmale
+	\end{itemize}
 
 	\subsection{StandardRound}
 	Fasst alle Runden zusammen, die sich nur anhand der Zahl ihrer Vergleiche, der angezeigten Merkmale oder der auszuwählenden Merkmale unterscheiden
 	\subsubsection{StandardRound}
 	\begin{itemize}
-	\item Beschreibung: Konstruktor, der ein StandardRound-Objekt erzeugt
-	\item Parameter: 
-	\begin{itemize}
-	\item player: Der Spieler, der die Runde spielt
-	\item numberOfRound: Die Zahl gibt an, die wievielte Runde des Spiels diese Runde ist
-	\item numberOfSelections: Die Anzahl an verschiedenen Merkmalsauswahlen pro Runde
-	\item featuresPerSelection: Die Anzahl an Merkmalen, die pro Auswahl angezeigt werden sollen
-	\item minSelect: Die Anzahl an Merkmalen, die pro Auswahl mindestens ausgewählt werden muss
-	\item maxSelect: Die Anzahl an Merkmalen, die pro Auswahl maximal ausgewählt werden muss
-	\end{itemize}
+		\item Beschreibung: Konstruktor, der ein StandardRound-Objekt erzeugt
+		\item Parameter:
+		\begin{itemize}
+			\item player: Der Spieler, der die Runde spielt
+			\item numberOfRound: Die Zahl gibt an, die wievielte Runde des Spiels diese Runde ist
+			\item numberOfSelections: Die Anzahl an verschiedenen Merkmalsauswahlen pro Runde
+			\item featuresPerSelection: Die Anzahl an Merkmalen, die pro Auswahl angezeigt werden sollen
+			\item minSelect: Die Anzahl an Merkmalen, die pro Auswahl mindestens ausgewählt werden muss
+			\item maxSelect: Die Anzahl an Merkmalen, die pro Auswahl maximal ausgewählt werden muss
+		\end{itemize}
 	\end{itemize}
 	\subsubsection{getNumberOfSelections}
 	\begin{itemize}
@@ -1552,7 +1552,7 @@
 	\end{itemize}
 	\subsubsection{provideFeatures}
 	\begin{itemize}
-	\item Beschreibung: Wählt pro Vergleich die angegebene Anzahl an Merkmalen aus und gibt diese alle in einer Liste hintereinander zurück
+		\item Beschreibung: Wählt pro Vergleich die angegebene Anzahl an Merkmalen aus und gibt diese alle in einer Liste hintereinander zurück
 	\end{itemize}
 
 	\subsection{Gamemode}
@@ -1562,8 +1562,8 @@
 		\item Beschreibung: Erzeugt eine Runde des Spielmodus
 		\item Parameter:
 		\begin{itemize}
-		\item player: Der Spieler, der die Runde spielt
-		\item number: Die wievielte Runde des Spiels diese Runde ist
+			\item player: Der Spieler, der die Runde spielt
+			\item number: Die wievielte Runde des Spiels diese Runde ist
 		\end{itemize}
 		\item Rückgabewert: Die erzeugte Runde
 	\end{itemize}
@@ -1571,9 +1571,9 @@
 	\subsection{GamemodeComposite}
 	Kompositum aus verschiedenen Spielmodi, um zu ermöglichen, dass mehrere Spielmodi ausgewählt werden können
 	\subsubsection{GamemodeComposite}
-		\begin{itemize}
+	\begin{itemize}
 		\item Beschreibung: Konstruktor, der ein GamemodeComposite-Objekt erzeugt
-		\end{itemize}
+	\end{itemize}
 	\subsubsection{createRound}
 	\begin{itemize}
 		\item Beschreibung: Erzeugt eine Runde eines zufälligen Spielmodus des Kompositums
@@ -1592,9 +1592,9 @@
 	\subsection{BinärSelect}
 	Stellt den Spielmodus BinärSelect dar, dessen Runden standardmäßig aufgebaut sind, also werden StandardRounds erzeugt
 	\subsubsection{BinärSelect}
-		\begin{itemize}
+	\begin{itemize}
 		\item Beschreibung: Konstruktor, der ein BinärSelect-Objekt erzeugt
-		\end{itemize}
+	\end{itemize}
 	\subsubsection{createRound}
 	\begin{itemize}
 		\item Beschreibung: Erzeugt eine Runde des Spielmodus BinärSelect, also eine StandardRound mit 5 Vergleichen und 2 Merkmalen pro Vergleich, von denen genau eines ausgewählt werden muss
@@ -1603,15 +1603,15 @@
 	\subsection{MatrixSelect}
 	Stellt den Spielmodus MatrixSelect dar, dessen Runden standardmäßig aufgebaut sind, also werden StandardRounds erzeugt
 	\subsubsection{MatrixSelect}
-		\begin{itemize}
+	\begin{itemize}
 		\item Beschreibung: Konstruktor, der ein MatrixSelect-Objekt erzeugt
 		\item Parameter:
 		\begin{itemize}
-		\item numberOfFeatures: Die Anzahl an Merkmalen, die pro Runde angezeigt werden müssen
-		\item minSelect: Die Anzahl an Merkmalen, die pro Runde mindestens ausgewählt werden müssen
-		\item maxSelect: Die Anzahl an Merkmalen, die pro Runde maximal ausgewählt werden müssen
+			\item numberOfFeatures: Die Anzahl an Merkmalen, die pro Runde angezeigt werden müssen
+			\item minSelect: Die Anzahl an Merkmalen, die pro Runde mindestens ausgewählt werden müssen
+			\item maxSelect: Die Anzahl an Merkmalen, die pro Runde maximal ausgewählt werden müssen
 		\end{itemize}
-		\end{itemize}
+	\end{itemize}
 	\subsubsection{createRound}
 	\begin{itemize}
 		\item Beschreibung: Erzeugt eine Runde des Spielmodus MatrixSelect, also eine StandardRound, setzt die Anzahl an Merkmalen pro Runde und die Anzahl an minimal und maximal auszuwählenden Merkmalen so wie die Attribute des Spielmodus belegt sind sowie die Anzahl an Merkmalsauswahlen auf 1
@@ -2007,7 +2007,7 @@
 
 	\subsection{Spiel löschen}
 	Das folgende Sequenzdiagramm korrespondiert zu Testszenario 8.1.11 aus dem Pflichtenheft. \\
-	\includegraphics[width=\textwidth]{img/Spiel_löschen.pdf}
+	\includegraphics[width=\textwidth]{img/Spiel_loeschen.pdf}
 
 	\subsection{Spieleinstellungen speichern}
 	Das folgende Sequenzdiagramm korrespondiert zu Testszenario 8.1.12 aus dem Pflichtenheft. \\
@@ -2025,18 +2025,18 @@
 
 	\subsection{Einladung annehmen}
 	Das folgende Sequenzdiagramm korrespondiert zu Testszenario 8.2.1 aus dem Pflichtenheft. \\
-	\includegraphics[width=\textwidth]{img/Einladung_annehmen.pdf.pdf}
+	\includegraphics[width=\textwidth]{img/Einladung_annehmen.pdf}
 
 	\subsection{Einladung ablehnen}
 	\includegraphics[width=\textwidth]{img/Einladung_ablehnen.pdf}
 
 	\subsection{Runde spielen, Merkmal als unwichtig markieren}
 	Das folgende Sequenzdiagramm korrespondiert zu Testszenario 8.2.6. aus dem Pflichtenheft. \\
-	\includegraphics[width=\textwidth]{img/Runde_spielen.pdf.pdf}
+	\includegraphics[width=\textwidth]{img/Runde_spielen.pdf}
 
 	\subsection{Runde überspringen}
 	Das folgende Sequenzdiagramm korrespondiert zu Testszenario 8.2.5 aus dem Pflichtenheft. \\
-	\includegraphics[width=\textwidth]{img/Runde_überspringen.pdf.pdf}
+	\includegraphics[width=\textwidth]{img/Runde_ueberspringen.pdf}
 
 	\subsection{Runde starten}
 	Das folgende Sequenzdiagramm korrespondiert zu Testszenario 8.3.1. aus dem Pflichtenheft. \\
@@ -2061,17 +2061,17 @@
 
 	\subsection{Daily-Challenge abschließen}
 	Es handelt sich hierbei um einen Ausschnitt von Sequenzdiagramm \enquote{Runde spielen, Merkmal als unwichtig markieren}. Es sind die relevanten Aufrufe zu sehen, welche überprüfen, ob eine Daily-Challenge abgeschlossen wurde. \\
-	\includegraphics[width=\textwidth]{img/Daily_Challenge_abschließen.pdf}
+	\includegraphics[width=\textwidth]{img/Daily_Challenge_abschliessen.pdf}
 
 
 	\section{Administration}
 	\subsection{Sprache ändern}
 	Das folgende Sequenzdiagramm korrespondiert zu Testszenario 8.4.1 aus dem Pflichtenheft. \\
-	\includegraphics[width=\textwidth]{img/Sprache_ändern.pdf}
+	\includegraphics[width=\textwidth]{img/Sprache_aendern.pdf}
 
 	\subsection{Passwort ändern}
 	Das folgende Sequenzdiagramm korrespondiert zu Testszenario 8.4.4 aus dem Pflichtenheft. \\
-	\includegraphics[width=\textwidth]{img/Password_ändern.pdf}
+	\includegraphics[width=\textwidth]{img/Password_aendern.pdf}
 
 	\subsection{E-Mail ändern}
 	Das folgende Sequenzdiagramm korrespondiert zu Testszenario 8.4.5 aus dem Pflichtenheft. \\
@@ -2079,7 +2079,7 @@
 
 	\subsection{Passwort zurücksetzen}
 	Das folgende Sequenzdiagramm korrespondiert zu Testszenario 8.4.6 aus dem Pflichtenheft. \\
-	\includegraphics[width=\textwidth]{img/Password_zurücksetzen.pdf.pdf}
+	\includegraphics[width=\textwidth]{img/Password_zuruecksetzen.pdf}
 
 
 
@@ -2185,24 +2185,24 @@
 		\item DailyReachRoundScoreEighty
 	\end{itemize}
 
-	
+
 	\chapter{Datenhaltung}
 
-    \section{Ordnerstruktur}
+	\section{Ordnerstruktur}
 
-    \subsection{WAR-Datei}
+	\subsection{WAR-Datei}
 	In der WAR-Datei\footnote{Für eine genauere Beschreibung wird auf die \href{https://tomcat.apache.org/tomcat-7.0-doc/appdev/deployment.html\#Standard\_Directory\_Layout}{Tomcat-Dokumentation} verwiesen.}, die in den \$CATALINA\_HOME Ordner von Tomcat gelegt wird, müssen folgende Ordner und Dateien existieren:
-    \begin{itemize}
-        \item \texttt{*html, *jsp, etc.} \\Dies sind die statischen Dateien, die später direkt vom Browser aufrufbar sein müssen. Sie können auch in untergeordneten Ordnern liegen.
-        \item \texttt{/WEB-INF/web.xml} \\Dies ist die Web Application Deployment Descriptor Datei für die Anwendung. In dieser werden die Routen für Anfragen an den Server festgelegt.
-        \item \texttt{/WEB-INF/classes/} \\Hier liegen die Klassen des Produkts mit ihrer Paketstruktur.
-        \item \texttt{/WEB-INF/lib/} \\Hier liegen alle 3rd-Party Bibliotheken.
-    \end{itemize}
+	\begin{itemize}
+		\item \texttt{*html, *jsp, etc.} \\Dies sind die statischen Dateien, die später direkt vom Browser aufrufbar sein müssen. Sie können auch in untergeordneten Ordnern liegen.
+		\item \texttt{/WEB-INF/web.xml} \\Dies ist die Web Application Deployment Descriptor Datei für die Anwendung. In dieser werden die Routen für Anfragen an den Server festgelegt.
+		\item \texttt{/WEB-INF/classes/} \\Hier liegen die Klassen des Produkts mit ihrer Paketstruktur.
+		\item \texttt{/WEB-INF/lib/} \\Hier liegen alle 3rd-Party Bibliotheken.
+	\end{itemize}
 	\subsection{Stammverzeichnis}
 	Weiterhin existiert ein Verzeichnis \texttt{/CSSELECT/}, in welchem das Produkt Daten sichert.
 	Der Ort des Stammverzeichnisses wird in der Konfigurationsdatei angegeben.
 	Im Verzeichnis \texttt{/CSSELECT/games/} erhält jedes Spiel einen Ordner seiner ID, in dem die Bilddateien der Graphen des Merkmalsdatensatzes gespeichert werden.
-	
+
 	\section{Konfiguration}
 	Die Konfigurationsdatei enthält alle Einstellungsmöglichkeiten, die das Produkt betreffen in Form von Key-Value-Paaren:
 	Die Konfigurationsdatei muss zu Anwendungsstart im Verzeichnis \texttt{/} liegen. % TODO Pfad eintragen
@@ -2274,7 +2274,7 @@
 	Die grundlegenden Daten zum Spiel werden in einer Tabelle in der Hauptdatenbank verwaltet.
 	\begin{itemize}
 		\item ID
-        \item ID des zugehörigen Organisators
+		\item ID des zugehörigen Organisators
 		\item Titel
 		\item Beschreibung
 		\item Datenbankname
