@@ -35,12 +35,12 @@
     In diesem Teil des Produkts finden sich Model und Controller gebündelt.
 
 	\chapter{Änderungen zum Pflichtenheft}
-	Im Folgenden werden sämtliche Abweichungen vom Pflichtenheft, die im Entwurf aufgetreten sind, aufgelistet erläutert.
+	Im Folgenden werden sämtliche Abweichungen vom Pflichtenheft, die im Entwurf aufgetreten sind, aufgelistet und erläutert.
 	\begin{enumerate}
-		\item Achievements werden im Gegensatz zu Anforderung /F750/ \emph{nicht} bepunktet. Achievements sollen lediglich visuelle Belohnungen darstellen, die sich der Spieler jederzeit anschauen kann.
+		\item Achievements werden im Gegensatz zu Anforderung /F750/ \emph{nicht} bepunktet. \\Achievements sollen lediglich visuelle Belohnungen darstellen, die sich der Spieler jederzeit anschauen kann.
         \item Das Überspringen einer Runde aus /F500/ hat \emph{keine} Minuspunkte zur Folge, um Demotivation durch Punktabzug eines Spielers zu vermeiden.
-		\item Im Zustandsdiagramm Streak aus Abschnitt 9.1.1 des Pflichtenhefts wird eine Streak auch beendet, wenn der Spieler eine Runde eines anderen Spiels spielt. Dies ist nicht der Fall. Eine Streak wird auch spielübergreifend erhalten bleiben, denn es geht darum, dass man mehrere Runde am Stück spielt, egal von welchem Spiel. Das aktualisierte Zustandsdiagramm ist in \hyperlink{StreakState}{Abschnitt 7.1} zu finden.
-		\item Im Gegensatz zu /F470/ wird vom Organisator bei der Spielerstellung festgelegt, wie viele Merkmale minimal und maximal ausgewählt werden dürfen.
+		\item Im Zustandsdiagramm Streak aus Abschnitt 9.1.1 des Pflichtenhefts wird eine \\Streak auch beendet, wenn der Spieler eine Runde eines anderen Spiels spielt. Dies ist nicht der Fall. Eine Streak wird auch spielübergreifend erhalten bleiben, denn es geht darum, dass man mehrere Runde am Stück spielt, egal von welchem Spiel. Das aktualisierte Zustandsdiagramm ist in \hyperlink{StreakState}{Abschnitt 7.1} zu finden.
+		\item Im Gegensatz zu /F470/ wird vom Organisator bei der Spielerstellung festgelegt, wie viele Merkmale minimal und maximal von einem Spieler ausgewählt werden dürfen.
     \end{enumerate}
 	
 	\chapter{Klassendiagramme}
@@ -1522,7 +1522,7 @@
 
 	\subsection{Leaderboard}
 	Stellt ein Leaderboard dar. Es enthält eine Liste von Spielern. \\
-	Hierfür wird das Singleton-Entwurfsmuster verwendet, damit nur ein Leaderboard-Objekt existert.
+	Hierfür wird das Singleton-Entwurfsmuster verwendet, damit nur ein Leaderboard-Objekt existiert.
 
 	\subsubsection{Leaderboard}
 	\begin{itemize}
@@ -1559,7 +1559,7 @@
 	\end{itemize}
 
 	\subsection{SortScoreLastWeek}
-	Erbt von der Klasse LeaderboardSortingStrategy. Bietet eine Sortierung an, die nach Gesamtpunktzahlen der Spieler, welche in der letzetn Woche erreicht wurden, sortiert.
+	Erbt von der Klasse LeaderboardSortingStrategy. Bietet eine Sortierung an, die nach Gesamtpunktzahlen der Spieler, welche in der letzten Woche erreicht wurden, sortiert.
 	\subsubsection{sort}
 	\begin{itemize}
 		\item Beschreibung: Sortiert die Liste des Leaderboards nach den erreichten Punkten der letzten sieben Tage der Spieler.
@@ -1586,7 +1586,7 @@
 	\end{itemize}
 	\subsubsection{setDate}
 	\begin{itemize}
-		\item Beschreibung: Setzt das Datum der Daily-Challange.
+		\item Beschreibung: Setzt das Datum der Daily-Challenge.
 		\item Parameter: Das Datum der Daily-Challenge.
 	\end{itemize}
 	\subsubsection{isCompleted}
@@ -1614,7 +1614,7 @@
 	Konkrete Implementierung der abstrakten Klasse DailyChallenge, in der der Spieler drei Runden an einem Tag spielen muss, um sie abzuschließen.
 	\subsubsection{DailyPlayThreeRounds}
 	\begin{itemize}
-		\item Beschreibung: Der Konstruktor von DailyPlayThreeRounds setzt Namen und Beschreibung von DailyPlayThreeRounds sowie die Belohnung. Der Runden-Zähler werden auf 0 gesetzt und finished auf false.
+		\item Beschreibung: Der Konstruktor von DailyPlayThreeRounds setzt Namen und Beschreibung von DailyPlayThreeRounds sowie die Belohnung. Der Runden-Zähler werden auf 0 gesetzt und completed auf false.
 	\end{itemize}
 	\subsubsection{checkFinished}
 	\begin{itemize}
@@ -1636,13 +1636,13 @@
 	Konkrete Implementierung der abstrakten Klasse DailyChallenge, in der der Spieler eine 3er-Streak, also drei Runden hintereinander gespielt haben muss, um sie abzuschließen.
 	\subsubsection{DailyGetStreakOfThree}
 	\begin{itemize}
-		\item Beschreibung: Der Konstruktor von DailyGetStreakThree setzt Namen und Beschreibung von DailyGetStreakThree sowie die Belohnung. Der Streak-Zähler werden auf 0 gesetzt und finished auf false.
+		\item Beschreibung: Der Konstruktor von DailyGetStreakThree setzt Namen und Beschreibung von DailyGetStreakThree sowie die Belohnung. Der Streak-Zähler werden auf 0 gesetzt und completed auf false.
 	\end{itemize}
 	\subsubsection{checkFinished}
 	\begin{itemize}
 		\item Beschreibung: Überprüft, ob der Spieler schon eine Streak in Höhe von drei an diesem Tag erreicht hat.
 		\item Parameter: Das zugehörige PlayerStats-Objekt eines Spielers.
-		\item Rückgabewert: True, wenn der Spieler schon eine Streak in Höhe con drei an diesem Tag erreicht hat. False, falls er die Aufgabe der Daily-Challenge schon erreicht hat oder sie noch nicht erfüllt hat.
+		\item Rückgabewert: True, wenn der Spieler schon eine Streak in Höhe von drei an diesem Tag erreicht hat. False, falls er die Aufgabe der Daily-Challenge schon erreicht hat oder sie noch nicht erfüllt hat.
 	\end{itemize}
 	\subsubsection{resetDaily}
 	\begin{itemize}
@@ -1658,7 +1658,7 @@
 	Konkrete Implementierung der abstrakten Klasse DailyChallenge, in der der Spieler 150 Punkte an einem Tag erreichen muss.
 	\subsubsection{DailyReachScoreHundredFifty}
 	\begin{itemize}
-		\item Beschreibung: Der Konstruktor von DailyReachScoreHundred setzt Namen und Beschreibung von DailyReachScoreHundred sowie die Belohnung. Der Punkte-Zähler werden auf 0 gesetzt und finished auf false.
+		\item Beschreibung: Der Konstruktor von DailyReachScoreHundred setzt Namen und Beschreibung von DailyReachScoreHundred sowie die Belohnung. Der Punkte-Zähler werden auf 0 gesetzt und completed auf false.
 	\end{itemize}
 	\subsubsection{checkFinished}
 	\begin{itemize}
@@ -1678,7 +1678,7 @@
 
 	\vspace{8pt}
 
-	Diese drei konkreten Daily-Challenges sind bereits dem Entwurfsdiagramm zu entnehmen. Weitere Daily-Challenges werden analog hinzugeüft. Für eine Liste der vollständigen Daily-Challenges siehe \hyperlink{Daily}{Kapitel 8.2}. \\
+	Diese drei konkreten Daily-Challenges sind bereits dem Entwurfsdiagramm zu entnehmen. Weitere Daily-Challenges werden analog hinzugefügt. Für eine Liste der vollständigen Daily-Challenges siehe \hyperlink{Daily}{Kapitel 8.2}. \\
 
 	\vspace{8pt}
 
@@ -1725,7 +1725,7 @@
 	Eine abstrakte Klasse für Achievements von der Art, dass ein Spieler eine bestimmte Punktzahl an Punkten erspielen muss, um es zu erreichen. Die Unterklassen müssen die abstrakte Methode checkProgress entsprechend implementieren.
 
 	\subsection{AchievementReachTotalScoreHundred}
-	Dieses konkrete Achievement erhält ein Spieler, wenn er eine Gesamtpunktzahl von mindestens 100 Punkten erreicht. Hierfür wird das Singleton-Entwurfsmuster verwendet, damit nur ein AchievementReachTotalScoreHundred-Objekt existert.
+	Dieses konkrete Achievement erhält ein Spieler, wenn er eine Gesamtpunktzahl von mindestens 100 Punkten erreicht. Hierfür wird das Singleton-Entwurfsmuster verwendet, damit nur ein AchievementReachTotalScoreHundred-Objekt existiert.
 
 	\subsubsection{AchievementReachTotalScoreHundred}
 	\begin{itemize}
@@ -1744,7 +1744,7 @@
 	\end{itemize}
 
 	\subsection{AchievementReachTotalScoreThousand}
-	Dieses konkrete Achievement erhält ein Spieler, wenn er eine Gesamtpunktzahl von mindestens 1000 Punkten erreicht. Hierfür wird das Singleton-Entwurfsmuster verwendet, damit nur ein Leaderboard-Objekt existert.
+	Dieses konkrete Achievement erhält ein Spieler, wenn er eine Gesamtpunktzahl von mindestens 1000 Punkten erreicht. Hierfür wird das Singleton-Entwurfsmuster verwendet, damit nur ein Leaderboard-Objekt existiert.
 
 	\subsubsection{AchievementReachTotalScoreThousand}
 	\begin{itemize}
@@ -1764,7 +1764,7 @@
 
 	\vspace{8pt}
 
-	Diese vier Achievement-Typen und zwei konkreten Achievements sind bereits dem Entwurfsdiagramm zu entnehmen. Weitere Achievement-Typen und konkrete Achievements werden analog hinzugeüft. Für eine Liste der vollständigen Achievements siehe \hyperlink{Ach}{Abschnitt 8.1}. \\
+	Diese vier Achievement-Typen und zwei konkreten Achievements sind bereits dem Entwurfsdiagramm zu entnehmen. Weitere Achievement-Typen und konkrete Achievements werden analog hinzugefügt. Für eine Liste der vollständigen Achievements siehe \hyperlink{Ach}{Abschnitt 8.1}. \\
 
 	\vspace{8pt}
 
@@ -1828,7 +1828,7 @@
 	\subsection{getLastScore}
 	\begin{itemize}
 		\item Beschreibung: Gibt die Punktzahl zurück, die in der letzten Runde erzielt wurde (ohne Miteinbeziehung von Streaks).
-		\item Rückgabewert: Die Punktzahl der letzen Runde.
+		\item Rückgabewert: Die Punktzahl der letzten Runde.
 	\end{itemize}
 	\subsection{getHighestStreak}
 	\begin{itemize}
