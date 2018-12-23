@@ -217,7 +217,7 @@
 	\end{itemize}
 
 	\section{API}
-	\includegraphics[width=\textwidth]{img/api.png}
+	\includegraphics[width=\textwidth]{img/package/api.pdf}
 	Das API-Paket hat die Aufgabe des Controllers und sorgt dafür, dass die Nutzereingaben ans System übergeben werden, außerdem wird hier die Darstellung der Nutzer-GUIs angeregt, die clientseitig passiert
 	
 	\subsection{APIFacadeUser}
@@ -517,7 +517,7 @@
 	Implementierung der beiden Fassadenobjecten für http/REST.
 
 	\section{Database}
-	\includegraphics[width=\textwidth]{img/Database.PNG}
+	\includegraphics[width=\textwidth]{img/package/database.pdf}
 	Paket, das die Kommunikation mit der Datenbank übernimmt.
 
 	\subsection{DatabaseAdapter}
@@ -986,10 +986,10 @@
 	Mysql Implementierung der GameAdapter Schnittstelle.
 
 	\section{Configuration}
+	\includegraphics[width=\textwidth]{img/package/configuration.pdf}
 	Paket für die Kommunikation mit der Konfigurationsdatei.
 
 	\subsection{Configuration}
-	\includegraphics[width=\textwidth]{img/Configuration.PNG}
 	Abstrakte Klasse, die von der Config-Implementierung abstrahiert.
 	Kümmert sich um die Kommunikation des Produkts mit der Konfigurationsdatei. \\
 	Ist als Singleton umgesetzt, um zu erzwingen, dass stets nur ein Zugriffspunkt zur Konfiguration besteht.
@@ -1048,7 +1048,7 @@
 	Mitgelieferte Standardimplementierung der Konfiguration.
 
 	\section{MLServer}
-	\includegraphics[width=\textwidth]{img/MLServer.PNG}
+	\includegraphics[width=\textwidth]{img/package/MLServer.pdf}
 	Paket für die Kommunikation mit dem ML-Server.
 
 	\subsection{MLServer}
@@ -1092,8 +1092,8 @@
 	Implementiert die abstrakte Klasse MLServer und stellt die Funktionalität mittels der Standard-Implementierung des ML-Servers per REST-API bereit.
 
 	\section{Gamecreation}
+	\includegraphics[width=\textwidth]{img/package/gamecreation.pdf}
 	Paket, welches der Spielerstellung dient. Hier spielen die Entwurfsmuster Memento(Memento: Pattern) und Builder(GameCreator) eine Rolle
-	%TODO: Hier Bild von gamecreation
 	\subsection{GameCreator}
 	Klasse, der die Spielerstellung verwaltet
 	\subsubsection{getGameOptions}
@@ -1225,8 +1225,7 @@
 	\end{itemize}
 
 	\section{Game}
-	\includegraphics[width=\textwidth]{img/GameTerminationFeature.PNG}
-	\includegraphics[width=\textwidth]{img/RoundAndGameMode.PNG}
+	\includegraphics[width=\textwidth]{img/package/game.pdf}
 	Paket, welches die innere Spielmechanik verwaltet. Dazu gehören die Spiele mit ihrer Erstellung und ihren Abbruchbedingungen, Spielmodi, Runden und Merkmale.
 
 	\subsection{Game}
@@ -1716,7 +1715,7 @@
 
 
 	\section{Gamification}
-	\includegraphics[width=\textwidth]{img/Gamification.PNG}\\
+	\includegraphics[width=\textwidth]{img/package/gamification.pdf}\\
 	Paket für die Gamification-Elemente. \\
 	Zu den Gamification-Elementen gehören Punkte, Streak, Leaderboard, Achievements und Daily-Challenges.
 
@@ -2060,6 +2059,7 @@
 	\end{itemize}
 
 	\section{Email}
+	\includegraphics[width=\textwidth]{img/package/email.pdf}
 	Dieses Paket kümmert sich um die Bereitstellung der E-Mail-Senden Funktion von Tomcat.
 	\subsection{EmailSender}
 	Diese Klasse stellt die E-Mail Senden Funktionalität bereit.
