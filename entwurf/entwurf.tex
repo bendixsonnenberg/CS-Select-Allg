@@ -208,12 +208,6 @@
 			\item Parameter:
 			\item Rückgabewert:
 		\end{itemize}
-		\subsubsection{deletePlayer}
-		\begin{itemize}
-			\item Beschreibung:
-			\item Parameter:
-			\item Rückgabewert:
-		\end{itemize}
 
 	\section{API}
 	\includegraphics[width=\textwidth]{img/api.png}
@@ -860,6 +854,15 @@
 			\item mails: E-Mail-Adressen der Spieler.
 		\end{itemize}
 	\end{itemize}
+	
+	\subsubsection{removeInvitedPlayers}
+	\begin{itemize}
+	\item Beschreibung: Entfernt die angegebenen Spieler aus den eingeladenen Spielern
+			\item Parameter:
+			\begin{itemize}
+				\item mails: E-Mail-Adressen der Spieler.
+			\end{itemize}
+	\end{itemize}
 
 	\subsection{Mysql}
 	Paket mit Mysql basierter Implementierung der Datenbank.
@@ -1014,16 +1017,6 @@
 	Implementiert die abstrakte Klasse MLServer und stellt die Funktionalität mittels der Standard-Implementierung des ML-Servers per REST-API bereit.
 
 
-
-
-
-
-
-
-
-
-
-
 	\section{Game}
 	\includegraphics[width=\textwidth]{img/GameTerminationFeature.PNG}
 	\includegraphics[width=\textwidth]{img/RoundAndGameMode.PNG}
@@ -1067,16 +1060,16 @@
 			\item Beschreibung: Gibt eine Aufzählung aller E-Mail-Adressen der Spieler zurück, die eingeladen sind, die Einladung aber noch nicht angenommen haben
 			\item Rückgabewert: Die Aufzählung der E-Mail-Adressen der eingeladenen Spieler
 		\end{itemize}
+	\subsubsection{getAddressOrganiserDatabase}
+			\begin{itemize}
+			\item Beschreibung: Gibt die Adresse der zum Spiel gehörigen Datenbank zurück
+			\item Rückgabewert: Die Adresse der zum Spiel gehörigen Datenbank
+			\end{itemize}
 	\subsubsection{getPlayingPlayers}
 		\begin{itemize}
 			\item Beschreibung: Gibt eine Aufzählung aller Spieler zurück, die die Einladung angenommen haben und Runden spielen können
 			\item Rückgabewert: Die Aufzählung der spielenden Spieler
 		\end{itemize}
-	\subsubsection{getDatabase}
-	\begin{itemize}
-	\item Beschreibung: Gibt die zum Spiel gehörige Datenbank zurück
-	\item Rückgabewert: Die zum Spiel gehörige Datenbank
-	\end{itemize}
 	\subsubsection{getTermination}
 	\begin{itemize}
 		\item Beschreibung: Gibt die zum Spiel gehörige Abbruchbedingung zurück
@@ -1112,10 +1105,10 @@
 		\item Beschreibung: Setzt die Spielbeschreibung auf den angegebenen Wert
 		\item Parameter: description: Die Spielbeschreibung
 		\end{itemize}
-	\subsubsection{setDatabase}
+	\subsubsection{setAddressOrganiserDatabase}
 		\begin{itemize}
-		\item Beschreibung: Speichert die angegebene Datenbank als die zum Spiel gehörige
-		\item Parameter: database: Die Datenbank, in die die Spielinformationen geschrieben werden
+		\item Beschreibung: Speichert die Adresse der vom Organisator angegebene Datenbank als die zum Spiel gehörige, auf der die Spielinformationen gespeichert werden
+		\item Parameter: addressOrganiserDatabase: Die Adresse der Datenbank, in die die Spielinformationen geschrieben werden
 		\end{itemize}
 	\subsubsection{setTermination}
 		\begin{itemize}
@@ -1146,7 +1139,11 @@
 	\subsubsection{acceptInvite}
 		\begin{itemize}
 			\item Beschreibung: Gibt einem Spieler die Spielberechtigung, der eine Einladung erhalten und diese angenommen hat
-			\item Parameter: player: Der Spieler, der die Einladung angenommen hat
+			\item Parameter:
+			\begin{itemize}
+			\item player: Der Spieler, der die Einladung angenommen hat
+			\item email: Die E-Mail-Adresse des Spielers
+			\end{itemize}
 			\item Rückgabewert: Ob Spieler erfolgreich hinzugefügt wurde oder entweder schon spielt oder keine Einladung hatte
 		\end{itemize}
 	\subsubsection{declineInvite}
@@ -1154,12 +1151,6 @@
 			\item Beschreibung: Löscht die E-Mail-Adresse eines Spielers aus der Aufzählung der eingeladenen Spieler, der eine Einladung abgelehnt hat
 			\item Parameter: playerEmail: E-Mail-Adresse des Spielers, der die Einladung abgelehnt hat
 			\item Rückgabewert: False, falls der Spieler gar keine aktive Einladung hatte
-		\end{itemize}
-	\subsubsection{deletePlayer}
-		\begin{itemize}
-			\item Beschreibung: Entzieht einem Spieler die Spielberechtigung und löscht diesen aus dem Spiel
-			\item Parameter: playerID: ID des Spielers, der gelöscht werden soll
-			\item Rückgabewert: False, falls der Spieler dem Spiel nicht bekannt ist
 		\end{itemize}
 	\subsubsection{startRound}
 		\begin{itemize}
@@ -1200,6 +1191,7 @@
 	\item Beschreibung: Fügt ein Merkmal zum Merkmalsdatensatz hinzu
 	\item Parameter: feature: Das Merkmal, das hinzugefügt werden soll
 	\end{itemize}
+	
 	\subsection{Feature}
 	Stellt ein zu einem Merkmalsdatensatz gehöriges Merkmal dar
 	\subsubsection{Feature}
@@ -1207,22 +1199,40 @@
 		\item Beschreibung: Konstruktor, der ein Feature-Objekt erzeugt
 		\item Parameter:
 		\begin{itemize}
-		\item name: Der Name des Merkmals
-		\item description: Die Beschreibung des Merkmals
-		\item totalGraph: Der Graph des Merkmals, der die Daten insgesamt anzeigt
-		\item classGraph: Der  Graph des Merkmals, der die Daten nach Klassen aufgeteilt anzeigt
+		\item id: Die ID des Merkmals
+		\item internalName: Der vom ML-Server angegebene interne Name des Merkmals
 		\end{itemize}
 		\end{itemize}
-	\subsubsection{getName}
+	\subsubsection{getID}
+			\begin{itemize}
+				\item Beschreibung: Gibt die ID des Spiels zurück
+				\item Rückgabewert: Die ID
+			\end{itemize}
+	\subsubsection{getInternalName}
+		\begin{itemize}
+			\item Beschreibung: Gibt den internen Namen des Merkmals zurück
+			\item Rückgabewert: Der interne Name
+		\end{itemize}
+	\subsubsection{getGermanName}
 	\begin{itemize}
-		\item Beschreibung: Gibt den Namen des Merkmals zurück
-		\item Rückgabewert: Der Name
+		\item Beschreibung: Gibt den Namen des Merkmals auf Deutsch zurück
+		\item Rückgabewert: Der deutsche Name
 	\end{itemize}
-	\subsubsection{getDescription}
+	\subsubsection{getEnglishName}
+		\begin{itemize}
+			\item Beschreibung: Gibt den Namen des Merkmals auf Englisch zurück
+			\item Rückgabewert: Der englische Name
+		\end{itemize}
+	\subsubsection{getGermanDescription}
 	\begin{itemize}
-		\item Beschreibung: Gibt die Beschreibung des Merkmals zurück
-		\item Rückgabewert: Die Beschreibung
+		\item Beschreibung: Gibt die Beschreibung des Merkmals auf Deutsch zurück
+		\item Rückgabewert: Die deutsche Beschreibung
 	\end{itemize}
+	\subsubsection{getEnglishDescription}
+		\begin{itemize}
+			\item Beschreibung: Gibt die Beschreibung des Merkmals auf Englisch zurück
+			\item Rückgabewert: Die englische Beschreibung
+		\end{itemize}
 	\subsubsection{getTotalGraph}
 	\begin{itemize}
 		\item Beschreibung: Gibt den Graphen des Merkmals zurück, der die Daten insgesamt anzeigt
@@ -1233,6 +1243,36 @@
 		\item Beschreibung: Gibt den Graphen des Merkmals zurück, der die Daten nach Klassen aufgeteilt anzeigt
 		\item Rückgabewert: Der Graph mit den Klassendaten
 	\end{itemize}
+	\subsubsection{setGermanName}
+	\begin{itemize}
+	\item Beschreibung: Setzt den deutschen Namen auf den angegebenen String
+	\item Parameter: Der deutsche Name
+	\end{itemize}
+	\subsubsection{setEnglishName}
+		\begin{itemize}
+		\item Beschreibung: Setzt den englischen Namen auf den angegebenen String
+		\item Parameter: Der englische Name
+		\end{itemize}
+	\subsubsection{setGermanDescription}
+		\begin{itemize}
+		\item Beschreibung: Setzt die deutsche Beschreibung auf den angegebenen String
+		\item Parameter: Die deutsche Beschreibung
+		\end{itemize}
+	\subsubsection{setEnglishDescription}
+		\begin{itemize}
+		\item Beschreibung: Setzt die englische Beschreibung auf den angegebenen String
+		\item Parameter: Die englische Beschreibung
+		\end{itemize}
+	\subsubsection{setTotalGraph}
+		\begin{itemize}
+		\item Beschreibung: Speichert den gesamten Graphen
+		\item Parameter: Der Gesamtgraph
+		\end{itemize}
+	\subsubsection{setClassGraph}
+		\begin{itemize}
+		\item Beschreibung: Speichert den Klassengraphen
+		\item Parameter: Der Klassengraph
+		\end{itemize}
 
 	\subsection{Termination}
 	Stellt eine Abbruchbedingung, die zu einem Spiel gehört, dar
