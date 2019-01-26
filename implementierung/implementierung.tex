@@ -33,6 +33,11 @@
 \section{User}
 
 \section{Database}
+\begin{itemize}
+    \item Neue Param-Klassen zum parametrisierten Aufruf von Mysql-Prepared-Statements
+    \item registerPlayer/Organiser Methoden zu createPlayer/Organiser umbenannt und den Registrierungsprozess ausgelagert
+    \item FeatureSet Informationen werden nicht mehr in die DB geschrieben sondern verbleiben in der erhaltenen .json Datei auf der Platte
+\end{itemize}
 
 \section{GameCreation}
 
@@ -41,6 +46,10 @@
 \section{Gamification}
 
 \section{Sonstiges}
+\begin{itemize}
+    \item Configuration, MLServer und DatabaseAdapter jetzt Interfaces zur Injection mit Google Guice
+    \item DefaultConfiguration umbenannt zu ApacheCommonsConfiguration nach der genutzten Bibliothek
+\end{itemize}
 
 
 \chapter{Implementierte Kriterien}
