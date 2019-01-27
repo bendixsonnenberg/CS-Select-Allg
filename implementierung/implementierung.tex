@@ -26,7 +26,7 @@
 
 \chapter{Einleitung}
 
-In diesem Dokument beschäftigen wir uns mit der Implementierungsphase unseres Projekts CS:Select. Dabei befassen wir uns insbesondere damit, welche Kriterien aus unserem Pflichtenheft wir umgesetzt haben und welche Änderungen sich zu unserem Entwurf ergeben haben. Da das Front-End im Entwurfsdokument nur sehr oberflächlich behandelt wurde, gehen wir nun nochmal genauer darauf ein, wie dieses gestaltet wurde. Außerdem stellen wir dar, wie die Implementierung zeitlich abgelaufen ist und welche Frameworks und Bibliotheken wir dabei benutzt haben. Schlussendlich gibt es einen einen Überblick über die bereits vorhandenen Unit-Tests.
+In diesem Dokument beschäftigen wir uns mit der Implementierungsphase unseres Projekts CS:Select. Dabei befassen wir uns insbesondere damit, welche Kriterien wir aus unserem Pflichtenheft umgesetzt haben und welche Änderungen sich zu unserem Entwurf ergeben haben. Da das Front-End im Entwurfsdokument nur sehr oberflächlich behandelt wurde, gehen wir nun nochmal genauer darauf ein, wie dieses gestaltet wurde. Außerdem stellen wir dar, wie die Implementierung zeitlich abgelaufen ist und welche Frameworks und Bibliotheken wir dabei benutzt haben. Schlussendlich gibt es einen einen Überblick über die bereits vorhandenen Unit-Tests.
 
 \hspace{1cm}
 
@@ -41,19 +41,20 @@ Alle Muss-Kriterien aus dem Pflichtenheft wurden bei der Implementierung berück
 
 \section{Kann-Kriterien}
 Die folgenden Kann-Kriterien sind inklusive aller zugehörigen Funktionellen Anforderungen implementiert:
+
 \begin{itemize}
 \item Erweiterte Nutzerverwaltung (E-Mail-Adresse und Passwort ändern sowie Passwort zurücksetzen)
 \item Zusätzliche Funktionen für den Organisator in der Übersichts-GUI (Spiele vorzeitig beenden und beendete Spiele aus der Übersicht löschen)
 \item Speichern und Laden von Spieleinstellungen bei der Spielerstellung
 \item Zusätzliche Optionen für den Spieler im Spiel (Runde überspringen, Merkmal als unwichtig markieren)
-\item Gamification-Elemente Leaderboard, Achievements, Daily Challenges und Streaks
+\item Gamification-Elemente Leaderboard, Achievements, Daily-Challenges und Streaks
 \item Bedienungshilfen %???
 \item Internationalisierung (Sprache im Browser ändern, englisches Sprachpaket)
 \end{itemize}
 
 \hspace{1cm}
 
-Weitere Kriterien sind teilweise implementiert, also sind manche zugehörige Funktionale Anforderungen implementiert, andere dagegen nicht:
+Weitere Kriterien sind teilweise implementiert, d.h. manche zugehörige funktionale Anforderungen sind implementiert, andere hingegen nicht:
 
 \subsection{Zusätzliche Funktionen zur Verwaltung des Spiel-Servers}
 Zusätzliche Funktionen zur Verwaltung des Spiel-Servers: Dadurch, dass alle Daten in unserer Datenbank gespeichert werden und nicht im Arbeitsspeicher gehalten werden, wird der Zustand des Spiel-Servers auch bei einem Neustart erhalten. Spiele und Organisatoren können direkt aus der Datenbank gelöscht werden. Die Kommunikation eines Administrators mit dem System über eine Kommandozeile ist dagegen nicht möglich und es gibt auch keinen Dialog beim Aufsetzen des Servers, da dafür die Config-Datei genug sein sollte.  
@@ -99,7 +100,23 @@ Das letzte Kann-Kriterium, weitere Spielmodi, wurde dagegen aus Zeitgründen und
 	\item Runden haben eine setGame Methode
 	\item Die Boolean-Rückgabewerte der Methoden invitePlayers, acceptInvite und declineInvite waren unnötig und wurden rausgenommen
 \end{itemize}
+
 \section{Gamification}
+\begin{itemize}
+  \item Die Methode calculateScore wurde zu finishRound umbenannt, da der Name zuvor irreführend war.
+  \item Die Methode getPlayers gibt nun eine sortierte Map (LinkedHashMap) anstatt einer Liste zurück. Ein Spieler wird dabei auf die entsprechende anzuzeigende Punktezahl (je nach Sortierstrategie) gemappt. Daraus folgen ebenso Signaturänderungen in SortingStrategy und deren Unterklassen.
+  \item Für die SortingStrategy im Leaderboard gibt es nun einen Getter.
+  \item In der abstrakten Klasse DailyChallenge fällt die Methode resetDaily weg, da sie obsolet ist.
+  \item Der Datentyp für das Datum einer DailyChallenge ist LocalDate anstatt Date.
+  \item Der Aufbau von Achievements unterscheidet sich grundlegend vom Entwurf. Es gibt nun ein Enum AchievementType, welches alle Achievements
+    enthält. Jede Instanz dieses Enums implementiert eine abstrakte Methode getState. Beim Aufruf der Methode checkProgress
+    wird dann nun der Status des Achievements-Typs ermittelt und ein neues konkretes Achievement mit entsprechenden Attributen
+    erzeugt (Schablonenmethode). Außerdem bietet das Enum weitere Methoden für die Namen bzw. Beschreibungen, welche im Front-End
+    angezeigt werden (getGermanName, getGermanDescription, getEnglishName, getEnglishDescription) an.
+  \item Die Klasse Achievement ist dementsprechend nicht mehr abstrakt. Konkrete Achievements werden in der checkProgress-Methode
+    der Enum-Instanzen erzeugt. Außerdem existiert nun eine Referenz zum Enum AchievementType.
+  \item PlayerStats...
+\end{itemize}
 
 \section{Sonstiges}
 \begin{itemize}
