@@ -30,7 +30,15 @@ In diesem Dokument beschäftigen wir uns mit der Implementierungsphase unseres P
 
 \hspace{1cm}
 
-Genereller Aufbau
+Generell kann das Projekt in die Bestandteile Front-End und Spiel-Server aufgeteilt werden. Für das Front-End haben wir dabei mit HTML, CSS und JavaScript gearbeitet, während der Spiel-Server in Java geschrieben ist. Dieser beinhaltet ein Datenbank-Paket, welches wir mithilfe von mySQL implementiert haben. Das Front-End und der Spiel-Server kommunizieren über eine von uns definierte API.
+
+\hspace{1cm}
+
+Ein grundlegender Gedanke unserer Implementierung war es, möglichst wenige Daten im Arbeitsspeicher und möglichst viele in unserer Datenbank zu halten, um das Erhalten des Server-Status beim Beenden und bei einem möglichen Absturz sicherzustellen und Inkonsistenzen zu verhindern. Das wurde über die Kommunikation verschiedener Klassen und Objekte mit der Datenbank über eigene Adapter erreicht. 
+
+\hspace{1cm}
+
+Insgesamt haben wir so X Commits getätigt und es sind X Pakete, Y Klassen sowie Z Codezeilen entstanden. %Konkrete Werte
 
 
 \chapter{Implementierte Kriterien}
@@ -71,7 +79,7 @@ Solange das möglich ist, wird das Anzeigen von gleichen Merkmalskombinationen i
 
 Das letzte Kann-Kriterium, weitere Spielmodi, wurde dagegen aus Zeitgründen und aufgrund von einem Mangel an sinnvollen Ideen nicht umgesetzt.
 \chapter{Änderungen zum Entwurf}
-
+%Andere Gliederung?
 \section{API}
 
 \section{User}
@@ -87,18 +95,20 @@ Das letzte Kann-Kriterium, weitere Spielmodi, wurde dagegen aus Zeitgründen und
 
 \section{Game}
 \begin{itemize}
-	\item Datentyp für Zeitpunkte ist LocalDateTime
-	\item Features werden in FeatureSet als Set gespeichert, dementsprechend gibt die Methode getFeatures auch ein Set statt einer Collection zurück
-	\item Methode getFinished von Game heißt nun isTerminated, da sie kein Getter ist sondern die Terminierung überprüft
-	\item Methode getRounds von Game gibt Collection statt Liste zurück, da die Reihenfolge hier nicht relevant ist
-	\item Entsprechend dem Vorgehen bei den Usern wird auch beim Game über die Datenbank sichergestellt, dass evtl. verschiedene Objekte zum gleichen Spiel synchronisiert sind, deshalb sind die Attribute invitedPlayersEmails und numberOfRounds sowie die Assoziationen zum Spieler und zur Runde über die Datenbank realisiert 
-	\item Klasse Termination hat Setter-Methode für das zugehörige Spiel
-	\item Die Rundennummer ist nicht relevant und wurde somit nicht implementiert, deswegen ändern sich auch die Signaturen der entsprechenden Fabrikmethoden der Spielmodi
-	\item Klasse GamemodeComposite hat getGamemode Methode
-	\item Die Methoden skip und selectFeatures der Klasse Round benötigen keine Feature-Objekte, sondern nur deren ID, deshalb wurde die Methodensignatur entsprechend geändert, genauso auch die Methode acceptInvite der Klasse Game mit der \newline PlayerID statt einem Objekt
-	\item Bei der provideFeatures-Methode ist die Reihenfolge der erzeugten Features relevant, deshalb ist hier nun der Rückgabetyp eine Liste statt einer Collection
-	\item Runden haben eine setGame Methode
-	\item Die Boolean-Rückgabewerte der Methoden invitePlayers, acceptInvite und declineInvite waren unnötig und wurden rausgenommen
+	\item Der Datentyp für Zeitpunkte ist LocalDateTime anstatt Date.
+	\item Features werden in FeatureSet als Set gespeichert, dementsprechend gibt die Methode getFeatures auch ein Set statt einer Collection zurück.
+	\item Die Methode getFinished von Game heißt nun isTerminated, da sie kein Getter ist sondern die Terminierung überprüft.
+	\item Die Methode getRounds von Game gibt Collection statt Liste zurück, da die Reihenfolge hier nicht relevant ist.
+	\item Entsprechend dem Vorgehen bei den Usern wird auch beim Game über die Datenbank sichergestellt, dass evtl. verschiedene Objekte zum gleichen Spiel synchronisiert sind, deshalb sind die Attribute invitedPlayersEmails und numberOfRounds sowie die Assoziationen zum Spieler und zur Runde über die Datenbank realisiert.
+	\item Die Klasse Termination hat Setter-Methode für das zugehörige Spiel.
+	\item Die Rundennummer ist nicht relevant und wurde somit nicht implementiert, deswegen ändern sich auch die Signaturen der entsprechenden Fabrikmethoden der Spielmodi.
+	\item Die Klasse GamemodeComposite hat nun eine getGamemode Methode.
+	\item Die Methoden skip und selectFeatures der Klasse Round benötigen keine Feature-Objekte, sondern nur deren ID, deshalb wurde die Methodensignatur entsprechend geändert, genauso auch die Methode acceptInvite der Klasse Game mit der \newline PlayerID statt einem Objekt.
+	\item Bei der provideFeatures-Methode ist die Reihenfolge der erzeugten Features relevant, deshalb ist hier nun der Rückgabetyp eine Liste statt einer Collection.
+	\item Runden haben nun eine setGame Methode.
+	\item Die Boolean-Rückgabewerte der Methoden invitePlayers, acceptInvite und declineInvite waren unnötig und wurden rausgenommen.
+	\item Die delete-Methoden von TerminationComposite und GamemodeComposite wurden nicht benutzt und dementsprechend entfernt.
+	\item Die Klasse Game hat nun eine checkDuplicateFeatureProvision-Methode, um sicherzustellen, dass in einem Spiel nicht die gleiche Merkmalskombination mehrfach angezeigt wird.
 \end{itemize}
 
 \section{Gamification}
@@ -129,11 +139,31 @@ Das letzte Kann-Kriterium, weitere Spielmodi, wurde dagegen aus Zeitgründen und
 \chapter{Frameworks und Bibliotheken}
 
 \chapter{Zeitlicher Ablauf}
+Die ursprüngliche Planung der Phase ist im folgenden Implementierungsplan als Gantt-Chart festgehalten:
 
-\includegraphics[width=\linewidth]{img/gantt.pdf}
+\includegraphics[width=\linewidth]{img/gantt.pdf} %in Anhang?
+
+Dabei sollten aufgrund der Abhängigkeiten untereinander zunächst die kleineren Pakete und besonders das User-Paket fertiggestellt werden, die größeren Pakete Database, Game und Gamification sowie das Front-End waren dagegen länger eingeplant. Das ist auch soweit eingetroffen, auch wenn die letzten Schnittstellen erst ein wenig später als geplant vorhanden waren. Die ersten Pakete, also das Config-Paket, das ML-Server-Paket und das User-Paket waren bis auf einzelne Methoden im Zeitplan fertig. Die Mock Datenbank, das API-Paket, das Database-Paket und das Game-Paket konnten sogar vor dem jeweiligen Planungsende fertiggestellt werden und auch das Gamification-Paket war rechtzeitig vorhanden. Einzig das Front-End wurde erst in der letzten Woche fertiggestellt, dafür war diese Woche aber auch eingeplant.
+
+\hspace{1cm}
+
+Insgesamt wurde der Zeitplan also erfüllt und die meisten Pakete wurde in der geplanten Frist fertiggestellt.
 
 \chapter{Unit-Tests}
+Bereits während der Implementierung sind viele Unit-Tests entstanden. So haben wir mit den bisher vorhandenen X Unit-Tests eine Testüberdeckung von X Prozent erreicht, die in der Qualitätssicherungsphase noch optimiert wird. Aufgeteilt auf die größeren Pakete sind das:
+\begin{itemize}
+	\item API: Testüberdeckung X Prozent mit X einzelnen Unit-Tests
+	\item User: Testüberdeckung X Prozent mit X einzelnen Unit-Tests
+	\item Database: Testüberdeckung X Prozent mit X einzelnen Unit-Tests
+	\item Game: Testüberdeckung X Prozent mit X einzelnen Unit-Tests
+	\item Gamification: Testüberdeckung X Prozent mit X einzelnen Unit-Tests
+\end{itemize}
+%Konkrete Werte
+\hspace{1cm}
 
+Dabei sind in den Paketen API und User die Testmengen eher gering, da diese hauptsächlich Aufrufe an andere Pakete weiterleiten, während das Database-Paket aufgrund seiner besonderen Relevanz bei unserer Implementierung die meisten Tests enthält.
+
+%besondere Tests?
 
 
 
