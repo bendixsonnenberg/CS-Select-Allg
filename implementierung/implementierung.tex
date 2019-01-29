@@ -78,6 +78,7 @@ Solange das möglich ist, wird das Anzeigen von gleichen Merkmalskombinationen i
 \hspace{1cm}
 
 Das letzte Kann-Kriterium, weitere Spielmodi, wurde dagegen aus Zeitgründen und aufgrund von einem Mangel an sinnvollen Ideen nicht umgesetzt.
+
 \chapter{Änderungen zum Entwurf}
 %Andere Gliederung?
 \section{API}
@@ -86,9 +87,9 @@ Das letzte Kann-Kriterium, weitere Spielmodi, wurde dagegen aus Zeitgründen und
 
 \section{Database}
 \begin{itemize}
-    \item Neue Param-Klassen zum parametrisierten Aufruf von Mysql-Prepared-Statements
-    \item registerPlayer/Organiser Methoden zu createPlayer/Organiser umbenannt und den Registrierungsprozess ausgelagert
-    \item FeatureSet Informationen werden nicht mehr in die DB geschrieben sondern verbleiben in der erhaltenen .json Datei auf der Platte
+    \item Neue Param-Klassen zum parametrisierten Aufruf von Mysql-Prepared-Statements.
+    \item Die registerPlayer/Organiser-Methoden wurden zu createPlayer/Organiser umbenannt und der Registrierungsprozess wurde ausgelagert.
+    \item FeatureSet-Informationen werden nicht mehr in die Datenbank geschrieben, sondern verbleiben in der erhaltenen .json Datei auf der Platte.
 \end{itemize}
 
 \section{GameCreation}
@@ -113,19 +114,22 @@ Das letzte Kann-Kriterium, weitere Spielmodi, wurde dagegen aus Zeitgründen und
 
 \section{Gamification}
 \begin{itemize}
-  \item Die Methode calculateScore wurde zu finishRound umbenannt, da der Name zuvor irreführend war.
-  \item Die Methode getPlayers gibt nun eine sortierte Map (LinkedHashMap) anstatt einer Liste zurück. Ein Spieler wird dabei auf die entsprechende anzuzeigende Punktezahl (je nach Sortierstrategie) gemappt. Daraus folgen ebenso Signaturänderungen in SortingStrategy und deren Unterklassen.
+  \item Die Methode calculateScore im Gamification-Interface wurde zu finishRound umbenannt, da der Name zuvor irreführend war. Da PlayerStats dieses Interface implementiert, wurde dementsprechend auch dort die Methode umbenannt.
+  \item Die Methode getPlayers vom Leaderboard gibt nun eine sortierte Map (LinkedHashMap) anstatt einer Liste zurück. Ein Spieler wird dabei auf die entsprechende anzuzeigende Punktezahl (je nach Sortierstrategie) gemappt. Daraus folgen ebenso Signaturänderungen in SortingStrategy und deren Unterklassen.
   \item Für die SortingStrategy im Leaderboard gibt es nun einen Getter.
   \item In der abstrakten Klasse DailyChallenge fällt die Methode resetDaily weg, da sie obsolet ist.
   \item Der Datentyp für das Datum einer DailyChallenge ist LocalDate anstatt Date.
+  \item Der Setter für das für das Datum einer Daily-Challenge fällt weg, dieses wird im Konstruktor gesetzt.
   \item Der Aufbau von Achievements unterscheidet sich grundlegend vom Entwurf. Es gibt nun ein Enum AchievementType, welches alle Achievements
     enthält. Jede Instanz dieses Enums implementiert eine abstrakte Methode getState. Beim Aufruf der Methode checkProgress
     wird dann nun der Status des Achievements-Typs ermittelt und ein neues konkretes Achievement mit entsprechenden Attributen
     erzeugt (Schablonenmethode). Außerdem bietet das Enum weitere Methoden für die Namen bzw. Beschreibungen, welche im Front-End
-    angezeigt werden (getGermanName, getGermanDescription, getEnglishName, getEnglishDescription) an.
+    angezeigt werden (getName, getDescription) an. Die festgelegten Achievements aus dem Entwurf sind jedoch gleich geblieben.
   \item Die Klasse Achievement ist dementsprechend nicht mehr abstrakt. Konkrete Achievements werden in der checkProgress-Methode
     der Enum-Instanzen erzeugt. Außerdem existiert nun eine Referenz zum Enum AchievementType.
-  \item PlayerStats...
+  \item Die verschiedenen Attribute, die die Klasse PlayerStats im Enwturfsdiagramm besitzt, werden nun in der Datenbank abgespeichert, damit diese
+    einen eventuellen Serverabsturz überstehen. Daher erwartet der PlayerStats-Konstruktor nun einen PlayerStatsAdpater.
+  \item Aufgrund der Umstrukturierung der Achievements exisitiert auch keine statische Liste aus Achievements in PlayerStats mehr.
 \end{itemize}
 
 \section{Sonstiges}
