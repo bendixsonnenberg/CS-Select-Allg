@@ -87,9 +87,17 @@ Das letzte Kann-Kriterium, weitere Spielmodi, wurde dagegen aus Zeitgründen und
 
 \section{Database}
 \begin{itemize}
-    \item Neue Param-Klassen zum parametrisierten Aufruf von Mysql-Prepared-Statements.
-    \item Die registerPlayer/Organiser-Methoden wurden zu createPlayer/Organiser umbenannt und der Registrierungsprozess wurde ausgelagert.
-    \item FeatureSet-Informationen werden nicht mehr in die Datenbank geschrieben, sondern verbleiben in der erhaltenen .json Datei auf der Platte.
+    \item Neue Param-Klassen zum parametrisierten Aufruf von Mysql-Prepared-Statements wurden hinzugefügt
+    \item Die registerPlayer/Organiser Methoden heißen nun createPlayer/Organiser und der eigentliche Registrierungsprozess wurde ausgelagert
+    \item FeatureSet Informationen werden nicht mehr in die DB geschrieben sondern verbleiben in der erhaltenen .json Datei auf dem Dateisystem
+    \item Neue Oberklasse für alle Adapter (MysqlAdapter) hinzugefügt, die Hilfsmethoden zum einfacheren Zugriff auf die Datenbank bündelt
+    \item Der DatabaseAdapter besitzt nun eine getPlayer(int id) Methode
+    \item getPlayer/OrganiserSalt, getPlayer/OrganiserHash Methoden wurden hinzugefügt um Hash bzw. Salt von Spielern anhand ihrer Email laden zu können
+    \item getPasswordSalt wurde dem UserAdapter hinzugefügt, da die Passwortprüfung ausgelagert wurde
+    \item getActive/TerminatedGames wurden in den UserAdapter verlegt, da sowohl Player als auch Organiser diese Methoden benötigen
+    \item Klasse PlayerStatsAdapter hinzugefügt um die PlayerStats in die Datenbank abzubilden
+    \item getInvitedPlayers im DatabaseAdapter gibt nun eine Collection von E-Mail-Addressen als Strings statt Player-Objekte zurück, da eingeladene Spieler nicht notwendigerweise bereits in CS:Select registriert sein müssen
+    \item addPlayingPlayer zum GameAdapter hinzugefügt um einzelne Spieler komfortabler hinzufügen zu können
 \end{itemize}
 
 \section{GameCreation}
@@ -134,7 +142,8 @@ Das letzte Kann-Kriterium, weitere Spielmodi, wurde dagegen aus Zeitgründen und
 
 \section{Sonstiges}
 \begin{itemize}
-    \item Configuration, MLServer und DatabaseAdapter jetzt Interfaces zur Injection mit Google Guice
+    \item Configuration, MLServer und DatabaseAdapter jetzt Interfaces die von einer Injector Klasse ausgeliefert werden.
+    Die jeweilige Implementierung wird durch ein Module-Objekt festgelegt, das die jeweiligen Implementierungen den Interfaces je nach Anwendungszweck zuordnet.
     \item DefaultConfiguration umbenannt zu ApacheCommonsConfiguration nach der genutzten Bibliothek
 \end{itemize}
 
