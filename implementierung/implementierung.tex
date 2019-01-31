@@ -38,7 +38,7 @@ Ein grundlegender Gedanke unserer Implementierung war es, möglichst wenige Date
 
 \hspace{1cm}
 
-Insgesamt haben wir so X Commits getätigt und es sind X Pakete, Y Klassen sowie Z Codezeilen entstanden. %Konkrete Werte
+Insgesamt haben wir so (bisher) 365 Commits getätigt und es sind 10 Pakete, 118 Klassen sowie 11241 Codezeilen entstanden. %Konkrete Werte
 
 
 \chapter{Implementierte Kriterien}
@@ -56,8 +56,9 @@ Die folgenden Kann-Kriterien sind inklusive aller zugehörigen Funktionellen Anf
 \item Speichern und Laden von Spieleinstellungen bei der Spielerstellung
 \item Zusätzliche Optionen für den Spieler im Spiel (Runde überspringen, Merkmal als unwichtig markieren)
 \item Gamification-Elemente Leaderboard, Achievements, Daily-Challenges und Streaks
-\item Bedienungshilfen %???
+\item Bedienungshilfen
 \item Internationalisierung (Sprache im Browser ändern, englisches Sprachpaket)
+\item Unterstützung von mehreren Plattformen (Lieferung als Docker-Image, Responsive durch Bootstrap)
 \end{itemize}
 
 \hspace{1cm}
@@ -70,9 +71,6 @@ Zusätzliche Funktionen zur Verwaltung des Spiel-Servers: Dadurch, dass alle Dat
 \subsection{Verbesserung der Merkmalsbereitstellung für ein Spiel}
 Solange das möglich ist, wird das Anzeigen von gleichen Merkmalskombinationen in einem Spiel vom System verhindert. Bis auf diese Einschränkung erfolgt das Erzeugen der angezeigten Merkmalskombination jedoch zufällig.
 
-
-\subsection{Unterstützung von mehreren Plattformen}
-%???
 
 
 \hspace{1cm}
@@ -124,6 +122,7 @@ Das letzte Kann-Kriterium, weitere Spielmodi, wurde dagegen aus Zeitgründen und
 	\item Die Boolean-Rückgabewerte der Methoden invitePlayers, acceptInvite und declineInvite waren unnötig und wurden rausgenommen.
 	\item Die delete-Methoden von TerminationComposite und GamemodeComposite wurden nicht benutzt und dementsprechend entfernt.
 	\item Die Klasse Game hat nun eine checkDuplicateFeatureProvision-Methode, um sicherzustellen, dass in einem Spiel nicht die gleiche Merkmalskombination mehrfach angezeigt wird.
+	\item Name und Beschreibung eines Features sind jetzt als Maps gespeichert und es gibt nur noch je einen Getter, der als Parameter einen Language Code erwartet, um das Erhalten von Strings aus dem Back-End einheitlich zu halten und besser erweiterbar zu machen.
 \end{itemize}
 
 \section{Gamification}
