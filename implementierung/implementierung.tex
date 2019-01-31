@@ -44,11 +44,11 @@ Insgesamt haben wir so (bisher) 365 Commits getätigt und es sind 10 Pakete, 118
 \chapter{Implementierte Kriterien}
 
 \section{Muss-Kriterien}
-Alle Muss-Kriterien aus dem Pflichtenheft wurden bei der Implementierung berücksichtigt und alle zugehörigen Funktionellen Anforderungen sind implementiert.
+Alle Muss-Kriterien aus dem Pflichtenheft wurden bei der Implementierung berücksichtigt und alle zugehörigen funktionalen Anforderungen sind implementiert.
 
 
 \section{Kann-Kriterien}
-Die folgenden Kann-Kriterien sind inklusive aller zugehörigen Funktionellen Anforderungen implementiert:
+Die folgenden Kann-Kriterien sind inklusive aller zugehörigen funktionaler Anforderungen implementiert:
 
 \begin{itemize}
 \item Erweiterte Nutzerverwaltung (E-Mail-Adresse und Passwort ändern sowie Passwort zurücksetzen)
@@ -57,7 +57,7 @@ Die folgenden Kann-Kriterien sind inklusive aller zugehörigen Funktionellen Anf
 \item Zusätzliche Optionen für den Spieler im Spiel (Runde überspringen, Merkmal als unwichtig markieren)
 \item Gamification-Elemente Leaderboard, Achievements, Daily-Challenges und Streaks
 \item Bedienungshilfen
-\item Internationalisierung (Sprache im Browser ändern, englisches Sprachpaket)
+\item Internationalisierung (Sprache im Browser ändern, englisches und deutsches Sprachpaket)
 \item Unterstützung von mehreren Plattformen (Lieferung als Docker-Image, Responsive durch Bootstrap)
 \end{itemize}
 
@@ -66,10 +66,10 @@ Die folgenden Kann-Kriterien sind inklusive aller zugehörigen Funktionellen Anf
 Weitere Kriterien sind teilweise implementiert, d.h. manche zugehörige funktionale Anforderungen sind implementiert, andere hingegen nicht:
 
 \subsection{Zusätzliche Funktionen zur Verwaltung des Spiel-Servers}
-Zusätzliche Funktionen zur Verwaltung des Spiel-Servers: Dadurch, dass alle Daten in unserer Datenbank gespeichert werden und nicht im Arbeitsspeicher gehalten werden, wird der Zustand des Spiel-Servers auch bei einem Neustart erhalten. Spiele und Organisatoren können direkt aus der Datenbank gelöscht werden. Die Kommunikation eines Administrators mit dem System über eine Kommandozeile ist dagegen nicht möglich und es gibt auch keinen Dialog beim Aufsetzen des Servers, da dafür die Config-Datei genug sein sollte.  
+Dadurch, dass alle Daten in unserer Datenbank gespeichert werden und nicht im Arbeitsspeicher gehalten werden, wird der Zustand des Spiel-Servers auch bei einem Neustart erhalten. Spiele und Organisatoren können direkt aus der Datenbank gelöscht werden. Die Kommunikation eines Administrators mit dem System über eine Kommandozeile ist dagegen nicht möglich und es gibt auch keinen Dialog beim Aufsetzen des Servers, da dafür die Config-Datei genug sein sollte.
 
 \subsection{Verbesserung der Merkmalsbereitstellung für ein Spiel}
-Solange das möglich ist, wird das Anzeigen von gleichen Merkmalskombinationen in einem Spiel vom System verhindert. Bis auf diese Einschränkung erfolgt das Erzeugen der angezeigten Merkmalskombination jedoch zufällig.
+Solange es möglich ist, wird das Anzeigen von gleichen Merkmalskombinationen in einem Spiel vom System verhindert. Bis auf diese Einschränkung erfolgt das Erzeugen der angezeigten Merkmalskombination jedoch zufällig.
 
 
 
@@ -83,7 +83,7 @@ Das letzte Kann-Kriterium, weitere Spielmodi, wurde dagegen aus Zeitgründen und
 \begin{itemize}
     \item Games Klasse in zwei getrennte Klassen für Game-Management und Game spielen aufgeteilt.
     \item Servlet Klasse hat zwei abstrakte Methoden get() und post(), die bei den jeweiligen HTTP-Anfragen aufgerufen werden.
-    \item APIFacadePlayer und APIFacadeORganiser haben jetzt getPlayer und getOrganiser Methoden
+    \item APIFacadePlayer und APIFacadeOrganiser haben jetzt getPlayer und getOrganiser Methoden.
     \item getSavedSettings zu getPatterns umbenannt
 \end{itemize}
 
@@ -133,29 +133,31 @@ Das letzte Kann-Kriterium, weitere Spielmodi, wurde dagegen aus Zeitgründen und
   \item In der abstrakten Klasse DailyChallenge fällt die Methode resetDaily weg, da sie obsolet ist.
   \item Der Datentyp für das Datum einer DailyChallenge ist LocalDate anstatt Date.
   \item Der Setter für das für das Datum einer Daily-Challenge fällt weg, dieses wird im Konstruktor gesetzt.
+  \item Daily-Challenges haben keinen expliziten Namen, sondern nur noch eine Beschreibung. Die Methode getName fällt daher weg. Die Methode getDescription hingegen erwartet nun einen Language-Code als Parameter.
   \item Der Aufbau von Achievements unterscheidet sich grundlegend vom Entwurf. Es gibt nun ein Enum AchievementType, welches alle Achievements
     enthält. Jede Instanz dieses Enums implementiert eine abstrakte Methode getState. Beim Aufruf der Methode checkProgress
-    wird dann nun der Status des Achievements-Typs ermittelt und ein neues konkretes Achievement mit entsprechenden Attributen
+    wird nun der Status des Achievements-Typs ermittelt und ein neues konkretes Achievement mit entsprechenden Attributen
     erzeugt (Schablonenmethode). Außerdem bietet das Enum weitere Methoden für die Namen bzw. Beschreibungen, welche im Front-End
     angezeigt werden (getName, getDescription) an. Die festgelegten Achievements aus dem Entwurf sind jedoch gleich geblieben.
   \item Die Klasse Achievement ist dementsprechend nicht mehr abstrakt. Konkrete Achievements werden in der checkProgress-Methode
     der Enum-Instanzen erzeugt. Außerdem existiert nun eine Referenz zum Enum AchievementType.
-  \item Die verschiedenen Attribute, die die Klasse PlayerStats im Enwturfsdiagramm besitzt, werden nun in der Datenbank abgespeichert, damit diese
+  \item Für Achievements und Daily-Challenges wurden die Strings, welche Beschreibungen bzw. Namen enthalten, in ein Resource-Bundle ausgelagert.
+  \item Die Attribute score, roundsPlayed, dailiesCompleted, maxRoundScore, lastScore und highestStreak in PlayerStats werden nun in der Datenbank abgespeichert, damit diese
     einen eventuellen Serverabsturz überstehen. Daher erwartet der PlayerStats-Konstruktor nun einen PlayerStatsAdpater.
-  \item Aufgrund der Umstrukturierung der Achievements exisitiert auch keine statische Liste aus Achievements in PlayerStats mehr.
+  \item Aufgrund der Umstrukturierung der Achievements exisitiert keine statische Liste aus Achievements in PlayerStats mehr.
 \end{itemize}
 
 \section{Sonstiges}
 \begin{itemize}
-    \item Configuration, MLServer und DatabaseAdapter sind jetzt Interfaces die von einer Injector Klasse ausgeliefert werden.
+    \item Configuration, MLServer und DatabaseAdapter sind jetzt Interfaces, die von einer Injector-Klasse ausgeliefert werden.
     Die jeweilige Implementierung wird durch ein Module-Objekt festgelegt, das die jeweiligen Implementierungen den Interfaces je nach Anwendungszweck zuordnet.
-    \item DefaultConfiguration wurde zu ApacheCommonsConfiguration umbenannt um einerseits aussagekräftiger zu sein und die genutzte Bibliothek anzugeben
+    \item DefaultConfiguration wurde zu ApacheCommonsConfiguration umbenannt, um einerseits aussagekräftiger zu sein und die genutzte Bibliothek anzugeben.
 \end{itemize}
 
 \chapter{Front-End}
-Das Frontend ist mit Vue.js umgesetzt und verwendet zum Styling Bootstrap. Der Inhalt des Frontends wird über API-Aufrufe gefüllt.
-Vue.js arbeitet mit Komponenten die in Javascript geschrieben werden und im DOM eingefügt werden. \\
-Zum Beispiel wird beim Laden einer Runde dynamisch das richtige Darstellungsmodell für diese Runde ausgewählt, durch ein Austauschen der Komponente. Hierfür ist ein Interface definiert, das von allen Gamemode-Display-Komponenten eingehalten werden muss. Dies erleichtert das Einrichten neuer Gamemodi um einiges.
+Das Front-End ist mit Vue.js umgesetzt und verwendet zum Styling Bootstrap. Der Inhalt des Front-Ends wird über API-Aufrufe gefüllt.
+Vue.js arbeitet mit Komponenten, die in Javascript geschrieben werden und im DOM eingefügt werden. \\
+Zum Beispiel wird beim Laden einer Runde dynamisch das richtige Darstellungsmodell für diese Runde ausgewählt, dies geschieht durch Austauschen der Komponente. Hierfür ist ein Interface definiert, das von allen Gamemode-Display-Komponenten eingehalten werden muss. Dies erleichtert das Einrichten neuer Spielmodi sehr.
 \chapter{Frameworks und Bibliotheken}
 \begin{itemize}
     \item Apache Commons Beanutils
@@ -185,7 +187,7 @@ Die ursprüngliche Planung der Phase ist im folgenden Implementierungsplan als G
 
 \includegraphics[width=\linewidth]{img/gantt.pdf} %in Anhang?
 
-Dabei sollten aufgrund der Abhängigkeiten untereinander zunächst die kleineren Pakete und besonders das User-Paket fertiggestellt werden, die größeren Pakete Database, Game und Gamification sowie das Front-End waren dagegen länger eingeplant. Das ist auch soweit eingetroffen, auch wenn die letzten Schnittstellen erst ein wenig später als geplant vorhanden waren. Die ersten Pakete, also das Config-Paket, das ML-Server-Paket und das User-Paket waren bis auf einzelne Methoden im Zeitplan fertig. Die Mock Datenbank, das API-Paket, das Database-Paket und das Game-Paket konnten sogar vor dem jeweiligen Planungsende fertiggestellt werden und auch das Gamification-Paket war rechtzeitig vorhanden. Einzig das Front-End wurde erst in der letzten Woche fertiggestellt, dafür war diese Woche aber auch eingeplant.
+Dabei sollten aufgrund der Abhängigkeiten untereinander zunächst die kleineren Pakete und besonders das User-Paket fertiggestellt werden. Die größeren Pakete Database, Game und Gamification sowie das Front-End waren dagegen länger eingeplant. Das ist auch soweit eingetroffen, auch wenn die letzten Schnittstellen erst ein wenig später als geplant vorhanden waren. Die ersten Pakete, also das Config-Paket, das ML-Server-Paket und das User-Paket waren bis auf einzelne Methoden im Zeitplan fertig. Die Mock Datenbank, das API-Paket, das Database-Paket und das Game-Paket konnten sogar vor dem jeweiligen Planungsende fertiggestellt werden und auch das Gamification-Paket war rechtzeitig vorhanden. Einzig das Front-End wurde erst in der letzten Woche fertiggestellt, dafür war diese Woche aber auch eingeplant.
 
 \hspace{1cm}
 
