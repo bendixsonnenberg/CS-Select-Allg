@@ -30,7 +30,7 @@ In diesem Dokument beschäftigen wir uns mit der Implementierungsphase unseres P
 
 \hspace{1cm}
 
-Generell kann das Projekt in die Bestandteile Front-End und Spiel-Server aufgeteilt werden. Für das Front-End haben wir dabei mit HTML, CSS und JavaScript gearbeitet, während der Spiel-Server in Java geschrieben ist. Dieser beinhaltet ein Datenbank-Paket, welches wir mithilfe von mySQL implementiert haben. Das Front-End und der Spiel-Server kommunizieren über eine von uns definierte API.
+Generell kann das Projekt in die Bestandteile Front-End und Spiel-Server aufgeteilt werden. Für das Front-End haben wir dabei mit HTML, CSS und JavaScript gearbeitet, während der Spiel-Server in Java geschrieben ist. Dieser beinhaltet ein Datenbank-Paket, welches wir mithilfe von MySQL implementiert haben. Das Front-End und der Spiel-Server kommunizieren über eine von uns definierte API.
 
 \hspace{1cm}
 
@@ -44,7 +44,7 @@ Insgesamt haben wir so (bisher) 365 Commits getätigt und es sind 10 Pakete, 118
 \chapter{Implementierte Kriterien}
 
 \section{Muss-Kriterien}
-Alle Muss-Kriterien aus dem Pflichtenheft wurden bei der Implementierung berücksichtigt und alle zugehörigen Funktionellen Anforderungen sind implementiert.
+Alle Muss-Kriterien aus dem Pflichtenheft wurden bei der Implementierung berücksichtigt und alle zugehörigen funktionellen Anforderungen sind implementiert.
 
 
 \section{Kann-Kriterien}
@@ -83,7 +83,7 @@ Das letzte Kann-Kriterium, weitere Spielmodi, wurde dagegen aus Zeitgründen und
 \begin{itemize}
     \item Games Klasse in zwei getrennte Klassen für Game-Management und Game spielen aufgeteilt.
     \item Servlet Klasse hat zwei abstrakte Methoden get() und post(), die bei den jeweiligen HTTP-Anfragen aufgerufen werden.
-    \item APIFacadePlayer und APIFacadeORganiser haben jetzt getPlayer und getOrganiser Methoden
+    \item APIFacadePlayer und APIFacadeOrganiser haben jetzt getPlayer und getOrganiser Methoden
     \item getSavedSettings zu getPatterns umbenannt
 \end{itemize}
 
@@ -96,10 +96,10 @@ Das letzte Kann-Kriterium, weitere Spielmodi, wurde dagegen aus Zeitgründen und
     \item FeatureSet Informationen werden nicht mehr in die DB geschrieben sondern verbleiben in der erhaltenen .json Datei auf dem Dateisystem
     \item Neue Oberklasse für alle Adapter (MysqlAdapter) hinzugefügt, die Hilfsmethoden zum einfacheren Zugriff auf die Datenbank bündelt
     \item Der DatabaseAdapter besitzt nun eine getPlayer(int id) Methode
-    \item getPlayer/OrganiserSalt, getPlayer/OrganiserHash Methoden wurden hinzugefügt um Hash bzw. Salt von Spielern anhand ihrer Email laden zu können
+    \item getPlayer/OrganiserSalt, getPlayer/OrganiserHash Methoden wurden hinzugefügt, um Hash bzw. Salt von Spielern anhand ihrer Email laden zu können
     \item getPasswordSalt wurde dem UserAdapter hinzugefügt, da die Passwortprüfung ausgelagert wurde
     \item getActive/TerminatedGames wurden in den UserAdapter verlegt, da sowohl Player als auch Organiser diese Methoden benötigen
-    \item Klasse PlayerStatsAdapter hinzugefügt um die PlayerStats in die Datenbank abzubilden
+    \item Klasse PlayerStatsAdapter hinzugefügt, um die PlayerStats in die Datenbank abzubilden
     \item getInvitedPlayers im DatabaseAdapter gibt nun eine Collection von E-Mail-Addressen als Strings statt Player-Objekte zurück, da eingeladene Spieler nicht notwendigerweise bereits in CS:Select registriert sein müssen
     \item addPlayingPlayer zum GameAdapter hinzugefügt um einzelne Spieler komfortabler hinzufügen zu können
 \end{itemize}
@@ -191,19 +191,19 @@ Dabei sollten aufgrund der Abhängigkeiten untereinander zunächst die kleineren
 
 Insgesamt wurde der Zeitplan also erfüllt und die meisten Pakete wurde in der geplanten Frist fertiggestellt.
 
-\chapter{Unit-Tests}
+\chapter{Unit-Tests} %TODO
 Bereits während der Implementierung sind viele Unit-Tests entstanden. So haben wir mit den bisher vorhandenen X Unit-Tests eine Testüberdeckung von X Prozent erreicht, die in der Qualitätssicherungsphase noch optimiert wird. Aufgeteilt auf die größeren Pakete sind das:
 \begin{itemize}
-	\item API: Testüberdeckung X Prozent mit X einzelnen Unit-Tests
-	\item User: Testüberdeckung X Prozent mit X einzelnen Unit-Tests
-	\item Database: Testüberdeckung X Prozent mit X einzelnen Unit-Tests
-	\item Game: Testüberdeckung X Prozent mit X einzelnen Unit-Tests
-	\item Gamification: Testüberdeckung X Prozent mit X einzelnen Unit-Tests
+	\item User: Testüberdeckung 54 Prozent mit 16 einzelnen Unit-Tests
+	\item Database: Testüberdeckung X Prozent mit 44 einzelnen Unit-Tests %TODO
+	\item Game: Testüberdeckung 65 Prozent mit 45 einzelnen Unit-Tests
+	\item Gamification: Testüberdeckung 96 Prozent mit 34 einzelnen Unit-Tests
+	\item Configuration: Testüberdeckung 50 Prozent mit 10 einzelnen Unit-Tests
 \end{itemize}
-%Konkrete Werte
+
 \hspace{1cm}
 
-Dabei sind in den Paketen API und User die Testmengen eher gering, da diese hauptsächlich Aufrufe an andere Pakete weiterleiten, während das Database-Paket aufgrund seiner besonderen Relevanz bei unserer Implementierung die meisten Tests enthält.
+Dabei hat das API-Paket bisher noch keine Tests, da dieses hauptsächlich Aufrufe an andere Pakete weiterleitet.
 
 %besondere Tests?
 
