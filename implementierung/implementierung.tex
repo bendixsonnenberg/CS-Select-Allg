@@ -154,7 +154,9 @@ Das letzte Kann-Kriterium, weitere Spielmodi, wurde dagegen aus Zeitgründen und
 \end{itemize}
 
 \chapter{Front-End}
-
+Das Frontend ist mit Vue.js umgesetzt und verwendet zum Styling Bootstrap. Der Inhalt des Frontends wird über API-Aufrufe gefüllt.
+Vue.js arbeitet mit Komponenten die in Javascript geschrieben werden und im DOM eingefügt werden. \\
+Zum Beispiel wird beim Laden einer Runde dynamisch das richtige Darstellungsmodell für diese Runde ausgewählt, durch ein Austauschen der Komponente. Hierfür ist ein Interface definiert, das von allen Gamemode-Display-Komponenten eingehalten werden muss. Dies erleichtert das Einrichten neuer Gamemodi um einiges.
 \chapter{Frameworks und Bibliotheken}
 \begin{itemize}
     \item Apache Commons Beanutils
@@ -176,6 +178,7 @@ Das letzte Kann-Kriterium, weitere Spielmodi, wurde dagegen aus Zeitgründen und
     \item JUnit
     \item Mockito
     \item Vue.js
+    \item Bootstrap
 \end{itemize}
 
 \chapter{Zeitlicher Ablauf}
