@@ -82,6 +82,12 @@ Das letzte Kann-Kriterium, weitere Spielmodi, wurde dagegen aus Zeitgründen und
 \chapter{Änderungen zum Entwurf}
 %Andere Gliederung?
 \section{API}
+\begin{itemize}
+    \item Games Klasse in zwei getrennte Klassen für Game-Management und Game spielen aufgeteilt.
+    \item Servlet Klasse hat zwei abstrakte Methoden get() und post(), die bei den jeweiligen HTTP-Anfragen aufgerufen werden.
+    \item APIFacadePlayer und APIFacadeORganiser haben jetzt getPlayer und getOrganiser Methoden
+    \item getSavedSettings zu getPatterns umbenannt
+\end{itemize}
 
 \section{User}
 
