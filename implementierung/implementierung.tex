@@ -151,7 +151,7 @@ Das letzte Kann-Kriterium, weitere Spielmodi, wurde dagegen aus Zeitgründen und
 	\item Die delete-Methoden von TerminationComposite und GamemodeComposite wurden nicht benutzt und dementsprechend entfernt.
 	\item Die Klasse Game hat nun eine checkDuplicateFeatureProvision-Methode, um sicherzustellen, dass in einem Spiel nicht die gleiche Merkmalskombination mehrfach angezeigt wird.
 	\item Name und Beschreibung eines Features sind jetzt als Maps gespeichert und es gibt nur noch je einen Getter, der als Parameter einen Language Code erwartet, um das Erhalten von Strings aus dem Back-End einheitlich zu halten und besser erweiterbar zu machen.
-	\item Die Rundenklasse hat einen neuen Konstruktor mit zusätzlichem Zeitparameter, um beim Erstellen von Runden aus der Datenbank die Zeit setzen zu können.
+	\item Die Rundenklasse hat einen Setter für Zeit und Punkte, um diese Daten beim Erstellen von Runden aus der Datenbank zu setzen.
 	\item Gamemodes und Terminations haben nun eine getName-Methode.
 	
 \end{itemize}
