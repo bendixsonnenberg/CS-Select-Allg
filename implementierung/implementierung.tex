@@ -38,14 +38,15 @@ Ein grundlegender Gedanke unserer Implementierung war es, möglichst wenige Date
 
 \hspace{1cm}
 
-Insgesamt haben wir so (bisher) 365 Commits getätigt und es sind 10 Pakete, 118 Klassen sowie 11241 Codezeilen entstanden. %Konkrete Werte
+Insgesamt haben wir so (bisher) 365 Commits getätigt und es sind 10 Pakete, 118 Klassen sowie 11241 Codezeilen entstanden. 
+%TODO Werte ändern
 
 
 \chapter{Implementierte Kriterien}
 
 \section{Muss-Kriterien}
-Alle Muss-Kriterien aus dem Pflichtenheft wurden bei der Implementierung berücksichtigt und alle zugehörigen funktionalen Anforderungen sind implementiert.
-
+Fast alle Muss-Kriterien aus dem Pflichtenheft wurden bei der Implementierung berücksichtigt und alle zugehörigen funktionalen Anforderungen sind implementiert. Nur die funktionale Anforderung /F170/ wurde geändert, ein Organisator kann bei unserem Produkt nur genau einen Spielmodus bei der Erstellung angeben. Im Game-Packet gibt es zwar die entsprechende Klasse GamemodeComposite, die kann aber bei der Spielerstellung nicht gesetzt werden und nicht in der Datenbank gespeichert werden.
+	
 
 \section{Kann-Kriterien}
 Die folgenden Kann-Kriterien sind inklusive aller zugehörigen funktionaler Anforderungen implementiert:
@@ -78,7 +79,6 @@ Solange es möglich ist, wird das Anzeigen von gleichen Merkmalskombinationen in
 Das letzte Kann-Kriterium, weitere Spielmodi, wurde dagegen aus Zeitgründen und aufgrund von einem Mangel an sinnvollen Ideen nicht umgesetzt.
 
 \chapter{Änderungen zum Entwurf}
-%Andere Gliederung?
 \section{API}
 \begin{itemize}
     \item Games Klasse in zwei getrennte Klassen für Game-Management und Game spielen aufgeteilt.
@@ -88,6 +88,7 @@ Das letzte Kann-Kriterium, weitere Spielmodi, wurde dagegen aus Zeitgründen und
 \end{itemize}
 
 \section{User}
+%TODO
 
 \section{Database}
 \begin{itemize}
@@ -108,6 +109,7 @@ Das letzte Kann-Kriterium, weitere Spielmodi, wurde dagegen aus Zeitgründen und
 \end{itemize}
 
 \section{GameCreation}
+%TODO
 
 \section{Game}
 \begin{itemize}
@@ -189,7 +191,7 @@ Zum Beispiel wird beim Laden einer Runde dynamisch das richtige Darstellungsmode
 \chapter{Zeitlicher Ablauf}
 Die ursprüngliche Planung der Phase ist im folgenden Implementierungsplan als Gantt-Chart festgehalten:
 
-\includegraphics[width=\linewidth]{img/gantt.pdf} %in Anhang?
+\includegraphics[width=\linewidth]{img/gantt.pdf}
 
 Dabei sollten aufgrund der Abhängigkeiten untereinander zunächst die kleineren Pakete und besonders das User-Paket fertiggestellt werden. Die größeren Pakete Database, Game und Gamification sowie das Front-End waren dagegen länger eingeplant. Das ist auch soweit eingetroffen, auch wenn die letzten Schnittstellen erst ein wenig später als geplant vorhanden waren. Die ersten Pakete, also das Config-Paket, das ML-Server-Paket und das User-Paket waren bis auf einzelne Methoden im Zeitplan fertig. Die Mock Datenbank, das API-Paket, das Database-Paket und das Game-Paket konnten sogar vor dem jeweiligen Planungsende fertiggestellt werden und auch das Gamification-Paket war rechtzeitig vorhanden. Einzig das Front-End wurde erst in der letzten Woche fertiggestellt, dafür war diese Woche aber auch eingeplant.
 
@@ -197,11 +199,11 @@ Dabei sollten aufgrund der Abhängigkeiten untereinander zunächst die kleineren
 
 Insgesamt wurde der Zeitplan also erfüllt und die meisten Pakete wurde in der geplanten Frist fertiggestellt.
 
-\chapter{Unit-Tests} %TODO
+\chapter{Unit-Tests} %TODO Werte ändern
 Bereits während der Implementierung sind viele Unit-Tests entstanden. So haben wir mit den bisher vorhandenen 156 Unit-Tests eine Testüberdeckung von 61 Prozent erreicht, die in der Qualitätssicherungsphase noch optimiert wird. Aufgeteilt auf die größeren Pakete sind das:
 \begin{itemize}
 	\item User: Testüberdeckung 60 Prozent mit 16 einzelnen Unit-Tests
-	\item Database: Testüberdeckung 62 Prozent mit 44 einzelnen Unit-Tests %TODO
+	\item Database: Testüberdeckung 62 Prozent mit 44 einzelnen Unit-Tests
 	\item Game: Testüberdeckung 74 Prozent mit 45 einzelnen Unit-Tests
 	\item Gamification: Testüberdeckung 96 Prozent mit 34 einzelnen Unit-Tests
 	\item Configuration: Testüberdeckung 76 Prozent mit 10 einzelnen Unit-Tests
