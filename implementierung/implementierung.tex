@@ -26,7 +26,7 @@
 
 \chapter{Einleitung}
 
-In diesem Dokument beschäftigen wir uns mit der Implementierungsphase unseres Projekts CS:Select. Dabei befassen wir uns insbesondere damit, welche Kriterien wir aus unserem Pflichtenheft umgesetzt haben und welche Änderungen sich zu unserem Entwurf ergeben haben. Da das Front-End im Entwurfsdokument nur sehr oberflächlich behandelt wurde, gehen wir nun nochmal genauer darauf ein, wie dieses gestaltet wurde. Außerdem stellen wir dar, wie die Implementierung zeitlich abgelaufen ist und welche Frameworks und Bibliotheken wir dabei benutzt haben. Schlussendlich gibt es einen einen Überblick über die bereits vorhandenen Unit-Tests.
+In diesem Dokument beschäftigen wir uns mit der Implementierungsphase unseres Projekts CS:Select. Dabei befassen wir uns insbesondere damit, welche Kriterien wir aus unserem Pflichtenheft umgesetzt haben und welche Änderungen sich zu unserem Entwurf ergeben haben. Da das Front-End im Entwurfsdokument nur sehr oberflächlich behandelt wurde, gehen wir nun nochmal genauer darauf ein, wie dieses gestaltet wurde. Außerdem stellen wir dar, wie die Implementierung zeitlich abgelaufen ist und welche Frameworks und Bibliotheken wir dabei benutzt haben. Schlussendlich gibt es einen Überblick über die bereits vorhandenen Unit-Tests.
 
 \hspace{1cm}
 
@@ -38,13 +38,13 @@ Ein grundlegender Gedanke unserer Implementierung war es, möglichst wenige Date
 
 \hspace{1cm}
 
-Insgesamt haben wir so (bisher) 564 Commits getätigt und es sind 10 Pakete, 120 Klassen sowie 13734 Codezeilen entstanden.
+Insgesamt haben wir so (bisher) 570 Commits getätigt und es sind 10 Pakete, 120 Klassen sowie 13734 Codezeilen entstanden.
 
 
 \chapter{Implementierte Kriterien}
 
 \section{Muss-Kriterien}
-Fast alle Muss-Kriterien aus dem Pflichtenheft wurden bei der Implementierung berücksichtigt und alle zugehörigen funktionalen Anforderungen sind implementiert. Nur die funktionale Anforderung /F170/ wurde geändert, ein Organisator kann bei unserem Produkt nur genau einen Spielmodus bei der Erstellung angeben. Im Game-Paket gibt es zwar die entsprechende Klasse GamemodeComposite, die kann aber bei der Spielerstellung nicht gesetzt werden und nicht in der Datenbank gespeichert werden. Genauso verhält es sich auch mit den Abbruchbedingungen, auch hier kann der Organisator momentan nur eine Abbruchbedingung gleichzeitig auswählen.
+Fast alle Muss-Kriterien aus dem Pflichtenheft wurden bei der Implementierung berücksichtigt und alle zugehörigen funktionalen Anforderungen sind implementiert. Nur die funktionale Anforderung /F170/ wurde geändert, ein Organisator kann bei unserem Produkt nur genau einen Spielmodus bei der Erstellung angeben. Im Game-Paket gibt es zwar die entsprechende Klasse GamemodeComposite, diese kann aber bei der Spielerstellung nicht gesetzt und in der Datenbank nicht gespeichert werden. Genauso verhält es sich auch mit den Abbruchbedingungen, auch hier kann der Organisator momentan nur eine Abbruchbedingung gleichzeitig auswählen.
 
 
 \section{Kann-Kriterien}
