@@ -91,7 +91,18 @@ Das letzte Kann-Kriterium, weitere Spielmodi, wurde dagegen aus Zeitgründen und
 \end{itemize}
 
 \section{User}
-%TODO
+\begin{itemize}
+    \item UserManagement Package hinzugefügt für Registrierung und Login
+    \item Getter für aktive und passive Spiele
+    \item Getter für eingestellten Language-Code
+    \item Singleton-Instanz von Database Adapter wird in User/Organiser Objekt gespeichert
+    \item LoggedIn Attribut für User
+    \item ID wird nicht mehr gespeichert, immer in Echtzeit von Datanbank abgefragt
+    \item IDs für Features werden in Methoden übergeben (skipRound, selectFeatures)
+    \item User hat Assoziation zu UserAdapter
+    \item SetOption bei Organiser nimmt jetzt zwei Strings entgegen und leitet diese zu GameCreator weiter
+    \item Hashing und Vergleiche übernimmt eine neu hinzugefügte Encrypter-Klasse
+\end{itemize}
 
 \section{Database}
 \begin{itemize}
@@ -114,6 +125,14 @@ Das letzte Kann-Kriterium, weitere Spielmodi, wurde dagegen aus Zeitgründen und
 \section{GameCreation}
 \begin{itemize}
     \item GameOptions bietet nun eine Methode isComplete an die überprüft ob alle Optionen gesetzt wurden
+    \item Bietet Möglichkeit, vor Spielerstellung eingeladene Emails zu entfernen
+    \item abort() existiert nicht mehr in GameCreator
+    \item Parser-Hilfsklassen für die Erstellung von Terminations und Gamemodes aus String
+\end{itemize}
+
+\section{GameOptions}
+\begin{itemize}
+    \item Datenbankname und Datenbankset als Attribute klarer getrennt
 \end{itemize}
 
 \section{Game}
