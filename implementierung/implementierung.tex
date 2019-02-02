@@ -96,7 +96,10 @@ Das letzte Kann-Kriterium, weitere Spielmodi, wurde dagegen aus Zeitgründen und
     \item FeatureSet Informationen werden nicht mehr in die DB geschrieben sondern verbleiben in der erhaltenen .json Datei auf dem Dateisystem
     \item Neue Oberklasse für alle Adapter (MysqlAdapter) hinzugefügt, die Hilfsmethoden zum einfacheren Zugriff auf die Datenbank bündelt
     \item Der DatabaseAdapter besitzt nun eine getPlayer(int id) Methode
+    \item Der DatabaseAdapter besitzt nun eine checkDuplicateDatabase Methode die überprüft ob eine Datenbank mit dem gegebenen Namen bereits existiert um versehentliche Überschreibungen zu verhindern
     \item getPlayer/OrganiserSalt, getPlayer/OrganiserHash Methoden wurden hinzugefügt, um Hash bzw. Salt von Spielern anhand ihrer Email laden zu können
+    \item getNewGameAdapter wurde dem DatabaseAdapter hinzugefügt um einen GameAdapter für ein neues Spiel zu erhalten
+    \item registerGame wurde zu createGame geändert und stellt damit sicher dass neue Spiele korrekte IDs erhalten
     \item getPasswordSalt wurde dem UserAdapter hinzugefügt, da die Passwortprüfung ausgelagert wurde
     \item getActive/TerminatedGames wurden in den UserAdapter verlegt, da sowohl Player als auch Organiser diese Methoden benötigen
     \item Klasse PlayerStatsAdapter hinzugefügt, um die PlayerStats in die Datenbank abzubilden
@@ -152,6 +155,7 @@ Das letzte Kann-Kriterium, weitere Spielmodi, wurde dagegen aus Zeitgründen und
     \item Configuration, MLServer und DatabaseAdapter sind jetzt Interfaces, die von einer Injector-Klasse ausgeliefert werden.
     Die jeweilige Implementierung wird durch ein Module-Objekt festgelegt, das die jeweiligen Implementierungen den Interfaces je nach Anwendungszweck zuordnet.
     \item DefaultConfiguration wurde zu ApacheCommonsConfiguration umbenannt, um einerseits aussagekräftiger zu sein und die genutzte Bibliothek anzugeben.
+    \item Der MLServer bietet nun eine Methode isValidDataset an die überprüft ob ein gegebener Datensatzname auch wirklich einen Datensatz beschreibt
 \end{itemize}
 
 \chapter{Front-End}
