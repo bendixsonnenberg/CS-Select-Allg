@@ -38,7 +38,7 @@ Ein grundlegender Gedanke unserer Implementierung war es, möglichst wenige Date
 
 \hspace{1cm}
 
-Insgesamt haben wir so (bisher) 365 Commits getätigt und es sind 10 Pakete, 118 Klassen sowie 11241 Codezeilen entstanden. 
+Insgesamt haben wir so (bisher) 365 Commits getätigt und es sind 10 Pakete, 118 Klassen sowie 11241 Codezeilen entstanden.
 %TODO Werte ändern
 
 
@@ -46,13 +46,12 @@ Insgesamt haben wir so (bisher) 365 Commits getätigt und es sind 10 Pakete, 118
 
 \section{Muss-Kriterien}
 Fast alle Muss-Kriterien aus dem Pflichtenheft wurden bei der Implementierung berücksichtigt und alle zugehörigen funktionalen Anforderungen sind implementiert. Nur die funktionale Anforderung /F170/ wurde geändert, ein Organisator kann bei unserem Produkt nur genau einen Spielmodus bei der Erstellung angeben. Im Game-Packet gibt es zwar die entsprechende Klasse GamemodeComposite, die kann aber bei der Spielerstellung nicht gesetzt werden und nicht in der Datenbank gespeichert werden.
-	
+
 
 \section{Kann-Kriterien}
 Die folgenden Kann-Kriterien sind inklusive aller zugehörigen funktionaler Anforderungen implementiert:
 
 \begin{itemize}
-\item Erweiterte Nutzerverwaltung (E-Mail-Adresse und Passwort ändern sowie Passwort zurücksetzen)
 \item Zusätzliche Funktionen für den Organisator in der Übersichts-GUI (Spiele vorzeitig beenden und beendete Spiele aus der Übersicht löschen)
 \item Speichern und Laden von Spieleinstellungen bei der Spielerstellung
 \item Zusätzliche Optionen für den Spieler im Spiel (Runde überspringen, Merkmal als unwichtig markieren)
@@ -65,6 +64,10 @@ Die folgenden Kann-Kriterien sind inklusive aller zugehörigen funktionaler Anfo
 \hspace{1cm}
 
 Weitere Kriterien sind teilweise implementiert, d.h. manche zugehörige funktionale Anforderungen sind implementiert, andere hingegen nicht:
+
+\begin{itemize}
+    \item Erweiterte Nutzerverwaltung (E-Mail-Adresse und Passwort ändern, Passwort zurücksetzen wurde nicht implementiert)
+\end{itemize}
 
 \subsection{Zusätzliche Funktionen zur Verwaltung des Spiel-Servers}
 Dadurch, dass alle Daten in unserer Datenbank gespeichert werden und nicht im Arbeitsspeicher gehalten werden, wird der Zustand des Spiel-Servers auch bei einem Neustart erhalten. Spiele und Organisatoren können direkt aus der Datenbank gelöscht werden. Die Kommunikation eines Administrators mit dem System über eine Kommandozeile ist dagegen nicht möglich und es gibt auch keinen Dialog beim Aufsetzen des Servers, da dafür die Config-Datei genug sein sollte.
@@ -109,7 +112,9 @@ Das letzte Kann-Kriterium, weitere Spielmodi, wurde dagegen aus Zeitgründen und
 \end{itemize}
 
 \section{GameCreation}
-%TODO
+\begin{itemize}
+    \item GameOptions bietet nun eine Methode isComplete an die überprüft ob alle Optionen gesetzt wurden
+\end{itemize}
 
 \section{Game}
 \begin{itemize}
