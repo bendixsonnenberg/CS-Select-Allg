@@ -84,55 +84,55 @@ Das letzte Kann-Kriterium, weitere Spielmodi, wurde dagegen aus Zeitgründen und
 \chapter{Änderungen zum Entwurf}
 \section{API}
 \begin{itemize}
-    \item Games Klasse in zwei getrennte Klassen für Game-Management und Game spielen aufgeteilt.
-    \item Servlet Klasse hat zwei abstrakte Methoden get() und post(), die bei den jeweiligen HTTP-Anfragen aufgerufen werden.
+    \item Die Games-Klasse wurde in zwei getrennte Klassen für Game-Management und Game spielen aufgeteilt.
+    \item Die Servlet-Klasse hat zwei abstrakte Methoden get() und post(), die bei den jeweiligen HTTP-Anfragen aufgerufen werden.
     \item APIFacadePlayer und APIFacadeOrganiser haben jetzt getPlayer- und getOrganiser-Methoden.
-    \item getSavedSettings zu getPatterns umbenannt
+    \item GetSavedSettings wurde zu getPatterns umbenannt.
 \end{itemize}
 
 \section{User}
 \begin{itemize}
-    \item UserManagement Package hinzugefügt für Registrierung und Login
-    \item Getter für aktive und passive Spiele
-    \item Getter für eingestellten Language-Code
-    \item Singleton-Instanz von Database Adapter wird in User/Organiser-Objekt gespeichert
-    \item LoggedIn Attribut für User
-    \item ID wird nicht mehr gespeichert, immer in Echtzeit von Datenbank abgefragt
-    \item IDs für Features werden in Methoden übergeben (skipRound, selectFeatures)
-    \item User hat Assoziation zu UserAdapter
-    \item SetOption bei Organiser nimmt jetzt zwei Strings entgegen und leitet diese zu GameCreator weiter
-    \item Hashing und Vergleiche übernimmt eine neu hinzugefügte Encrypter-Klasse
+    \item Ein UserManagement-Package wurde hinzugefügt für Registrierung und Login.
+    \item Es gibt Getter für aktive und passive Spiele.
+    \item Es gibt nun einen Getter für eingestellten Language-Code.
+    \item Die Singleton-Instanz von Database Adapter wird in User/Organiser-Objekt gespeichert.
+    \item Es gibt nun ein LoggedIn-Attribut für User.
+    \item Die ID wird nicht mehr gespeichert, sondern immer in Echtzeit von der Datenbank abgefragt.
+    \item Die IDs für Features werden in Methoden übergeben (skipRound, selectFeatures).
+    \item Der User hat jetzt eine Assoziation zu UserAdapter.
+    \item Die Methode setOption bei Organiser nimmt jetzt zwei Strings entgegen und leitet diese zu GameCreator weiter.
+    \item Eine neu hinzugefügte Encrypter-Klasse übernimmt nun Hashing und Vergleiche.
 \end{itemize}
 
 \section{Database}
 \begin{itemize}
-    \item Neue Param-Klassen zum parametrisierten Aufruf von Mysql-Prepared-Statements wurden hinzugefügt
-    \item Die registerPlayer/Organiser-Methoden heißen nun createPlayer/Organiser und der eigentliche Registrierungsprozess wurde ausgelagert
-    \item FeatureSet-Informationen werden nicht mehr in die DB geschrieben sondern verbleiben in der erhaltenen .json Datei auf dem Dateisystem
-    \item Neue Oberklasse für alle Adapter (MysqlAdapter) hinzugefügt, die Hilfsmethoden zum einfacheren Zugriff auf die Datenbank bündelt
-    \item Der DatabaseAdapter besitzt nun eine getPlayer(int id)-Methode
-    \item Der DatabaseAdapter besitzt nun eine checkDuplicateDatabase-Methode die überprüft ob eine Datenbank mit dem gegebenen Namen bereits existiert um versehentliche Überschreibungen zu verhindern
-    \item getPlayer-/OrganiserSalt-, getPlayer-/OrganiserHash-Methoden wurden hinzugefügt, um Hash bzw. Salt von Spielern anhand ihrer E-Mail laden zu können
-    \item getNewGameAdapter wurde dem DatabaseAdapter hinzugefügt um einen GameAdapter für ein neues Spiel zu erhalten
-    \item registerGame wurde zu createGame geändert und stellt damit sicher, dass neue Spiele korrekte IDs erhalten
-    \item getPasswordSalt wurde dem UserAdapter hinzugefügt, da die Passwortprüfung ausgelagert wurde
-    \item getActive/TerminatedGames wurden in den UserAdapter verlegt, da sowohl Player als auch Organiser diese Methoden benötigen
-    \item Klasse PlayerStatsAdapter hinzugefügt, um die PlayerStats in die Datenbank abzubilden
-    \item getInvitedPlayers im DatabaseAdapter gibt nun eine Collection von E-Mail-Addressen als Strings statt Player-Objekte zurück, da eingeladene Spieler nicht notwendigerweise bereits in CS:Select registriert sein müssen
-    \item addPlayingPlayer zum GameAdapter hinzugefügt, um einzelne Spieler komfortabler hinzufügen zu können
+    \item Neue Param-Klassen zum parametrisierten Aufruf von Mysql-Prepared-Statements wurden hinzugefügt.
+    \item Die registerPlayer/Organiser-Methoden heißen nun createPlayer/Organiser und der eigentliche Registrierungsprozess wurde ausgelagert.
+    \item FeatureSet-Informationen werden nicht mehr in die DB geschrieben, sondern verbleiben in der erhaltenen .json Datei auf dem Dateisystem.
+    \item  Eine neue Oberklasse für alle Adapter (MysqlAdapter) wurde hinzugefügt, die Hilfsmethoden zum einfacheren Zugriff auf die Datenbank bündelt.
+    \item Der DatabaseAdapter besitzt nun eine getPlayer(int id)-Methode.
+    \item Der DatabaseAdapter besitzt nun eine checkDuplicateDatabase-Methode, die überprüft, ob eine Datenbank mit dem gegebenen Namen bereits existiert, um versehentliche Überschreibungen zu verhindern.
+    \item GetPlayer-/OrganiserSalt- und getPlayer-/OrganiserHash-Methoden wurden hinzugefügt, um Hash bzw. Salt von Spielern anhand ihrer E-Mail laden zu können.
+    \item GetNewGameAdapter wurde dem DatabaseAdapter hinzugefügt, um einen GameAdapter für ein neues Spiel zu erhalten.
+    \item RegisterGame wurde zu createGame geändert und stellt damit sicher, dass neue Spiele korrekte IDs erhalten.
+    \item GetPasswordSalt wurde dem UserAdapter hinzugefügt, da die Passwortprüfung ausgelagert wurde.
+    \item GetActive/TerminatedGames wurden in den UserAdapter verlegt, da sowohl Player als auch Organiser diese Methoden benötigen.
+    \item Eine Klasse PlayerStatsAdapter wurde hinzugefügt, um die PlayerStats in die Datenbank abzubilden.
+    \item GetInvitedPlayers im DatabaseAdapter gibt nun eine Collection von E-Mail-Addressen als Strings statt Player-Objekte zurück, da eingeladene Spieler nicht notwendigerweise bereits in CS:Select registriert sein müssen.
+    \item AddPlayingPlayer wurde zum GameAdapter hinzugefügt, um einzelne Spieler komfortabler hinzufügen zu können.
 \end{itemize}
 
 \section{GameCreation}
 \begin{itemize}
-    \item GameOptions bietet nun eine Methode isComplete an, die überprüft, ob alle Optionen gesetzt wurden
-    \item Bietet Möglichkeit, vor Spielerstellung eingeladene E-Mails zu entfernen
-    \item abort() existiert nicht mehr in GameCreator
-    \item Parser-Hilfsklassen für die Erstellung von Terminations und Gamemodes aus String
+    \item GameOptions bietet nun eine Methode isComplete an, die überprüft, ob alle Optionen gesetzt wurden.
+    \item Bietet eine Möglichkeit, vor Spielerstellung eingeladene E-Mails zu entfernen.
+    \item Abort() existiert nicht mehr in GameCreator.
+    \item Parser-Hilfsklassen für die Erstellung von Terminations und Gamemodes aus String wurden hinzugefügt.
 \end{itemize}
 
 \section{GameOptions}
 \begin{itemize}
-    \item Datenbankname und Datenbankset als Attribute klarer getrennt
+    \item Datenbankname und Datenbankset wurden als Attribute klarer getrennt.
 \end{itemize}
 
 \section{Game}
@@ -184,7 +184,7 @@ Das letzte Kann-Kriterium, weitere Spielmodi, wurde dagegen aus Zeitgründen und
     \item Configuration, MLServer und DatabaseAdapter sind jetzt Interfaces, die von einer Injector-Klasse ausgeliefert werden.
     Die jeweilige Implementierung wird durch ein Module-Objekt festgelegt, das die jeweiligen Implementierungen den Interfaces je nach Anwendungszweck zuordnet.
     \item DefaultConfiguration wurde zu ApacheCommonsConfiguration umbenannt, um einerseits aussagekräftiger zu sein und die genutzte Bibliothek anzugeben.
-    \item Der MLServer bietet nun eine Methode isValidDataset an, die überprüft, ob ein gegebener Datensatzname auch wirklich einen Datensatz beschreibt
+    \item Der MLServer bietet nun eine Methode isValidDataset an, die überprüft, ob ein gegebener Datensatzname auch wirklich einen Datensatz beschreibt.
 \end{itemize}
 
 \chapter{Front-End}
