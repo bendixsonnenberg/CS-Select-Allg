@@ -45,7 +45,7 @@ Insgesamt haben wir so (bisher) 365 Commits getätigt und es sind 10 Pakete, 118
 \chapter{Implementierte Kriterien}
 
 \section{Muss-Kriterien}
-Fast alle Muss-Kriterien aus dem Pflichtenheft wurden bei der Implementierung berücksichtigt und alle zugehörigen funktionalen Anforderungen sind implementiert. Nur die funktionale Anforderung /F170/ wurde geändert, ein Organisator kann bei unserem Produkt nur genau einen Spielmodus bei der Erstellung angeben. Im Game-Packet gibt es zwar die entsprechende Klasse GamemodeComposite, die kann aber bei der Spielerstellung nicht gesetzt werden und nicht in der Datenbank gespeichert werden.
+Fast alle Muss-Kriterien aus dem Pflichtenheft wurden bei der Implementierung berücksichtigt und alle zugehörigen funktionalen Anforderungen sind implementiert. Nur die funktionale Anforderung /F170/ wurde geändert, ein Organisator kann bei unserem Produkt nur genau einen Spielmodus bei der Erstellung angeben. Im Game-Paket gibt es zwar die entsprechende Klasse GamemodeComposite, die kann aber bei der Spielerstellung nicht gesetzt werden und nicht in der Datenbank gespeichert werden. Genauso verhält es sich auch mit den Abbruchbedingungen, auch hier kann der Organisator momentan nur eine Abbruchbedingung gleichzeitig auswählen.
 
 
 \section{Kann-Kriterien}
@@ -65,9 +65,9 @@ Die folgenden Kann-Kriterien sind inklusive aller zugehörigen funktionaler Anfo
 
 Weitere Kriterien sind teilweise implementiert, d.h. manche zugehörige funktionale Anforderungen sind implementiert, andere hingegen nicht:
 
-\begin{itemize}
-    \item Erweiterte Nutzerverwaltung (E-Mail-Adresse und Passwort ändern, Passwort zurücksetzen wurde nicht implementiert)
-\end{itemize}
+
+\subsection{Erweiterte Nutzerverwaltung}
+Man kann seine E-Mail-Adresse und sein Passwort ändern. Das Zurücksetzen eines Passwortes ist dagegen nicht implementiert, da das zu viel Aufwand gewesen wäre, das sicher und sinnvoll zu gestalten.
 
 \subsection{Zusätzliche Funktionen zur Verwaltung des Spiel-Servers}
 Dadurch, dass alle Daten in unserer Datenbank gespeichert werden und nicht im Arbeitsspeicher gehalten werden, wird der Zustand des Spiel-Servers auch bei einem Neustart erhalten. Spiele und Organisatoren können direkt aus der Datenbank gelöscht werden. Die Kommunikation eines Administrators mit dem System über eine Kommandozeile ist dagegen nicht möglich und es gibt auch keinen Dialog beim Aufsetzen des Servers, da dafür die Config-Datei genug sein sollte.
@@ -144,7 +144,7 @@ Das letzte Kann-Kriterium, weitere Spielmodi, wurde dagegen aus Zeitgründen und
 	\item Entsprechend dem Vorgehen bei den Usern wird auch beim Game über die Datenbank sichergestellt, dass evtl. verschiedene Objekte zum gleichen Spiel synchronisiert sind, deshalb sind die Attribute invitedPlayersEmails und numberOfRounds sowie die Assoziationen zum Spieler und zur Runde über die Datenbank realisiert.
 	\item Die Klasse Termination hat Setter-Methode für das zugehörige Spiel.
 	\item Die Rundennummer ist nicht relevant und wurde somit nicht implementiert, deswegen ändern sich auch die Signaturen der entsprechenden Fabrikmethoden der Spielmodi.
-	\item Die Klasse GamemodeComposite hat nun eine getGamemode Methode.
+	\item Die Klasse GamemodeComposite hat nun eine getGamemode Methode, genauso wie die Klasse TerminationComposite.
 	\item Die Methoden skip und selectFeatures der Klasse Round benötigen keine Feature-Objekte, sondern nur deren ID, deshalb wurde die Methodensignatur entsprechend geändert, genauso auch die Methode acceptInvite der Klasse Game mit der \newline PlayerID statt einem Objekt.
 	\item Bei der provideFeatures-Methode ist die Reihenfolge der erzeugten Features relevant, deshalb ist hier nun der Rückgabetyp eine Liste statt einer Collection.
 	\item Runden haben nun eine setGame Methode.
@@ -152,6 +152,9 @@ Das letzte Kann-Kriterium, weitere Spielmodi, wurde dagegen aus Zeitgründen und
 	\item Die delete-Methoden von TerminationComposite und GamemodeComposite wurden nicht benutzt und dementsprechend entfernt.
 	\item Die Klasse Game hat nun eine checkDuplicateFeatureProvision-Methode, um sicherzustellen, dass in einem Spiel nicht die gleiche Merkmalskombination mehrfach angezeigt wird.
 	\item Name und Beschreibung eines Features sind jetzt als Maps gespeichert und es gibt nur noch je einen Getter, der als Parameter einen Language Code erwartet, um das Erhalten von Strings aus dem Back-End einheitlich zu halten und besser erweiterbar zu machen.
+	\item Die Rundenklasse hat einen neuen Konstruktor mit zusätzlichem Zeitparameter, um beim Erstellen von Runden aus der Datenbank die Zeit setzen zu können.
+	\item Gamemodes und Terminations haben nun eine getName-Methode.
+	
 \end{itemize}
 
 \section{Gamification}
@@ -236,8 +239,6 @@ Bereits während der Implementierung sind viele Unit-Tests entstanden. So haben 
 \hspace{1cm}
 
 Dabei hat das API-Paket bisher noch keine Tests, da dieses hauptsächlich Aufrufe an andere Pakete weiterleitet.
-
-%besondere Tests?
 
 
 
