@@ -1,0 +1,17 @@
+# Intellij
+*.iml
+/.idea/*
+
+# Tex
+*.log
+*.pdf
+*.out
+*.aux
+*.toc
+*.lof
+*.glo
+*.glg
+*.gls
+*.ist
+auxil/
+out/
