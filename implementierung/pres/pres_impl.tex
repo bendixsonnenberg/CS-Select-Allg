@@ -51,17 +51,63 @@
 \begin{frame} % das ist eine slide
   \titlepage
 \end{frame}
+
 \section{Kriterien}
 
-\subsection{Muss-Kriterien}
+\begin{frame}{Muss-Kriterien}
+  \begin{itemize}
+    \item Verwalten des Systems durch Systemadministrator \\
+    \item Anmeldemechanismus wurde umgesetzt (Registrierung, Login) \\
+    \item Grafische Oberfläche von Java Server Pages dargestellt (Funktioniert in Chrome + Mozilla Firefox) \\
+    \item Organisatoren: Spiele erstellen, Spieler spielen Spiel. Bewertung durch angebundenen ML-Server, Ergebnisse in Schema interner Datenbank gespeichert \\
+    \item Die Modi MatrixSelect und BinarySelect wurden umgesetzt \\
+    \item Punktesystem wurde umgesetzt \\
+  \end{itemize}
+\end{frame}
 
-\subsection{Kann-Kriterien}
+\begin{frame}{Kann-Kriterien (1)}
+  \begin{itemize}
+    \item Verwalten des Spiele-Servers möglich. Spiele aus Datenbank löschen und Server z.B über Docker herunterfahren - wichtige Daten zur Laufzeit in interner Datenbank gespeichert \\
+    \item Erweiterte Nutzerverwaltung: Das Passwort soll in Zukunft zurücksetzbar sein, bis jetzt wurde das nicht implementiert \\
+    \item Organisator: Löschen terminierter Spiele aus Übersicht, nicht terminierte Spiele frühzeitig beenden \\
+    \item Streaks wurden eingeführt \\
+    \item Spieler können Runden überspringen, es werden keine Punkte abgezogen - allerdings Streak abgebrochen \\
+  \end{itemize}
+\end{frame}
+\begin{frame}{Kann-Kriterien (2)}
+  \begin{itemize}
+    \item Spieler können in einer Runde Merkmale als unwichtig markieren \\
+    \item Es wurden keine weiteren Spielmodi hinzugefügt, Erweiterbarkeit im Großen aber beachtet \\
+    \item Leaderboard, Achievements, Daily Challenges wurden umgesetzt \\
+    \item Hilfstexte \\
+    \item Verbesserung der Merkmalsbereitstellung \\
+    \item Internationalisierung (en/de) \\
+    \item Unterstützung von mehreren Plattformen \\
+  \end{itemize}
+\end{frame}
 
 \section{Probleme bei der Implementierung}
 
 \section{Änderungen am Entwurf}
 
 \section{Statistiken}
+\begin{frame}{Code}
+  \begin{itemize}
+    \item Java: 7340 loc, 2364 Kommentar-Zeilen \\
+    \item JavaScript: 974 loc \\
+    \item JavaServerPages: 405 loc \\
+    \item XML: 322 loc \\
+    \item Properties: 282 Zeilen \\
+    \item CSS: 59 loc \\
+    \item Alle Dateien: 13765 Zeilen \\
+  \end{itemize}
+\end{frame}
+\begin{frame}{Github - CS:Select}
+  \begin{itemize}
+    \item 570 Commits bis zur Abgabefrist \\
+    \item 26 closed Issues in den letzten 2 Tagen vor Abgabefrist \\
+  \end{itemize}
+\end{frame}
 
 \section{Entwicklungsmodell}
 
