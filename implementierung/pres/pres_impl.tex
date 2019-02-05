@@ -44,7 +44,7 @@
 
 \title[Team 2 - Implementierung]{CS:Select Implementierung - Team 2}
 \author{Luca Springer, Alexander Linder, Julian Dinh, Nicholas Bieker,\\ Bendix Sonnenberg}
-\date{28.11.2018}
+\date{06.02.2019}
 
 \begin{document}
 
@@ -67,7 +67,7 @@
 
 \begin{frame}{Kann-Kriterien (1)}
   \begin{itemize}
-    \item Verwalten des Spiele-Servers möglich. Spiele aus Datenbank löschen und Server z.B über Docker herunterfahren - wichtige Daten zur Laufzeit in interner Datenbank gespeichert \\
+    \item Verwalten des Spiel-Servers möglich. Spiele aus Datenbank löschen und Server z.B über Docker herunterfahren - wichtige Daten zur Laufzeit in interner Datenbank gespeichert \\
     \item Erweiterte Nutzerverwaltung: Das Passwort soll in Zukunft zurücksetzbar sein, bis jetzt wurde das nicht implementiert \\
     \item Organisator: Löschen terminierter Spiele aus Übersicht, nicht terminierte Spiele frühzeitig beenden \\
     \item Streaks wurden eingeführt \\
@@ -78,7 +78,7 @@
   \begin{itemize}
     \item Spieler können in einer Runde Merkmale als unwichtig markieren \\
     \item Es wurden keine weiteren Spielmodi hinzugefügt, Erweiterbarkeit im Großen aber beachtet \\
-    \item Leaderboard, Achievements, Daily Challenges wurden umgesetzt \\
+    \item Leaderboard, Achievements, Daily-Challenges wurden umgesetzt \\
     \item Hilfstexte \\
     \item Verbesserung der Merkmalsbereitstellung \\
     \item Internationalisierung (en/de) \\
@@ -95,7 +95,7 @@
 \end{itemize}
 \end{frame}
 
-\section{Probleme bei der Implementierung}
+\section{Probleme}
 
 \section{Änderungen am Entwurf}
 \begin{frame}{Database}
@@ -108,22 +108,49 @@
     \end{itemize}
 \end{frame}
 
-\section{Statistiken}
-\begin{frame}{Code}
+\begin{frame}{Gamification}
   \begin{itemize}
-    \item Java: 7340 loc, 2364 Kommentar-Zeilen \\
-    \item JavaScript: 974 loc \\
-    \item JavaServerPages: 405 loc \\
-    \item XML: 322 loc \\
+     \item Größten Änderungen bei Achievements
+     \item Enum AchievementType
+     \item checkProgress erzeugt ein neues konkretes Achievement (mit Type und State)
+     \item Kommunikation von PlayerStats mit Datenbank
+  \end{itemize}
+\end{frame}
+
+\renewcommand{\arraystretch}{1.5}
+
+\section{Statistiken}
+\begin{frame}{Unit-Tests}
+  \begin{center}
+    \begin{tabular}{ | l | c | c | }
+      \hline
+      Paket & Testüberdeckung (\%) & Unit-Tests \\ \hline
+      User & 60 & 16 \\
+      Database & 62 & 44 \\
+      Game & 74 & 45 \\
+      Gamification & 96 & 34 \\
+      Configuration & 76 & 10 \\
+      \hline
+    \end{tabular}
+  \end{center}
+\end{frame}
+
+\begin{frame}{Lines of Code}
+  \begin{itemize}
+    \item Java: 7340 LOC, 2364 Kommentar-Zeilen \\
+    \item JavaScript: 974 LOC \\
+    \item JavaServerPages: 405 LOC \\
+    \item XML: 322 LOC \\
     \item Properties: 282 Zeilen \\
-    \item CSS: 59 loc \\
+    \item CSS: 59 LOC \\
     \item Alle Dateien: 13765 Zeilen \\
   \end{itemize}
 \end{frame}
-\begin{frame}{Github - CS:Select}
+
+\begin{frame}{GitHub - CS:Select}
   \begin{itemize}
     \item 570 Commits bis zur Abgabefrist \\
-    \item 26 closed Issues in den letzten 2 Tagen vor Abgabefrist \\
+    \item 26 bearbeitete Issues in den letzten 2 Tagen vor Abgabefrist \\
   \end{itemize}
 \end{frame}
 
