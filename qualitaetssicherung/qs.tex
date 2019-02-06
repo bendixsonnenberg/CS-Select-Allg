@@ -1,0 +1,48 @@
+\documentclass[a4paper]{scrreprt}
+
+\usepackage[ngerman]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{ae}
+\usepackage[bookmarks, bookmarksnumbered]{hyperref}
+\usepackage{tabularx}
+\usepackage{graphicx}
+\usepackage{csquotes}
+\usepackage{verbatim}
+\usepackage{float}
+\usepackage[nonumberlist, toc, section]{glossaries}
+\usepackage[german]{fancyref}
+
+\setcounter{secnumdepth}{4}
+
+\begin{document}
+
+    \title{Implementierungsdokument CS:Select}
+    \author{Luca Springer, Alexander Linder, Julian Dinh, Nicholas Bieker,\\ Bendix Sonnenberg}
+    \maketitle
+
+    \tableofcontents
+    \chapter{Einleitung}
+    \chapter{Testfälle}
+        \section{Pflichtenheftszenarien}
+        Bei folgenden Szenarien läuft das System bereits (entweder auf localhost oder auf dem KIT-Server) \\
+            \subsection{Spieler registrieren}
+            \subsubsection{Spieler mit gültiger Email registrieren}
+            \begin{itemize}
+                \item Schritte:
+                    \begin{itemize}
+                        \item Verbinden mit localhost:8080/CS-Select
+                        \item Auf "Brauchst du einen Account?" klicken
+                        \item Gültige Email-Adresse in das Email-Feld einsetzen ("player@csselect.com")
+                        \item Beliebiges Passwort in Passwort-Feld eingeben ("testPassword")
+                        \item Passwort wiederholen
+                        \item "Player" auswählen
+                        \item Auf "Registrieren" klicken
+                    \end{itemize}
+                \item OK %%oder Fehler
+            \end{itemize}
+    \chapter{Testüberdeckung}
+    \chapter{Testmetriken}
+    \chapter{Fehlerbehebung}
+
+\end{document}
