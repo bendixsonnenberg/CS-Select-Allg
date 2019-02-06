@@ -58,7 +58,7 @@
   \begin{itemize}
     \item Verwalten des Systems durch Systemadministrator \\
     \item Anmeldemechanismus wurde umgesetzt (Registrierung, Login) \\
-    \item Grafische Oberfläche von Java Server Pages dargestellt (Funktioniert in Chrome + Mozilla Firefox) \\
+    \item Grafische Oberfläche von JavaServer Pages dargestellt (Funktioniert in Chrome + Mozilla Firefox) \\
     \item Organisatoren: Spiele erstellen, Spieler spielen Spiel. Bewertung durch angebundenen ML-Server, Ergebnisse in Schema interner Datenbank gespeichert \\
     \item Die Modi MatrixSelect und BinarySelect wurden umgesetzt \\
     \item Punktesystem wurde umgesetzt \\
@@ -85,17 +85,18 @@
     \item Unterstützung von mehreren Plattformen \\
   \end{itemize}
 \end{frame}
+
 \section{Schicke Implementierung}
 \begin{frame}{Spieldarstellung}
 \includegraphics[width=\textwidth]{../img/gameframe.png}
 \begin{itemize}
     \item Laden der Features passiert im Gameframe
     \item Aus der Rückgabe der API wird das Spiel gerendert
-    \item Wenn das Spiel fertig ist wird ein Event ausgelöst, was den Next Button freischaltet
+    \item Wenn das Spiel fertig ist, wird ein Event ausgelöst, was den Next-Button freischaltet
 \end{itemize}
 \end{frame}
 
-\section{Zeitlicher Ablauf und Probleme}
+\section{Zeitlicher Ablauf}
 \begin{frame}{Zeitlicher Ablauf und Probleme}
 \begin{figure}
 \centering
@@ -150,13 +151,21 @@
   \begin{itemize}
     \item Java: 7340 LOC, 2364 Kommentar-Zeilen \\
     \item JavaScript: 974 LOC \\
-    \item JavaServerPages: 405 LOC \\
+    \item JavaServer Pages: 405 LOC \\
     \item XML: 322 LOC \\
     \item Properties: 282 Zeilen \\
     \item CSS: 59 LOC \\
     \item Alle Dateien: 13765 Zeilen \\
   \end{itemize}
 \end{frame}
+
+\begin{frame}{GitHub - CS:Select}
+    \begin{itemize}
+        \item 570 Commits bis zur Abgabefrist \\
+        \item 26 bearbeitete Issues in den letzten 2 Tagen vor Abgabefrist \\
+    \end{itemize}
+\end{frame}
+
 \section{Docker}
 \begin{frame}{Docker}
 \begin{itemize}
@@ -169,12 +178,6 @@
     \end{itemize}
     \item Konnte MySql Version leicht anpassen
 \end{itemize}
-\end{frame}
-\begin{frame}{GitHub - CS:Select}
-  \begin{itemize}
-    \item 570 Commits bis zur Abgabefrist \\
-    \item 26 bearbeitete Issues in den letzten 2 Tagen vor Abgabefrist \\
-  \end{itemize}
 \end{frame}
 
 \section{Entwicklungsmodell}
