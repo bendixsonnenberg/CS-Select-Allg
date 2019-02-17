@@ -28,22 +28,150 @@
 
     \chapter{Testfälle}
         \section{Pflichtenheftszenarien}
-        Bei den folgenden Szenarien läuft das System bereits (entweder auf localhost oder auf dem KIT-Server). \\
+        Die folgenden Szenarien sind alle dem Pflichtenheft entnommen. \\
             \subsection{Spieler registrieren}
-            \subsubsection{Spieler mit gültiger Email registrieren}
             \begin{itemize}
+                \item Ausgangssituation: Spieler befindet sich auf der Login-Seite
                 \item Schritte:
                     \begin{itemize}
-                        \item Verbinden mit localhost:8080/CS-Select
-                        \item Auf "Brauchst du einen Account?" klicken
-                        \item Gültige Email-Adresse in das Email-Feld einsetzen ("player@csselect.com")
-                        \item Beliebiges Passwort in Passwort-Feld eingeben ("testPassword")
-                        \item Passwort wiederholen
-                        \item "Player" auswählen
-                        \item Auf "Registrieren" klicken
+                        \item Auf \enquote{Brauchst du einen Account?} klicken
+                        \item Gültige E-Mail-Adresse in das E-Mail-Feld eingeben (\enquote{spieler@csselect.com})
+                        \item Beliebiges Passwort in Passwort-Feld eingeben (\enquote{testPasswort})
+                        \item Passwort wiederholen (\enquote{testPasswort})
+                        \item \enquote{Spieler} auswählen
+                        \item Einen Nutzernamen eingeben (\enquote{spieler})
+                        \item Auf \enquote{Registrieren} klicken
                     \end{itemize}
-                \item OK %%oder Fehler
+                \item Funktioniert: Ja
             \end{itemize}
+
+            \subsection{Spieler anmelden}
+            \begin{itemize}
+                \item Ausgangssituation: Spieler befindet sich auf der Login-Seite und besitzt bereits einen Account
+                \item Schritte:
+                    \begin{itemize}
+                        \item Registrierte E-Mail-Adresse in das E-Mail-Feld eingeben (\enquote{spieler@csselect.com})
+                        \item Dazugehöriges Passwort in Passwort-Feld eingeben (\enquote{testPasswort})
+                        \item Auf \enquote{Anmelden} klicken
+                    \end{itemize}
+                \item Funktioniert: Ja
+                \item Änderungen zum Pflichtenheftszenario
+                \begin{itemize}
+                    \item Es gibt keine Checkbox für den Spieler, man muss die Organisator-Checkbox leer lassen
+                \end{itemize}
+            \end{itemize}
+
+            \subsection{Spieler abmelden}
+            \begin{itemize}
+                \item Ausgangssituation: Spieler ist angemeldet
+                \item Schritte:
+                    \begin{itemize}
+                        \item In der Navigationsleiste auf \enquote{Abmelden} klicken
+                    \end{itemize}
+                \item Funktioniert: Ja
+                \item Änderungen zum Pflichtenheftszenario
+                    \begin{itemize}
+                        \item Vorgang muss nicht bestätigt werden
+                    \end{itemize}
+            \end{itemize}
+
+            \subsection{Organisator registrieren}
+            \begin{itemize}
+                \item Ausgangssituation: Organisator befindet sich auf der Login-Seite
+                \item Schritte:
+                    \begin{itemize}
+                        \item Auf \enquote{Brauchst du einen Account?} klicken
+                        \item Gültige E-Mail-Adresse in das E-Mail-Feld eingeben (\enquote{organiser@csselect.com})
+                        \item Beliebiges Passwort in Passwort-Feld eingeben (\enquote{testPasswort})
+                        \item Passwort wiederholen (\enquote{testPasswort})
+                        \item \enquote{Organisator} auswählen
+                        \item Das Master-Passwort eingeben (\enquote{sicherespasswort})
+                        \item Auf \enquote{Registrieren} klicken
+                    \end{itemize}
+            \item Funktioniert: Ja
+            \end{itemize}
+
+            \subsection{Organisator anmelden}
+            \begin{itemize}
+                \item Ausgangssituation: Organisator befindet sich auf der Login-Seite und besitzt bereits einen Account
+                \item Schritte:
+                    \begin{itemize}
+                        \item Registrierte E-Mail-Adresse in das E-Mail-Feld eingeben (\enquote{spieler@csselect.com})
+                        \item Dazugehöriges Passwort in Passwort-Feld eingeben (\enquote{testPasswort})
+                        \item \enquote{Organisator} auswählen
+                        \item Auf \enquote{Anmelden} klicken
+                    \end{itemize}
+                \item Funktioniert: Ja
+            \end{itemize}
+
+            \subsection{Organisator abmelden}
+            \begin{itemize}
+                \item Ausgangssituation: Organisator ist angemeldet
+                \item Schritte:
+                    \begin{itemize}
+                        \item In der Navigationsleiste auf \enquote{Abmelden} klicken
+                    \end{itemize}
+                \item Funktioniert: Ja
+                \item Änderungen zum Pflichtenheftszenario
+                    \begin{itemize}
+                        \item Vorgang muss nicht bestätigt werden
+                    \end{itemize}
+            \end{itemize}
+
+            \subsection{Organisator löschen}
+
+            \subsection{Spiel erstellen}
+
+            \subsection{Spieler nach Spielbeginn einladen}
+
+            \subsection{Spiel vorzeitig beenden}
+
+            \subsection{Spiel löschen}
+
+            \subsection{Spieleinstellungen speichern}
+
+            \subsection{Spieleinstellungen laden}
+
+            \subsection{Spielzustand auslesen}
+
+            \subsection{Einladung zu Spiel annehmen}
+
+            \subsection{Runde spielen: Matrix Select}
+
+            \subsection{Runde spielen: Binär Select}
+
+            \subsection{Spielterminierung während Runde}
+            % Das machen wir ja nicht?
+
+            \subsection{Auswahl überspringen}
+
+            \subsection{Merkmal als unwichtig markieren}
+
+            \subsection{Streak erreichen}
+
+            \subsection{Runde starten}
+
+            \subsection{Achievements ansehen}
+
+            \subsection{Leaderboard ansehen}
+
+            \subsection{Sprache ändern}
+
+            \subsection{Konfiguration bearbeiten}
+
+            \subsection{Server beenden}
+
+            \subsection{Passwort ändern}
+
+            \subsection{E-Mail ändern}
+
+            \subsection{Passwort zurücksetzen}
+
+            \subsection{Hilfe-Schaltfläche verwenden}
+
+
+        \section{Weitere Testfallszenarien}
+            \subsection{Nutzer bei Inaktivität abmelden}
 
 
 
@@ -52,9 +180,7 @@
 
 
 
-
     \chapter{Testmetriken}
-
 
 
 
@@ -65,7 +191,5 @@
         \item Grund:
         \item Behebung:
     \end{itemize}
-
-
 
 \end{document}
