@@ -44,8 +44,10 @@
 
 
     \chapter{Testfälle}
+
         \section{Pflichtenheftszenarien}
-        Die folgenden Szenarien sind alle dem Pflichtenheft entnommen. \\
+        Die folgenden Szenarien sind alle dem Pflichtenheft entnommen. Sie sind mit dem deutschen Sprachpaket durchgeführt worden.
+
             \subsection{Spieler registrieren}
             \begin{itemize}
                 \item Ausgangssituation: Spieler befindet sich auf der Login-Seite
@@ -152,6 +154,15 @@
             \subsection{Spielzustand auslesen}
 
             \subsection{Einladung zu Spiel annehmen}
+            \begin{itemize}
+                \item Ausgangssituation: Spieler ist angemeldet und wurde zu einem Spiel eingeladen
+                \item Schritte:
+                    \begin{itemize}
+                        \item Auf der Übersichts-Seite das gewünschte Spiel aussuchen und auf \enquote{Akzeptieren} klicken
+                    \end{itemize}
+                \item Funktioniert: Ja
+            \end{itemize}
+            % TODO: Option 2
 
             \subsection{Runde spielen: Matrix Select}
 
@@ -161,34 +172,154 @@
             % Das machen wir ja nicht?
 
             \subsection{Auswahl überspringen}
+            \begin{itemize}
+                \item Ausgangssituation: Spieler befindet sich auf der Spiel-Seite
+                \item Schritte:
+                    \begin{itemize}
+                        \item Gegebenenfalls Merkmale als nutzlos markieren
+                        \item Auf \enquote{Überspringen} klicken
+                    \end{itemize}
+                \item Funktioniert: Ja
+                \item Änderungen zum Pflichtenheftszenario
+                \begin{itemize}
+                    \item Spieler verliert keine Punkte, bekommt aber auch keine
+                    \item Streak wird zurückgesetzt, es sei denn Spieler markiert alle Merkmale als nutzlos
+                \end{itemize}
+            \end{itemize}
 
             \subsection{Merkmal als unwichtig markieren}
+            \begin{itemize}
+                \item Ausgangssituation: Spieler befindet sich auf der Spiel-Seite
+                \item Schritte:
+                    \begin{itemize}
+                        \item Bei einem oder mehreren unwichtigen Merkmalen auf \enquote{Nutzlos markieren} klicken
+                        \item Zusätzlich kann Spieler auch noch Merkmale für seine Merkmalsauswahl aussuchen
+                    \end{itemize}
+                \item Funktioniert: Ja
+            \end{itemize}
 
             \subsection{Streak erreichen}
+            \begin{itemize}
+                \item Ausgangssituation: Spieler befindet sich auf der Spiel-Seite
+                \item Schritte:
+                    \begin{itemize}
+                        \item Mehrere Runden (mind. eine) am Stück spielen
+                        \item Im Feld \enquote{Streak} anhand des Balkens und des zugehörigen Texts den Zustand seiner Streak erkennen
+                    \end{itemize}
+                    \item Funktioniert: Ja
+            \end{itemize}
 
             \subsection{Runde starten}
+            \begin{itemize}
+                \item Ausgangssituation: Spieler ist angemeldet und hat mindestens ein aktives Spiel
+                \item Schritte:
+                    \begin{itemize}
+                        \item Auf der Übersichts-Seite das gewünschte Spiel aussuchen und auf \enquote{Spielen} klicken
+                    \end{itemize}
+                \item Funktioniert: Ja
+            \end{itemize}
 
             \subsection{Achievements ansehen}
+            \begin{itemize}
+                \item Ausgangssituation: Spieler ist angemeldet
+                \item Schritte:
+                    \begin{itemize}
+                        \item In der Navigationsleiste auf \enquote{Achievements} klicken
+                    \end{itemize}
+                \item Funktioniert: Ja
+            \end{itemize}
 
             \subsection{Leaderboard ansehen}
+            \begin{itemize}
+                \item Ausgangssituation: Spieler ist angemeldet
+                \item Schritte:
+                    \begin{itemize}
+                        \item Direkt auf der Übersichts-Seite die Top 5 einsehen
+                    \end{itemize}
+                \item Funktioniert: Ja
+            \end{itemize}
 
             \subsection{Sprache ändern}
+            \begin{itemize}
+                \item Ausgangssituation: Nutzer ist angemeldet
+                \item Schritte:
+                    \begin{itemize}
+                        \item In der Navigationsleiste auf \enquote{Einstellungen} klicken
+                        \item Auf Feld \enquote{Sprache} klicken und anschließend eine der verfügbaren Sprachen auswählen
+                        \item Auf \enquote{Aktualisieren} klicken
+                    \end{itemize}
+                \item Funktioniert: Ja
+                \item Anmerkung: Seite muss neu geladen werden, damit die Änderung in Kraft tritt
+            \end{itemize}
 
             \subsection{Konfiguration bearbeiten}
 
+
             \subsection{Server beenden}
 
+
             \subsection{Passwort ändern}
+            \begin{itemize}
+                \item Ausgangssituation: Nutzer ist angemeldet
+                \item Schritte:
+                    \begin{itemize}
+                        \item In der Navigationsleiste auf \enquote{Einstellungen} klicken
+                        \item In das Textfeld \enquote{Neues Passwort} das neue Passwort schreiben
+                        \item Neues Passwort im Textfeld \enquote{Passwort wiederholen} wiederholen
+                        \item Auf \enquote{Aktualisieren} klicken
+                    \end{itemize}
+                \item Funktioniert: Ja
+                \item Änderungen zum Pflichtenheftszenario
+                \begin{itemize}
+                    \item Das aktuelle Passwort muss nicht angegeben werden
+                \end{itemize}
+            \end{itemize}
 
             \subsection{E-Mail ändern}
+            \begin{itemize}
+                \item Ausgangssituation: Nutzer ist angemeldet
+                \item Schritte:
+                    \begin{itemize}
+                        \item In der Navigationsleiste auf \enquote{Einstellungen} klicken
+                        \item In das Textfeld \enquote{Neue E-Mail} eine neue gültige E-Mail einfügen
+                        \item Auf \enquote{Aktualisieren} klicken
+                    \end{itemize}
+                \item Funktioniert: Ja
+                \item Änderungen zum Pflichtenheftszenario
+                    \begin{itemize}
+                        \item Das aktuelle Passwort muss nicht angegeben werden
+                    \end{itemize}
+            \end{itemize}
 
             \subsection{Passwort zurücksetzen}
+            \begin{itemize}
+                \item Ausgangssituation: Nutzer befindet sich auf der Login-Seite
+                \item Schritte:
+                    \begin{itemize}
+                        \item Auf \enquote{Du hast dein Passwort vergessen?} klicken
+                        \item Seine E-Mail in das E-Mail-Feld einfügen
+                        \item Falls man Organisator ist: \enquote{Organisator} auswählen
+                        \item Auf \enquote{Passwort zurücksetzen} klicken
+                        \item Mit dem per E-Mail erhaltenen temporären Passwort anmelden
+                    \end{itemize}
+                \item Funktioniert: Ja
+            \end{itemize}
 
             \subsection{Hilfe-Schaltfläche verwenden}
+            % Ist anders als im Pflichtenheft
+
 
 
         \section{Weitere Testfallszenarien}
             \subsection{Nutzer bei Inaktivität abmelden}
+            \begin{itemize}
+                \item Ausgangssituation: Nutzer bist angemeldet
+                \item Schritte:
+                    \begin{itemize}
+                        \item Für zehn Minuten nichts im Browser-Fenster tun
+                    \end{itemize}
+                \item Funktioniert: Ja
+            \end{itemize}
 
 
     \chapter{Hallway Usability Testing}
