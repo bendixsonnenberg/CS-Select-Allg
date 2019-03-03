@@ -387,5 +387,46 @@
         in der Datenbank nicht gesetzt, was zu einem Nullpointer beim ausführen von startRound führte
         \item Behebung: Die fehlende Übermittlung des FeatureSet-Namen wurde hinzugefügt, sowie die "isTerminated"-Spalte korrekt gesetzt
     \end{itemize}
-
+    \subsection{Mehrfachmarkierung (Issue 20)}
+    \begin{itemize}
+        \item Fehlersymptom: Merkmale können als unwichtig markiert werden und für die Runde ausgewählt werden
+        \item Grund: Es wurde nicht überprüft ob ein Merkmal als unwichtig markiert wurde bevor es ausgewählt werden kann
+        \item Behebung: Überprüfen ob ein Merkmal unwichtig ist, bevor es markiert wird/werden kann
+    \end{itemize}
+    \subsection{Einfrieren des Spiels bei anzeigen der Graphen für unwichtige Features(Issue 21)}
+    \begin{itemize}
+        \item Fehlersymptom: Wenn für ein unwichtiges Merkmal die Graphen angezeigt werden, kann man nicht mehr mit dem Spiel interagieren.
+        \item Grund: Die ganze Karte in der ein Feature-Box angezeigt wird, wird ausgegraut womit das Betätigen des Schließen Knopf des Modals nicht mehr klickbar ist.
+        \item Behebung: Verhindern das Graphen für unwichtige Features angezeigt werden können
+    \end{itemize}
+    \subsection{Linebreaks Darstellung(Issue 61)}
+    \begin{itemize}
+        \item Fehlersymptom: Linebreaks in Hilfetexten und Merkmalstexten werden als \textbackslash n dargestellt
+        \item Grund: HTML versteht \textbackslash n nicht als Linebreak
+        \item Behebung: Im Frontend alle \textbackslash n durch <br> ersetzten
+    \end{itemize}
+    \subsection{Masterpasswort gleich Nutzername ?(Issue 30)}
+    \begin{itemize}
+        \item Fehlersymptom: Bei der Registrierung wird der Nutzername als Masterpasswort eingetragen, wenn von Spieler auf Organisator gewechselt wird.
+        \item Grund: Bei Werte werden in der selben Variable gespeichert
+        \item Behebung: Variable löschen beim Wechsel
+    \end{itemize}
+    \subsection{Einladungen bleiben erhalten(Issue 32)}
+    \begin{itemize}
+        \item Fehlersymptom: Wenn Einladungen vom Spieler angenommen werden, werden sie nicht von der Einladungsliste im Frontend entfernt
+        \item Grund: Nicht implementiert
+        \item Behebung: Einladungen von der Einladungsliste löschen und auf die Spiele Liste setzten
+    \end{itemize}
+    \subsection{Umlaute(Issue 37)}
+    \begin{itemize}
+        \item Fehlersymptom: Umlaute werden im Frontend nicht richtig dargestellt
+        \item Grund: HTML Tag für UTF-8 nicht geschlossen und Ressourcebundle-Dateien können kein UTF-8 
+        \item Behebung: Tag schließen und Oracle Unicode Konverter auf die Localisierung anwenden
+    \end{itemize}
+    \subsection{Skipping setzt Streak nicht zurück(Issue 56)}
+    \begin{itemize}
+        \item Fehlersymptom: Skipping einer Runde setzt die Streak eines Spielers nicht zurück
+        \item Grund: API hat eine Exception geworfen bevor sie zum Skip Aufruf gekommen ist
+        \item Behebung: Exception behoben
+    \end{itemize}
 \end{document}
