@@ -368,10 +368,24 @@
 
     \chapter{Fehlerbehebungen}
 
+    \subsection{Spielladefehler (Issue 16)}
     \begin{itemize}
-        \item Fehlersymptom:
-        \item Grund:
-        \item Behebung:
+        \item Fehlersymptom: Ein Organisator verlor seine Liste an Spielen nach einem Server-Neustart
+        \item Grund: Spiele wurden in einer Map gecached, welche beim Neustart nicht neu geladen wurde
+        \item Behebung: Spiele werden beim Neustart aus der Datenbank geladen
+    \end{itemize}
+    \subsection{Spielduplizierung (Issue 18)}
+    \begin{itemize}
+        \item Fehlersymptom: Spiele zu denen ein Spieler eingeladen war wurden doppelt angezeigt
+        \item Grund: Spieleinladungen wurden auch von getActiveGames zurückgegeben
+        \item Behebung: Fehler in der Methode getActiveGames behoben
+    \end{itemize}
+    \subsection{startRound null (Issue 19)}
+    \begin{itemize}
+        \item Fehlersymptom: Wenn startRound mit einer validen Spiel-ID aufgerufen wurde wurde null zurückgegeben
+        \item Grund: Bei der Spielerstellung wurde der FeatureSet-Name nicht übermittelt, sowie die "isTerminated"-Spalte des Spiels
+        in der Datenbank nicht gesetzt, was zu einem Nullpointer beim ausführen von startRound führte
+        \item Behebung: Die fehlende Übermittlung des FeatureSet-Namen wurde hinzugefügt, sowie die "isTerminated"-Spalte korrekt gesetzt
     \end{itemize}
 
 \end{document}
