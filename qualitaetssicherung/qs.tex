@@ -399,12 +399,6 @@
         \item Grund: Die ganze Karte, in der ein Feature-Box angezeigt wird, wird ausgegraut, womit das Betätigen des Schließen-Knopfs des Modals nicht mehr klickbar ist.
         \item Behebung: Verhindern, dass Graphen für unwichtige Features angezeigt werden können
     \end{itemize}
-    \subsection{Linebreaks Darstellung (Issue 61)}
-    \begin{itemize}
-        \item Fehlersymptom: Linebreaks in Hilfetexten und Merkmalstexten werden als \textbackslash n dargestellt
-        \item Grund: HTML versteht \textbackslash n nicht als Linebreak
-        \item Behebung: Im Frontend alle \textbackslash n durch <br> ersetzten
-    \end{itemize}
     \subsection{Masterpasswort gleich Nutzername ? (Issue 30)}
     \begin{itemize}
         \item Fehlersymptom: Bei der Registrierung wird der Nutzername als Masterpasswort eingetragen, wenn von Spieler auf Organisator gewechselt wird.
@@ -429,6 +423,12 @@
         \item Grund: API hat eine Exception geworfen bevor sie zum Skip Aufruf gekommen ist
         \item Behebung: Exception behoben
     \end{itemize}
+    \subsection{Linebreaks Darstellung (Issue 61)}
+    \begin{itemize}
+    \item Fehlersymptom: Linebreaks in Hilfetexten und Merkmalstexten werden als \textbackslash n dargestellt
+    \item Grund: HTML versteht \textbackslash n nicht als Linebrea
+    \item Behebung: Im Frontend alle \textbackslash n durch <br> ersetzten
+    \end{itemize}
     \subsection{Runden mit selben Features in anderer Reihenfolge (Issue 79)}
     \begin{itemize}
     \item Fehlersymptom: Runden mit den selben Features in einer anderen
@@ -436,6 +436,30 @@
     \item Grund: Nicht implementiert, nur die exakte Abfolge der Feature-IDs wurde
      überprüft
     \item Behebung: Feature-IDs werden beim Schreiben in die Datenbank sortiert
+    \end{itemize}
+    \subsection{Server stürzt ohne Config-Datei ab (Issue 81)}
+    \begin{itemize}
+    \item Fehlersymptom: Wenn die Datei config.properties nicht wie erwartet
+     existiert, konnte man den Server trotzdem starten und es kam keine 
+     adäquate Fehlermeldung
+    \item Grund: Nicht implementiert
+    \item Behebung: Exception wird geworfen, wenn Fehler beim Lesen der Config
+     auftreten, wird im Frontend behandelt
+    \end{itemize}
+    \subsection{Useless Features nicht gespeichert (Issue 89)}
+    \begin{itemize}
+    \item Fehlersymptom: In Runden, die übersprungen wurden, wurden als useless
+     markierte Features nicht gespeichert
+    \item Grund: Fehler beim Parsen aus den Frontend-Informationen
+    \item Behebung: Parsen korrigiert
+    \end{itemize}
+    \subsection{Keine Features angezeigt (Issue 99)}
+    \begin{itemize}
+    \item Fehlersymptom: Wenn in Matrix-Select eine Featureanzahl angegeben wurde, 
+    die keine Quadratzahl war, wurden die Features nicht angezeigt
+    \item Grund: Frontend konnte nur mit Quadratzahlen umgehen
+    \item Behebung: Flexibleres Design für die Featureanzeige, das auch mit anderen
+     Zahlen umgehen kann
     \end{itemize}
     \subsection{Übersprungene Runden zählen für Spielterminierung (Issue 137)}
     \begin{itemize}
