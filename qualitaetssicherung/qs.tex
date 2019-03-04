@@ -429,4 +429,39 @@
         \item Grund: API hat eine Exception geworfen bevor sie zum Skip Aufruf gekommen ist
         \item Behebung: Exception behoben
     \end{itemize}
+    \subsection{Runden mit selben Features in anderer Reihenfolge (Issue 79)}
+    \begin{itemize}
+    \item Fehlersymptom: Runden mit den selben Features in einer anderen
+     Reihenfolge wurden nicht ausgeschlossen
+    \item Grund: Nicht implementiert, nur die exakte Abfolge der Feature-IDs wurde
+     überprüft
+    \item Behebung: Feature-IDs werden beim Schreiben in die Datenbank sortiert
+    \end{itemize}
+    \subsection{Übersprungene Runden zählen für Spielterminierung (Issue 137)}
+    \begin{itemize}
+    \item Fehlersymptom: Übersprungene Runden haben als normale Runden für die
+     Runden-Termination gezählt, ein Spiel konnte also auch terminieren, wenn alle
+      Runden übersprungen wurden
+    \item Grund: Keine Unterscheidung zwischen normal beendeten und übersprungenen
+     Runden 
+    \item Behebung: Neues Skipped-Attribut für Runden, welches angibt, ob eine
+     Runde übersprungen wurde und zum Filtern benutzt wird
+    \end{itemize}
+    \subsection{Runden mit weniger Features nicht gespeichert (Issue 153)}
+    \begin{itemize}
+    \item Fehlersymptom: Runden, bei denen weniger Features als normal ausgewählt
+     wurden, wurden nicht gespeichert und es wurden -1 Punkte zurückgegeben
+    \item Grund: Ursprünglich nicht erwartetes Verhalten, dass weniger Features
+     als erwartet ausgewählt werden, hat Ausnahmebehandlung ausgelöst
+    \item Behebung: Ausnahmebehandlung entfernt
+    \end{itemize}
+    \subsection{Nächste Runde, ohne Features auszuwählen (Issue 164)}
+    \begin{itemize}
+    \item Fehlersymptom: Wenn Features ausgewählt wurden und dann alle Features
+     als useless markiert wurden, konnte trotzdem der Nächste-Runde-Knopf betätigt 
+     werden und das Spiel ist eingefroren
+    \item Grund: Aufruf an den ML-Server ohne ausgewählte Features und ohne
+     Ausnahmebehandlung für diesen Spezialfall
+    \item Behebung: Knopf kann nicht mehr in diesem Szenario betätigt werden, Ausnahmebehandlung
+    \end{itemize}
 \end{document}
