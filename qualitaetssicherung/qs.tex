@@ -138,20 +138,83 @@
             \end{itemize}
 
             \subsection{Organisator löschen}
+            Da die Kommunikation eines Administrators mit dem System über eine Kommandozeile nicht möglich ist, kann dieses Szenario nicht getestet werden.
+            Das Löschen eines Organisators kann jedoch direkt in der Datenbank durch den Administrator erfolgen.
 
             \subsection{Spiel erstellen}
+            \begin{itemize}
+                \item Ausgangssituation: Organisator ist angemeldet
+                \item Schritte:
+                    \begin{itemize}
+                        \item In der Navigationsleiste auf \enquote{Spielerstellung} klicken
+                        \item Alle Pflichtfelder (d.h. Titel, Beschreibung, Spielmodus, Terminierung, Feature Set, Datenbankname) korrekt ausfüllen
+                        \item Auf \enquote{Erstellen} klicken
+                    \end{itemize}
+                \item Funktioniert: Ja
+            \end{itemize}
 
             \subsection{Spieler nach Spielbeginn einladen}
+            \begin{itemize}
+                \item Ausgangssituation: Organisator ist angemeldet
+                \item Schritte:
+                    \begin{itemize}
+                        \item Auf der Übersichts-Seite das entsprechende Spiel suchen und auf \enquote{Einladen} klicken
+                        \item Gültige E-Mail-Adresse in das Feld eingeben
+                        \item Alternativ auf \enquote{Mehrere Spieler einladen} klicken und mehrere E-Mails, getrennt mit Kommata, eingeben
+                        \item Auf \enquote{Einladen} klicken
+                    \end{itemize}
+                \item Funktioniert: Ja
+            \end{itemize}
 
             \subsection{Spiel vorzeitig beenden}
+            \begin{itemize}
+                \item Ausgangssituation: Organisator ist angemeldet
+                \item Schritte:
+                    \begin{itemize}
+                        \item Auf der Übersichts-Seite das entsprechende Spiel suchen und auf \enquote{Beenden} klicken
+                \end{itemize}
+                \item Funktioniert: Ja
+            \end{itemize}
 
             \subsection{Spiel löschen}
+            Ein Organisator kann, nicht wie anfangs angedacht, keine Spiele löschen. Er kann diese nur aus seiner Übersicht entfernen, jedoch bleiben diese Spiele noch in der Datenbank existent.
 
             \subsection{Spieleinstellungen speichern}
+            \begin{itemize}
+                \item Ausgangssituation: Organisator ist auf der Spielerstellungs-Seite
+                \item Schritte:
+                    \begin{itemize}
+                        \item Alle Pflichtfelder (d.h. Titel, Beschreibung, Spielmodus, Terminierung, Feature Set, Datenbankname) korrekt ausfüllen
+                        \item Im Textfeld \enquote{Name der Vorlage} einen Name für die Vorlage auswählen, zuvor die Checkbox setzen
+                        \item Auf \enquote{Erstellen} klicken
+                    \end{itemize}
+                \item Funktioniert: Ja
+            \end{itemize}
 
             \subsection{Spieleinstellungen laden}
+            \begin{itemize}
+                \item Ausgangssituation: Organisator ist auf der Spielerstellungs-Seite und eine Voreinstellung exisitiert bereits
+                \item Schritte:
+                    \begin{itemize}
+                        \item Bei \enquote{Voreinstellung} eine gewünschte Vorlage wählen
+                        \item Gegebenenfalls noch Parameter ändern und auf \enquote{Erstellen} klicken
+                    \end{itemize}
+                \item Funktioniert: Ja
+                \item Änderungen zum Pflichtenheftszenario
+                \begin{itemize}
+                    \item Eine Voreinstellung kann nur bei der Spielerstellung gespeichert werden, aus einem bereits erstellten Spiel kann keine Vorlage erzeugt werden
+                \end{itemize}
+            \end{itemize}
 
             \subsection{Spielzustand auslesen}
+            \begin{itemize}
+                \item Ausgangssituation: Organisator ist angemeldet
+                \item Schritte:
+                    \begin{itemize}
+                        \item Unter \enquote{Laufende Spiele} Spiel-Information auslesen
+                    \end{itemize}
+                \item Funktioniert: Ja
+            \end{itemize}
 
             \subsection{Einladung zu Spiel annehmen}
             \begin{itemize}
@@ -165,8 +228,29 @@
             % TODO: Option 2
 
             \subsection{Runde spielen: Matrix Select}
+            \begin{itemize}
+                \item Ausgangssituation: Spieler ist angemeldet und hat offenes Spiel von Matrix Select
+                \item Schritte:
+                    \begin{itemize}
+                        \item Auf Übersichts-Seite das entsprechende Spiel suchen und \enquote{Spielen} wählen
+                        \item Bestimmte Merkmale auswählen (innerhalb der angegeben Reichweite), eventuell auch welche als nutzlos markieren oder Graphen anzeigen lassen
+                        \item Auf \enquote{Bestätigen} klicken
+                    \end{itemize}
+                \item Funktioniert: Ja
+            \end{itemize}
 
             \subsection{Runde spielen: Binär Select}
+            \begin{itemize}
+                \item Ausgangssituation: Spieler ist angemeldet und hat offenes Spiel von Binär Select
+                \item Schritte:
+                    \begin{itemize}
+                        \item Auf Übersichts-Seite das entsprechende Spiel suchen und \enquote{Spielen} wählen
+                        \item Aus zwei Merkmalen eines wählen, eventuell auch als nutzlos markieren oder Graphen anzeigen lassen
+                        \item Vorherigen Schritt fünf Mal durchführen
+                        \item Auf \enquote{Bestätigen} klicken
+                    \end{itemize}
+                \item Funktioniert: Ja
+            \end{itemize}
 
             \subsection{Spielterminierung während Runde}
             % Das machen wir ja nicht?
@@ -253,10 +337,19 @@
             \end{itemize}
 
             \subsection{Konfiguration bearbeiten}
-
+            \begin{itemize}
+                \item Ausgangssituation: Administrator befindet sich im Installationsverzeichnis des Servers
+                \item Schritte:
+                    \begin{itemize}
+                        \item Konfigurationsdatei mit beliebigem Texteditor öffnen
+                        \item Die gewünschten Einstellungen editieren
+                        \item Datei speichern
+                    \end{itemize}
+                \item Funktioniert: Ja
+            \end{itemize}
 
             \subsection{Server beenden}
-
+            %TODO
 
             \subsection{Passwort ändern}
             \begin{itemize}
@@ -311,12 +404,26 @@
 
 
         \section{Weitere Testfallszenarien}
+        Die folgenden Szenarien sind alle in der Qualitätssicherungphase entstanden und von uns erfunden. Sie sind ebenso mit dem deutschen Sprachpaket durchgeführt worden.
+
             \subsection{Nutzer bei Inaktivität abmelden}
             \begin{itemize}
-                \item Ausgangssituation: Nutzer bist angemeldet
+                \item Ausgangssituation: Nutzer ist angemeldet
                 \item Schritte:
                     \begin{itemize}
                         \item Für zehn Minuten nichts im Browser-Fenster tun
+                    \end{itemize}
+                \item Funktioniert: Ja
+            \end{itemize}
+
+            \subsection{Daily-Challenge abschließen}
+            \begin{itemize}
+                \item Ausgangssituation: Spieler ist angemeldet
+                \item Schritte:
+                    \begin{itemize}
+                        \item Auf der Übersichts-Seite unter \enquote{Tägliche Aufgabe} die Daily-Challenge einsehen
+                        \item Die Aufgabe erfüllen (z.B. drei Runden spielen)
+                        \item Daily-Challenge abgeschlossen und Punkte erhalten
                     \end{itemize}
                 \item Funktioniert: Ja
             \end{itemize}
