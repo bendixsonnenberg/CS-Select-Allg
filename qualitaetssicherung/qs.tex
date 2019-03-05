@@ -474,110 +474,127 @@
 
 
     \chapter{Fehlerbehebungen}
+    Im Folgenden sind die wichtigsten Fehler mit Fehlersympton, Grund und deren Behebung aufgelistet. Sie beziehen sich alle auf Issues
+    aus unserem GitHub-Repository.
 
     \subsection{Spielladefehler (Issue 16)}
     \begin{itemize}
-        \item Fehlersymptom: Ein Organisator verlor seine Liste an Spielen nach einem Server-Neustart
+        \item Fehlersymptom: Organisator verlor seine Liste an Spielen nach einem Server-Neustart
         \item Grund: Spiele wurden in einer Map gecached, welche beim Neustart nicht neu geladen wurde
         \item Behebung: Spiele werden beim Neustart aus der Datenbank geladen
     \end{itemize}
+
     \subsection{Spielduplizierung (Issue 18)}
     \begin{itemize}
-        \item Fehlersymptom: Spiele zu denen ein Spieler eingeladen war, wurden doppelt angezeigt
+        \item Fehlersymptom: Spiele, zu denen ein Spieler eingeladen war, wurden doppelt angezeigt
         \item Grund: Spieleinladungen wurden auch von getActiveGames zurückgegeben
         \item Behebung: Fehler in der Methode getActiveGames behoben
     \end{itemize}
-    \subsection{startRound null (Issue 19)}
+
+    \subsection{Kein Start von valider Runde (Issue 19)}
     \begin{itemize}
         \item Fehlersymptom: Wenn startRound mit einer validen Spiel-ID aufgerufen wurde, wurde null zurückgegeben
-        \item Grund: Bei der Spielerstellung wurde der FeatureSet-Name nicht übermittelt sowie die "isTerminated"-Spalte des Spiels
-        in der Datenbank nicht gesetzt, was zu einem Nullpointer beim ausführen von startRound führte
-        \item Behebung: Die fehlende Übermittlung des FeatureSet-Namen wurde hinzugefügt sowie die "isTerminated"-Spalte korrekt gesetzt
+        \item Grund: Bei der Spielerstellung wurde der FeatureSet-Name nicht übermittelt sowie die isTerminated-Spalte des Spiels
+        in der Datenbank nicht gesetzt, was zu einem Null-Pointer beim Ausführen von startRound führte
+        \item Behebung: Die fehlende Übermittlung des FeatureSet-Namen wurde hinzugefügt und die isTerminated-Spalte korrekt gesetzt
     \end{itemize}
+
     \subsection{Mehrfachmarkierung (Issue 20)}
     \begin{itemize}
         \item Fehlersymptom: Merkmale können als unwichtig markiert und für die Runde ausgewählt werden
         \item Grund: Es wurde nicht überprüft, ob ein Merkmal als unwichtig markiert wurde, bevor es ausgewählt werden kann
         \item Behebung: Überprüfen, ob ein Merkmal unwichtig ist, bevor es markiert wird/werden kann
     \end{itemize}
-    \subsection{Einfrieren des Spiels bei anzeigen der Graphen für unwichtige Features (Issue 21)}
+
+    \subsection{Graphen für nutzlos markierte Merkmale (Issue 21)}
     \begin{itemize}
-        \item Fehlersymptom: Wenn für ein unwichtiges Merkmal die Graphen angezeigt werden, kann man nicht mehr mit dem Spiel interagieren.
-        \item Grund: Die ganze Karte, in der ein Feature-Box angezeigt wird, wird ausgegraut, womit das Betätigen des Schließen-Knopfs des Modals nicht mehr klickbar ist.
+        \item Fehlersymptom: Wenn für ein unwichtiges Merkmal die Graphen angezeigt werden, kann man nicht mehr mit dem Spiel interagieren
+        \item Grund: Die ganze Karte, in der eine Feature-Box angezeigt wird, wird ausgegraut, womit das Betätigen des Schließen-Knopfs des Modals nicht mehr klickbar ist
         \item Behebung: Verhindern, dass Graphen für unwichtige Features angezeigt werden können
     \end{itemize}
-    \subsection{Masterpasswort gleich Nutzername ? (Issue 30)}
+
+    \subsection{Masterpasswort gleich Nutzername (Issue 30)}
     \begin{itemize}
-        \item Fehlersymptom: Bei der Registrierung wird der Nutzername als Masterpasswort eingetragen, wenn von Spieler auf Organisator gewechselt wird.
+        \item Fehlersymptom: Bei der Registrierung wird der Nutzername als Masterpasswort eingetragen, wenn von Spieler auf Organisator gewechselt wird
         \item Grund: Beide Werte werden in der selben Variable gespeichert
         \item Behebung: Variable löschen beim Wechsel
     \end{itemize}
+
     \subsection{Einladungen bleiben erhalten (Issue 32)}
     \begin{itemize}
-        \item Fehlersymptom: Wenn Einladungen vom Spieler angenommen werden, werden sie nicht von der Einladungsliste im Frontend entfernt
-        \item Grund: Nicht implementiert
-        \item Behebung: Einladungen von der Einladungsliste löschen und auf die Spiele Liste setzten
+        \item Fehlersymptom: Wenn Einladungen vom Spieler angenommen werden, werden sie nicht von der Einladungsliste im Front-End entfernt
+        \item Grund: War nicht implementiert
+        \item Behebung: Einladungen von der Einladungsliste löschen und auf die Spiele-Liste setzten
     \end{itemize}
-    \subsection{Umlaute (Issue 37)}
+
+    \subsection{Umlaute (Issue 37, 160, 170)}
     \begin{itemize}
-        \item Fehlersymptom: Umlaute werden im Frontend nicht richtig dargestellt
-        \item Grund: HTML Tag für UTF-8 nicht geschlossen und Ressourcebundle-Dateien können kein UTF-8 
+        \item Fehlersymptom: Umlaute werden im Front-End nicht richtig dargestellt
+        \item Grund: HTML-Tag für UTF-8 nicht geschlossen und ResourceBundle-Dateien können kein UTF-8
         \item Behebung: Tag schließen und Oracle Unicode Konverter auf die Localisierung anwenden
     \end{itemize}
-    \subsection{Skipping setzt Streak nicht zurück (Issue 56)}
+
+    \subsection{Überspringen setzt Streak nicht zurück (Issue 56)}
     \begin{itemize}
-        \item Fehlersymptom: Skipping einer Runde setzt die Streak eines Spielers nicht zurück
-        \item Grund: API hat eine Exception geworfen bevor sie zum Skip Aufruf gekommen ist
+        \item Fehlersymptom: Überspringen einer Runde setzt die Streak eines Spielers nicht zurück
+        \item Grund: API hat eine Exception geworfen, bevor sie zum Überspringen-Aufruf gekommen ist
         \item Behebung: Exception behoben
     \end{itemize}
+
     \subsection{Linebreaks Darstellung (Issue 61)}
     \begin{itemize}
     \item Fehlersymptom: Linebreaks in Hilfetexten und Merkmalstexten werden als \textbackslash n dargestellt
-    \item Grund: HTML versteht \textbackslash n nicht als Linebrea
+    \item Grund: HTML versteht \textbackslash n nicht als Linebreak
     \item Behebung: Im Frontend alle \textbackslash n durch <br> ersetzten
     \end{itemize}
-    \subsection{Runden mit selben Features in anderer Reihenfolge (Issue 79)}
+
+    \subsection{Runden mit selben Merkmalen in anderer Reihenfolge (Issue 79)}
     \begin{itemize}
-    \item Fehlersymptom: Runden mit den selben Features in einer anderen
+    \item Fehlersymptom: Runden mit den selben Merkmalen in einer anderen
      Reihenfolge wurden nicht ausgeschlossen
     \item Grund: Nicht implementiert, nur die exakte Abfolge der Feature-IDs wurde
      überprüft
     \item Behebung: Feature-IDs werden beim Schreiben in die Datenbank sortiert
     \end{itemize}
+
     \subsection{Server stürzt ohne Config-Datei ab (Issue 81)}
     \begin{itemize}
     \item Fehlersymptom: Wenn die Datei config.properties nicht wie erwartet
-     existiert, konnte man den Server trotzdem starten und es kam keine 
+     existiert, konnte man den Server trotzdem starten und es gab keine
      adäquate Fehlermeldung
     \item Grund: Nicht implementiert
     \item Behebung: Exception wird geworfen, wenn Fehler beim Lesen der Config
-     auftreten, wird im Frontend behandelt
+     auftreten, diese wird im Frontend behandelt
     \end{itemize}
-    \subsection{Useless Features nicht gespeichert (Issue 89)}
+
+    \subsection{Nutzlose Merkmale nicht gespeichert (Issue 89)}
     \begin{itemize}
-    \item Fehlersymptom: In Runden, die übersprungen wurden, wurden als useless
-     markierte Features nicht gespeichert
-    \item Grund: Fehler beim Parsen aus den Frontend-Informationen
+    \item Fehlersymptom: In Runden, die übersprungen wurden, wurden als nutzlos
+     markierte Merkmale nicht gespeichert
+    \item Grund: Fehler beim Parsen aus den Front-End-Informationen
     \item Behebung: Parsen korrigiert
     \end{itemize}
-    \subsection{Keine Features angezeigt (Issue 99)}
+
+    \subsection{Keine Merkmale angezeigt (Issue 99)}
     \begin{itemize}
-    \item Fehlersymptom: Wenn in Matrix-Select eine Featureanzahl angegeben wurde, 
+    \item Fehlersymptom: Wenn in Matrix-Select eine Merkmalsanzahl angegeben wurde,
     die keine Quadratzahl war, wurden die Features nicht angezeigt
-    \item Grund: Frontend konnte nur mit Quadratzahlen umgehen
-    \item Behebung: Flexibleres Design für die Featureanzeige, das auch mit anderen
+    \item Grund: Front-End konnte nur mit Quadratzahlen umgehen
+    \item Behebung: Flexibleres Design für die Merkmalsdarstellung, das auch mit anderen
      Zahlen umgehen kann
     \end{itemize}
+
     \subsection{Übersprungene Runden zählen für Spielterminierung (Issue 137)}
     \begin{itemize}
     \item Fehlersymptom: Übersprungene Runden haben als normale Runden für die
-     Runden-Termination gezählt, ein Spiel konnte also auch terminieren, wenn alle
+     Runden-Terminierung gezählt, ein Spiel konnte also auch terminieren, wenn alle
       Runden übersprungen wurden
     \item Grund: Keine Unterscheidung zwischen normal beendeten und übersprungenen
      Runden 
     \item Behebung: Neues Skipped-Attribut für Runden, welches angibt, ob eine
      Runde übersprungen wurde und zum Filtern benutzt wird
     \end{itemize}
+
     \subsection{Runden mit weniger Features nicht gespeichert (Issue 153)}
     \begin{itemize}
     \item Fehlersymptom: Runden, bei denen weniger Features als normal ausgewählt
@@ -586,13 +603,22 @@
      als erwartet ausgewählt werden, hat Ausnahmebehandlung ausgelöst
     \item Behebung: Ausnahmebehandlung entfernt
     \end{itemize}
-    \subsection{Nächste Runde, ohne Features auszuwählen (Issue 164)}
+
+    \subsection{Nächste Runde, ohne zuvor Merkmale auszuwählen (Issue 164)}
     \begin{itemize}
-    \item Fehlersymptom: Wenn Features ausgewählt wurden und dann alle Features
-     als useless markiert wurden, konnte trotzdem der Nächste-Runde-Knopf betätigt 
+    \item Fehlersymptom: Wenn Merkmale ausgewählt wurden und dann alle Merkmale
+     als nutzlos markiert wurden, konnte trotzdem der Bestätigen-Knopf betätigt
      werden und das Spiel ist eingefroren
     \item Grund: Aufruf an den ML-Server ohne ausgewählte Features und ohne
      Ausnahmebehandlung für diesen Spezialfall
     \item Behebung: Knopf kann nicht mehr in diesem Szenario betätigt werden, Ausnahmebehandlung
     \end{itemize}
+
+    \subsection{Graph anzeigen nach Beendigung der Runde (Issue 197)}
+    \begin{itemize}
+        \item Fehlersymptom: Wenn die Runde bestätigt wurde und direkt danach ein Graph anzeigt wurde, ist das Spiel eingefroren
+        \item Grund: Die neue Runde wurde noch nicht geladen, aber der Grpah eines Merkmals der letzten Runde wurde noch angezeigt
+        \item Behebung: Graphen können erst wieder bei den Merkmalen in der neuen Runde angezeigt werden
+    \end{itemize}
+
 \end{document}
