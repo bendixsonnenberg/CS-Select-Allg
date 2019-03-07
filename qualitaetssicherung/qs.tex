@@ -24,7 +24,7 @@
     \tableofcontents
     \chapter{Einleitung}
     Die Qualitätssicherung ist die abschließende Phase unseres Projekts CS:Select. In dieser Phase wurde das Produkt
-    gründlich und umfangreich getestet. Jegliche Fehler, welche nach der Implementierungsphase entstanden sind, sollten einerseits
+    gründlich und umfangreich getestet. Jegliche Fehler, welche nach der Implementierungsphase geblieben sind, sollten einerseits
     gefunden und andererseits beseitigt werden. Außerdem ging es darum,
     die Code-Qualität noch weiter zu verbessern und auch schon vorhandene Unit-Tests weiter auszubauen. \\
     \\
@@ -34,7 +34,7 @@
     konnten wir das Produkt noch weiter verbessern, z.B. wenn die Funktionsweise an manchen Stellen nicht intuitiv genug für den Nutzer war.
     Insgesamt haben wir in dieser Phase also auch die Nutzerfreundlichkeit erhöht und weitere Features eingebaut, die das Nutzen der Anwendung erleichtern. \\
     \\
-    Als weiteren Punkt beschreiben wir unsere Testüberdeckungswerte und wie diese erreicht wurden. Darüber hinaus erläutern wir noch unsere benutzten Testmetriken. \\
+    Als weiteren Punkt beschreiben wir unsere Testüberdeckungswerte und wie diese erreicht wurden. \\
     \\
     Schließlich sind durch all diese Testverfahren diverse Fehler erkannt und beseitigt worden. Im letzten Teil des Dokuments
     reflektieren wir noch einmal diese aufgetretenen Fehler. Dabei geht es auch darum, warum sie überhaupt auftraten
@@ -49,7 +49,7 @@
         \section{Pflichtenheftszenarien}
         Die folgenden Szenarien sind alle dem Pflichtenheft entnommen. Sie sind mit dem deutschen Sprachpaket durchgeführt worden.
 
-            \subsection{Spieler registrieren}
+            \subsection{Spieler registrieren (8.1.1)}
             \begin{itemize}
                 \item Ausgangssituation: Spieler befindet sich auf der Login-Seite
                 \item Schritte:
@@ -65,7 +65,7 @@
                 \item Funktioniert: Ja
             \end{itemize}
 
-            \subsection{Spieler anmelden}
+            \subsection{Spieler anmelden (8.1.2)}
             \begin{itemize}
                 \item Ausgangssituation: Spieler befindet sich auf der Login-Seite und besitzt bereits einen Account
                 \item Schritte:
@@ -81,7 +81,7 @@
                 \end{itemize}
             \end{itemize}
 
-            \subsection{Spieler abmelden}
+            \subsection{Spieler abmelden (8.1.3)}
             \begin{itemize}
                 \item Ausgangssituation: Spieler ist angemeldet
                 \item Schritte:
@@ -91,7 +91,7 @@
                 \item Funktioniert: Ja
             \end{itemize}
 
-            \subsection{Organisator registrieren}
+            \subsection{Organisator registrieren (8.1.4)}
             \begin{itemize}
                 \item Ausgangssituation: Organisator befindet sich auf der Login-Seite
                 \item Schritte:
@@ -107,7 +107,7 @@
             \item Funktioniert: Ja
             \end{itemize}
 
-            \subsection{Organisator anmelden}
+            \subsection{Organisator anmelden (8.1.5)}
             \begin{itemize}
                 \item Ausgangssituation: Organisator befindet sich auf der Login-Seite und besitzt bereits einen Account
                 \item Schritte:
@@ -120,7 +120,7 @@
                 \item Funktioniert: Ja
             \end{itemize}
 
-            \subsection{Organisator abmelden}
+            \subsection{Organisator abmelden (8.1.6)}
             \begin{itemize}
                 \item Ausgangssituation: Organisator ist angemeldet
                 \item Schritte:
@@ -130,11 +130,11 @@
                 \item Funktioniert: Ja
             \end{itemize}
 
-            \subsection{Organisator löschen}
+            \subsection{Organisator löschen (8.1.7)}
             Da die Kommunikation eines Administrators mit dem System über eine Kommandozeile nicht möglich ist, kann dieses Szenario nicht getestet werden.
             Das Löschen eines Organisators kann jedoch direkt in der Datenbank durch den Administrator erfolgen.
 
-            \subsection{Spiel erstellen}
+            \subsection{Spiel erstellen (8.1.8)}
             \begin{itemize}
                 \item Ausgangssituation: Organisator ist angemeldet
                 \item Schritte:
@@ -146,7 +146,7 @@
                 \item Funktioniert: Ja
             \end{itemize}
 
-            \subsection{Spieler nach Spielbeginn einladen}
+            \subsection{Spieler nach Spielbeginn einladen (8.1.9)}
             \begin{itemize}
                 \item Ausgangssituation: Organisator ist angemeldet
                 \item Schritte:
@@ -159,7 +159,7 @@
                 \item Funktioniert: Ja
             \end{itemize}
 
-            \subsection{Spiel vorzeitig beenden}
+            \subsection{Spiel vorzeitig beenden (8.1.10)}
             \begin{itemize}
                 \item Ausgangssituation: Organisator ist angemeldet
                 \item Schritte:
@@ -169,10 +169,10 @@
                 \item Funktioniert: Ja
             \end{itemize}
 
-            \subsection{Spiel löschen}
+            \subsection{Spiel löschen (8.1.11)}
             Ein Organisator kann, nicht wie anfangs angedacht, keine Spiele löschen. Er kann diese nur aus seiner Übersicht entfernen, jedoch bleiben diese Spiele noch in der Datenbank existent.
 
-            \subsection{Spieleinstellungen speichern}
+            \subsection{Spieleinstellungen speichern (8.1.12)}
             \begin{itemize}
                 \item Ausgangssituation: Organisator ist auf der Spielerstellungs-Seite
                 \item Schritte:
@@ -184,7 +184,7 @@
                 \item Funktioniert: Ja
             \end{itemize}
 
-            \subsection{Spieleinstellungen laden}
+            \subsection{Spieleinstellungen laden (8.1.13)}
             \begin{itemize}
                 \item Ausgangssituation: Organisator ist auf der Spielerstellungs-Seite und eine Voreinstellung exisitiert bereits
                 \item Schritte:
@@ -199,7 +199,7 @@
                 \end{itemize}
             \end{itemize}
 
-            \subsection{Spielzustand auslesen}
+            \subsection{Spielzustand auslesen (8.1.14)}
             \begin{itemize}
                 \item Ausgangssituation: Organisator ist angemeldet
                 \item Schritte:
@@ -209,7 +209,7 @@
                 \item Funktioniert: Ja
             \end{itemize}
 
-            \subsection{Einladung zu Spiel annehmen}
+            \subsection{Einladung zu Spiel annehmen (8.2.1)}
             \begin{itemize}
                 \item Ausgangssituation: Spieler ist angemeldet und wurde zu einem Spiel eingeladen
                 \item Schritte:
@@ -220,7 +220,7 @@
             \end{itemize}
             % TODO: Option 2
 
-            \subsection{Runde spielen: Matrix Select}
+            \subsection{Runde spielen: Matrix Select (8.2.2)}
             \begin{itemize}
                 \item Ausgangssituation: Spieler ist angemeldet und hat offenes Spiel von Matrix Select
                 \item Schritte:
@@ -232,7 +232,7 @@
                 \item Funktioniert: Ja
             \end{itemize}
 
-            \subsection{Runde spielen: Binär Select}
+            \subsection{Runde spielen: Binär Select (8.2.3)}
             \begin{itemize}
                 \item Ausgangssituation: Spieler ist angemeldet und hat offenes Spiel von Binär Select
                 \item Schritte:
@@ -245,10 +245,10 @@
                 \item Funktioniert: Ja
             \end{itemize}
 
-            \subsection{Spielterminierung während Runde}
+            \subsection{Spielterminierung während Runde (8.2.4)}
             % Das machen wir ja nicht?
 
-            \subsection{Auswahl überspringen}
+            \subsection{Auswahl überspringen (8.2.5)}
             \begin{itemize}
                 \item Ausgangssituation: Spieler befindet sich auf der Spiel-Seite
                 \item Schritte:
@@ -264,7 +264,7 @@
                 \end{itemize}
             \end{itemize}
 
-            \subsection{Merkmal als unwichtig markieren}
+            \subsection{Merkmal als unwichtig markieren (8.2.6)}
             \begin{itemize}
                 \item Ausgangssituation: Spieler befindet sich auf der Spiel-Seite
                 \item Schritte:
@@ -275,7 +275,7 @@
                 \item Funktioniert: Ja
             \end{itemize}
 
-            \subsection{Streak erreichen}
+            \subsection{Streak erreichen (8.2.7)}
             \begin{itemize}
                 \item Ausgangssituation: Spieler befindet sich auf der Spiel-Seite
                 \item Schritte:
@@ -286,7 +286,7 @@
                     \item Funktioniert: Ja
             \end{itemize}
 
-            \subsection{Runde starten}
+            \subsection{Runde starten (8.3.1)}
             \begin{itemize}
                 \item Ausgangssituation: Spieler ist angemeldet und hat mindestens ein aktives Spiel
                 \item Schritte:
@@ -296,7 +296,7 @@
                 \item Funktioniert: Ja
             \end{itemize}
 
-            \subsection{Achievements ansehen}
+            \subsection{Achievements ansehen (8.3.2)}
             \begin{itemize}
                 \item Ausgangssituation: Spieler ist angemeldet
                 \item Schritte:
@@ -306,7 +306,7 @@
                 \item Funktioniert: Ja
             \end{itemize}
 
-            \subsection{Leaderboard ansehen}
+            \subsection{Leaderboard ansehen (8.3.3)}
             \begin{itemize}
                 \item Ausgangssituation: Spieler ist angemeldet
                 \item Schritte:
@@ -316,7 +316,7 @@
                 \item Funktioniert: Ja
             \end{itemize}
 
-            \subsection{Sprache ändern}
+            \subsection{Sprache ändern (8.4.1)}
             \begin{itemize}
                 \item Ausgangssituation: Nutzer ist angemeldet
                 \item Schritte:
@@ -329,7 +329,7 @@
                 \item Anmerkung: Seite muss neu geladen werden, damit die Änderung in Kraft tritt
             \end{itemize}
 
-            \subsection{Konfiguration bearbeiten}
+            \subsection{Konfiguration bearbeiten (8.4.2)}
             \begin{itemize}
                 \item Ausgangssituation: Administrator befindet sich im Installationsverzeichnis des Servers
                 \item Schritte:
@@ -341,10 +341,10 @@
                 \item Funktioniert: Ja
             \end{itemize}
 
-            \subsection{Server beenden}
+            \subsection{Server beenden (8.4.3)}
             %TODO
 
-            \subsection{Passwort ändern}
+            \subsection{Passwort ändern (8.4.4)}
             \begin{itemize}
                 \item Ausgangssituation: Nutzer ist angemeldet
                 \item Schritte:
@@ -361,7 +361,7 @@
                 \end{itemize}
             \end{itemize}
 
-            \subsection{E-Mail ändern}
+            \subsection{E-Mail ändern (8.4.5)}
             \begin{itemize}
                 \item Ausgangssituation: Nutzer ist angemeldet
                 \item Schritte:
@@ -377,7 +377,7 @@
                     \end{itemize}
             \end{itemize}
 
-            \subsection{Passwort zurücksetzen}
+            \subsection{Passwort zurücksetzen (8.4.6)}
             \begin{itemize}
                 \item Ausgangssituation: Nutzer befindet sich auf der Login-Seite
                 \item Schritte:
@@ -391,7 +391,7 @@
                 \item Funktioniert: Ja
             \end{itemize}
 
-            \subsection{Hilfe-Schaltfläche verwenden}
+            \subsection{Hilfe-Schaltfläche verwenden (8.4.7)}
             % Ist anders als im Pflichtenheft
 
 
