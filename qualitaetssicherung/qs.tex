@@ -399,6 +399,8 @@
             \end{itemize}
 
             \subsection{Hilfe-Schaltfläche verwenden (8.4.7)}
+            Dieser Testfall kann nicht durchgeführt werden. Es existieren keinen expliziten Hilfe-Schaltflächen, denn diese könnten auf der GUI eher für Verwirrung sorgen.
+            Stattdessen gibt es viele Tooltips und ein Organistor hat beispielsweise einen Hilfstext. Diese Features sollen die Bedienung erleichtern und eine Alternative für Hilfe-Schaltflächen darstellen.
             % Ist anders als im Pflichtenheft
 
 
@@ -429,46 +431,80 @@
             \end{itemize}
 
 
-    \chapter{Testüberdeckung}
-        \section{Unit-Tests}
-                \begin{table}[h]
-                    \centering
-                \begin{tabular}{ | l | c | c | }
-                    \hline
-                    Paket & Testüberdeckung vor  & Testüberdeckung nach \\
-                        & Qualitätssicherung (\%)  & Qualitätssicherung (\%) \\ \hline
-                    User & 60 & 16 \\
-                    Database & 62 & 44 \\
-                    Game & 74 & 45 \\
-                    Gamification & 96 & 34 \\
-                    Configuration & 76 & 10 \\
-                    \hline
-                \end{tabular}
-                \caption{Vergleich der Testüberdeckung}
-                \end{table}%
-
-                \begin{table}[h]
-                    \centering
-                \begin{tabular}{ | l | c | c | }
-                    \hline
-                    Paket & Unit-Tests vor & Unit-Tests nach  \\
-                        & Qualitätssicherung & Qualitätssicherung \\ \hline
-                    User & 16 & 16 \\
-                    Database & 44 & 44 \\
-                    Game & 45 & 45 \\
-                    Gamification & 34 & 34 \\
-                    Configuration & 10 & 10 \\
-                    \hline
-                \end{tabular}
-                \caption{Vergleich der Anzahl an Unit-Tests}
-                \end{table}%
-
-    Die beiden Tabellen zeigen die Testüberdeckungswerte vor und nach der Qualitätssicherung. Man erkennt..
-
-
-
     \chapter{Testmetriken}
+        \section{Unit-Tests}
 
+    \begin{table}[h]
+        \centering
+        \begin{tabular}{ | l | c | c | }
+            \hline
+            Paket & Unit-Tests vor & Unit-Tests nach  \\
+            & Qualitätssicherung & Qualitätssicherung \\ \hline
+            User & 16 & 16 \\
+            Database & 44 & 44 \\
+            Game & 45 & 45 \\
+            Gamification & 34 & 34 \\
+            Configuration & 10 & 10 \\
+            \hline
+        \end{tabular}
+        \caption{Vergleich der Anzahl an Unit-Tests}
+    \end{table}%
+
+    Die Tabelle zeigt..
+
+    \begin{table}[h]
+        \centering
+        \begin{tabular}{ | l | c | c | }
+            \hline
+            Paket & Testüberdeckung vor  & Testüberdeckung nach \\
+            & Qualitätssicherung (\%)  & Qualitätssicherung (\%) \\ \hline
+            User & 60 & 16 \\
+            Database & 62 & 44 \\
+            Game & 74 & 45 \\
+            Gamification & 96 & 34 \\
+            Configuration & 76 & 10 \\
+            \hline
+        \end{tabular}
+        \caption{Vergleich der Zeilenüberdeckung}
+    \end{table}%
+
+    Die Tabelle zeigt die verschiedenen Zeilenüberdeckungswerte vor und nach der Qualitätssicherung. Man erkennt..
+
+    \begin{table}[h]
+        \centering
+        \begin{tabular}{ | l | c | }
+            \hline
+            Paket & Testüberdeckung nach \\
+            & Qualitätssicherung (\%) \\ \hline
+            User & 60 \\
+            Database & 62 \\
+            Game & 74 \\
+            Gamification & 96 \\
+            Configuration & 76  \\
+            \hline
+        \end{tabular}
+        \caption{Methodenüberdeckung}
+    \end{table}%
+
+    Text
+
+    \begin{table}[h]
+        \centering
+        \begin{tabular}{ | l | c | }
+            \hline
+            Paket & Testüberdeckung nach \\
+            & Qualitätssicherung (\%) \\ \hline
+            User & 60 \\
+            Database & 62 \\
+            Game & 74 \\
+            Gamification & 96 \\
+            Configuration & 76  \\
+            \hline
+        \end{tabular}
+        \caption{Klassenüberdeckung}
+    \end{table}%
+
+    Text
 
 
     \chapter{Fehlerbehebungen}
