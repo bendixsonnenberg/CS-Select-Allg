@@ -140,7 +140,13 @@
                 \item Schritte:
                     \begin{itemize}
                         \item In der Navigationsleiste auf \enquote{Spielerstellung} klicken
-                        \item Alle Pflichtfelder (d.h. Titel, Beschreibung, Spielmodus, Terminierung, Feature Set, Datenbankname) korrekt ausfüllen
+                        \item Mindestens alle Pflichtfelder korrekt ausfüllen
+                        \item Titel (\enquote{TestSpiel})
+                        \item Beschreibung (\enquote{Dieses Spiel ist ein Test.})
+                        \item Spielmodus (\enquote{Binär Select})
+                        \item Terminierung (\enquote{Organisator Terminierung})
+                        \item Feature Set (\enquote{populationGender})
+                        \item Datenbankname (\enquote{Datenbank})
                         \item Auf \enquote{Erstellen} klicken
                     \end{itemize}
                 \item Funktioniert: Ja
@@ -177,8 +183,9 @@
                 \item Ausgangssituation: Organisator ist auf der Spielerstellungs-Seite
                 \item Schritte:
                     \begin{itemize}
-                        \item Alle Pflichtfelder (d.h. Titel, Beschreibung, Spielmodus, Terminierung, Feature Set, Datenbankname) korrekt ausfüllen
-                        \item Im Textfeld \enquote{Name der Vorlage} einen Name für die Vorlage auswählen, zuvor die Checkbox setzen
+                        \item Alle Pflichtfelder korrekt ausfüllen
+                        \item Checkbox zum Erstellen einer Vorlage setzen
+                        \item Im Textfeld \enquote{Name der Vorlage} einen Name für die Vorlage auswählen (\enquote{TestVorlage})
                         \item Auf \enquote{Erstellen} klicken
                     \end{itemize}
                 \item Funktioniert: Ja
@@ -204,7 +211,7 @@
                 \item Ausgangssituation: Organisator ist angemeldet
                 \item Schritte:
                     \begin{itemize}
-                        \item Unter \enquote{Laufende Spiele} Spiel-Information auslesen
+                        \item Unter \enquote{Laufende Spiele} Spiel-Information werden zu jedem Spiel entsprechende Informationen angezeigt
                     \end{itemize}
                 \item Funktioniert: Ja
             \end{itemize}
@@ -222,11 +229,11 @@
 
             \subsection{Runde spielen: Matrix Select (8.2.2)}
             \begin{itemize}
-                \item Ausgangssituation: Spieler ist angemeldet und hat offenes Spiel von Matrix Select
+                \item Ausgangssituation: Spieler ist angemeldet und hat offenes Spiel im Spielmodus Matrix Select
                 \item Schritte:
                     \begin{itemize}
                         \item Auf Übersichts-Seite das entsprechende Spiel suchen und \enquote{Spielen} wählen
-                        \item Bestimmte Merkmale auswählen (innerhalb der angegeben Reichweite), eventuell auch welche als nutzlos markieren oder Graphen anzeigen lassen
+                        \item Bestimmte Merkmale auswählen (innerhalb des angegebenen Intervalls), eventuell auch welche als nutzlos markieren oder Graphen anzeigen lassen
                         \item Auf \enquote{Bestätigen} klicken
                     \end{itemize}
                 \item Funktioniert: Ja
@@ -234,7 +241,7 @@
 
             \subsection{Runde spielen: Binär Select (8.2.3)}
             \begin{itemize}
-                \item Ausgangssituation: Spieler ist angemeldet und hat offenes Spiel von Binär Select
+                \item Ausgangssituation: Spieler ist angemeldet und hat offenes Spiel im Spielmodus Binär Select
                 \item Schritte:
                     \begin{itemize}
                         \item Auf Übersichts-Seite das entsprechende Spiel suchen und \enquote{Spielen} wählen
@@ -260,7 +267,7 @@
                 \item Änderungen zum Pflichtenheftszenario
                 \begin{itemize}
                     \item Spieler verliert keine Punkte, bekommt aber auch keine
-                    \item Streak wird zurückgesetzt, es sei denn Spieler markiert alle Merkmale als nutzlos
+                    \item Streak wird zurückgesetzt, es sei denn, Spieler markiert alle Merkmale als nutzlos
                 \end{itemize}
             \end{itemize}
 
@@ -397,7 +404,7 @@
 
 
         \section{Weitere Testfallszenarien}
-        Die folgenden Szenarien sind alle in der Qualitätssicherungphase entstanden und von uns erfunden. Sie sind ebenso mit dem deutschen Sprachpaket durchgeführt worden.
+        Die folgenden Szenarien sind alle in der Qualitätssicherungphase entstanden und von uns erstellt worden. Sie sind ebenso mit dem deutschen Sprachpaket durchgeführt worden.
 
             \subsection{Nutzer bei Inaktivität abmelden}
             \begin{itemize}
@@ -463,6 +470,8 @@
 
 
     \chapter{Fehlerbehebungen}
+
+    \section{GitHub Issues}
     Im Folgenden sind die wichtigsten Fehler mit Fehlersympton, Grund und deren Behebung aufgelistet. Sie beziehen sich alle auf Issues
     aus unserem GitHub-Repository.
 
@@ -513,14 +522,14 @@
     \begin{itemize}
         \item Fehlersymptom: Wenn Einladungen vom Spieler angenommen werden, werden sie nicht von der Einladungsliste im Front-End entfernt
         \item Grund: War nicht implementiert
-        \item Behebung: Einladungen von der Einladungsliste löschen und auf die Spiele-Liste setzten
+        \item Behebung: Einladungen von der Einladungsliste löschen und auf die Spiele-Liste setzen
     \end{itemize}
 
     \subsection{Umlaute (Issue 37, 160, 170)}
     \begin{itemize}
         \item Fehlersymptom: Umlaute werden im Front-End nicht richtig dargestellt
         \item Grund: HTML-Tag für UTF-8 nicht geschlossen und ResourceBundle-Dateien können kein UTF-8
-        \item Behebung: Tag schließen und Oracle Unicode Konverter auf die Localisierung anwenden
+        \item Behebung: Tag schließen und Oracle-Unicode-Konverter auf die Localisierung anwenden
     \end{itemize}
 
     \subsection{Überspringen setzt Streak nicht zurück (Issue 56)}
@@ -530,11 +539,11 @@
         \item Behebung: Exception behoben
     \end{itemize}
 
-    \subsection{Linebreaks Darstellung (Issue 61)}
+    \subsection{Zeilenumbruch Darstellung (Issue 61)}
     \begin{itemize}
-    \item Fehlersymptom: Linebreaks in Hilfetexten und Merkmalstexten werden als \textbackslash n dargestellt
-    \item Grund: HTML versteht \textbackslash n nicht als Linebreak
-    \item Behebung: Im Frontend alle \textbackslash n durch <br> ersetzten
+    \item Fehlersymptom: Zeilenumbrüche in Hilfetexten und Merkmalstexten werden als \textbackslash n dargestellt
+    \item Grund: HTML versteht \textbackslash n nicht als Zeilenumbruch
+    \item Behebung: Im Front-End alle \textbackslash n durch <br> ersetzen
     \end{itemize}
 
     \subsection{Runden mit selben Merkmalen in anderer Reihenfolge (Issue 79)}
@@ -606,7 +615,7 @@
     \subsection{Graph anzeigen nach Beendigung der Runde (Issue 197)}
     \begin{itemize}
         \item Fehlersymptom: Wenn die Runde bestätigt wurde und direkt danach ein Graph anzeigt wurde, ist das Spiel eingefroren
-        \item Grund: Die neue Runde wurde noch nicht geladen, aber der Grpah eines Merkmals der letzten Runde wurde noch angezeigt
+        \item Grund: Die neue Runde wurde noch nicht geladen, aber der Graph eines Merkmals der letzten Runde wurde noch angezeigt
         \item Behebung: Graphen können erst wieder bei den Merkmalen in der neuen Runde angezeigt werden
     \end{itemize}
 
