@@ -47,7 +47,7 @@
     \chapter{Testfälle}
 
         \section{Pflichtenheftszenarien}
-        Die folgenden Szenarien sind alle dem Pflichtenheft entnommen. Sie sind mit dem deutschen Sprachpaket durchgeführt worden.
+        Die folgenden Szenarien sind alle dem Pflichtenheft entnommen (siehe Referenz in Überschriften). Sie sind mit dem deutschen Sprachpaket durchgeführt worden.
 
             \subsection{Spieler registrieren (8.1.1)}
             \begin{itemize}
@@ -435,7 +435,8 @@
                     \centering
                 \begin{tabular}{ | l | c | c | }
                     \hline
-                    Paket & Testüberdeckung (\%) & Unit-Tests \\ \hline
+                    Paket & Testüberdeckung vor  & Testüberdeckung nach \\
+                        & Qualitätssicherung (\%)  & Qualitätssicherung (\%) \\ \hline
                     User & 60 & 16 \\
                     Database & 62 & 44 \\
                     Game & 74 & 45 \\
@@ -443,22 +444,23 @@
                     Configuration & 76 & 10 \\
                     \hline
                 \end{tabular}
-                \caption{Testüberdeckung vor Qualitätssicherung}
+                \caption{Vergleich der Testüberdeckung}
                 \end{table}%
 
                 \begin{table}[h]
                     \centering
                 \begin{tabular}{ | l | c | c | }
                     \hline
-                    Paket & Testüberdeckung (\%) & Unit-Tests \\ \hline
-                    User & 60 & 16 \\
-                    Database & 62 & 44 \\
-                    Game & 74 & 45 \\
-                    Gamification & 96 & 34 \\
-                    Configuration & 76 & 10 \\
+                    Paket & Unit-Tests vor & Unit-Tests nach  \\
+                        & Qualitätssicherung & Qualitätssicherung \\ \hline
+                    User & 16 & 16 \\
+                    Database & 44 & 44 \\
+                    Game & 45 & 45 \\
+                    Gamification & 34 & 34 \\
+                    Configuration & 10 & 10 \\
                     \hline
                 \end{tabular}
-                \caption{Testüberdeckung nach Qualitätssicherung}
+                \caption{Vergleich der Anzahl an Unit-Tests}
                 \end{table}%
 
     Die beiden Tabellen zeigen die Testüberdeckungswerte vor und nach der Qualitätssicherung. Man erkennt..
