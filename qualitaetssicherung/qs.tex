@@ -421,7 +421,7 @@
             \end{itemize}
 
             \subsection{Hilfe-Schaltfläche verwenden (8.4.7)}
-            Dieser Testfall kann nicht durchgeführt werden. Es existieren keinen expliziten Hilfe-Schaltflächen, denn diese würden auf der GUI eher für Verwirrung sorgen.
+            Dieser Testfall kann nicht durchgeführt werden. Es existieren keine expliziten Hilfe-Schaltflächen, denn diese würden auf der GUI eher für Verwirrung sorgen.
             Stattdessen gibt es zahlreiche Tooltips und ein Organistor hat beispielsweise einen Hilfstext. Diese Features sollen die Bedienung erleichtern und eine Alternative für Hilfe-Schaltflächen darstellen.
 
 
@@ -452,10 +452,15 @@
 
 
     \chapter{Testmetriken}
-        \section{Unit-Tests}
+    \section{Unit-Tests}
 
+    \subsection{Anzahl Unit-Tests}
+    In dieser Tabelle werden die Anzahl der Unit-Tests vor und nach der Qualitätssicherung verglichen. Wir versuchten, unsere Tests aus der Implementierung
+    auszubauen, um weitere Fehler zu finden und die Überdeckung zu erhöhen. Das Paket...
+
+    \vspace{20pt}
     \begin{table}[h]
-        \centering
+        \begin{center}
         \begin{tabular}{ | l | c | c | }
             \hline
             Paket & Unit-Tests vor & Unit-Tests nach  \\
@@ -467,16 +472,19 @@
             Configuration & 10 & 10 \\
             \hline
         \end{tabular}
+        \end{center}
         \caption{Vergleich der Anzahl an Unit-Tests}
     \end{table}%
 
-    Die Tabelle zeigt..
+    \subsection{Zeilenüberdeckung}
+    Die Tabelle zeigt die verschiedenen Zeilenüberdeckungswerte vor und nach der Qualitätssicherung. Man erkennt..
 
+    \vspace{20pt}
     \begin{table}[h]
-        \centering
+        \begin{center}
         \begin{tabular}{ | l | c | c | }
             \hline
-            Paket & Testüberdeckung vor  & Testüberdeckung nach \\
+            Paket & Zeilenüberdeckung vor  & Zeilenüberdeckung nach \\
             & Qualitätssicherung (\%)  & Qualitätssicherung (\%) \\ \hline
             User & 60 & 16 \\
             Database & 62 & 44 \\
@@ -485,16 +493,21 @@
             Configuration & 76 & 10 \\
             \hline
         \end{tabular}
+        \end{center}
         \caption{Vergleich der Zeilenüberdeckung}
     \end{table}%
 
-    Die Tabelle zeigt die verschiedenen Zeilenüberdeckungswerte vor und nach der Qualitätssicherung. Man erkennt..
+    \newpage
 
+    \subsection{Methodenüberdeckung}
+    Bei der Methodenüberdeckung..
+
+    \vspace{20pt}
     \begin{table}[h]
-        \centering
+        \begin{center}
         \begin{tabular}{ | l | c | }
             \hline
-            Paket & Testüberdeckung nach \\
+            Paket & Methodenüberdeckung nach \\
             & Qualitätssicherung (\%) \\ \hline
             User & 60 \\
             Database & 62 \\
@@ -503,16 +516,19 @@
             Configuration & 76  \\
             \hline
         \end{tabular}
+        \end{center}
         \caption{Methodenüberdeckung}
     \end{table}%
 
-    Text
+    \subsection{Klassenüberdeckung}
+    Die Klassenüberdeckung sollte maximal sein, denn..
 
+    \vspace{20pt}
     \begin{table}[h]
-        \centering
+        \begin{center}
         \begin{tabular}{ | l | c | }
             \hline
-            Paket & Testüberdeckung nach \\
+            Paket & Klassenüberdeckung nach \\
             & Qualitätssicherung (\%) \\ \hline
             User & 60 \\
             Database & 62 \\
@@ -521,10 +537,9 @@
             Configuration & 76  \\
             \hline
         \end{tabular}
+        \end{center}
         \caption{Klassenüberdeckung}
     \end{table}%
-
-    Text
 
 
     \chapter{Fehlerbehebungen}
