@@ -143,7 +143,7 @@
                         \item Mindestens alle Pflichtfelder korrekt ausfüllen
                         \item Titel (\enquote{TestSpiel})
                         \item Beschreibung (\enquote{Dieses Spiel ist ein Test.})
-                        \item Spielmodus (\enquote{Binär Select})
+                        \item Spielmodus (\enquote{BinarySelect})
                         \item Terminierung (\enquote{Organisator Terminierung})
                         \item Feature Set (\enquote{populationGender})
                         \item Datenbankname (\enquote{Datenbank})
@@ -176,7 +176,7 @@
             \end{itemize}
 
             \subsection{Spiel löschen (8.1.11)}
-            Ein Organisator kann, nicht wie anfangs angedacht, keine Spiele löschen. Er kann diese nur aus seiner Übersicht entfernen, jedoch bleiben diese Spiele noch in der Datenbank existent.
+            Ein Organisator kann keine Spiele löschen. Er kann diese nur aus seiner Übersicht entfernen, jedoch bleiben diese Spiele noch in der Datenbank existent.
 
             \subsection{Spieleinstellungen speichern (8.1.12)}
             \begin{itemize}
@@ -227,6 +227,16 @@
             \end{itemize}
             % TODO: Option 2
 
+            \subsection{Runde starten (8.3.1)}
+            \begin{itemize}
+                \item Ausgangssituation: Spieler ist angemeldet und hat mindestens ein aktives Spiel
+                \item Schritte:
+                    \begin{itemize}
+                        \item Auf der Übersichts-Seite das gewünschte Spiel aussuchen und auf \enquote{Spielen} klicken
+                    \end{itemize}
+                \item Funktioniert: Ja
+            \end{itemize}
+
             \subsection{Runde spielen: Matrix Select (8.2.2)}
             \begin{itemize}
                 \item Ausgangssituation: Spieler ist angemeldet und hat offenes Spiel im Spielmodus Matrix Select
@@ -253,7 +263,20 @@
             \end{itemize}
 
             \subsection{Spielterminierung während Runde (8.2.4)}
-            % Das machen wir ja nicht?
+            \begin{itemize}
+                \item Ausgangssituation: Spieler befindet sich auf der Spiel-Seite von einem Spiel, das gerade die Terminierungsbedingung erreicht hat
+                \item Schritte:
+                    \begin{itemize}
+                        \item Merkmalsauswahl durchführen
+                        \item Auf \enquote{Bestätigen} klicken
+                        \item Spieler wird mit einer erklärenden Nachricht auf sein Dashboard gebracht
+                    \end{itemize}
+                \item Funktioniert: Ja
+                \item Änderungen zum Pflichtenheftszenario
+                \begin{itemize}
+                    \item Diese Runde wird weder gewertet noch gespeichert, da es zum Zeitpunkt bereits terminiert war
+                \end{itemize}
+            \end{itemize}
 
             \subsection{Auswahl überspringen (8.2.5)}
             \begin{itemize}
@@ -291,16 +314,6 @@
                         \item Im Feld \enquote{Streak} anhand des Balkens und des zugehörigen Texts den Zustand seiner Streak erkennen
                     \end{itemize}
                     \item Funktioniert: Ja
-            \end{itemize}
-
-            \subsection{Runde starten (8.3.1)}
-            \begin{itemize}
-                \item Ausgangssituation: Spieler ist angemeldet und hat mindestens ein aktives Spiel
-                \item Schritte:
-                    \begin{itemize}
-                        \item Auf der Übersichts-Seite das gewünschte Spiel aussuchen und auf \enquote{Spielen} klicken
-                    \end{itemize}
-                \item Funktioniert: Ja
             \end{itemize}
 
             \subsection{Achievements ansehen (8.3.2)}
@@ -349,7 +362,16 @@
             \end{itemize}
 
             \subsection{Server beenden (8.4.3)}
-            %TODO
+            \begin{itemize}
+                \item Ausgangssituation:
+                \item Schritte:
+                    \begin{itemize}
+                        \item
+                        \item
+                        \item
+                    \end{itemize}
+                \item Funktioniert: Ja
+            \end{itemize}
 
             \subsection{Passwort ändern (8.4.4)}
             \begin{itemize}
@@ -399,10 +421,8 @@
             \end{itemize}
 
             \subsection{Hilfe-Schaltfläche verwenden (8.4.7)}
-            Dieser Testfall kann nicht durchgeführt werden. Es existieren keinen expliziten Hilfe-Schaltflächen, denn diese könnten auf der GUI eher für Verwirrung sorgen.
-            Stattdessen gibt es viele Tooltips und ein Organistor hat beispielsweise einen Hilfstext. Diese Features sollen die Bedienung erleichtern und eine Alternative für Hilfe-Schaltflächen darstellen.
-            % Ist anders als im Pflichtenheft
-
+            Dieser Testfall kann nicht durchgeführt werden. Es existieren keinen expliziten Hilfe-Schaltflächen, denn diese würden auf der GUI eher für Verwirrung sorgen.
+            Stattdessen gibt es zahlreiche Tooltips und ein Organistor hat beispielsweise einen Hilfstext. Diese Features sollen die Bedienung erleichtern und eine Alternative für Hilfe-Schaltflächen darstellen.
 
 
         \section{Weitere Testfallszenarien}
