@@ -532,11 +532,9 @@
         \caption{Vergleich der Zeilenüberdeckung}
     \end{table}%
 
-    \newpage
-
     \subsection{Methodenüberdeckung}
-    Bei der Methodenüberdeckung strebten wir ebenso 100\% an. Nur das Paket User weicht mit 38\% stark von diesem Ziel ab, denn weitere Tests für gewisse Methoden, welche beispielsweise nur weiterleiten,
-    wären nicht sinnvoll.
+    Bei der Methodenüberdeckung strebten wir ebenso 100\% an. In der folgenden Tabelle ist zu erkennen, dass das Paket User mit 38\% stark von diesem Ziel abweicht, denn weitere Tests für gewisse Methoden, welche beispielsweise nur weiterleiten,
+    wären nicht sinnvoll. Abgesehen davon hat das Configuration-Paket 100\% und die restlichen Pakte nähern sich auch diesem Maximum an.
 
     \vspace{20pt}
     \begin{table}[h]
@@ -559,6 +557,7 @@
 
     \subsection{Klassenüberdeckung}
     Die Klassenüberdeckung sollte maximal sein, damit jede Klasse abgedeckt ist. Dies ist lediglich im Paket Database nicht der Fall, denn
+    auch in dort waren Tests nicht sinnvoll. Die Klasse ColumnNames enthält zum Beispiel nur Strings. Ansonsten ist in den großen Paketen jede Klasse übderdeckt.
 
     \vspace{20pt}
     \begin{table}[h]
