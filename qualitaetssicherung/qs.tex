@@ -50,9 +50,10 @@
         Die folgenden Szenarien sind alle dem Pflichtenheft entnommen (siehe Referenz in Überschriften). Sie sind mit dem deutschen Sprachpaket durchgeführt worden.
 
             \subsection{Spieler registrieren (8.1.1)}
-            Dieser Test-Case hat sich zum Pflichtenheft verändert.
-            Der Spieler kann nicht mehr direkt ein Passwort angeben, sondern erhält ein temporäres Passwort per Mail zugeschickt,
+            Dieser Testfall hat sich zum Pflichtenheft verändert.
+            Der Spieler kann nicht mehr direkt ein Passwort angeben, sondern erhält ein temporäres Passwort per E- Mail zugeschickt,
             um sicherzustellen, dass er die angegebene E-Mail-Addresse kontrolliert.
+
             \begin{itemize}
                 \item Ausgangssituation: Spieler befindet sich auf der Login-Seite
                 \item Schritte:
@@ -93,9 +94,10 @@
             \end{itemize}
 
             \subsection{Organisator registrieren (8.1.4)}
-            Dieser Test-Case hat sich zum Pflichtenheft verändert.
-            Der Organisator kann nicht mehr direkt ein Passwort angeben, sondern erhält ein temporäres Passwort per Mail zugeschickt,
+            Dieser Testfall hat sich zum Pflichtenheft verändert.
+            Der Organisator kann nicht mehr direkt ein Passwort angeben, sondern erhält ein temporäres Passwort per E-Mail zugeschickt,
             um sicherzustellen, dass der er die angegebene E-Mail-Addresse kontrolliert.
+
             \begin{itemize}
                 \item Ausgangssituation: Organisator befindet sich auf der Login-Seite
                 \item Schritte:
@@ -134,7 +136,7 @@
 
             \subsection{Organisator löschen (8.1.7)}
             Da die Kommunikation eines Administrators mit dem System über eine Kommandozeile nicht möglich ist, kann dieses Szenario nicht getestet werden.
-            Das Löschen eines Organisators kann jedoch direkt in der Datenbank durch den Administrator erfolgen.
+            Das Löschen eines Organisators kann jedoch direkt in der Datenbank durch den Administrator erfolgen. Anschließend ist ein Neustart des Servers erforderlich.
 
             \subsection{Spiel erstellen (8.1.8)}
             \begin{itemize}
@@ -161,8 +163,10 @@
                     \begin{itemize}
                         \item Auf der Übersichts-Seite das entsprechende Spiel suchen und auf \enquote{Einladen} klicken
                         \item Gültige E-Mail-Adresse in das Feld eingeben
-                        \item Alternativ auf \enquote{Mehrere Spieler einladen} klicken und mehrere E-Mails, getrennt mit Kommata, eingeben
                         \item Auf \enquote{Einladen} klicken
+                        \item Wiederhole die zwei vorherigen Schritte, falls mehr Spieler eingeladen werden sollen
+                        \item Auf \enquote{Einladungen senden} klicken
+                        \item Alternativ auf \enquote{Mehrere Spieler einladen} klicken und mehrere E-Mails, getrennt mit Kommata, eingeben und auf \enquote{Einladungen senden} klicken
                     \end{itemize}
                 \item Funktioniert: Ja
             \end{itemize}
@@ -209,9 +213,9 @@
                 \item Ausgangssituation: Organisator ist auf der Übersichts-Seite
                 \item Schritte:
                     \begin{itemize}
-                        \item Organisator klickt auf Muster erstellen
-                        \item Organisator gibt gewünschten Mustertitel im Popup ein
-                        \item Organisator klickt auf Ok
+                        \item Auf \enquote{Muster erstellen} klicken
+                        \item Gewünschten Titel im Pop-up eingeben (\enquote{Meine Vorlage})
+                        \item Auf \enquote{Ok} klicken
                 \end{itemize}
                 \item Funktioniert: Ja
             \end{itemize}
