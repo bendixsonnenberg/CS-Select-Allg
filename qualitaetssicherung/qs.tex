@@ -562,8 +562,10 @@
     \newpage
 
     \subsection{Klassenüberdeckung}
-    Die Klassenüberdeckung sollte maximal sein, damit jede Klasse abgedeckt ist. Dies ist lediglich im Paket Database nicht der Fall, denn
-    auch in dort waren Tests nicht sinnvoll. Die Klasse ColumnNames enthält zum Beispiel nur Strings. Ansonsten ist in den großen Paketen jede Klasse übderdeckt.
+    Die Klassenüberdeckung sollte maximal sein, damit jede Klasse abgedeckt ist. Dies ist lediglich im Paket Database nicht der Fall, da
+    die Klassen, die die SQL-Queries enthalten nicht instantiiert werden können, jedoch in der Überdeckungsberechnung berücksichtigt werden.
+    Die Klasse ColumnNames enthält zum Beispiel nur Strings.
+    Ansonsten ist in den großen Paketen jede Klasse übderdeckt.
 
     \vspace{20pt}
     \begin{table}[h]
