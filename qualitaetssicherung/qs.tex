@@ -474,6 +474,8 @@
 
     \chapter{Testmetriken}
     \section{Unit-Tests}
+    Aus den Testmetriken ausgenommen sind das Paket API, da es keine relevante Logik enthält, sondern nur Aufrufe weiterleitet,
+    sowie die Klassen MockConfiguration sowie MockMLServer, da diese nur feste Werte zurückgeben
 
     \subsection{Anzahl Unit-Tests}
     In dieser Tabelle werden die Anzahl der Unit-Tests vor und nach der Qualitätssicherung verglichen. Wir versuchten, unsere Tests aus der Implementierung
@@ -486,11 +488,12 @@
             \hline
             Paket & Unit-Tests vor & Unit-Tests nach  \\
             & Qualitätssicherung & Qualitätssicherung \\ \hline
-            User & 16 & 16 \\
-            Database & 44 & 44 \\
-            Game & 45 & 45 \\
-            Gamification & 34 & 34 \\
-            Configuration & 10 & 10 \\
+            User & 16 & 17 \\
+            Database & 44 & 64 \\
+            Game & 45 & 74 \\
+            Gamification & 34 & 36 \\
+            Configuration & 10 & 15 \\
+            Gesamt & 214  \\
             \hline
         \end{tabular}
         \end{center}
@@ -507,11 +510,12 @@
             \hline
             Paket & Zeilenüberdeckung vor  & Zeilenüberdeckung nach \\
             & Qualitätssicherung (\%)  & Qualitätssicherung (\%) \\ \hline
-            User & 60 & 16 \\
-            Database & 62 & 44 \\
-            Game & 74 & 45 \\
-            Gamification & 96 & 34 \\
-            Configuration & 76 & 10 \\
+            User & 60 & 37 \\
+            Database & 62 & 79 \\
+            Game & 74 & 89 \\
+            Gamification & 96 & 92 \\
+            Configuration & 76 & 100 \\
+            Gesamt & 81  \\
             \hline
         \end{tabular}
         \end{center}
@@ -530,11 +534,12 @@
             \hline
             Paket & Methodenüberdeckung nach \\
             & Qualitätssicherung (\%) \\ \hline
-            User & 60 \\
-            Database & 62 \\
-            Game & 74 \\
+            User & 38 \\
+            Database & 89 \\
+            Game & 92 \\
             Gamification & 96 \\
-            Configuration & 76  \\
+            Configuration & 100  \\
+            Gesamt & 86  \\
             \hline
         \end{tabular}
         \end{center}
@@ -551,11 +556,12 @@
             \hline
             Paket & Klassenüberdeckung nach \\
             & Qualitätssicherung (\%) \\ \hline
-            User & 60 \\
-            Database & 62 \\
-            Game & 74 \\
-            Gamification & 96 \\
-            Configuration & 76  \\
+            User & 100 \\
+            Database & 85 \\
+            Game & 100 \\
+            Gamification & 100 \\
+            Configuration & 100  \\
+            Gesamt & 94  \\
             \hline
         \end{tabular}
         \end{center}
