@@ -50,10 +50,6 @@
         Die folgenden Szenarien sind alle dem Pflichtenheft entnommen (siehe Referenz in Überschriften). Sie sind mit dem deutschen Sprachpaket durchgeführt worden.
 
             \subsection{Spieler registrieren (8.1.1)}
-            Dieser Testfall hat sich zum Pflichtenheft verändert.
-            Der Spieler kann nicht mehr direkt ein Passwort angeben, sondern erhält ein temporäres Passwort per E- Mail zugeschickt,
-            um sicherzustellen, dass er die angegebene E-Mail-Addresse kontrolliert.
-
             \begin{itemize}
                 \item Ausgangssituation: Spieler befindet sich auf der Login-Seite
                 \item Schritte:
@@ -65,6 +61,11 @@
                         \item Auf \enquote{Registrieren} klicken
                     \end{itemize}
                 \item Funktioniert: Ja
+                \item Änderungen zum Pflichtenheftszenario
+                \begin{itemize}
+                    \item Spieler kann nicht mehr direkt ein Passwort angeben, sondern erhält ein temporäres Passwort per E- Mail zugeschickt,
+                    um sicherzustellen, dass er die angegebene E-Mail-Addresse kontrolliert
+                \end{itemize}
             \end{itemize}
 
             \subsection{Spieler anmelden (8.1.2)}
@@ -94,10 +95,6 @@
             \end{itemize}
 
             \subsection{Organisator registrieren (8.1.4)}
-            Dieser Testfall hat sich zum Pflichtenheft verändert.
-            Der Organisator kann nicht mehr direkt ein Passwort angeben, sondern erhält ein temporäres Passwort per E-Mail zugeschickt,
-            um sicherzustellen, dass der er die angegebene E-Mail-Addresse kontrolliert.
-
             \begin{itemize}
                 \item Ausgangssituation: Organisator befindet sich auf der Login-Seite
                 \item Schritte:
@@ -108,7 +105,12 @@
                         \item Das Master-Passwort eingeben (\enquote{sicherespasswort})
                         \item Auf \enquote{Registrieren} klicken
                     \end{itemize}
-            \item Funktioniert: Ja
+                \item Funktioniert: Ja
+                \item Änderungen zum Pflichtenheftszenario
+                \begin{itemize}
+                    \item Organisator kann nicht mehr direkt ein Passwort angeben, sondern erhält ein temporäres Passwort per E- Mail zugeschickt,
+                    um sicherzustellen, dass er die angegebene E-Mail-Addresse kontrolliert
+                \end{itemize}
             \end{itemize}
 
             \subsection{Organisator anmelden (8.1.5)}
@@ -479,12 +481,13 @@
 
     \chapter{Testmetriken}
     \section{Unit-Tests}
-    Aus den Testmetriken ausgenommen sind das Paket API, da es keine relevante Logik enthält, sondern nur Aufrufe weiterleitet,
-    sowie die Klassen MockConfiguration sowie MockMLServer, da diese nur feste Werte zurückgeben
+    Aus den Testmetriken ausgenommen ist das Paket API, da es keine relevante Logik enthält, sondern nur Aufrufe weiterleitet.
+    Außerdem betrachten wir außerdem nicht die Klassen MockConfiguration und MockMLServer, da diese nur feste Werte zurückgeben.
 
     \subsection{Anzahl Unit-Tests}
     In dieser Tabelle werden die Anzahl der Unit-Tests vor und nach der Qualitätssicherung verglichen. Wir versuchten, unsere Tests aus der Implementierung
-    auszubauen, um weitere Fehler zu finden und die Überdeckung zu erhöhen. Das Paket...
+    auszubauen, um weitere Fehler zu finden und die Überdeckung zu erhöhen. Man sieht, dass die Anzahl der Tests sich in jedem Paket erhöht haben, vor allem in Game
+    und Database. Insgesamt, also auch mit den Tests, die nicht aufgelistet sind, sind nun 214 Unit-Tests entstanden.
 
     \vspace{20pt}
     \begin{table}[h]
@@ -506,7 +509,8 @@
     \end{table}%
 
     \subsection{Zeilenüberdeckung}
-    Die Tabelle zeigt die verschiedenen Zeilenüberdeckungswerte vor und nach der Qualitätssicherung. Man erkennt..
+    Diese Tabelle zeigt die verschiedenen Zeilenüberdeckungswerte vor und nach der Qualitätssicherung. Auch hier erkennt man eine Verbesserung der Werte, aber es
+    gibt auch Pakete, die nun weniger Überdeckung haben. Das liegt daran, dass ein paar Tests, die nicht sinnvoll waren, entfernt wurden.
 
     \vspace{20pt}
     \begin{table}[h]
