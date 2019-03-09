@@ -175,8 +175,16 @@
                 \item Funktioniert: Ja
             \end{itemize}
 
-            \subsection{Spiel löschen (8.1.11)}
-            Ein Organisator kann keine Spiele löschen. Er kann diese nur aus seiner Übersicht entfernen, jedoch bleiben diese Spiele noch in der Datenbank existent.
+            \subsection{Spiel aus Übersicht löschen (8.1.11)}
+            \begin{itemize}
+                \item Ausgangssituation: Organisator ist angemeldet und hat terminierte Spiele
+                \item Schritte:
+                    \begin{itemize}
+                        \item Das entsprechende terminierte Spiel aussuchen und auf \enquote{Löschen} klicken
+                        \item Spiel verschwindet aus der Organisator-Übersicht
+                \end{itemize}
+                \item Funktioniert: Ja
+            \end{itemize}
 
             \subsection{Spieleinstellungen speichern (8.1.12)}
             \begin{itemize}
@@ -225,7 +233,6 @@
                     \end{itemize}
                 \item Funktioniert: Ja
             \end{itemize}
-            % TODO: Option 2
 
             \subsection{Runde starten (8.3.1)}
             \begin{itemize}
@@ -307,7 +314,7 @@
                 \item Schritte:
                     \begin{itemize}
                         \item Mehrere Runden (mind. eine) am Stück spielen
-                        \item Im Feld \enquote{Streak} anhand des Balkens und des zugehörigen Texts den Zustand seiner Streak erkennen
+                        \item Im Feld \enquote{Streak} anhand des Balkens und des zugehörigen Textes den Zustand seiner Streak erkennen
                     \end{itemize}
                     \item Funktioniert: Ja
             \end{itemize}
@@ -318,6 +325,7 @@
                 \item Schritte:
                     \begin{itemize}
                         \item In der Navigationsleiste auf \enquote{Achievements} klicken
+                        \item Auf dieser Achievement-Seite die Achievements und deren Status einsehen
                     \end{itemize}
                 \item Funktioniert: Ja
             \end{itemize}
@@ -345,6 +353,17 @@
                 \item Anmerkung: Seite muss neu geladen werden, damit die Änderung in Kraft tritt
             \end{itemize}
 
+            \subsection{Server beenden (8.4.3)}
+            \begin{itemize}
+                \item Ausgangssituation: Server ist aktiviert
+                \item Schritte:
+                    \begin{itemize}
+                        \item Die Tomcat-Befehle \texttt{shutdown.sh} oder \texttt{shutdown.bat} ausführen
+                        \item Falls gewollt, den MySQL-Server beenden
+                    \end{itemize}
+                \item Funktioniert: Ja
+            \end{itemize}
+
             \subsection{Konfiguration bearbeiten (8.4.2)}
             \begin{itemize}
                 \item Ausgangssituation: Administrator befindet sich im Installationsverzeichnis des Servers
@@ -355,17 +374,6 @@
                         \item Datei speichern
                         \item Server beenden
                         \item Server starten
-                    \end{itemize}
-                \item Funktioniert: Ja
-            \end{itemize}
-
-            \subsection{Server beenden (8.4.3)}
-            \begin{itemize}
-                \item Ausgangssituation: Server ist aktiviert
-                \item Schritte:
-                    \begin{itemize}
-                        \item Die Tomcat-Befehle \texttt{shutdown.sh} oder \texttt{shutdown.bat} ausführen.
-                        \item Falls gewollt den MySql Server beenden
                     \end{itemize}
                 \item Funktioniert: Ja
             \end{itemize}
