@@ -396,8 +396,7 @@
                         \item Konfigurationsdatei mit beliebigem Texteditor öffnen
                         \item Die gewünschten Einstellungen editieren
                         \item Datei speichern
-                        \item Server beenden
-                        \item Server starten
+                        \item Server beenden und neu starten
                     \end{itemize}
                 \item Funktioniert: Ja
             \end{itemize}
@@ -454,6 +453,8 @@
             Stattdessen gibt es zahlreiche Tooltips und ein Organistor hat beispielsweise einen Hilfstext. Diese Features sollen die Bedienung erleichtern und eine Alternative für Hilfe-Schaltflächen darstellen.
 
 
+    \newpage
+
         \section{Weitere Testfallszenarien}
         Die folgenden Szenarien sind alle in der Qualitätssicherungphase entstanden und von uns erstellt worden. Sie sind ebenso mit dem deutschen Sprachpaket durchgeführt worden.
 
@@ -482,6 +483,7 @@
 
     \chapter{Testmetriken}
     \section{Unit-Tests}
+    Im Folgenden betrachten wir die von uns geschriebenen Unit-Tests und Verbesserungen zur Implementierung. \\
     Aus den Testmetriken ausgenommen ist das Paket API, da es keine relevante Logik enthält, sondern nur Aufrufe weiterleitet.
     Außerdem betrachten wir außerdem nicht die Klassen MockConfiguration und MockMLServer, da diese nur feste Werte zurückgeben.
 
@@ -509,6 +511,8 @@
         \caption{Vergleich der Anzahl an Unit-Tests}
     \end{table}%
 
+    \newpage
+
     \subsection{Zeilenüberdeckung}
     Diese Tabelle zeigt die verschiedenen Zeilenüberdeckungswerte vor und nach der Qualitätssicherung. Auch hier erkennt man eine Verbesserung der Werte, aber es
     gibt auch Pakete, die nun weniger Überdeckung haben. Das liegt daran, dass ein paar Tests, die nicht sinnvoll waren, entfernt wurden.
@@ -533,7 +537,7 @@
     \end{table}%
 
     \subsection{Methodenüberdeckung}
-    Bei der Methodenüberdeckung strebten wir ebenso 100\% an. In der folgenden Tabelle ist zu erkennen, dass das Paket User mit 38\% stark von diesem Ziel abweicht, denn weitere Tests für gewisse Methoden, welche beispielsweise nur weiterleiten,
+    Bei der Methodenüberdeckung strebten wir ebenso 100\% an. In der folgenden Tabelle ist zu erkennen, dass das Paket User mit 38\% stark von diesem Ziel abweicht, denn mehr Tests für gewisse Methoden, welche beispielsweise nur weiterleiten,
     wären nicht sinnvoll. Abgesehen davon hat das Configuration-Paket 100\% und die restlichen Pakte nähern sich auch diesem Maximum an.
 
     \vspace{20pt}
@@ -554,6 +558,8 @@
         \end{center}
         \caption{Methodenüberdeckung}
     \end{table}%
+
+    \newpage
 
     \subsection{Klassenüberdeckung}
     Die Klassenüberdeckung sollte maximal sein, damit jede Klasse abgedeckt ist. Dies ist lediglich im Paket Database nicht der Fall, denn
