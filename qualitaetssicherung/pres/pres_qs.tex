@@ -41,6 +41,10 @@
 \usepackage{ngerman}
 \usepackage{calc}
 \usepackage{graphicx}
+\usepackage{makecell}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.4}
+
 
 \title[Team 2 - Implementierung]{CS:Select Qualitätssicherung - Team 2}
 \author{Luca Springer, Alexander Linder, Julian Dinh, Nicholas Bieker,\\ Bendix Sonnenberg}
@@ -81,37 +85,65 @@
 \renewcommand{\arraystretch}{1.5}
 
 \section{Statistiken}
-\begin{frame}{Unit-Tests}
-  \begin{center}
-    \begin{tabular}{ | l | c | c | }
-      \hline
-      Paket & Testüberdeckung (\%) & Unit-Tests \\ \hline
-      User & 60 & 16 \\
-      Database & 62 & 44 \\
-      Game & 74 & 45 \\
-      Gamification & 96 & 34 \\
-      Configuration & 76 & 10 \\
-      \hline
-    \end{tabular}
-  \end{center}
+
+\begin{frame}{Testüberdeckung}
+    \centering
+    \begin{tikzpicture}
+        \begin{axis}[
+        ybar,
+        enlarge x limits=0.2,
+        width=0.95\textwidth,
+        height=0.8\textheight,
+        ylabel={Prozent},
+        xtick=data,
+        nodes near coords,
+        ymin=0,
+        legend pos=north west,
+        xticklabel style={rotate=45},
+        symbolic x coords={User,Database,Game,Gamification,Configuration},xticklabels={User,Database,Game,Gamification,Configuration
+        },
+        ]
+            \addplot coordinates
+            {(User,60) (Database,62) (Game,74) (Gamification,96) (Configuration,76)};
+            \addlegendentry{Vorher}
+            \addplot coordinates
+            {(User,37) (Database,79) (Game,89) (Gamification,92) (Configuration,100)};
+            \addlegendentry{Nachher}
+        \end{axis}
+    \end{tikzpicture}
 \end{frame}
 
 \begin{frame}{Lines of Code}
-  \begin{itemize}
-    \item Java: 7340 LOC, 2364 Kommentar-Zeilen \\
-    \item JavaScript: 974 LOC \\
-    \item JavaServer Pages: 405 LOC \\
-    \item XML: 322 LOC \\
-    \item Properties: 282 Zeilen \\
-    \item CSS: 59 LOC \\
-    \item Alle Dateien: 13765 Zeilen \\
-  \end{itemize}
+    \begin{table}[t]
+  \begin{center}
+    \begin{tabular}{ | l | c | c | }
+      \hline
+      Datei & Anzahl Zeilen & Anzahl Zeilen \\
+        & Vorher & Nachher \\ \hline
+      Java & 7340 & 37 \\
+      JavaScript & 974 & 79 \\
+      JavaServer Pages & 405 & 79 \\
+      XML & 322 & 89 \\
+      Properties & 282 & 92 \\
+      CSS & 59 & 100 \\ \Xhline{0.8pt}
+      Gesamt & 13785 &  \\ \hline
+    \end{tabular}
+  \end{center}
+\end{table}
 \end{frame}
+
 
 \begin{frame}{GitHub - CS:Select}
     \begin{itemize}
-        \item 570 Commits bis zur Abgabefrist \\
-        \item 26 bearbeitete Issues in den letzten 2 Tagen vor Abgabefrist \\
+        \visible<1->{
+        \item 570 Commits nach der Implementierungsphase \\
+        \item 1008 Commits nach der Qualitätssicherungsphase
+        }
+        \vspace{10pt}
+        \visible<2->{
+        \item 26 bearbeitete Issues in den letzten 2 Tagen vor Abgabefrist der Implementierung \\
+        \item 168 Issues \enquote{Closed}
+        }
     \end{itemize}
 \end{frame}
 
