@@ -1,0 +1,179 @@
+\documentclass[xcolor=dvipsnames]{beamer}
+%
+% Choose how your presentation looks.
+%
+% For more themes, color themes and font themes, see:
+% http://deic.uab.es/~iblanes/beamer_gallery/index_by_theme.html
+%
+\mode<presentation>
+{
+\usetheme{Darmstadt}      % or try Darmstadt, Madrid, Warsaw, ...
+\usecolortheme{wolverine} % or try albatross, beaver, crane, ...
+\usefonttheme{structurebold}  % or try serif, structurebold, ...
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{caption}[numbered]
+% eigenen stuff definieren
+% auf dieser website stehen weiter elemente von denen die farbe geändert werden kann
+% http://www.cpt.univ-mrs.fr/~masson/latex/Beamer-appearance-cheat-sheet.pdf
+% einfach ausprobieren was passt
+\definecolor{Grau}{HTML}{CCCCCC}
+\definecolor{GrauDark}{HTML}{777777} % auf weißem hintergrund
+\definecolor{Orange}{HTML}{EA5B10}
+\setbeamercolor{palette primary}{bg=Grau}
+\setbeamercolor{palette primary}{fg=BurntOrange}
+\setbeamercolor{normal text}{fg=GrauDark}
+\setbeamercolor{structure}{fg=BurntOrange} % farbe der items
+\setbeamertemplate{itemize item}[circle]
+\setbeamercolor{mini frame}{fg=BurntOrange}
+\setbeamercolor{section in head/foot}{bg=Grau}
+\setbeamercolor{section in head/foot}{fg=BurntOrange}
+\setbeamercolor{subsection in head/foot}{bg=white}
+\setbeamercolor{subsection in head/foot}{fg=GrauDark}
+\setbeamercolor{headline}{bg=Grau}
+\setbeamercolor{block body}{bg=white}
+\setbeamercolor{frametitle}{bg=white}
+
+}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{ae}
+\usepackage{ngerman}
+\usepackage{calc}
+\usepackage{graphicx}
+\usepackage{makecell}
+\usepackage{pgfplots}
+\usepackage[autostyle=true,german=quotes]{csquotes}
+\pgfplotsset{compat=1.4}
+
+
+\title[Team 2 - Implementierung]{CS:Select Qualitätssicherung - Team 2}
+\author{Luca Springer, Alexander Linder, Julian Dinh, Nicholas Bieker,\\ Bendix Sonnenberg}
+\date{13.03.2019}
+
+\begin{document}
+
+    \begin{frame} % das ist eine slide
+        \titlepage
+    \end{frame}
+
+    \section{Kriterien}
+
+    \begin{frame}{Muss-Kriterien}
+
+    \end{frame}
+
+    \section{Schicke Implementierung}
+    \begin{frame}{Spieldarstellung}
+        \begin{itemize}
+            \item Laden der Features passiert im Gameframe
+            \item Aus der Rückgabe der API wird das Spiel gerendert
+            \item Wenn das Spiel fertig ist, wird ein Event ausgelöst, was den Next-Button freischaltet
+        \end{itemize}
+    \end{frame}
+
+    \section{Änderungen zur Implementierung}
+    \begin{frame}{Database}
+        \begin{itemize}
+            \item Neue Oberklasse für alle Adapter
+            \item Query-Klasse zur Bündelung von SQL-Statements
+            \item PlayerStats-Adapter
+            \item Auslagerung der Nutzerverwaltung in eigene Pakete
+            \item FeatureSet Informationen verbleiben auf der Platte
+        \end{itemize}
+    \end{frame}
+
+    \renewcommand{\arraystretch}{1.5}
+
+    \section{Statistiken}
+
+    \begin{frame}{Testüberdeckung}
+        \centering
+        \begin{tikzpicture}
+            \begin{axis}[
+            ybar,
+            enlarge x limits=0.2,
+            width=0.95\textwidth,
+            height=0.8\textheight,
+            ylabel={Prozent},
+            xtick=data,
+            nodes near coords,
+            ymin=0,
+            legend pos=north west,
+            xticklabel style={rotate=45},
+            symbolic x coords={User,Database,Game,Gamification,Configuration},xticklabels={User,Database,Game,Gamification,Configuration
+            },
+            ]
+                \addplot coordinates
+                {(User,60) (Database,62) (Game,74) (Gamification,96) (Configuration,76)};
+                \addlegendentry{Vorher}
+                \addplot coordinates
+                {(User,37) (Database,79) (Game,89) (Gamification,92) (Configuration,100)};
+                \addlegendentry{Nachher}
+            \end{axis}
+        \end{tikzpicture}
+    \end{frame}
+
+    \begin{frame}{Lines of Code}
+        \begin{table}[t]
+            \begin{center}
+                \begin{tabular}{ | l | c | c | }
+                    \hline
+                    Datei & Anzahl Zeilen & Anzahl Zeilen \\
+                    & Vorher & Nachher \\ \hline
+                    Java & 7340 & 37 \\
+                    JavaScript & 974 & 79 \\
+                    JavaServer Pages & 405 & 79 \\
+                    XML & 322 & 89 \\
+                    Properties & 282 & 92 \\
+                    CSS & 59 & 100 \\ \Xhline{0.8pt}
+                    Gesamt & 13785 &  \\ \hline
+                \end{tabular}
+            \end{center}
+        \end{table}
+    \end{frame}
+
+
+    \begin{frame}{GitHub - CS:Select}
+        \begin{itemize}
+            \visible<1->{
+            \item 570 Commits nach der Implementierungsphase \\
+            \item 1008 Commits nach der Qualitätssicherungsphase
+            }
+            \vspace{10pt}
+            \visible<2->{
+            \item 26 bearbeitete Issues in den letzten 2 Tagen vor Abgabefrist der Implementierung \\
+            \item 168 Issues \enquote{Closed}
+            }
+        \end{itemize}
+    \end{frame}
+
+    \section{Nicht behebbare Probleme}
+    \begin{frame}{Nicht behebbare Probleme}
+        \begin{itemize}
+            \item Tomcat Out of Memory
+            \item MySql Version 5.7
+            \item Email-Quota von Anbietern
+        \end{itemize}
+    \end{frame}
+
+    \section{Entwicklungsmodell}
+    \begin{frame}{Verwendung von Git}
+        \begin{itemize}
+            \item Feature Branches
+            \item Pull Requests auf Master
+            \item Code Review vor Merge
+            \item Kleinere Anpassungen direkt auf Master
+            \item Continuous Integration
+        \end{itemize}
+    \end{frame}
+
+    \begin{frame}{Tools}
+        \begin{itemize}
+            \item JUnit
+            \item Checkstyle
+            \item Travis-CI
+            \item Codacy
+        \end{itemize}
+    \end{frame}
+\end{document}
