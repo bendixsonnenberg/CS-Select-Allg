@@ -157,23 +157,51 @@
         \end{itemize}
     \end{frame}
 
-    \section{Entwicklungsmodell}
-    \begin{frame}{Verwendung von Git}
-        \begin{itemize}
-            \item Feature Branches
-            \item Pull Requests auf Master
-            \item Code Review vor Merge
-            \item Kleinere Anpassungen direkt auf Master
-            \item Continuous Integration
-        \end{itemize}
+    \section{Tools}
+    \begin{frame}{Allgemein}
+        \begin{columns}
+            \begin{column}{0.5\textwidth}
+                \begin{block}{Textverarbeitung}
+                    \center
+                    \includegraphics[width=(\textwidth)]{img/latex.pdf}
+                \end{block}
+                \begin{block}{Versionskontrolle}
+                    \center
+                    \includegraphics[width=(\textwidth / 2)]{img/git.pdf}
+                \end{block}
+            \end{column}
+            \begin{column}{0.5\textwidth}
+                \begin{block}{Entwicklungsumgebung}
+                    \includegraphics[width=\textwidth]{img/intellij.pdf}
+                \end{block}
+            \end{column}
+        \end{columns}
     \end{frame}
-
-    \begin{frame}{Tools}
-        \begin{itemize}
-            \item JUnit
-            \item Checkstyle
-            \item Travis-CI
-            \item Codacy
-        \end{itemize}
+    \begin{frame}{Entwurf}
+        \begin{block}{UML}
+            \center
+            \includegraphics[width=(\textwidth)]{img/vispar.png} %TODO find better logo and position correctly
+        \end{block}
+    \end{frame}
+    \begin{frame}{Implementierung \& Qualitätssicherung}
+        \begin{columns}
+            \begin{column}{0.5\textwidth}
+                \begin{block}{Unit-Testing}
+                    \center
+                    \includegraphics[width=(\textwidth)]{img/junit} %TODO find logo
+                \end{block}
+                \begin{block}{Continuous Integration}
+                    \includegraphics[width=\textwidth]{img/travis.png}
+                \end{block}
+            \end{column}
+            \begin{column}{0.5\textwidth}
+                \begin{block}{Statische Codeanalyse}
+                    \center
+                    \includegraphics[width=(\textwidth / 2)]{img/codacy.pdf}
+                    Codacy\\
+                    \includegraphics[width=(\textwidth / 2)]{img/checkstyle} %TODO find logo
+                \end{block}
+            \end{column}
+        \end{columns}
     \end{frame}
 \end{document}
