@@ -114,10 +114,10 @@
         symbolic x coords={User,Database,Game,Gamification,Configuration},xticklabels={User,Database,Game,Gamification,Configuration
         },
         ]
-            \addplot coordinates
+            \addplot[fill=gray] coordinates
             {(User,60) (Database,62) (Game,74) (Gamification,96) (Configuration,76)};
             \addlegendentry{Vorher}
-            \addplot coordinates
+            \addplot[fill=orange] coordinates
             {(User,37) (Database,79) (Game,89) (Gamification,92) (Configuration,100)};
             \addlegendentry{Nachher}
         \end{axis}
