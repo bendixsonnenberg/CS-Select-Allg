@@ -46,6 +46,7 @@
 \usepackage[autostyle=true,german=quotes]{csquotes}
 \pgfplotsset{compat=1.4}
 
+\newcommand{\light}[1]{\textcolor{lightgray}{#1}}
 
 \title[Team 2 - Implementierung]{CS:Select Qualitätssicherung - Team 2}
 \author{Luca Springer, Alexander Linder, Julian Dinh, Nicholas Bieker,\\ Bendix Sonnenberg}
@@ -160,18 +161,18 @@ Aus Feature-Requests umgesetzte neue Funktionalität:
 \section{Entwicklungsmodell}
 \begin{frame}{Verwendung von Git}
     \begin{itemize}
-        \item Feature Branches
-        \item Pull Requests auf Master
-        \item Code Review vor Merge
-        \item Kleinere Anpassungen direkt auf Master
+        \item \light{Feature Branches}
+        \item \light{Pull Requests auf Master}
+        \item \light{Code Review vor Merge}
+        \item \light{Kleinere Anpassungen direkt auf Master}
         \item Continuous Integration
     \end{itemize}
 \end{frame}
 
 \begin{frame}{Tools}
     \begin{itemize}
-        \item JUnit
-        \item Checkstyle
+        \item \light{JUnit}
+        \item \light{Checkstyle}
         \item Travis-CI
         \item Codacy
     \end{itemize}
