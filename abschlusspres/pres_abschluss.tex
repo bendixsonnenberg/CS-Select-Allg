@@ -57,12 +57,62 @@
         \titlepage
     \end{frame}
 
-    \section{Kriterien}
+    \section{Einleitung}
 
-    \begin{frame}{Muss-Kriterien}
-
+    \begin{frame}{Problemstellung}
+        \begin{itemize}
+            \item \textbf{C}rowd \textbf{S}ource\textbf{:Select}
+            \item Machine Learning wird immer häufiger eingesetzt.
+            \item Feature Subset Select
+        \end{itemize}
     \end{frame}
-
+    
+    \begin{frame}{Beispiel: Krebsrisiko}
+        \begin{itemize}
+            \item Hatte Kuscheltiere
+            \item \only<1>{Raucht}\only<2->{\textbf{Raucht}}
+            \item Trägt gerne weiß
+        \end{itemize}
+        \onslide<3->{Benötige Doktor (Domänenexperte) um zu entscheiden was das wichtige Merkmal ist.} 
+        \onslide<4->{Es gibt Algorithmen, die aus den reinen Daten die relevanten Merkmale finden, aber diese sind nicht ausreichend}
+    \end{frame}
+    \begin{frame}{Gameification}
+    Um Motivation bei den Experten zu halten, wird Gameification eingesetzt. Also wird die Auswahl als Spiel dargestellt.
+        \begin{itemize}
+            \item Punkte nach Leistung bei der Auswahl von Merkmalen
+            \item Achievments
+            \item Daily Challenges
+            \item Streak
+            \item Leaderboard
+        \end{itemize}
+    \end{frame}
+    \begin{frame}{Abgrenzungen}
+        Was unser Produkt nicht enthält:
+        \begin{itemize}
+            \item Machine Learning (Wird extern durchgeführt)
+            \item Unterstützung der Auswertung der Daten (Wir sammeln nur möglich Merkmalsmengen)
+        \end{itemize}
+    \end{frame}
+    \begin{frame}{Technik}
+        \begin{itemize}
+            \item Tomcat-Server(Java)
+            \item Frontend als Webapp
+            \item Datenhaltung in Datenbank
+            \item Einfaches Deployment durch Docker
+        \end{itemize}
+    \end{frame}
+    \begin{frame}{Spielmodi}
+        \begin{itemize}
+            \item Binär Select 
+                \begin{itemize}
+                    \item zwei Merkmale, das wichtigere Merkmal auswählen
+                \end{itemize}
+            \item Matrix Select
+                \begin{itemize}
+                    \item Matrix an Merkmalen, eine gewisse Anzahl markieren als wichtig
+                \end{itemize}
+        \end{itemize}
+    \end{frame}
     \section{Schicke Implementierung}
     \begin{frame}{Spieldarstellung}
         \begin{itemize}
