@@ -1,0 +1,11 @@
+checkstyle:
+cigarette: https://www.clker.com/clipart-26656.html
+codacy:
+doctor: https://www.skillscommons.org/handle/taaccct/8679
+cross: https://en.wikipedia.org/wiki/File:Red_x_large.png
+junit:
+teddy: https://art4clip.com/explore/Brown%20Bear%20clipart%20brown%20objects/
+tickmark: https://commons.wikimedia.org/wiki/File:Check-green.svg
+travis:
+vispar:
+white_shirt: https://www.istockphoto.com/de/grafiken/button-up-shirt-template-cartoon?sort=mostpopular&mediatype=illustration&assetfiletype=eps&phrase=button%20up%20shirt%20template%20cartoon
