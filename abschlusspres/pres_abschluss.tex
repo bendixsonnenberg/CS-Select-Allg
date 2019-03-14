@@ -68,13 +68,31 @@
     \end{frame}
     
     \begin{frame}{Beispiel: Krebsrisiko}
-        \begin{itemize}
-            \item Hatte Kuscheltiere
-            \item \only<1>{Raucht}\only<2->{\textbf{Raucht}}
-            \item Trägt gerne weiß
-        \end{itemize}
-        \onslide<3->{Benötige Doktor (Domänenexperte) um zu entscheiden was das wichtige Merkmal ist.} 
-        \onslide<4->{Es gibt Algorithmen, die aus den reinen Daten die relevanten Merkmale finden, aber diese sind nicht ausreichend}
+        \begin{columns}
+            \begin{column}{0.3\textwidth}
+                    \center
+                    \onslide<1-> \includegraphics[width=(\textwidth / 3)]{img/teddy.png}
+                    \onslide<4-> \includegraphics[width=(\textwidth / 3)]{img/cross.png}
+                    \onslide<1-> Hatte Kuscheltiere
+            \end{column}
+            \begin{column}{0.25\textwidth}
+                    \center
+                    \onslide<2-> \includegraphics[width=(\textwidth / 3)]{img/cigarette.png}
+                    \onslide<2-> \only<2,3>{Raucht}\only<4->{\textbf{Raucht}}
+            \end{column}
+            \begin{column}{0.3\textwidth}
+                    \center
+                    \onslide<3-> \includegraphics[width=(\textwidth / 3)]{img/white_shirt.jpg}
+                    \onslide<4-> \includegraphics[width=(\textwidth / 3)]{img/cross.png}
+                    \onslide<3-> Trägt gerne weiß
+            \end{column}
+        \end{columns}
+        \begin{columns}
+            \begin{column}{\textwidth}
+                \center
+                \onslide<4->\includegraphics[width=(\textwidth / 2)]{img/concerned_doctor.jpg}
+            \end{column}
+        \end{columns}
     \end{frame}
     \begin{frame}{Gameification}
     Um Motivation bei den Experten zu halten, wird Gameification eingesetzt. Also wird die Auswahl als Spiel dargestellt.
