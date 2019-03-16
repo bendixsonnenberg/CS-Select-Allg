@@ -150,17 +150,6 @@
 	\centering
 	\includegraphics[width=\textwidth]{img/Klassendiagramm.png}
 	\end{frame}
-
-	\begin{frame}{Implementierungsplan}
-	\includegraphics[width=\textwidth]{img/gantt.pdf}
-	\end{frame}
-
-    \begin{frame}{Vorgehensweise}
-        \begin{center}
-        \only<1>{\includegraphics[scale=0.31]{img/WasserfallOhneRueckkopplung.png}}
-        \only<2>{\includegraphics[scale=0.31]{img/Wasserfall1.png}}
-        \end{center}
-    \end{frame}
 	
     \section{Statistiken}
     
@@ -267,50 +256,36 @@
     \section{Tools}
     \begin{frame}{Allgemein}
         \begin{columns}
-            \begin{column}{0.5\textwidth}
-                \begin{block}{Textverarbeitung}
+            \begin{column}{0.3\textwidth}
+                \begin{block}{UML}
                     \center
-                    \includegraphics[width=(\textwidth)]{img/latex.pdf}
-                \end{block}
-                \begin{block}{Versionskontrolle}
-                    \center
-                    \includegraphics[width=(\textwidth / 2)]{img/git.pdf}
+                    \includegraphics[width=(\textwidth / 2)]{img/vispar.png} %TODO find better logo
                 \end{block}
             \end{column}
-            \begin{column}{0.5\textwidth}
-                \begin{block}{Entwicklungsumgebung}
-                    \includegraphics[width=\textwidth]{img/intellij.pdf}
-                \end{block}
-            \end{column}
-        \end{columns}
-    \end{frame}
-    \begin{frame}{Entwurf}
-        \begin{block}{UML}
-            \center
-            \includegraphics[width=(\textwidth / 2)]{img/vispar.png} %TODO find better logo
-        \end{block}
-    \end{frame}
-    \begin{frame}{Implementierung \& Qualitätssicherung}
-        \begin{columns}
-            \begin{column}{0.5\textwidth}
+            \begin{column}{0.3\textwidth}
                 \begin{block}{Unit-Testing}
                     \center
                     \includegraphics[width=(\textwidth / 3)]{img/junit.png}
                 \end{block}
-                \begin{block}{Continuous Integration}
-                    \includegraphics[width=(\textwidth)]{img/travis.png}
-                \end{block}
-            \end{column}
-            \begin{column}{0.5\textwidth}
-                \begin{block}{Statische Codeanalyse}
+                \begin{block}{IDE}
                     \center
-                    \includegraphics[width=(\textwidth / 4)]{img/codacy.pdf}
-                    Codacy\\
-                    \includegraphics[width=(\textwidth / 2)]{img/checkstyle.png}
+                    \includegraphics[width=\textwidth / 4]{img/intellij.pdf}
                 \end{block}
             \end{column}
+                \begin{column}{0.3\textwidth}
+                    \begin{block}{Continuous Integration}
+                        \includegraphics[width=(\textwidth)]{img/travis.png}
+                    \end{block}
+                    \begin{block}{Statische Codeanalyse}
+                        \center
+                        \includegraphics[width=(\textwidth / 4)]{img/codacy.pdf}
+                        Codacy\\
+                        \includegraphics[width=(\textwidth / 2)]{img/checkstyle.png}
+                    \end{block}
+                \end{column}
         \end{columns}
     \end{frame}
+
     \section{Lernerfahrung}
     \begin{frame}
         \begin{center}
