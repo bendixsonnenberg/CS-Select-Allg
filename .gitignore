@@ -13,5 +13,7 @@
 *.glg
 *.gls
 *.ist
+*.nav
+*.snm
 auxil/
 out/
