@@ -8,4 +8,5 @@ teddy: https://art4clip.com/explore/Brown%20Bear%20clipart%20brown%20objects/
 tickmark: https://commons.wikimedia.org/wiki/File:Check-green.svg
 travis:
 vispar:
+javascript: https://wildlifehexagon.wordpress.com/2016/06/19/binging-on-free-code-camp-algorithm-challenges-aka-bonfires/
 white_shirt: https://www.istockphoto.com/de/grafiken/button-up-shirt-template-cartoon?sort=mostpopular&mediatype=illustration&assetfiletype=eps&phrase=button%20up%20shirt%20template%20cartoon
